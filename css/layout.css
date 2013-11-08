@@ -1,0 +1,154 @@
+/**
+ * Layout
+ * --------------------------------------------------------------------------- */
+
+body { overflow-x: hidden; }
+
+		/* === Descendants of #container === */
+
+		#container     > .wrap,
+		#footer        > .wrap,
+		#menu-primary > .wrap {
+			max-width: 1025px;
+			margin:    0 auto;
+
+			box-sizing: border-box;
+		}
+
+			#menu-primary > .wrap { position: relative; }
+
+			.custom-background #container > .wrap {
+				max-width:     1175px;
+				margin-top:    50px;
+				margin-bottom: 50px;
+			}
+
+			.layout-1c-narrow #container     > .wrap,
+			.layout-1c-narrow #footer        > .wrap,
+			.layout-1c-narrow #menu-primary > .wrap {
+				max-width: 800px;
+			}
+
+			.custom-background.layout-1c-narrow #container > .wrap { max-width: 950px; }
+
+		.header-image {
+			display:   block;
+			max-width: 100%;
+			height:    auto;
+			margin:    0 auto;
+		}
+
+		/* === Adjustments when there's a custom background defined. === */
+
+		.custom-background #header,
+		.custom-background #main,
+		.custom-background #sidebar-subsidiary {
+			padding-left:  25px;
+			padding-right: 25px;
+		}
+
+			/* === Descendants of #main === */
+
+			.breadcrumb-trail { margin: 0 0 1.5rem; }
+
+			#content,
+			#sidebar-primary {
+				width: 100%;
+			}
+
+			/* Make sure sidebar doesn't appear in customizer. */
+			.layout-1c #sidebar-primary,
+			.layout-1c-narrow #sidebar-primary { display: none; }
+
+				/* Layout adjustments when the screen width is 950+. */
+
+				@media only screen and ( min-width: 950px ) {
+
+					.custom-background #header,
+					.custom-background #main,
+					.custom-background #sidebar-subsidiary {
+						padding-left:  75px;
+						padding-right: 75px;
+					}
+
+					#sidebar-primary {
+						width:     29.27%;
+						max-width: 100%;
+					}
+
+					.layout-2c-l #content,
+					.layout-2c-r #content {
+						width: 63.41%;
+					}
+
+					.layout-2c-l #content, 
+					.layout-2c-r #sidebar-primary {
+						float: left;
+					}
+
+					.layout-2c-r #content, 
+					.layout-2c-l #sidebar-primary {
+						float: right;
+					}
+				}
+
+	/* === Widget layouts. === */
+
+	@media only screen and ( max-width: 950px ) {
+		#footer > .wrap,
+		#menu-primary > .wrap {
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+	}
+
+	@media only screen and ( min-width: 700px ) and ( max-width: 950px ) {
+
+		#sidebar-primary .widget { width: 47.5%; }
+
+			.ltr #sidebar-primary .widget {
+				float: left;
+				margin-right: 5%;
+			}
+
+			.rtl #sidebar-primary .widget {
+				float: right;
+				margin-left: 5%;
+			}
+
+		#sidebar-primary .widget:nth-child( 2n ) { margin-right: 0; margin-left: 0; }
+
+		#sidebar-primary .widget:nth-child( 2n + 1 ) { clear: both; }
+	}
+
+	@media only screen and ( min-width: 700px ) {
+
+		.sidebar-col-2 .widget,
+		.sidebar-col-3 .widget { width: 47.5%; }
+
+			.ltr .sidebar-col-2 .widget,
+			.ltr .sidebar-col-3 .widget { float: left; margin-right: 5%; }
+
+			.rtl .sidebar-col-2 .widget,
+			.rtl .sidebar-col-3 .widget { float: right; margin-left: 5%; }
+
+		.sidebar-col-2 .widget:nth-child( 2n ),
+		.sidebar-col-3 .widget:nth-child( 2n ) { margin-right: 0; margin-left: 0; }
+
+		.sidebar-col-2 .widget:nth-child( 2n + 1 ),
+		.sidebar-col-3 .widget:nth-child( 2n + 1 ) { clear: both; }
+	}
+
+	@media only screen and ( min-width: 800px ) {
+
+		.sidebar-col-3 .widget { width: 30%; }
+
+		.ltr .sidebar-col-3 .widget:nth-child( 2n ) { margin-right: 5%; }
+		.rtl .sidebar-col-3 .widget:nth-child( 2n ) { margin-left: 5%; }
+
+		.sidebar-col-3 .widget:nth-child( 2n + 1 ) { clear: none; }
+
+		.sidebar-col-3 .widget:nth-child( 3n ) { margin-right: 0; margin-left: 0; }
+
+		.sidebar-col-3 .widget:nth-child( 3n + 1 ) { clear: both; }
+	}

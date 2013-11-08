@@ -1,0 +1,41 @@
+﻿/* Korean stylesheet. */
+
+q { quotes: '\201C' '\201D' '\2018' '\2019'; }
+
+body,
+input,
+textarea,
+.label-checkbox,
+.label-radio,
+#reply-title small a { 
+	font-family: 'Lora', 'Georgia', 'Malgun Gothic', 'Gulim', 'Batang', "돋움", 'Dotum', 'Hangangche', serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dt,
+th,
+legend,
+label,
+input[type="submit"],
+input[type="reset"], 
+input[type="button"],
+button,
+select,
+option,
+.breadcrumb-trail,
+ul.sub-terms li a,
+.entry-byline,
+.entry-footer,
+.comment-meta,
+#wp-calendar td.has-posts a,
+#menu-primary li a,
+#menu-secondary li a,
+.comment-reply-link,
+.clean-my-archives .day {
+	font-family: 'Open Sans', 'Malgun Gothic', 'Gulim', 'Batang', "돋움", 'Dotum', 'Hangangche', sans-serif;
+}

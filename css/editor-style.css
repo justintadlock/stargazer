@@ -1,0 +1,16 @@
+
+@import url( '../library/css/one-five.min.css' );
+@import url( '../library/css/gallery.min.css' );
+@import url( 'genericons.css' );
+@import url( 'defaults.css' );
+@import url( '../style.css' );
+
+/************ specific to the editor **************/
+body#tinymce {
+	max-width: 650px;
+	margin:    0 auto;
+	padding:   1.5rem 1.5rem 0;
+	border:    none;
+}
+
+/*************************************************/
