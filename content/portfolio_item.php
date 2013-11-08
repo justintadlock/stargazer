@@ -9,7 +9,7 @@
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 
 			<div class="entry-byline">
-				<?php the_terms( get_the_ID(), 'portfolio', '<span ' . hybrid_get_attr( 'entry-terms', 'portfolio' ) . '>' . __( 'Portfolio:', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
+				<?php hybrid_post_terms( array( 'taxonomy' => 'portfolio', 'text' => __( 'Portfolio: %s', 'stargazer' ) ) ); ?>
 			</div><!-- .entry-byline -->
 
 		</header><!-- .entry-header -->
@@ -33,7 +33,7 @@
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 
 			<div class="entry-byline">
-				<?php the_terms( get_the_ID(), 'portfolio', '<span ' . hybrid_get_attr( 'entry-terms', 'portfolio' ) . '>' . __( 'Portfolio:', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
+				<?php hybrid_post_terms( array( 'taxonomy' => 'portfolio', 'text' => __( 'Portfolio: %s', 'stargazer' ) ) ); ?>
 			</div><!-- .entry-byline -->
 
 		</header><!-- .entry-header -->

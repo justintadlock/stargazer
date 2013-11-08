@@ -20,8 +20,8 @@
 			<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 			<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 			<?php edit_post_link(); ?>
-			<?php the_terms( get_the_ID(), 'category', '<br /><span ' . hybrid_get_attr( 'entry-terms', 'category' ) . '>' . __( 'Posted in', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
-			<?php the_terms( get_the_ID(), 'post_tag', '<br /><span ' . hybrid_get_attr( 'entry-terms', 'post_tag' ) . '>' . __( 'Tagged', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'text' => __( 'Posted in %s', 'stargazer' ) ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'text' => __( 'Tagged %s', 'stargazer' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->
 
 	<?php else : // If not viewing a single post. ?>

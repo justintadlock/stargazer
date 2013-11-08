@@ -19,9 +19,9 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php the_terms( get_the_ID(), 'literary_form', '<span ' . hybrid_get_attr( 'entry-terms', 'literary_form' ) . '>' . __( 'Form:', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
-			<?php the_terms( get_the_ID(), 'literary_technique', '<br /><span ' . hybrid_get_attr( 'entry-terms', 'literary_technique' ) . '>' . __( 'Technique:', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
-			<?php the_terms( get_the_ID(), 'literary_genre', '<br /><span ' . hybrid_get_attr( 'entry-terms', 'literary_genre' ) . '>' . __( 'Genre:', 'stargazer' ) . ' ', ', ', '</span>' ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'literary_form', 'text' => __( 'Form: in %s', 'stargazer' ) ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'literary_technique', 'text' => __( 'Technique: %s', 'stargazer' ), 'before' => '<br />' ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'literary_genre', 'text' => __( 'Genre: %s', 'stargazer' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->
 
 	<?php else : // If not viewing a single post. ?>
