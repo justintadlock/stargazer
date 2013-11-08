@@ -51,11 +51,6 @@ body { overflow-x: hidden; }
 
 			.breadcrumb-trail { margin: 0 0 1.5rem; }
 
-			#content,
-			#sidebar-primary {
-				width: 100%;
-			}
-
 			/* Make sure sidebar doesn't appear in customizer. */
 			.layout-1c #sidebar-primary,
 			.layout-1c-narrow #sidebar-primary { display: none; }
@@ -77,19 +72,13 @@ body { overflow-x: hidden; }
 					}
 
 					.layout-2c-l #content,
-					.layout-2c-r #content {
-						width: 63.41%;
-					}
+					.layout-2c-r #content { width: 63.41%; }
 
 					.layout-2c-l #content, 
-					.layout-2c-r #sidebar-primary {
-						float: left;
-					}
+					.layout-2c-r #sidebar-primary { float: left; }
 
 					.layout-2c-r #content, 
-					.layout-2c-l #sidebar-primary {
-						float: right;
-					}
+					.layout-2c-l #sidebar-primary { float: right; }
 				}
 
 	/* === Widget layouts. === */
@@ -97,7 +86,7 @@ body { overflow-x: hidden; }
 	@media only screen and ( max-width: 950px ) {
 		#footer > .wrap,
 		#menu-primary > .wrap {
-			padding-left: 25px;
+			padding-left:  25px;
 			padding-right: 25px;
 		}
 	}
