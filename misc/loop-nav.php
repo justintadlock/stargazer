@@ -9,8 +9,8 @@
 
 	<?php loop_pagination(
 		array( 
-			'prev_text' => sprintf( __( '%s Previous', 'posts navigation', 'stargazer' ), is_rtl() ? '<span class="meta-nav">&rarr;</span>' : '<span class="meta-nav">&larr;</span>' ), 
-			'next_text' => sprintf( __( 'Next %s',     'posts navigation', 'stargazer' ), is_rtl() ? '<span class="meta-nav">&larr;</span>' : '<span class="meta-nav">&rarr;</span>' )
+			'prev_text' => _x( '&larr; Previous', 'posts navigation', 'stargazer' ), 
+			'next_text' => _x( 'Next &rarr;',     'posts navigation', 'stargazer' )
 		) 
 	); ?>
 
