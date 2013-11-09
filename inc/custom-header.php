@@ -84,7 +84,7 @@ class Stargazer_Custom_Header {
 
 		$style = "color: #{$text_color};";
 
-		$rgb = stargazer_hex_to_rgb( $text_color );
+		$rgb = hybrid_hex_to_rgb( $text_color );
 
 		$nav_style = "color: rgba( {$rgb['r']}, {$rgb['g']}, {$rgb['b']}, 0.75 );";
 

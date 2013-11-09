@@ -50,38 +50,8 @@ function stargazer_enqueue_styles() {
 }
 
 
-//add_action( 'wp_head', 'stargazer_custom_colors' );
 
-function stargazer_custom_colors() {
-
-	$style     = '';
-	$secondary = get_theme_mod( 'color_secondary', '' );
-	$menu_bg   = get_theme_mod( 'color_menu_background', '' );
-
-	$menu_bg_rgb = join( ', ', stargazer_hex_to_rgb( $menu_bg ) );
-
-	$style .= "#menu-primary, #footer { background-color: #{$secondary}; }";
-
-	$style .= "#menu-primary li li a { background-color: rgba( {$menu_bg_rgb}, 0.971 ); }";
-	$style .= "#menu-primary ul ul > li:nth-child( odd ) a { background-color: rgba( {$menu_bg_rgb}, 0.975 ); }";
-	$style .= "#menu-primary ul ul li a:hover { background-color: #{$menu_bg}; }";
-
-	$style = "\n" . '<style type="text/css" id="sg-custom-colors-css">' . trim( str_replace( array( "\r", "\n", "\t" ), '', $style  ) ) . '</style>' . "\n";
-
-	echo $style;
-}
-
-//add_filter( 'theme_mod_background_color', 'stargazer_background_color', 95 );
-//add_filter( 'theme_mod_header_textcolor', 'stargazer_header_textcolor', 95 );
 add_filter( 'theme_mod_color_palette_primary', 'stargazer_primary_color', 95 );
-
-function stargazer_background_color( $color ) {
-	return $color ? $color : '2d2d2d';
-}
-
-function stargazer_header_textcolor( $color ) {
-	return $color ? $color : '252525';
-}
 
 function stargazer_primary_color( $color ) {
 	return $color ? $color : 'cc4a00';
@@ -98,21 +68,6 @@ function my_child_theme_setup() {
 	add_theme_support( 'custom-background', array( 'default-color' => '999999' ) );
 }
 
-
-add_filter( 'theme_mod_color_secondary', 'my_color_secondary' );
-
-function my_color_secondary( $color ) {
-	return !empty( $color ) ? $color : 'b54200';
-}
-
-add_filter( 'theme_mod_color_menu_background', 'my_color_menu_background' );
-
-function my_color_menu_background( $color ) {
-	return !empty( $color ) ? $color : 'b25900';
-}
-
-
-
 /************************************/
 
 
@@ -122,16 +77,6 @@ function my_color_menu_background( $color ) {
 
 
 
-function stargazer_hex_to_rgb( $hex ){
-
-	$color = trim( $hex, '#' );
-
-	$red   = hexdec( $color[0].$color[1] );
-	$green = hexdec( $color[2].$color[3] );
-	$blue  = hexdec( $color[4].$color[5] );
-
-	return array( 'r' => $red, 'g' => $green, 'b' => $blue );
-}
 
 
 
@@ -205,7 +150,7 @@ function stargazer_colors_wp_head_callback( $color_palette ) {
 
 		/* Get the saved color. */
 		$hex = get_theme_mod( 'color_palette_' . sanitize_key( $color_id ), $color['default'] );
-		$rgb = join( ', ', stargazer_hex_to_rgb( $hex ) );
+		$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
 
 		if ( 'primary' === $color_id ) {
 			$style .= stargazer_get_color_primary_styles();
@@ -255,7 +200,7 @@ function stargazer_get_color_primary_styles() {
 	$style = '';
 
 		$hex = get_theme_mod( 'color_palette_primary', '2980b9' );
-		$rgb = join( ', ', stargazer_hex_to_rgb( $hex ) );
+		$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
 
 
 			/* Color. */
