@@ -32,7 +32,7 @@ textarea,
 .label-radio,
 .required,
 #site-description,
-#reply-title small a { 
+#reply-title small { 
 	font-family: 'Droid Serif', 'Lora', 'Georgia', serif; 
 }
 
@@ -55,15 +55,13 @@ option,
 .wp-caption-text,
 .gallery-caption,
 .mejs-controls,
-.breadcrumb-trail,
-ul.sub-terms li a,
 .entry-byline,
 .entry-footer,
 .chat-author cite,
 .chat-author,
 .comment-meta,
-#menu-primary li a,
-#menu-secondary li a,
+.menu,
+nav,
 .media-info .prep,
 .comment-reply-link,
 .comment-reply-login,
