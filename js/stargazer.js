@@ -44,6 +44,14 @@ jQuery( document ).ready( function() {
 
 			if ( sg_input_id )
 				jQuery( 'label[for="' + sg_input_id + '"]' ).addClass( 'label-' + sg_input_type );
+
+			if ( 'checkbox' === sg_input_type || 'radio' === sg_input_type ) {
+				jQuery( this ).parent( 'label' ).removeClass( 'font-secondary' ).addClass( 'font-primary' );
+
+				if ( sg_input_id )
+					jQuery( 'label[for="' + sg_input_id + '"]' ).removeClass( 'font-secondary' ).addClass( 'font-primary' );
+
+			}
 		}
 	);
 
