@@ -7,7 +7,6 @@
 
 /************ specific to the editor **************/
 body#tinymce {
-	max-width: 650px;
 	margin:    0 auto;
 	padding:   1.5rem 1.5rem 0;
 	border:    none;

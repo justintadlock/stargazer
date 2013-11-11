@@ -10,18 +10,9 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-$stargazer_dir = trailingslashit( get_template_directory() );
+/******************************************************************/
 
-require_once( $stargazer_dir . 'library/hybrid.php' );
-new Hybrid();
-
-require_once( $stargazer_dir . 'inc/hybrid-core-x.php'         );
-require_once( $stargazer_dir . 'inc/media.php'                 );
-require_once( $stargazer_dir . 'inc/stargazer.php'             );
-require_once( $stargazer_dir . 'inc/custom-background.php'     );
-require_once( $stargazer_dir . 'inc/custom-header.php'         );
-require_once( $stargazer_dir . 'inc/customize.php'             );
-
+/* === Temporary functionality until we wrap everything up. === */
 
 // temp
 add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_styles', 5 );
@@ -36,7 +27,7 @@ function stargazer_enqueue_styles() {
 	$dir = trailingslashit( get_template_directory_uri() );
 
 	wp_enqueue_style( 'sg-g-fonts',  "http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700" );
-	wp_enqueue_style( 'sg-g2-fonts', "http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&text=%26" );
+//	wp_enqueue_style( 'sg-g2-fonts', "http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&text=%26" );
 
 	wp_enqueue_style( 'sg-one-five', "{$dir}library/css/one-five.min.css" );
 	wp_enqueue_style( 'sg-gallery',  "{$dir}library/css/gallery.min.css"  );
@@ -46,226 +37,90 @@ function stargazer_enqueue_styles() {
 	wp_enqueue_style( 'sg-defaults', "{$dir}css/defaults.css" );
 	wp_enqueue_style( 'sg-m-query',  "{$dir}css/media-queries.css" );
 
+	if ( is_child_theme() )
+		wp_enqueue_style( 'parent', "{$dir}style.css" );
+
 	wp_enqueue_style( 'sg-style',    get_stylesheet_uri() );
 }
 
+/******************************************************************************/
 
+/* Get the template directory and make sure it has a trailing slash. */
+$stargazer_dir = trailingslashit( get_template_directory() );
 
-add_filter( 'theme_mod_color_palette_primary', 'stargazer_primary_color', 95 );
+/* Load the Hybrid Core framework and launch it. */
+require_once( $stargazer_dir . 'library/hybrid.php' );
+new Hybrid();
 
-function stargazer_primary_color( $color ) {
-	return $color ? $color : 'cc4a00';
-}
+/* Load theme-specific files. */
+require_once( $stargazer_dir . 'inc/hybrid-core-x.php'         );
+require_once( $stargazer_dir . 'inc/stargazer.php'             );
+require_once( $stargazer_dir . 'inc/custom-background.php'     );
+require_once( $stargazer_dir . 'inc/custom-header.php'         );
+require_once( $stargazer_dir . 'inc/custom-colors.php'         );
+require_once( $stargazer_dir . 'inc/customize.php'             );
 
+/* Set up the theme early. */
+add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
 
-/*** Child theme colors example ****/
+/**
+ * The theme setup function.  This function sets up support for various WordPress and framework functionality.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function stargazer_theme_setup() {
 
-add_action( 'after_setup_theme', 'my_child_theme_setup' );
+	/* Load widgets. */
+	add_theme_support( 'hybrid-core-widgets' );
 
-function my_child_theme_setup() {
-	add_theme_support( 'custom-header', array( 'default-text-color' => '000000' ) );
-
-	add_theme_support( 'custom-background', array( 'default-color' => '999999' ) );
-}
-
-/************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function stargazer_register_colors( $colors ) {
-
-	/* Add custom colors. */
-	$colors->add_color(
-		array( 'id' => 'primary', 'label' => __( 'Primary Color', 'stargazer' ), 'default' => '' )
-	);
-
-	/* Add rule set. */
-	$colors->add_rule_set(
-		'primary',
+	/* Theme layouts. */
+	add_theme_support( 
+		'theme-layouts', 
 		array(
-			'color'               => 'a, mark, .comment-respond .required, pre, .form-allowed-tags code, pre code, legend',
-
-			'background-color'    => 'legend, input[type="submit"], input[type="reset"], input[type="button"], button, 
-						blockquote, .page-links a, 
-						.comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a,
-					         ul.sub-terms li a, pre, .form-allowed-tags code, .widget-title > .wrap, 
-					         #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, 
-					         .widget-search > .search-form, .mejs-time-rail .mejs-time-loaded',
-
-			'border-color'        => '#container .avatar',
-
-			'border-top-color'    => 'body',
-
-			'border-bottom-color' => 'body, .entry-content a, .entry-summary a, .widget-title, #comments-number,
-					          #reply-title, .attachment-meta-title',
-
-			'outline-color'       => 'blockquote',
-		)
+			'1c'        => __( '1 Column Wide',                'stargazer' ),
+			'1c-narrow' => __( '1 Column Narrow',              'stargazer' ),
+			'2c-l'      => __( '2 Columns: Content / Sidebar', 'stargazer' ),
+			'2c-r'      => __( '2 Columns: Sidebar / Content', 'stargazer' )
+		),
+		array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) 
 	);
 
+	/* Enable custom template hierarchy. */
+	add_theme_support( 'hybrid-core-template-hierarchy' );
+
+	/* The best thumbnail/image script ever. */
+	add_theme_support( 'get-the-image' );
+
+	/* Breadcrumbs. Yay! */
+	add_theme_support( 'breadcrumb-trail' );
+
+	/* Pagination. */
+	add_theme_support( 'loop-pagination' );
+
+	/* Nicer [gallery] shortcode implementation. */
+	add_theme_support( 'cleaner-gallery' );
+
+	/* Better captions for themes to style. */
+	add_theme_support( 'cleaner-caption' );
+
+	/* Automatically add feed links to <head>. */
+	add_theme_support( 'automatic-feed-links' );
+
+	/* Whistles plugin. */
+	add_theme_support( 'whistles', array( 'styles' => true ) );
+
+	/* Post formats. */
+	add_theme_support( 
+		'post-formats', 
+		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' ) 
+	);
+
+	/* Editor styles. */
+	//add_editor_style( stargazer_get_editor_styles() );
+
+	/* Handle content width for embeds and images. */
+	// Note: this is the largest size based on the theme's various layouts.
+	hybrid_set_content_width( 1025 );
 }
-
-
-
-function stargazer_cp_preview_js_ignore( $selectors, $color_id, $property ) {
-
-	if ( 'color' === $property && 'primary' === $color_id )
-		$selectors = '#site-title a, .menu a, .entry-title a, #footer a, .media-info-toggle';
-	elseif ( 'background-color' === $property && 'primary' === $color_id )
-		$selectors = '.mejs-button button';
-
-	return $selectors;
-}
-
-function stargazer_colors_wp_head_callback( $color_palette ) {
-
-	/* Get the cached style. */
-	$style = wp_cache_get( 'color_palette' );
-
-	/* If the style is available, output it and return. */
-	if ( !empty( $style ) ) {
-		echo $style;
-		return;
-	}
-
-	/* Loop through each of the rules by name. */
-	foreach ( $color_palette->rules as $color_id => $properties ) {
-
-		$color = $color_palette->get_color( $color_id );
-
-		/* Get the saved color. */
-		$hex = get_theme_mod( 'color_palette_' . sanitize_key( $color_id ), $color['default'] );
-		$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
-
-		if ( 'primary' === $color_id ) {
-			$style .= stargazer_get_color_primary_styles();
-		}
-		else {
-			/* Loop through each of the properties. */
-			foreach ( $properties as $property => $selectors ) {
-				$style .= join( ', ', $selectors ) . " { {$property}: #{$hex}; } ";
-			}
-		}
-	}
-
-	/* Put the final style output together. */
-	$style = "\n" . '<style type="text/css" id="custom-colors-css">' . trim( str_replace( array( "\r", "\n", "\t" ), '', $style  ) ) . '</style>' . "\n";
-
-	/* Cache the style, so we don't have to process this on each page load. */
-	wp_cache_set( 'color_palette', $style );
-
-	/* Output the custom style. */
-	echo $style;
-}
-
-add_filter( 'the_content', 'stargazer_status_content', 9 ); // run before wpautop()
-
-function stargazer_status_content( $content ) {
-
-	if ( !is_singular() && has_post_format( 'status' ) && in_the_loop() && get_option( 'show_avatars' ) && ( have_comments() || comments_open() ) )
-		$content .= ' <a class="comments-link" href="' . get_permalink() . '">' . number_format_i18n( get_comments_number() ) . '</a>';
-
-	return $content;
-}
-
-
-
-add_action( 'wp_ajax_stargazer_editor_styles',         'stargazer_editor_styles_callback' );
-add_action( 'wp_ajax_no_priv_stargazer_editor_styles', 'stargazer_editor_styles_callback' );
-
-function stargazer_editor_styles_callback() {
-
-	echo stargazer_get_color_primary_styles();
-
-	die();
-}
-
-function stargazer_get_color_primary_styles() {
-
-	$style = '';
-
-		$hex = get_theme_mod( 'color_palette_primary', '2980b9' );
-		$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
-
-
-			/* Color. */
-			$style .= "a { color: rgba( {$rgb}, 0.75 ); } ";
-			$style .= "a:hover, legend, mark, .comment-respond .required, pre, 
-					.form-allowed-tags code, pre code, 
-					.mejs-button button:hover::after, 
-					.mejs-overlay-button:hover::after 
-					{ color: #{$hex}; } ";
-
-			/* Background color. */
-			$style .= "input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, 
-					.comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, ul.sub-terms li a 
-					{ background-color: rgba( {$rgb}, 0.8 ); } ";
-
-			$style .= "legend, mark, pre, .form-allowed-tags code { background-color: rgba( {$rgb}, 0.1 ); } ";
-
-			$style .= "input[type='submit']:hover, input[type='submit']:focus, 
-			           input[type='reset']:hover, input[type='reset']:focus, 
-			           input[type='button']:hover, input[type='button']:focus, 
-			           button:focus, button:hover,
-			           .page-links a:hover, .wp-calendar td.has-posts a:hover, .widget-title > .wrap,
-				   #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, .widget-search > .search-form, 
-				   ul.sub-terms li a:hover, .comment-reply-link:hover, .comment-reply-login:hover, 
-					.mejs-time-rail .mejs-time-loaded
-					{ background-color: #{$hex}; } ";
-
-			/* Firefox chokes on this rule and drops the rule set, so we're separating it. */
-			$style .= "::selection { background-color: #{$hex}; } ";
-
-			/* border-color */
-			$style .= "legend { border-color: rgba( {$rgb}, 0.15 ); } ";
-
-			/* border-top-color */
-			$style .= "body { border-top-color: #{$hex}; } ";
-
-			/* Border bottom color. */
-			$style .= ".entry-content a, .entry-summary a { border-bottom-color: rgba( {$rgb}, 0.15 ); } ";
-			$style .= ".entry-content a:hover, .entry-summary a:hover { border-bottom-color: rgba( {$rgb}, 0.75 ); } ";
-			$style .= "body, .widget-title, #comments-number, #reply-title,
-			           .attachment-meta-title { border-bottom-color: #{$hex}; } ";
-
-			
-			/* border-color */
-			$style .= "blockquote { background-color: rgba( {$rgb}, 0.85 ); } ";
-			$style .= "blockquote blockquote { background-color: rgba( {$rgb}, 0.9 ); } ";
-
-			/* outline-color */
-			$style .= "blockquote { outline-color: rgba( {$rgb}, 0.85); } ";
-
-	return $style;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

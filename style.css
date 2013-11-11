@@ -2,7 +2,7 @@
  * Theme Name: Stargazer
  * Theme URI: http://themehybrid.com/themes/stargazer
  * Description: Welcome to Stargazer, the most advanced theme ever created for WordPress without comprimising standards. This is the only theme in the world that you'll find that extends WordPress' built-in theme features so robustly but naturally.  The theme is built on the rock-solid Hybrid Core theme framework.  It's built with search-engine optimization (SEO) in mind by utilizing the most current HTML5 (HTML living standard) conventions and <a href="http://schema.org">Schema.org</a> microdata.
- * Version: 0.1.0-alpha
+ * Version: 0.1.0-alpha-2
  * Author: Justin Tadlock
  * Author URI: http://justintadlock.com
  * Tags: example
@@ -15,16 +15,7 @@
  * Font families
  * --------------------------------------------------------------------------- */
 
-.font-primary {
-	font-family: 'Droid Serif', 'Lora', 'Georgia', serif; 
-}
-
-.font-secondary,
-.font-headlines {
-	font-family:  'Open Sans', Arial, sans-serif;
-}
-
-/*
+.font-primary,
 body,
 input,
 textarea,
@@ -36,6 +27,8 @@ textarea,
 	font-family: 'Droid Serif', 'Lora', 'Georgia', serif; 
 }
 
+.font-secondary,
+.font-headlines,
 h1,
 h2,
 h3,
@@ -61,18 +54,19 @@ option,
 .chat-author,
 .comment-meta,
 .menu,
-nav,
+.breadcrumb-trail,
 .media-info .prep,
 .comment-reply-link,
 .comment-reply-login,
 .clean-my-archives .day,
 .whistle-title {
 	font-family:  'Open Sans', Arial, sans-serif;
-} */
+}
 
 /*************** wrap ******************/
 
 	.main {
+		overflow: hidden;
 		word-wrap:  break-word;
 		word-break: normal;
 
@@ -474,6 +468,7 @@ html,
 /* ====== POSTS ====== */
 
 .entry  {
+	overflow:      hidden;
 	margin:        0 0 3rem;
 	padding:       0 0 1.5rem;
 	border-bottom: 1px solid #e3e3e3;
@@ -501,11 +496,15 @@ html,
 		.entry-byline,
 		.entry-footer,
 		.comment-meta {
-			clear:       both;
 			margin:      0 0 1.5rem;
 			font-weight: 400;
 			font-style:  normal;
 			color:       rgba( 85, 85, 85, 0.75 );
+		}
+
+		.entry-footer,
+		.comment-meta {
+			clear:       both;
 		}
 
 		.image-sizes .sep { color:  #e3e3e3; }
@@ -1221,7 +1220,7 @@ li.ping::after,
 .media-info ul li::after,
 .media-shortcode-extend::after,
 .widget::after {
-	content:    '';
+	content:    ".";
 	display:    block;
 	height:     0;
 	clear:      both;

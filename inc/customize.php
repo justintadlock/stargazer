@@ -27,6 +27,11 @@ add_theme_support(
 
 function stargazer_customize_register( $wp_customize ) {
 
+	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'header_image' )->transport     = 'postMessage';
+
 	/* Load our custom logo image control. */
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize-control-logo-image.php' );
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize-setting-logo-image.php' );
@@ -85,6 +90,7 @@ function stargazer_customize_register( $wp_customize ) {
 				)
 			)
 		);
+
 
 	}
 }

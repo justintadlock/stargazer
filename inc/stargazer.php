@@ -1,159 +1,83 @@
 <?php
 
+/* Register custom image sizes. */
+add_action( 'init', 'stargazer_register_image_sizes', 5 );
 
+/* Register custom menus. */
+add_action( 'init', 'stargazer_register_menus', 5 );
 
-class Stargazer_Theme_Setup {
+/* Register sidebars. */
+add_action( 'widgets_init', 'stargazer_register_sidebars', 5 );
 
-	/**
-	 * Holds the instance of this class.
-	 *
-	 * @since  0.1.0
-	 * @access private
-	 * @var    object
-	 */
-	private static $instance;
+/* Add custom scripts. */
+add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 
-	public $prefix = 'stargazer';
+/* Add custom body classes. */
+add_filter( 'body_class', 'stargazer_body_class' );
 
-	public $directory = '';
+/* Filters the excerpt length. */
+add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
-	public $directory_uri = '';
+/* Modifies the theme layout. */
+add_filter( 'theme_mod_theme_layout', 'stargazer_mod_theme_layout', 15 );
 
-	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'theme_setup' ), 5 );
-	}
+/* Adds custom attributes to the subsidiary sidebar. */
+add_filter( 'hybrid_attr_sidebar', 'stargazer_sidebar_subsidiary_class', 10, 2 );
 
-	public function theme_setup() {
+/* Appends comments link to status posts. */
+add_filter( 'the_content', 'stargazer_status_content', 9 ); // run before wpautop()
 
-		//add_theme_support( 'hybrid-core-theme-settings' );
-		//add_theme_support( 'hybrid-core-shortcodes' );
-		//add_theme_support( 'hybrid-core-deprecated' );
+/* Modifies the framework's infinity symbol. */
+add_filter( 'hybrid_aside_infinity', 'stargazer_aside_infinity' );
 
-		/* Load widgets. */
-		add_theme_support( 'hybrid-core-widgets' );
+/* Adds custom settings for the visual editor. */
+add_filter( 'tiny_mce_before_init', 'stargazer_tiny_mce_before_init' );
 
-		/* Load scripts. */
-		add_theme_support( 'hybrid-core-scripts', array( 'comment-reply', 'mobile-toggle' ) );
+/* Filters the [audio] shortcode. */
+add_filter( 'wp_audio_shortcode', 'stargazer_audio_shortcode', 10, 4 );
 
-		/* Theme layouts. */
-		add_theme_support( 
-			'theme-layouts', 
-			array(
-				'1c'        => __( 'One Column Wide',                'stargazer' ),
-				'1c-narrow' => __( 'One Column Narrow',              'stargazer' ),
-				'2c-l'      => __( 'Two Columns: Content - Sidebar', 'stargazer' ),
-				'2c-r'      => __( 'Two Columns: Content - Sidebar', 'stargazer' )
-			),
-			array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) 
-		);
+/* Filters the [video] shortcode. */
+add_filter( 'wp_video_shortcode', 'stargazer_video_shortcode', 10, 3 );
 
-		/* Custom colors */
-		add_theme_support( 'color-palette',
-			array(
-				'callback'         => 'stargazer_register_colors',
-				'wp-head-callback' => 'stargazer_colors_wp_head_callback'
-			)
-		);
+/* Filter the [video] shortcode attributes. */
+add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
 
-		/* Ignore some selectors for the Color Palette extension in the theme customizer. */
-		add_filter( 'color_palette_preview_js_ignore', 'stargazer_cp_preview_js_ignore', 10, 3 );
-
-		/* Enable custom template hierarchy. */
-		add_theme_support( 'hybrid-core-template-hierarchy' );
-
-		/* The best thumbnail/image script ever. */
-		add_theme_support( 'get-the-image' );
-
-		/* Breadcrumbs. Yay! */
-		add_theme_support( 'breadcrumb-trail' );
-
-		/* Pagination. */
-		add_theme_support( 'loop-pagination' );
-
-		/* Nicer [gallery] shortcode implementation. */
-		add_theme_support( 'cleaner-gallery' );
-
-		/* Better captions for themes to style. */
-		add_theme_support( 'cleaner-caption' );
-
-		/* Add support for custom theme fonts. */
-		//add_theme_support( 'theme-fonts', array( 'callback' => 'socially_awkward_register_fonts' ) );
-
-		/* Automatically add feed links to <head>. */
-		add_theme_support( 'automatic-feed-links' );
-
-		/* Whistles plugin. */
-		add_theme_support( 'whistles', array( 'styles' => true ) );
-
-		/* Post formats. */
-		add_theme_support( 
-			'post-formats', 
-			array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' ) 
-		);
-
-		/* Add custom scripts. */
-		add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
-
-
-		/* Editor styles. */
-
-		$editor_styles   = array();
-		$editor_styles[] = trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css';
-
-		if ( is_child_theme() )
-			$editor_styles[] = trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css';
-
-		$editor_styles[] = get_locale_stylesheet_uri();
-		$editor_styles[] = add_query_arg( 'action', 'stargazer_editor_styles', admin_url( 'admin-ajax.php' ) );
-
-		add_editor_style( $editor_styles );
-
-		/* Handle content width for embeds and images. */
-		// Note: this is the largest size based on the theme's responsive breakpoints.
-		hybrid_set_content_width( 1025 );
-
-		add_action( 'init',                   'stargazer_register_image_sizes' );
-		add_action( 'init',                   'stargazer_register_menus', 11 );
-		add_action( 'widgets_init',           'stargazer_register_sidebars' );
-		add_filter( 'body_class',             'stargazer_body_class' );
-		add_filter( 'excerpt_length',         'stargazer_excerpt_length' );
-		add_filter( 'theme_mod_theme_layout', 'stargazer_mod_theme_layout', 15 );
-		add_filter( 'hybrid_attr_sidebar',    'stargazer_sidebar_subsidiary_class', 10, 2 );
-		add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds' );
-	}
-
-
-	/**
-	 * Returns the instance.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @return object
-	 */
-	public static function get_instance() {
-
-		if ( !self::$instance )
-			self::$instance = new self;
-
-		return self::$instance;
-	}
-}
-
-Stargazer_Theme_Setup::get_instance();
-
+/**
+ * Registers custom image sizes for the theme.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
 function stargazer_register_image_sizes() {
 
+	/* Sets the 'post-thumbnail' size. */
 	set_post_thumbnail_size( 175, 131, true );
 
-	add_image_size( 'stargazer-full', 1025, 9999, false );
+	/* Adds the 'stargazer-full' image size. */
+	add_image_size( 'stargazer-full', 1025, 500, false );
 }
 
+/**
+ * Registers nav menu locations.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
 function stargazer_register_menus() {
 	register_nav_menu( 'primary',   _x( 'Primary',   'nav menu location', 'stargazer' ) );
 	register_nav_menu( 'secondary', _x( 'Secondary', 'nav menu location', 'stargazer' ) );
 	register_nav_menu( 'social',    _x( 'Social',    'nav menu location', 'stargazer' ) );
 }
 
+/**
+ * Registers sidebars.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
 function stargazer_register_sidebars() {
 
 	hybrid_register_sidebar(
@@ -173,6 +97,80 @@ function stargazer_register_sidebars() {
 	);
 }
 
+/**
+ * Enqueues scripts.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function stargazer_enqueue_scripts() {
+
+	wp_register_script(
+		'stargazer',
+		trailingslashit( get_template_directory_uri() ) . 'js/stargazer.js',
+		array( 'jquery' ),
+		null,
+		true
+	);
+
+	wp_enqueue_script( 'stargazer' );
+
+}
+
+/**
+ * Callback function for adding editor styles.  Use along with the add_editor_style() function.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return array
+ */
+function stargazer_get_editor_styles() {
+
+	/* Set up an array for the styles. */
+	$editor_styles = array();
+
+	/* Add the theme's editor styles. */
+	$editor_styles[] = trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css';
+
+	/* If a child theme, add its editor styles. Note: WP checks whether the file exists before using it. */
+	if ( is_child_theme() )
+		$editor_styles[] = trailingslashit( get_stylesheet_directory_uri() ) . 'css/editor-style.css';
+
+	/* Add the locale stylesheet. */
+	$editor_styles[] = get_locale_stylesheet_uri();
+
+	/* Uses Ajax to display custom theme styles added via the Theme Mods API. */
+	$editor_styles[] = add_query_arg( 'action', 'stargazer_editor_styles', admin_url( 'admin-ajax.php' ) );
+
+	/* Return the styles. */
+	return $editor_styles;
+}
+
+/**
+ * Adds the <body> class to the visual editor.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  array  $settings
+ * @return array
+ */
+function stargazer_tiny_mce_before_init( $settings ) {
+
+	$settings['body_class'] = join( ' ', get_body_class() );
+
+	return $settings;
+}
+
+/**
+ * Modifies the theme layout on attachment pages.  If a specific layout is not selected and the global layout 
+ * isn't set to '1c-narrow', this filter will change the layout to '1c'.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  string  $layout
+ * @return string
+ */
 function stargazer_mod_theme_layout( $layout ) {
 
 	if ( is_attachment() ) {
@@ -185,54 +183,48 @@ function stargazer_mod_theme_layout( $layout ) {
 	return $layout;
 }
 
+/**
+ * Adds the comments link to status posts' content.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  string  $content
+ * @return string
+ */
+function stargazer_status_content( $content ) {
 
-function stargazer_default_backgrounds( $backgrounds ) {
+	if ( !is_singular() && has_post_format( 'status' ) && in_the_loop() && ( have_comments() || comments_open() ) )
+		$content .= ' <a class="comments-link" href="' . get_permalink() . '">' . number_format_i18n( get_comments_number() ) . '</a>';
 
-	$_backgrounds= array(
-		'dark-orange-cross' => array(
-			'url'           => '%s/images/backgrounds/dark-orange-cross.png',
-			'thumbnail_url' => '%s/images/backgrounds/dark-orange-cross.png',
-		),
-		'star-field-dark' => array(
-			'url'           => '%s/images/backgrounds/star-field-dark.jpg',
-			'thumbnail_url' => '%s/images/backgrounds/star-field-dark.jpg',
-		),
-	);
-
-	return array_merge( $backgrounds, $_backgrounds );
+	return $content;
 }
 
+/**
+ * Filter's Hybrid Core's infinity symbol for aside posts.  This changes the symbol to a comments link if 
+ * the post's comments are open or if the post has comments.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  string  $html
+ * @return string
+ */
+function stargazer_aside_infinity( $html ) {
 
-function stargazer_enqueue_scripts() {
+	if ( have_comments() || comments_open() )
+		$html = ' <a class="comments-link" href="' . get_permalink() . '">' . number_format_i18n( get_comments_number() ) . '</a>';
 
-	wp_register_script(
-		'stargazer',
-		hybrid_locate_theme_file( array( 'js/stargazer.js' ) ),
-		array( 'jquery' ),
-		null,
-		true
-	);
-
-
-	/*
-	wp_localize_script(
-		'stargazer',
-		'stargazer',
-		array(
-			'font_primary'   => 'Open Sans',
-			'font_secondary' => 'Droid Serif',
-			'font_headlines' => 'Open Sans',
-		)
-	);*/
-
-	wp_enqueue_script( 'stargazer' );
-
+	return $html;
 }
 
+/**
+ * Adds custom <body> classes.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  array  $classes
+ * @return array
+ */
 function stargazer_body_class( $classes ) {
-
-	if ( is_home() || is_archive() || is_search() )
-		$classes[] = 'plural';
 
 	if ( display_header_text() )
 		$classes[] = 'display-header-text';
@@ -243,25 +235,40 @@ function stargazer_body_class( $classes ) {
 	return $classes;
 }
 
+/**
+ * Adds a custom excerpt length.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  int     $length
+ * @return int
+ */
 function stargazer_excerpt_length( $length ) {
 	return 30;
 }
 
-
-
+/**
+ * Adds a custom class to the 'subsidiary' sidebar.  This is used to determine the number of columns used to 
+ * display the sidebar's widgets.  This optimizes for 1, 2, and 3 columns or multiples of those values.
+ *
+ * Note that we're using the global $sidebars_widgets variable here. This is because core has marked 
+ * wp_get_sidebars_widgets() as a private function. Therefore, this leaves us with $sidebars_widgets for 
+ * figuring out the widget count.
+ * @link http://codex.wordpress.org/Function_Reference/wp_get_sidebars_widgets
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  array  $attr
+ * @param  string $context
+ * @return array
+ */
 function stargazer_sidebar_subsidiary_class( $attr, $context ) {
 
 	if ( 'subsidiary' === $context ) {
-
-		/*
-		 * Note that we're using the global $sidebars_widgets variable here. This is because 
-		 * core has marked wp_get_sidebars_widgets() as a private function. Therefore, this 
-		 * leaves us with $sidebars_widgets for figuring out the widget count.
-		 * @link http://codex.wordpress.org/Function_Reference/wp_get_sidebars_widgets
-		 */
 		global $sidebars_widgets;
 
 		if ( is_array( $sidebars_widgets ) && !empty( $sidebars_widgets[ $context ] ) ) {
+
 			$count = count( $sidebars_widgets[ $context ] );
 
 			if ( !( $count % 3 ) || $count % 2 )
@@ -274,8 +281,183 @@ function stargazer_sidebar_subsidiary_class( $attr, $context ) {
 				$attr['class'] .= ' sidebar-col-1';
 
 		}
-
 	}
 
 	return $attr;
+}
+
+/**
+ * Adds a featured image (if one exists) next to the audio player.  Also adds a section below the player to 
+ * display the audio file information (toggled by custom JS).
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  string  $html
+ * @param  array   $atts
+ * @param  object  $audio
+ * @param  object  $post_id
+ * @return string
+ */
+function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
+
+	/* Don't show in the admin. */
+	if ( is_admin() )
+		return $html;
+
+	/* If we have an actual attachment to work with, use the ID. */
+	if ( is_object( $audio ) ) {
+		$attachment_id = $audio->ID;
+	}
+
+	/* Else, get the ID via the file URL. */
+	else {
+		preg_match( '/src=[\'"](.+?)[\'"]/i', $html, $matches );
+
+		if ( !empty( $matches ) )
+			$attachment_id = hybrid_get_attachment_id_from_url( $matches[1] );
+	}
+
+	/* If an attachment ID was found. */
+	if ( !empty( $attachment_id ) ) {
+
+		/* Get the attachment's featured image. */
+		$image = get_the_image( 
+			array( 
+				'post_id'      => $attachment_id,  
+				'image_class'  => 'audio-image',
+				'link_to_post' => is_attachment() ? false : true, 
+				'echo'         => false 
+			) 
+		);
+
+		/* If there's no attachment featured image, see if there's one for the post. */
+		if ( empty( $image ) && !empty( $post_id ) )
+			$image = get_the_image( array( 'image_class' => 'audio-image', 'link_to_post' => false, 'echo' => false ) );
+
+		/* Add a wrapper for the audio element and image. */
+		if ( !empty( $image ) ) {
+			$image = preg_replace( array( '/width=[\'"].+?[\'"]/i', '/height=[\'"].+?[\'"]/i' ), '', $image );
+			$html = '<div class="audio-shortcode-wrap">' . $image . $html . '</div>';
+		}
+
+		/* If not viewing an attachment page, add the media info section. */
+		if ( !is_attachment() ) {
+			$html .= '<div class="media-shortcode-extend">';
+			$html .= '<div class="media-info audio-info">';
+			$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
+			$html .= '</div>';
+			$html .= '<a class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</a>';
+			$html .= '</div>';
+		}
+	}
+
+	return $html;
+}
+
+/**
+ * Adds a section below the player to  display the video file information (toggled by custom JS).
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  string  $html
+ * @param  array   $atts
+ * @param  object  $audio
+ * @return string
+ */
+function stargazer_video_shortcode( $html, $atts, $video ) {
+
+	/* Don't show on single attachment pages or in the admin. */
+	if ( is_attachment() || is_admin() )
+		return $html;
+
+	/* If we have an actual attachment to work with, use the ID. */
+	if ( is_object( $video ) ) {
+		$attachment_id = $video->ID;
+	}
+
+	/* Else, get the ID via the file URL. */
+	else {
+		preg_match( '/src=[\'"](.+?)[\'"]/i', $html, $matches );
+
+		if ( !empty( $matches ) )
+			$attachment_id = hybrid_get_attachment_id_from_url( $matches[1] );
+	}
+
+	/* If an attachment ID was found, add the media info section. */
+	if ( !empty( $attachment_id ) ) {
+
+		$html .= '<div class="media-shortcode-extend">';
+		$html .= '<div class="media-info video-info">';
+		$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
+		$html .= '</div>';
+		$html .= '<a class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</a>';
+		$html .= '</div>';
+	}
+
+	return $html;
+}
+
+/**
+ * Featured image for self-hosted videos.  Checks the vidoe attachment for sub-attachment images.  If 
+ * none exist, checks the current post (if in The Loop) for its featured image.  If an image is found, 
+ * it's used as the "poster" attribute in the [video] shortcode.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  array  $out
+ * @return array
+ */
+function stargazer_video_atts( $out ) {
+
+	/* Don't show in the admin. */
+	if ( is_admin() )
+		return $out;
+
+	/* Only run if the user didn't set a 'poster' image. */
+	if ( empty( $out['poster'] ) ) {
+
+		/* Check the 'src' attribute for an attachment file. */
+		if ( !empty( $out['src'] ) )
+			$attachment_id = hybrid_get_attachment_id_from_url( $out['src'] );
+
+		/* If we couldn't get an attachment from the 'src' attribute, check other supported file extensions. */
+		if ( empty( $attachment_id ) ) {
+
+			$default_types = wp_get_video_extensions();
+
+			foreach ( $default_types as $type ) {
+
+				if ( !empty( $out[ $type ] ) ) {
+					$attachment_id = hybrid_get_attachment_id_from_url( $out[ $type ] );
+
+					if ( !empty( $attachment_id ) )
+						break;
+				}
+			}
+		}
+
+		/* If there's an attachment ID at this point. */
+		if ( !empty( $attachment_id ) ) {
+
+			/* Get the attachment's featured image. */
+			$image = get_the_image( 
+				array( 
+					'post_id'      => $attachment_id, 
+					'size'         => 'full',
+					'format'       => 'array',
+					'echo'         => false
+				) 
+			);
+		}
+
+		/* If no image has been found and we're in the post loop, see if the current post has a featured image. */
+		if ( empty( $image ) && get_post() )
+			$image = get_the_image( array( 'size' => 'full', 'format' => 'array', 'echo' => false ) );
+
+		/* Set the 'poster' attribute if we have an image at this point. */
+		if ( !empty( $image ) )
+			$out['poster'] = $image['src'];
+	}
+
+	return $out;
 }

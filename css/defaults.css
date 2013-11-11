@@ -435,6 +435,20 @@ img {
 
 /* === Image sizes === */
 
+@media only screen and ( min-width: 700px ) {
+	.ltr img.portrait.stargazer-full {
+		float:     right;
+		max-width: 33%;
+		margin:    0 0 1.5rem 1.5rem;
+	}
+
+	.rtl img.portrait.stargazer-full {
+		float:     left;
+		max-width: 33%;
+		margin:    0 1.5rem 1.5rem 0;
+	}
+}
+
 img.stargazer-medium,
 img.stargazer-full { margin: 0 0 1.5rem; }
 
@@ -474,6 +488,13 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 		}
 
 			.singular-attachment .gallery-caption { display: none; }
+
+		@media only screen and ( max-width: 481px ) {
+
+			.gallery .gallery-row .gallery-item { float: none; width: 100%; }
+
+			.gallery .gallery-icon img { max-width: 100%; }
+		}
 
 /* === Avatars === */
 

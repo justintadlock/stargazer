@@ -1,101 +1,94 @@
 <?php
 
-class Stargazer_Custom_Header {
+/* Call late so child themes can override. */
+add_action( 'after_setup_theme', 'stargazer_custom_header_setup', 15 );
 
-	/**
-	 * Holds the instance of this class.
-	 *
-	 * @since  0.1.0
-	 * @access private
-	 * @var    object
-	 */
-	private static $instance;
+/**
+ * Adds support for the WordPress 'custom-header' theme feature and registers custom headers.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function stargazer_custom_header_setup() {
 
-	public function __construct() {
-		/* Register late so child themes can overwrite. */
-		add_action( 'after_setup_theme', array( $this, 'setup' ), 15 );
-	}
+	add_theme_support( 
+		'custom-header', 
+		array(
+			'default-image'          => '',
+			'random-default'         => false,
+			'width'                  => 1175,
+			'height'                 => 400,
+			'flex-width'             => true,
+			'flex-height'            => true,
+			'default-text-color'     => '252525',
+			'header-text'            => true,
+			'uploads'                => true,
+			'wp-head-callback'       => 'stargazer_custom_header_wp_head',
+			'admin-head-callback'    => 'stargazer_custom_header_admin_head',
+			'admin-preview-callback' => 'stargazer_custom_header_admin_preview',
+		)
+	);
 
-	public function setup() {
+	register_default_headers(
+		array(
+			'horizon' => array(
+				'url'           => '%s/images/headers/horizon.jpg',
+				'thumbnail_url' => '%s/images/headers/horizon-thumb.jpg',
+				/* Translators: Header image description. */
+				'description'   => __( 'Horizon', 'stargazer' )
+			),
+			'orange-burn' => array(
+				'url'           => '%s/images/headers/orange-burn.jpg',
+				'thumbnail_url' => '%s/images/headers/orange-burn-thumb.jpg',
+				/* Translators: Header image description. */
+				'description'   => __( 'Orange Burn', 'stargazer' )
+			),
+			'planets-blue' => array(
+				'url'           => '%s/images/headers/planets-blue.jpg',
+				'thumbnail_url' => '%s/images/headers/planets-blue-thumb.jpg',
+				/* Translators: Header image description. */
+				'description'   => __( 'Blue Planets', 'stargazer' )
+			),
+			'planet-burst' => array(
+				'url'           => '%s/images/headers/planet-burst.jpg',
+				'thumbnail_url' => '%s/images/headers/planet-burst-thumb.jpg',
+				/* Translators: Header image description. */
+				'description'   => __( 'Planet Burst', 'stargazer' )
+			),
+			'space-splatters' => array(
+				'url'           => '%s/images/headers/space-splatters.jpg',
+				'thumbnail_url' => '%s/images/headers/space-splatters-thumb.jpg',
+				/* Translators: Header image description. */
+				'description'   => __( 'Space Splatters', 'stargazer' )
+			),
+		)
+	);
+}
 
-		add_theme_support( 
-			'custom-header', 
-			array(
-				'default-image'          => '',
-				'random-default'         => false,
-				'width'                  => 1175,
-				'height'                 => 400,
-				'flex-width'             => true,
-				'flex-height'            => true,
-				'default-text-color'     => '252525',
-				'header-text'            => true,
-				'uploads'                => true,
-				'wp-head-callback'       => array( $this, 'wp_head_callback' ),
-				'admin-head-callback'    => array( $this, 'admin_head_callback' ),
-				'admin-preview-callback' => array( $this, 'admin_preview_callback' ),
-			)
-		);
+function stargazer_custom_header_wp_head() {
 
-		register_default_headers(
-			array(
-				'horizon' => array(
-					'url'           => '%s/images/headers/horizon.jpg',
-					'thumbnail_url' => '%s/images/headers/horizon-thumb.jpg',
-					/* Translators: Header image description. */
-					'description'   => __( 'Horizon', 'stargazer' )
-				),
-				'orange-burn' => array(
-					'url'           => '%s/images/headers/orange-burn.jpg',
-					'thumbnail_url' => '%s/images/headers/orange-burn-thumb.jpg',
-					/* Translators: Header image description. */
-					'description'   => __( 'Orange Burn', 'stargazer' )
-				),
-				'planets-blue' => array(
-					'url'           => '%s/images/headers/planets-blue.jpg',
-					'thumbnail_url' => '%s/images/headers/planets-blue-thumb.jpg',
-					/* Translators: Header image description. */
-					'description'   => __( 'Blue Planets', 'stargazer' )
-				),
-				'planet-burst' => array(
-					'url'           => '%s/images/headers/planet-burst.jpg',
-					'thumbnail_url' => '%s/images/headers/planet-burst-thumb.jpg',
-					/* Translators: Header image description. */
-					'description'   => __( 'Planet Burst', 'stargazer' )
-				),
-				'space-splatters' => array(
-					'url'           => '%s/images/headers/space-splatters.jpg',
-					'thumbnail_url' => '%s/images/headers/space-splatters-thumb.jpg',
-					/* Translators: Header image description. */
-					'description'   => __( 'Space Splatters', 'stargazer' )
-				),
-			)
-		);
-	}
+	if ( !display_header_text() )
+		return;
 
-	public function wp_head_callback() {
+	$text_color = get_header_textcolor();
 
-		if ( !display_header_text() )
-			return;
+	if ( empty( $text_color ) )
+		return;
 
-		$text_color = get_header_textcolor();
+	$style = "color: #{$text_color};";
 
-		if ( empty( $text_color ) )
-			return;
+	$rgb = hybrid_hex_to_rgb( $text_color );
 
-		$style = "color: #{$text_color};";
+	$nav_style = "color: rgba( {$rgb['r']}, {$rgb['g']}, {$rgb['b']}, 0.75 );";
 
-		$rgb = hybrid_hex_to_rgb( $text_color );
+	$nav_style  = "#menu-secondary .menu-items > li > a { {$nav_style} }";
+	$nav_style .= "#menu-secondary .menu-items > li > a:hover { color: #{$text_color}; }";
 
-		$nav_style = "color: rgba( {$rgb['r']}, {$rgb['g']}, {$rgb['b']}, 0.75 );";
+	echo "\n" . '<style type="text/css" id="custom-header-css">body.custom-header #site-title a { ' . trim( $style ) . ' }' . $nav_style . '</style>' . "\n";
+}
 
-		$nav_style  = "#menu-secondary .menu-items > li > a { {$nav_style} }";
-		$nav_style .= "#menu-secondary .menu-items > li > a:hover { color: #{$text_color}; }";
-
-		echo "\n" . '<style type="text/css" id="custom-header-css">body.custom-header #site-title a { ' . trim( $style ) . ' }' . $nav_style . '</style>' . "\n";
-	}
-
-	public function admin_preview_callback() { ?>
-
+function stargazer_custom_header_admin_preview() { ?>
 
 			<header <?php stargazer_attr( 'header' ); ?>>
 
@@ -120,78 +113,58 @@ class Stargazer_Custom_Header {
 
 			<?php endif; // End check for header image. ?>
 
-	<?php }
+<?php }
 
-	public function admin_head_callback() {
+function stargazer_custom_header_admin_head() {
 
-		$text_color = get_header_textcolor();
+	$text_color = get_header_textcolor();
 
-		$style = "color: #{$text_color};";
+	$style = "color: #{$text_color};";
 
-		echo "\n" . '<style type="text/css" id="custom-heder-css">'; ?>
+	echo "\n" . '<style type="text/css" id="custom-header-css">'; ?>
 			
-			@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Merriweather+Sans:700,400,300);
+		@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Merriweather+Sans:700,400,300);
 
-			#header {
-				overflow: hidden;
-				max-width: 100%;
-				padding: 24px 48px 0;
-				background: #fff;
-			}
-			.header-image {
-				max-width: 100%;
-				height:    auto;
-			}
+		#header {
+			overflow: hidden;
+			max-width: 100%;
+			padding: 24px 48px 0;
+			background: #fff;
+		}
+		.header-image {
+			max-width: 100%;
+			height:    auto;
+		}
 
-			#site-title {
-				vertical-align:  baseline;
-				margin: 0 !important;
-				font-size: 28px;
-				font-family: 'Merriweather Sans', sans-serif;
-				line-height: 1.5;
-			}
-			#site-title a { 
-				<?php echo trim( $style ); ?>
+		#site-title {
+			vertical-align:  baseline;
+			margin: 0 !important;
+			font-size: 28px;
+			font-family: 'Merriweather Sans', sans-serif;
+			line-height: 1.5;
+		}
+		#site-title a { 
+			<?php echo trim( $style ); ?>
+			text-decoration: none;
+			font-size: 28px;
+			line-height: 28px;
+		}
+		#site-title a:hover {
 				text-decoration: none;
-				font-size: 28px;
-				line-height: 28px;
-			}
-			#site-title a:hover {
-					text-decoration: none;
-					opacity: 0.75;
-					border-bottom: 1px solid #d3d3d3;
-			}
-			#site-description {
-				vertical-align:  baseline;
-				margin:       0 0 24px;
-				font-family:  'Lora', serif;
-				font-size:    16px;
-				line-height:  16px;
-				font-weight:  400;
-				font-style:   italic;
-				color:        #656565 !important;
-				opacity:      0.5;
-			}
+				opacity: 0.75;
+				border-bottom: 1px solid #d3d3d3;
+		}
+		#site-description {
+			vertical-align:  baseline;
+			margin:       0 0 24px;
+			font-family:  'Lora', serif;
+			font-size:    16px;
+			line-height:  16px;
+			font-weight:  400;
+			font-style:   italic;
+			color:        #656565 !important;
+			opacity:      0.5;
+		}
 
-
-
-		<?php echo '</style>' . "\n";
-	}
-
-	/**
-	 * Returns the instance.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @return object
-	 */
-	public static function get_instance() {
-
-		if ( !self::$instance )
-			self::$instance = new self;
-
-		return self::$instance;
-	}
+	<?php echo '</style>' . "\n";
 }
-
-Stargazer_Custom_Header::get_instance();
