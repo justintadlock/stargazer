@@ -1,6 +1,5 @@
 
 /*
-
 @font-face {
 	font-family: 'Genericons';
 	font-weight: normal;
@@ -12,7 +11,6 @@
 	     url('fonts/genericons/genericons-regular-webfont.ttf') format('truetype'),
 	     url('fonts/genericons/genericons-regular-webfont.svg#genericonsregular') format('svg');
 }
-
 */
 
 @font-face {
@@ -27,180 +25,165 @@
 	     url('../fonts/genericons/genericons-regular-webfont.svg#genericonsregular') format('svg');
 }
 
-
-
-
-
 /* === Genericons === */
 
+/* Links */
+a[href^="mailto:"]::before,
+a[href^="tel:"]::before,
+
+/* Breadcrumbs */
+.breadcrumb-trail a[rel="home"]::before,
+.breadcrumb-trail .sep::before,
+
+/* Quotes. */
+blockquote::before,
+
+/* Lists */
+.widget ul li::before,
+.entry-content ul li::before,
+.comment-content ul li::before,
+
+/* Media player */
+.wp-audio-shortcode .mejs-controls .mejs-button button::after,
+.wp-video-shortcode .mejs-controls .mejs-button button::after,
+.wp-video-shortcode .mejs-overlay-button::after,
+.media-info-toggle::after,
+
+/* Posts */
+.entry-author a::before,
+.entry-published::before,
+.comments-link::before,
+.post-edit-link::before,
+.entry-permalink::before,
+.post-format-link::before,
+.entry-terms::before,
+.image-sizes::before,
+.chat-author cite::before,
+
+/* Menus */
+#menu-social li a::before,
+
+/* Plugins */
+.whistles-toggle .whistle-title::after,
+.whistles-accordion .whistle-title::after,
+
+/* Comments */
+.comment-published::before,
+.comment-edit-link::before,
+.comment-author::before,
+.comment-permalink::before,
+.comment-reply-link::before,
+.comment-reply-login::before,
+
+/* Search form */
+#menu-primary .search-form .toggle::before,
+
+/* Sub-terms list. */
+ul.sub-terms::before,
+
+/* Widgets */
+.widget-title > .wrap::before,
+.widget-widget_rss .widget-title > .wrap a:first-child::before,
+
+/* Comments */
+#comments-number .wrap::before,
+
+/* Respond */
+#reply-title > .wrap::before,
+#respond label[for="author"]::before,
+#respond label[for="email"]::before,
+#respond label[for="url"]::before,
+#respond label[for="comment"]::before {
+
+	display:        inline-block;
+	font-family:    'Genericons';
+	font-size:      16px;
+	font-style:     normal;
+	font-weight:    normal;
+	font-variant:   normal;
+	line-height:    1;
+	vertical-align: middle;
+
+	-webkit-font-smoothing: antialiased;
+}
+
+	/* General padding. */
+
+	.ltr a[href^="mailto:"]::before,
+	.ltr a[href^="tel:"]::before,
+	.ltr .entry-author a::before,
+	.ltr .chat-author cite::before,
+	.ltr .entry-published::before,
+	.ltr .comments-link::before,
+	.ltr .post-edit-link::before,
+	.ltr .entry-permalink::before,
+	.ltr .post-format-link::before,
+	.ltr .entry-terms::before,
+	.ltr .image-sizes::before,
+	.ltr .comment-published::before,
+	.ltr .comment-edit-link::before,
+	.ltr .comment-author::before,
+	.ltr .comment-permalink::before { padding-right: 3px; padding-bottom: 2px; }
+
+	.rtl a[href^="mailto:"]::before,
+	.rtl a[href^="tel:"]::before,
+	.rtl .entry-author a::before,
+	.rtl .chat-author cite::before,
+	.rtl .entry-published::before,
+	.rtl .comments-link::before,
+	.rtl .post-edit-link::before,
+	.rtl .entry-permalink::before,
+	.rtl .post-format-link::before,
+	.rtl .entry-terms::before,
+	.rtl .image-sizes::before,
+	.rtl .comment-published::before,
+	.rtl .comment-edit-link::before,
+	.rtl .comment-author::before,
+	.rtl .comment-permalink::before { padding-left: 3px; padding-bottom: 2px; }
+
 	/* Links */
-	a[href^="mailto:"]::before,
-	a[href^="tel:"]::before,
-
-	/* Breadcrumbs */
-	.breadcrumb-trail a[rel="home"]::before,
-	.breadcrumb-trail .sep::before,
-
-	/* Quotes. */
-	blockquote::before,
-
-	/* Lists */
-	.widget ul li::before,
-	.entry-content ul li::before,
-	.comment-content ul li::before,
-
-	/* Forms */
-	.label-for-date::before,
-	.label-for-datetime::before,
-	.label-for-datetime-local::before,
-	.label-for-email::before,
-	.label-for-month::before,
-	.label-for-password::before,
-	.label-for-search::before,
-	.label-for-tel::before,
-	.label-for-text::before,
-	.label-for-time::before,
-	.label-for-url::before,
-	.label-for-week::before,
-	.label-for-textarea::before,
-	.label-for-select::before,
-
-	/* Media player */
-	.wp-audio-shortcode .mejs-controls .mejs-button button::after,
-	.wp-video-shortcode .mejs-controls .mejs-button button::after,
-	.wp-video-shortcode .mejs-overlay-button::after,
-	.media-info-toggle::after,
+	a[href^="mailto:"]::before { content: '\f410'; }
+	a[href^="tel:"]::before    { content: '\f437'; }
 
 	/* Posts */
 	.entry-author a::before,
-	.entry-published::before,
-	.comments-link::before,
-	.post-edit-link::before,
-	.entry-permalink::before,
-	.post-format-link::before,
-	.entry-terms::before,
+	.chat-author cite::before                  { content: '\f304'; }
+	.entry-published::before                   { content: '\f307'; }
+	.comments-link::before                     { content: '\f300'; }
+	.post-edit-link::before                    { content: '\f411'; }
+	.entry-permalink::before                   { content: '\f107'; }
+	.entry-terms.post_tag::before              { content: '\f302'; }
+	.entry-terms.category::before              { content: '\f301'; }
+	.entry-terms.portfolio::before             { content: '\f460'; }
+	.entry-terms.literary_form::before         { content: '\f100'; }
+	.entry-terms.literary_technique::before    { content: '\f411'; }
+	.entry-terms.literary_genre::before        { content: '\f302'; }
+	.format-standard .post-format-link::before { content: '\f100'; }
+	.format-aside .post-format-link::before    { content: '\f101'; }
+	.format-audio .post-format-link::before    { content: '\f109'; }
+	.format-chat .post-format-link::before     { content: '\f108'; }
+	.format-gallery .post-format-link::before  { content: '\f103'; }
 	.image-sizes::before,
-	.chat-author cite::before,
-
-	/* Menus */
-	#menu-social li a::before,
-
-	/* Plugins */
-	.whistles-toggle .whistle-title::after,
-	.whistles-accordion .whistle-title::after,
+	.format-image .post-format-link::before    { content: '\f102'; }
+	.format-link .post-format-link::before     { content: '\f107'; }
+	.format-quote .post-format-link::before    { content: '\f106'; }
+	.format-status .post-format-link::before   { content: '\f105'; }
+	.format-video .post-format-link::before    { content: '\f104'; }
 
 	/* Comments */
-	.comment-published::before,
-	.comment-edit-link::before,
-	.comment-author::before,
-	.comment-permalink::before,
-	.comment-reply-link::before,
-	.comment-reply-login::before,
+	.comment-published::before    { content: '\f303'; }
+	.comment-author::before       { content: '\f304'; }
+	.ping .comment-author::before { content: '\f107'; }
+	.comment-edit-link::before    { content: '\f411'; }
+	.comment-permalink::before    { content: '\f107'; }
 
-	/* Search form */
-	#menu-primary .search-form .toggle::before,
-
-	/* Sub-terms list. */
-	ul.sub-terms::before,
-
-	/* Widgets */
-	.widget-title > .wrap::before,
-	.widget-widget_rss .widget-title > .wrap a:first-child::before,
-
-	/* Comments */
-	#comments-number .wrap::before,
-
-	/* Respond */
-	#reply-title > .wrap::before,
-	#respond label[for="author"]::before,
-	#respond label[for="email"]::before,
-	#respond label[for="url"]::before,
-	#respond label[for="comment"]::before {
-		display:        inline-block;
-		font-family:    'Genericons';
-		font-size:      16px;
-		font-style:     normal;
-		font-weight:    normal;
-		font-variant:   normal;
-		line-height:    1;
-		vertical-align: middle;
-		-webkit-font-smoothing: antialiased;
-	}
-
-		.ltr a[href^="mailto:"]::before,
-		.ltr a[href^="tel:"]::before,
-		.ltr .entry-author a::before,
-		.ltr .chat-author cite::before,
-		.ltr .entry-published::before,
-		.ltr .comments-link::before,
-		.ltr .post-edit-link::before,
-		.ltr .entry-permalink::before,
-		.ltr .post-format-link::before,
-		.ltr .entry-terms::before,
-		.ltr .image-sizes::before { padding-right: 3px; padding-bottom: 2px; }
-
-		.rtl a[href^="mailto:"]::before,
-		.rtl a[href^="tel:"]::before,
-		.rtl .entry-author a::before,
-		.rtl .chat-author cite::before,
-		.rtl .entry-published::before,
-		.rtl .comments-link::before,
-		.rtl .post-edit-link::before,
-		.rtl .entry-permalink::before,
-		.rtl .post-format-link::before,
-		.rtl .entry-terms::before,
-		.rtl .image-sizes::before { padding-left: 3px; padding-bottom: 2px; }
-
-		a[href^="mailto:"]::before { content: '\f410'; }
-		a[href^="tel:"]::before    { content: '\f437'; }
-
-		.entry-author a::before,
-		.chat-author cite::before                  { content: '\f304'; }
-		.entry-published::before                   { content: '\f307'; }
-		.comments-link::before                     { content: '\f300'; }
-		.post-edit-link::before                    { content: '\f411'; }
-		.entry-permalink::before                   { content: '\f107'; }
-		.entry-terms.post_tag::before              { content: '\f302'; }
-		.entry-terms.category::before              { content: '\f301'; }
-		.entry-terms.portfolio::before             { content: '\f460'; }
-		.entry-terms.literary_form::before         { content: '\f100'; }
-		.entry-terms.literary_technique::before    { content: '\f411'; }
-		.entry-terms.literary_genre::before        { content: '\f302'; }
-		.format-standard .post-format-link::before { content: '\f100'; }
-		.format-aside .post-format-link::before    { content: '\f101'; }
-		.format-audio .post-format-link::before    { content: '\f109'; }
-		.format-chat .post-format-link::before     { content: '\f108'; }
-		.format-gallery .post-format-link::before  { content: '\f103'; }
-		.image-sizes::before,
-		.format-image .post-format-link::before    { content: '\f102'; }
-		.format-link .post-format-link::before     { content: '\f107'; }
-		.format-quote .post-format-link::before    { content: '\f106'; }
-		.format-status .post-format-link::before   { content: '\f105'; }
-		.format-video .post-format-link::before    { content: '\f104'; }
-
-		.ltr .comment-published::before,
-		.ltr .comment-edit-link::before,
-		.ltr .comment-author::before,
-		.ltr .comment-permalink::before { padding: 0 3px 2px 0; }
-
-		.rtl .comment-published::before,
-		.rtl .comment-edit-link::before,
-		.rtl .comment-author::before,
-		.rtl .comment-permalink::before { padding: 0 0 2px 3px; }
-
-		.comment-published::before    { content: '\f303'; }
-		.comment-author::before       { content: '\f304'; }
-		.ping .comment-author::before { content: '\f107'; }
-		.comment-edit-link::before    { content: '\f411'; }
-		.comment-permalink::before    { content: '\f107'; }
-
-
+	/* Social menu */
 
 	#menu-social li a::before        { content: '\f408'; padding: 0 3px; }
 	#menu-social li a:hover::before { opacity: 0.75; }
 
 	#menu-social li a[href*="codepen.io"]::before      { content: '\f216'; color: #fff;    }
-	#menu-social li a[href*="digg.com"]::before        { content: '\f221'; color: #fff;     }
+	#menu-social li a[href*="digg.com"]::before        { content: '\f221'; color: #fff;    }
 	#menu-social li a[href*="dribbble.com"]::before    { content: '\f201'; color: #ea4c89; }
 	#menu-social li a[href*="facebook.com"]::before    { content: '\f203'; color: #3b5998; }
 	#menu-social li a[href*="flickr.com"]::before      { content: '\f211'; color: #ff0084; }
@@ -222,6 +205,7 @@
 	#menu-social li a[href*="wordpress.com"]::before   { content: '\f205'; color: #21759b; }
 	#menu-social li a[href*="youtube.com"]::before     { content: '\f213'; color: #c4302b; }
 
+	/* Breadcrumb Trail. */
 
 	.breadcrumb-trail a[rel="home"]::before {
 		content:     '\f409';
@@ -250,154 +234,124 @@
 		transform:         rotate(90deg);
 	}
 
-		#reply-title > .wrap::before {
-			content: '\f412';
-			padding: 0 3px 1px 0;
-		}
+	/* Comments */
 
-			.rtl #reply-title > .wrap::before { 
-				/* Flip icon. */
-				-moz-transform:    scaleX(-1);
-				-o-transform:      scaleX(-1);
-				-webkit-transform: scaleX(-1);
-				transform:         scaleX(-1);
-				filter:            FlipH;
-				-ms-filter:        "FlipH";
-			}
-
-				.comment-reply-link::before,
-				.comment-reply-login::before {
-					content:       '\f412';
-					margin-bottom: 3px;
-					padding-right: 5px; /* Flip below causes padding to flip. */
-				}
-
-				.rtl .comment-reply-link::before,
-				.rtl .comment-reply-login::before {
-					/* Flip icon. */
-					-moz-transform:    scaleX(-1);
-					-o-transform:      scaleX(-1);
-					-webkit-transform: scaleX(-1);
-					transform:         scaleX(-1);
-					filter:            FlipH;
-					-ms-filter:        "FlipH";
-				}
-
-		.comment-respond label[for="author"]::before,
-		.comment-respond label[for="email"]::before,
-		.comment-respond label[for="url"]::before,
-		.comment-respond label[for="comment"]::before {
-			margin-bottom: 3px;
-			padding:       0 5px;
-			color:         #555;
-		}
-
-		.comment-respond label[for="author"]::before  { content: '\f304'; }
-		.comment-respond label[for="email"]::before   { content: '\f410'; }
-		.comment-respond label[for="url"]::before     { content: '\f409'; }
-		.comment-respond label[for="comment"]::before { content: '\f300'; }
-
-
-			.media-info-toggle::after {
-				content:        '\f431';
-				color:          #f5f5f5;
-				vertical-align: top;
-			}
-
-				.ltr .media-info-toggle::after { padding-left: 5px;  }
-				.rtl .media-info-toggle::after { padding-right: 5px; }
-
-				.media-info-toggle.active::after {
-					content: '\f432';
-				}
-
-			.mejs-button button::after { color: #fff; }
-			.mejs-unmute button::after { color: #454545; }
-
-			.mejs-fullscreen-button button::after { content: '\f422'; }
-			.mejs-play button::after              { content: '\f452'; }
-			.mejs-pause button::after             { content: '\f448'; }
-			.mejs-volume-button button::after     { content: '\f109'; }
-
-		.whistles-toggle .whistle-title::after,
-		.whistles-accordion .whistle-title::after {
-			content: '\f431'; 
-			padding: 3px 0 0;
-		}
-
-			.ltr .whistles-toggle .whistle-title::after,
-			.ltr .whistles-accordion .whistle-title::after { float: right; }
-
-			.rtl .whistles-toggle .whistle-title::after,
-			.rtl .whistles-accordion .whistle-title::after { float: left; }
-
-		.whistles-toggle .whistle-title[aria-selected="true"]::after,
-		.whistles-accordion .whistle-title[aria-selected="true"]::after { content: '\f432'; }
-
-
-		.label-for-date::before,
-		.label-for-datetime::before,
-		.label-for-datetime-local::before,
-		.label-for-email::before,
-		.label-for-month::before,
-		.label-for-password::before,
-		.label-for-search::before,
-		.label-for-tel::before,
-		.label-for-text::before,
-		.label-for-time::before,
-		.label-for-url::before,
-		.label-for-week::before,
-		.label-for-textarea::before,
-		.label-for-select::before {
-			margin-bottom: 3px;
-			padding:       0 5px 0 0.3125rem;
-			color:         #555;
-		}
-
-		.label-for-date::before,
-		.label-for-datetime::before,
-		.label-for-datetime-local::before,
-		.label-for-month::before { content: '\f307'; }
-		.label-for-email::before { content: '\f410'; }
-		.label-for-password::before { content: '\f427'; }
-		.label-for-search::before { content: '\f400'; }
-		.label-for-tel::before { content: '\f455'; }
-		.label-for-text::before { content: '\f408'; }
-		.label-for-time::before { content: '\f303'; }
-		.label-for-url::before { content: '\f107'; }
-		.label-for-week::before { content: '\f306'; }
-
-		.label-for-textarea::before { content: '\f411'; }
-		.label-for-select::before { content: '\f408'; }
-
-
-	.widget-title > .wrap::before {
-		content:        '\f408';
-		vertical-align: middle;
+	#reply-title > .wrap::before {
+		content: '\f412';
+		padding: 0 3px 1px 0;
 	}
 
-		.ltr .widget-title > .wrap::before { padding-right: 3px; }
-		.rtl .widget-title > .wrap::before { padding-left:  3px; }
+		.rtl #reply-title > .wrap::before { 
+			-webkit-transform: scaleX(-1);
+			   -moz-transform: scaleX(-1);
+			     -o-transform: scaleX(-1);
+			        transform: scaleX(-1);
 
+			-ms-filter: "FlipH";
+			    filter: FlipH;
+		}
+
+	.comment-reply-link::before,
+	.comment-reply-login::before {
+		content:       '\f412';
+		margin-bottom: 3px;
+		padding-right: 5px; /* Flip below causes padding to flip. */
+	}
+
+	/* flip icons */
+	.rtl #reply-title > .wrap::before 
+	.rtl .comment-reply-link::before,
+	.rtl .comment-reply-login::before { 
+		-webkit-transform: scaleX(-1);
+		   -moz-transform: scaleX(-1);
+		     -o-transform: scaleX(-1);
+		        transform: scaleX(-1);
+
+		-ms-filter: "FlipH";
+		    filter: FlipH;
+	}
+
+	.comment-respond label[for="author"]::before,
+	.comment-respond label[for="email"]::before,
+	.comment-respond label[for="url"]::before,
+	.comment-respond label[for="comment"]::before {
+		margin-bottom: 3px;
+		padding:       0 5px;
+		color:         #555;
+	}
+
+	.comment-respond label[for="author"]::before  { content: '\f304'; }
+	.comment-respond label[for="email"]::before   { content: '\f410'; }
+	.comment-respond label[for="url"]::before     { content: '\f409'; }
+	.comment-respond label[for="comment"]::before { content: '\f300'; }
+
+	/* Media info toggle */
+
+	.media-info-toggle::after {
+		content:        '\f431';
+		color:          #f5f5f5;
+		vertical-align: top;
+	}
+
+	.ltr .media-info-toggle::after { padding-left: 5px;  }
+	.rtl .media-info-toggle::after { padding-right: 5px; }
+
+	.media-info-toggle.active::after { content: '\f432'; }
+
+	/* Media player */
+
+	.mejs-button button::after { color: #fff; }
+	.mejs-unmute button::after { color: #454545; }
+
+	.mejs-fullscreen-button button::after { content: '\f422'; }
+	.mejs-play button::after              { content: '\f452'; }
+	.mejs-pause button::after             { content: '\f448'; }
+	.mejs-volume-button button::after     { content: '\f109'; }
+
+	/* Whistles plugin */
+
+	.whistles-toggle .whistle-title::after,
+	.whistles-accordion .whistle-title::after {
+		content: '\f431'; 
+		padding: 3px 0 0;
+	}
+
+	.ltr .whistles-toggle .whistle-title::after,
+	.ltr .whistles-accordion .whistle-title::after { float: right; }
+
+	.rtl .whistles-toggle .whistle-title::after,
+	.rtl .whistles-accordion .whistle-title::after { float: left; }
+
+	.whistles-toggle .whistle-title[aria-selected="true"]::after,
+	.whistles-accordion .whistle-title[aria-selected="true"]::after { content: '\f432'; }
+
+	/* Widgets */
+
+	.widget-title > .wrap::before { content: '\f408'; }
+
+	.ltr .widget-title > .wrap::before { padding-right: 3px; }
+	.rtl .widget-title > .wrap::before { padding-left:  3px; }
+
+	/* WP RSS widget */
 	.widget_rss .widget-title > .wrap::before {
 		content: '';
 		padding: 0;
 	}
 
-	/* WP RSS widget */
 	.widget_rss .widget-title > .wrap a:first-child::before {
 		content:   '\f413';
 		padding:   0 0 1px;
 		font-size: 16px;
 	}
+
 		.ltr .widget_rss .widget-title > .wrap a:first-child::before { padding-right: 3px; }
 		.rtl .widget_rss .widget-title > .wrap a:first-child::before { padding-left:  3px; }
 
 	/* WP nav menu widget */
 	.widget_nav_menu .widget-title > .wrap::before { content: '\f419'; font-size: 14px; }
 
-		.ltr .widget_nav_menu .widget-title > .wrap::before { padding-right: 5px; }
-		.rtl .widget_nav_menu .widget-title > .wrap::before { padding-left:  5px; }
+	.ltr .widget_nav_menu .widget-title > .wrap::before { padding-right: 5px; }
+	.rtl .widget_nav_menu .widget-title > .wrap::before { padding-left:  5px; }
 
 	/* WordPress / Widgets Reloaded widgets. */
 	.widget_archive .widget-title > .wrap::before         { content: '\f303'; }
@@ -432,12 +386,3 @@
 	/* Series plugin. */
 	.widget.series-list-posts .widget-title > .wrap::before,
 	.widget.series-list-related .widget-title > .wrap::before { content: '\f411'; }
-
-
-
-
-
-
-
-
-
