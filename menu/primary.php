@@ -6,7 +6,9 @@
 			<a href="#content"><?php _e( 'Skip to content', 'stargazer' ); ?></a>
 		</div><!-- .skip-link -->
 
-		<h3 class="menu-toggle"><?php _e( 'Navigation', 'stargazer' ); ?></h3>
+		<h3 class="menu-toggle">
+			<span class="screen-reader-text"><?php _e( 'Navigation', 'stargazer' ); ?></span>
+		</h3><!-- .menu-toggle -->
 
 		<?php wp_nav_menu(
 			array(
