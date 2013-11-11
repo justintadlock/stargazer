@@ -47,9 +47,6 @@ jQuery( document ).ready( function() {
 		}
 	);
 
-
-		//jQuery( '.menu-item:has( > ul )' ).find( '> a:first-child' ).after( '<a class="menu-toggle-children">&darr;</a>' );
-
 	/*
 	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually 
 	 * exist or is not supported by browsers, we have the following.
