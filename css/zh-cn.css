@@ -3,21 +3,19 @@
 
 q { quotes: '\201C' '\201D' '\2018' '\2019'; }
 
+.font-primary,
 body,
 input,
 textarea,
 .label-checkbox,
 .label-radio,
-#reply-title small a { 
-	font-family: 'Lora', Georgia, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", serif;
+.required,
+#site-description,
+#reply-title small { 
+	font-family: 'Droid Serif', 'Lora', Georgia, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+.font-secondary,
 dt,
 th,
 legend,
@@ -28,15 +26,30 @@ input[type="button"],
 button,
 select,
 option,
-.breadcrumb-trail,
-ul.sub-terms li a,
+.wp-caption-text,
+.gallery-caption,
+.mejs-controls,
 .entry-byline,
 .entry-footer,
+.chat-author cite,
+.chat-author,
 .comment-meta,
-#wp-calendar td.has-posts a,
-#menu-primary li a,
-#menu-secondary li a,
+.menu,
+.breadcrumb-trail,
+.media-info .prep,
 .comment-reply-link,
-.clean-my-archives .day {
+.comment-reply-login,
+.clean-my-archives .day,
+.whistle-title {
+	font-family: 'Open Sans', "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+}
+
+.font-headlines,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Open Sans', "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
 }
