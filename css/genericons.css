@@ -220,18 +220,18 @@ ul.sub-terms::before,
 
 	.ltr .breadcrumb-trail .sep::before {
 		-webkit-transform: rotate(-90deg);
-		-moz-transform:    rotate(-90deg);
-		-ms-transform:     rotate(-90deg);
-		-o-transform:      rotate(-90deg);
-		transform:         rotate(-90deg);
+		   -moz-transform: rotate(-90deg);
+		    -ms-transform: rotate(-90deg);
+		     -o-transform: rotate(-90deg);
+		        transform: rotate(-90deg);
 	}
 
 	.rtl .breadcrumb-trail .sep::before {
 		-webkit-transform: rotate(90deg);
-		-moz-transform:    rotate(90deg);
-		-ms-transform:     rotate(90deg);
-		-o-transform:      rotate(90deg);
-		transform:         rotate(90deg);
+		   -moz-transform: rotate(90deg);
+		    -ms-transform: rotate(90deg);
+		     -o-transform: rotate(90deg);
+		        transform: rotate(90deg);
 	}
 
 	/* Comments */

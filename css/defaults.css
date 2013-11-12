@@ -2,33 +2,22 @@
  * Defaults
  * --------------------------------------------------------------------------- */
 
-/* === HTML === */
-
-
 /* === Body === */
 
 body {
-	color:               #656565;
 	border-top-width:    2px;
 	border-bottom-width: 2px;
 	border-top-style:    solid;
 	border-bottom-style: solid; 
 }
 
-
-/* === Text selection === */
-
-::selection {
-	color: #fff;
-}
-
 /* === Links === */
 
 a {
-		-webkit-transition: all 0.5s ease-in-out;
-		-moz-transition:    all 0.5s ease-in-out;
-		-o-transition:       all 0.5s ease-in-out;
-	transition:  all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	   -moz-transition: all 0.5s ease-in-out;
+	      -o-transition:  all 0.5s ease-in-out;
+	        transition: all 0.5s ease-in-out;
 }
 
 	a:hover { text-decoration: underline; }
@@ -64,17 +53,18 @@ h6 { font-weight: 700; }
 
 	h1,
 	h2 {
-		margin-bottom:  1.5rem;
-		padding-bottom: 1.5rem;
-		border-bottom:  1px solid #e3e3e3;
+		margin-bottom:       1.5rem;
+		padding-bottom:      1.5rem;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
 	}
 
-	h1 { font-size: 2.5rem;    color: #303030; }
-	h2 { font-size: 2rem;      color: #353535; }
-	h3 { font-size: 1.5625rem; color: #404040; }
-	h4 { font-size: 1.375rem;  color: #454545; }
-	h5 { font-size: 1.3125rem; color: #505050; }
-	h6 { font-size: 1.25rem;   color: #555;    }
+	h1 { font-size: 2.5rem;    }
+	h2 { font-size: 2rem;      }
+	h3 { font-size: 1.5625rem; }
+	h4 { font-size: 1.375rem;  }
+	h5 { font-size: 1.3125rem; }
+	h6 { font-size: 1.25rem;   }
 
 /* === Blockquotes, quotes, and cites === */
 
@@ -83,8 +73,8 @@ blockquote {
 	padding:       1.5rem 1.5rem 0;
 	font-size:     1em; /* relative to parent */
 	font-style:    normal;
-	color:         #fff;
-	border:        2px dashed rgba( 255, 255, 255, 0.15 );
+	border-width:  2px;
+	border-style:  dashed;
 	outline-width: 10px;
 	outline-style: solid;
 }
@@ -92,18 +82,6 @@ blockquote {
 	blockquote cite {
 		font-size:    0.875em;
 		font-variant: small-caps;
-	}
-
-	blockquote a,
-	.entry-content blockquote a {
-		color:        rgba( 255, 255, 255, 0.75 );
-		border-color: rgba( 255, 255, 255, 0.25 ); 
-	}
-
-	blockquote a:hover,
-	.entry-content blockquote a:hover {
-		color:        #fff;
-		border-color: #fff; 
 	}
 
 	.twitter-tweet {
@@ -144,27 +122,25 @@ mark {
 	font-style:  normal;
 }
 
-/* === <big> tag === */
-
 /* === <hr> tag === */
 
 hr { 
-	height:        3px;
-	border-top:    1px solid #e3e3e3; 
-	border-bottom: 1px solid #e3e3e3; 
-	background:    transparent;
+	height:              3px;
+	border-top-width:    1px;
+	border-bottom-width: 1px;
+	border-top-style:    solid;
+	border-bottom-style: solid;
 }
 
 /* === Code and Preformatted text === */
 
 code {
-	display:     inline-block;
-	padding:     2px;
-	font-size:   1rem;
-	font-weight: 400;
-	color:       #000;
-	background:  #f6f6f6;
-	border:      1px solid #e3e3e3;
+	display:      inline-block;
+	padding:      2px;
+	font-size:    1rem;
+	font-weight:  400;
+	border-width: 1px;
+	border-style: solid;
 }
 
 body pre,
@@ -177,12 +153,8 @@ pre,
 	padding:     1.875rem 1.5rem;
 	font-size:   1.125rem;
 	line-height: 1.875rem;
-	border:      1px solid #e3e3e3;
-
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, 0.5)), color-stop(.5, transparent), to(transparent));
-	background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5) 50%, transparent 50%, transparent);
-	background-image: -o-linear-gradient(rgba(255, 255, 255, 0.5) 50%, transparent 50%, transparent);
-	background-image: linear-gradient(rgba(255, 255, 255, 0.5) 50%, transparent 50%, transparent);
+	border-width: 1px;
+	border-style: solid;
 
 	-webkit-background-size: 3.75rem 3.75rem;
 	-moz-background-size:    3.75rem 3.75rem;
@@ -218,15 +190,20 @@ table {
 	caption {
 		margin:       0 0 5px;
 		font-variant: small-caps;
-		color:        #858585;
 	}
 
 	tr,
-	thead { border-bottom: 1px solid #f3f3f3; }
+	thead {
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+	}
 
 		tr:last-child { border: none; }
 
-	tfoot { border-top: 1px solid #f3f3f3; }
+	tfoot {
+		border-top-width: 1px;
+		border-top-style: solid;
+	}
 
 	th,
 	td {
@@ -244,10 +221,9 @@ table {
 		.ltr th { text-align: left;  }
 		.rtl th { text-align: right; }
 
-	td { 
-		color:      #858585;
-		border:     1px solid #f3f3f3;
-		background: #fcfcfc; 
+	td {
+		border-width: 1px;
+		border-style: solid;
 	}
 
 		th:empty,
@@ -278,7 +254,6 @@ table {
 				display:         block;
 				padding:         5px 2%;
 				font-weight:     700;
-				color:           #fff;
 				-moz-box-sizing: border-box;
 				box-sizing:      border-box;
 			}
@@ -286,26 +261,25 @@ table {
 /* === Forms === */
 
 	fieldset {
-		margin:  0 0 1.5rem;
-		padding: 1.5rem 1.5rem 0;
-		border:  1px solid #e3e3e3;
+		margin:       0 0 1.5rem;
+		padding:      1.5rem 1.5rem 0;
+		border-width: 1px;
+		border-style: solid;
 	}
 
 		legend {
-			padding:     0.375rem 1.5rem;
-			border:      1px solid #e3e3e3;
-			font-size:   1rem;
-			font-weight: 600;
+			padding:      0.375rem 1.5rem;
+			border-width: 1px;
+			border-style: solid;
+			font-size:    1rem;
+			font-weight:  600;
 		}
 
 		label {
 			font-size:      0.9375rem;
 			font-weight:    400;
-			color:          #858585;
 			cursor:         pointer;
 		}
-
-			label:hover { color: #555; }
 
 			.label-checkbox,
 			.label-radio { font-size: 1.125rem; }
@@ -332,18 +306,17 @@ table {
 		select {
 			padding:       10px 1.5rem;
 			font-size:     1.125rem;
-			color:         #858585;
-			background:    #f3f3f3;
-			border:        1px solid #e3e3e3;
+			border-width:  1px;
+			border-style:  solid;
 			opacity:       0.75;
 
 			-moz-box-sizing: border-box;
-			box-sizing:      border-box;
+			     box-sizing: border-box;
 
 			-webkit-transition: all 0.5s ease-in-out;
-			-moz-transition:    all 0.5s ease-in-out;
-			-o-transition:       all 0.5s ease-in-out;
-			transition:         all 0.5s ease-in-out;
+			   -moz-transition: all 0.5s ease-in-out;
+			      -o-transition:  all 0.5s ease-in-out;
+			        transition: all 0.5s ease-in-out;
 		}
 
 		input[type="date"],
@@ -378,9 +351,6 @@ table {
 		input[type="week"]:focus,
 		textarea:focus,
 		select:focus {
-			color:        #555;
-			background:   #efefef;
-			border-color: #d3d3d3;
 			opacity:      1;
 		}
 
@@ -392,7 +362,6 @@ table {
 			padding:        0.75rem 1rem;
 			font-size:      0.9375rem;
 			font-weight:    400;
-			color:          #fff;
 			border:         none;
 
 			-moz-box-sizing: border-box;
@@ -426,9 +395,9 @@ img {
 	a img {
 		opacity:            0.85;
 		-webkit-transition: all 0.5s ease-in-out;
-		-moz-transition:    all 0.5s ease-in-out;
-		-o-transition:       all 0.5s ease-in-out;
-		transition:         all 0.5s ease-in-out;
+		   -moz-transition: all 0.5s ease-in-out;
+		      -o-transition:  all 0.5s ease-in-out;
+		        transition: all 0.5s ease-in-out;
 	}
 
 		a:hover img { opacity: 1; }
@@ -461,12 +430,10 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 		bottom:     1.5rem;
 		padding:    0.75rem;
 		font-size:  0.9375rem;
-		color:      #e3e3e3;
-		background: rgba( 0, 0, 0, 0.75 );
 	}
 
 		.ltr .wp-caption-text { margin-right: 1.5rem; }
-		.rtl .wp-caption-text { margin-left: 1.5rem;  }
+		.rtl .wp-caption-text { margin-left:  1.5rem; }
 
 /* === Gallery === */
 
@@ -476,16 +443,11 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 
 			.gallery .gallery-icon a img {
 				padding:    9px;
-				background: #f9f9f9;
-				border:     1px solid #e3e3e3;
+				border-style: 1px;
+				border-width: solid;
 			}
 
-				.gallery-icon a:hover img { background: #f3f3f3; }
-
-		.gallery .gallery-caption {
-			font-size: 0.9375rem;
-			color:     #858585;
-		}
+		.gallery .gallery-caption { font-size: 0.9375rem; }
 
 			.singular-attachment .gallery-caption { display: none; }
 
@@ -503,11 +465,12 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 	height:        60px;
 	margin:        0 0 1.5rem;
 	border-radius: 50%;
-	border:        1px solid #e3e3e3;
+	border-width:  1px;
+	border-style:  solid;
 }
 
 	.ltr .avatar { float: left;  margin-right: 1.5rem; }
-	.rtl .avatar { float: right; margin-left: 1.5rem; }
+	.rtl .avatar { float: right; margin-left:  1.5rem; }
 
 /* === Embeds === */
 
@@ -525,10 +488,10 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 	.embed-wrap iframe,
 	.embed-wrap object,
 	.embed-wrap embed {
-		position: absolute;
-		top:      0;
-		left:     0;
-		width:    100%;
+		position:  absolute;
+		top:       0;
+		left:      0;
+		width:     100%;
 		max-width: 100%;
-		height:   100%;
+		height:    100%;
 	}

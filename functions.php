@@ -32,9 +32,10 @@ function stargazer_enqueue_styles() {
 	wp_enqueue_style( 'sg-one-five', "{$dir}library/css/one-five.min.css" );
 	wp_enqueue_style( 'sg-gallery',  "{$dir}library/css/gallery.min.css"  );
 	wp_enqueue_style( 'sg-mejs',     "{$dir}css/mediaelement/mediaelement.min.css" );
-	wp_enqueue_style( 'sg-fonts',    "{$dir}css/genericons.css" );
-	wp_enqueue_style( 'sg-layout',   "{$dir}css/layout.css" );
-	wp_enqueue_style( 'sg-defaults', "{$dir}css/defaults.css" );
+
+//	wp_enqueue_style( 'sg-fonts',    "{$dir}css/genericons.css" );
+//	wp_enqueue_style( 'sg-layout',   "{$dir}css/layout.css" );
+//	wp_enqueue_style( 'sg-defaults', "{$dir}css/defaults.css" );
 	wp_enqueue_style( 'sg-m-query',  "{$dir}css/media-queries.css" );
 
 	if ( is_child_theme() )
