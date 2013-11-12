@@ -90,13 +90,13 @@ function stargazer_custom_header_wp_head() {
 
 function stargazer_custom_header_admin_preview() { ?>
 
-			<header <?php stargazer_attr( 'header' ); ?>>
+			<header <?php hybrid_attr( 'header' ); ?>>
 
 				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
 
 					<hgroup id="branding">
-						<h1 <?php stargazer_attr( 'site-title' ); ?>><a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<h2 <?php stargazer_attr( 'site-description' ); ?>><?php bloginfo( 'description' ); ?></h2>
+						<h1 <?php hybrid_attr( 'site-title' ); ?>><a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h2 <?php hybrid_attr( 'site-description' ); ?>><?php bloginfo( 'description' ); ?></h2>
 					</hgroup><!-- #branding -->
 
 				<?php endif; // End check for header text. ?>
