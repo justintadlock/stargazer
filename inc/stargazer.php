@@ -33,6 +33,9 @@ add_filter( 'hybrid_aside_infinity', 'stargazer_aside_infinity' );
 /* Adds custom settings for the visual editor. */
 add_filter( 'tiny_mce_before_init', 'stargazer_tiny_mce_before_init' );
 
+/* Filters the calendar output. */
+add_filter( 'get_calendar', 'stargazer_get_calendar' );
+
 /* Filters the [audio] shortcode. */
 add_filter( 'wp_audio_shortcode', 'stargazer_audio_shortcode', 10, 4 );
 
@@ -284,6 +287,18 @@ function stargazer_sidebar_subsidiary_class( $attr, $context ) {
 	}
 
 	return $attr;
+}
+
+/**
+ * Turns the IDs into classes for the calendar.
+ *
+ * @since  0.1.0
+ * @access public
+ * @param  string  $calendar
+ * @return string
+ */
+function stargazer_get_calendar( $calendar ) {
+	return preg_replace( '/id=([\'"].*?[\'"])/i', 'class=$1', $calendar );
 }
 
 /**
