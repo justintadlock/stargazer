@@ -1,0 +1,42 @@
+/* @todo - Clean this up and make sure it matches the theme styles. */
+
+		#header {
+			overflow: hidden;
+			max-width: 100%;
+			padding: 24px 48px 0;
+			background: #fff;
+		}
+		.header-image {
+			max-width: 100%;
+			height:    auto;
+		}
+
+		#site-title {
+			vertical-align:  baseline;
+			margin: 0 !important;
+			font-size: 28px;
+			font-weight: 700;
+			font-family: 'Open Sans', Arial, sans-serif;
+			line-height: 1.5;
+		}
+		#site-title a { 
+			text-decoration: none;
+			font-size: 28px;
+			line-height: 28px;
+		}
+		#site-title a:hover {
+				text-decoration: none;
+				opacity: 0.75;
+				border-bottom: 1px solid #d3d3d3;
+		}
+		#site-description {
+			vertical-align:  baseline;
+			margin:       0 0 24px;
+			font-family: 'Droid Serif', 'Lora', 'Georgia', serif; 
+			font-size:    16px;
+			line-height:  16px;
+			font-weight:  400;
+			font-style:   italic;
+			color:        #656565 !important;
+			opacity:      0.5;
+		}

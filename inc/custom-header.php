@@ -12,6 +12,7 @@ add_action( 'after_setup_theme', 'stargazer_custom_header_setup', 15 );
  */
 function stargazer_custom_header_setup() {
 
+	/* Adds support for WordPress' "custom-header" feature. */
 	add_theme_support( 
 		'custom-header', 
 		array(
@@ -30,6 +31,7 @@ function stargazer_custom_header_setup() {
 		)
 	);
 
+	/* Registers default headers for the theme. */
 	register_default_headers(
 		array(
 			'horizon' => array(
@@ -64,30 +66,58 @@ function stargazer_custom_header_setup() {
 			),
 		)
 	);
+
+	/* Load the stylesheet for the custom header screen. */
+	add_action( 'admin_enqueue_scripts', 'stargazer_enqueue_admin_custom_header_styles', 5 );
 }
 
+/**
+ * Enqueues the styles for the "Appearance > Custom Header" screen in the admin.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function stargazer_enqueue_admin_custom_header_styles( $hook_suffix ) {
+
+	if ( 'appearance_page_custom-header' === $hook_suffix ) {
+		wp_enqueue_style( 'stargazer-fonts' );
+		wp_enqueue_style( 'stargazer-admin-custom-header' );
+	}
+}
+
+/**
+ * Callback function for outputting the custom header CSS to `wp_head`.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
 function stargazer_custom_header_wp_head() {
 
 	if ( !display_header_text() )
 		return;
 
-	$text_color = get_header_textcolor();
+	$hex = get_header_textcolor();
 
-	if ( empty( $text_color ) )
+	if ( empty( $hex ) )
 		return;
 
-	$style = "color: #{$text_color};";
+	$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
 
-	$rgb = hybrid_hex_to_rgb( $text_color );
+	$style  = "body.custom-header #menu-secondary .menu-items > li > a { color: rgba( {$rgb}, 0.75 ); }";
+	$style .= "body.custom-header #site-title a, body.custom-header #menu-secondary-items > li > a:hover { color: #{$hex}; }";
 
-	$nav_style = "color: rgba( {$rgb['r']}, {$rgb['g']}, {$rgb['b']}, 0.75 );";
-
-	$nav_style  = "#menu-secondary .menu-items > li > a { {$nav_style} }";
-	$nav_style .= "#menu-secondary .menu-items > li > a:hover { color: #{$text_color}; }";
-
-	echo "\n" . '<style type="text/css" id="custom-header-css">body.custom-header #site-title a { ' . trim( $style ) . ' }' . $nav_style . '</style>' . "\n";
+	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
 }
 
+/**
+ * Callback for the admin preview output on the "Appearance > Custom Header" screen.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
 function stargazer_custom_header_admin_preview() { ?>
 
 			<header <?php hybrid_attr( 'header' ); ?>>
@@ -115,56 +145,22 @@ function stargazer_custom_header_admin_preview() { ?>
 
 <?php }
 
+/**
+ * Callback function for outputting the custom header CSS to `admin_head` on "Appearance > Custom Header".  See 
+ * the `css/admin-custom-header.css` file for all the style rules specific to this screen.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
 function stargazer_custom_header_admin_head() {
 
-	$text_color = get_header_textcolor();
+	$hex = get_header_textcolor();
 
-	$style = "color: #{$text_color};";
+	if ( empty( $hex ) )
+		return;
 
-	echo "\n" . '<style type="text/css" id="custom-header-css">'; ?>
-			
-		@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Merriweather+Sans:700,400,300);
+	$style = "#site-title a { color: #{$hex}; }";
 
-		#header {
-			overflow: hidden;
-			max-width: 100%;
-			padding: 24px 48px 0;
-			background: #fff;
-		}
-		.header-image {
-			max-width: 100%;
-			height:    auto;
-		}
-
-		#site-title {
-			vertical-align:  baseline;
-			margin: 0 !important;
-			font-size: 28px;
-			font-family: 'Merriweather Sans', sans-serif;
-			line-height: 1.5;
-		}
-		#site-title a { 
-			<?php echo trim( $style ); ?>
-			text-decoration: none;
-			font-size: 28px;
-			line-height: 28px;
-		}
-		#site-title a:hover {
-				text-decoration: none;
-				opacity: 0.75;
-				border-bottom: 1px solid #d3d3d3;
-		}
-		#site-description {
-			vertical-align:  baseline;
-			margin:       0 0 24px;
-			font-family:  'Lora', serif;
-			font-size:    16px;
-			line-height:  16px;
-			font-weight:  400;
-			font-style:   italic;
-			color:        #656565 !important;
-			opacity:      0.5;
-		}
-
-	<?php echo '</style>' . "\n";
+	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
 }
