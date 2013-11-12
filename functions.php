@@ -66,7 +66,6 @@ require_once( $stargazer_dir . 'library/hybrid.php' );
 new Hybrid();
 
 /* Load theme-specific files. */
-require_once( $stargazer_dir . 'inc/hybrid-core-x.php'         );
 require_once( $stargazer_dir . 'inc/stargazer.php'             );
 require_once( $stargazer_dir . 'inc/custom-background.php'     );
 require_once( $stargazer_dir . 'inc/custom-header.php'         );
