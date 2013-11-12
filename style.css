@@ -2230,6 +2230,7 @@ h2,
 hr,
 code,
 pre,
+.form-allowed-tags code,
 fieldset,
 legend,
 input,
@@ -2371,6 +2372,7 @@ input[type="week"],
 textarea,
 select {
 	background: #f3f3f3;
+	border-color: #e3e3e3;
 }
 
 input[type="date"]:focus,
