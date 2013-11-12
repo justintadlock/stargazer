@@ -116,7 +116,7 @@ function stargazer_theme_setup() {
 	);
 
 	/* Editor styles. */
-	//add_editor_style( stargazer_get_editor_styles() );
+	add_editor_style( stargazer_get_editor_styles() );
 
 	/* Handle content width for embeds and images. */
 	// Note: this is the largest size based on the theme's various layouts.
