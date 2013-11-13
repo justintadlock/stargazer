@@ -2536,72 +2536,6 @@ h6 {
  */
 
 /*
- * Danger Zone: The white color is used in contrast to the 'primary' theme color. It's not recommended to 
- * overwrite this specific color section. If overwriting, it should be a very light color.
- */
-
-::selection,
-blockquote,
-blockquote a:hover,
-.entry-content blockquote a:hover,
-.wp-calendar td.has-posts a,
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button,
-#menu-primary .menu-toggle:hover,
-#menu-primary   li.current-menu-item > a,
-#menu-primary   li a:hover,
-#menu-secondary li li a:hover,
-ul.sub-terms li a,
-.page-links a,
-.page-links a:hover,
-.widget-title > .wrap,
-#comments-number > .wrap,
-#reply-title > .wrap,
-.attachment-meta-title > .wrap,
-.widget-title > .wrap a,
-.comment-reply-link,
-.comment-reply-login,
-.comment-reply-link:hover,
-.comment-reply-login:hover,
-.media-shortcode-extend a,
-.media-shortcode-extend a:hover,
-.media-info-toggle,
-.entry-content .media-info-toggle,
-.mejs-time .mejs-currenttime,
-.mejs-time .mejs-duration,
-.mejs-volume-button .mejs-volume-slider .mejs-volume-current,
-.mejs-volume-button .mejs-volume-slider .mejs-volume-handle,
-.media-info-toggle:hover,
-.mejs-overlay-play .mejs-overlay-button::after,
-.mejs-time-rail .mejs-time-float {
-	color: #fff;
-}
-
-pre,
-.form-allowed-tags code {
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, 0.5)), color-stop(.5, transparent), to(transparent));
-	background-image: -webkit-linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
-	background-image:    -moz-linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
-	background-image:      -o-linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
-	background-image:         linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
-}
-
-blockquote { border-color: rgba( 255, 255, 255, 0.15 ); }
-
-blockquote a,
-.entry-content blockquote a {
-	color:        rgba( 255, 255, 255, 0.75 );
-	border-color: rgba( 255, 255, 255, 0.25 ); 
-}
-
-blockquote a:hover,
-.entry-content blockquote a:hover { border-color: #fff; }
-
-/* =/=/=/=/=/= End danger zone. =/=/=/=/=/= */
-
-/*
  * Fun Zone: The colors below are safe to overwrite depending on what you need to do.  Have at it!
  */
 
@@ -2912,6 +2846,75 @@ li.ping,
 	}
 
 /* =/=/=/=/=/= End fun zone. =/=/=/=/=/= */
+
+/*
+ * Colors Danger Zone: The white color is used in contrast to the 'primary' theme color. It's not recommended to 
+ * overwrite this specific color section. If overwriting, it should be a very light color.
+ */
+
+::selection {
+	color: #fff; /* Don't combine with other elements. Breaks Firefox. */
+}
+
+blockquote,
+blockquote a:hover,
+.entry-content blockquote a:hover,
+.wp-calendar td.has-posts a,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+#menu-primary .menu-toggle:hover,
+#menu-primary   li.current-menu-item > a,
+#menu-primary   li a:hover,
+#menu-secondary li li a:hover,
+ul.sub-terms li a,
+.page-links a,
+.page-links a:hover,
+.widget-title > .wrap,
+.widget-title > .wrap a,
+#comments-number > .wrap,
+#reply-title > .wrap,
+.attachment-meta-title > .wrap,
+.comment-reply-link,
+.comment-reply-login,
+.comment-reply-link:hover,
+.comment-reply-login:hover,
+.media-shortcode-extend a,
+.media-shortcode-extend a:hover,
+.media-info-toggle,
+.entry-content .media-info-toggle,
+.mejs-time .mejs-currenttime,
+.mejs-time .mejs-duration,
+.mejs-volume-button .mejs-volume-slider .mejs-volume-current,
+.mejs-volume-button .mejs-volume-slider .mejs-volume-handle,
+.media-info-toggle:hover,
+.mejs-overlay-play .mejs-overlay-button::after,
+.mejs-time-rail .mejs-time-float {
+	color: #fff;
+}
+
+pre,
+.form-allowed-tags code {
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, 0.5)), color-stop(.5, transparent), to(transparent));
+	background-image: -webkit-linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
+	background-image:    -moz-linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
+	background-image:      -o-linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
+	background-image:         linear-gradient( rgba( 255, 255, 255, 0.5 ) 50%, transparent 50%, transparent );
+}
+
+blockquote { border-color: rgba( 255, 255, 255, 0.15 ); }
+
+blockquote a,
+.entry-content blockquote a {
+	color:        rgba( 255, 255, 255, 0.75 );
+	border-color: rgba( 255, 255, 255, 0.25 ); 
+}
+
+blockquote a:hover,
+.entry-content blockquote a:hover { border-color: #fff; }
+
+/* =/=/=/=/=/= End colors danger zone. =/=/=/=/=/= */
 
 /********************************************************************************************************
  * This concludes the fun area for making your child theme unique.
