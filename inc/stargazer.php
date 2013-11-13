@@ -12,6 +12,10 @@ add_action( 'widgets_init', 'stargazer_register_sidebars', 5 );
 /* Add custom scripts. */
 add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 
+/* Register custom styles. */
+add_action( 'wp_enqueue_scripts',    'stargazer_register_styles', 0 );
+add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
+
 /* Add custom body classes. */
 add_filter( 'body_class', 'stargazer_body_class' );
 
@@ -119,6 +123,33 @@ function stargazer_enqueue_scripts() {
 
 	wp_enqueue_script( 'stargazer' );
 
+}
+
+/**
+ * Registers custom stylesheets for the front end.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_styles() {
+	wp_deregister_style( 'mediaelement' );
+	wp_deregister_style( 'wp-mediaelement' );
+
+	wp_register_style( 'stargazer-fonts',        'http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
+	wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
+}
+
+/**
+ * Registers stylesheets for use in the admin.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function stargazer_admin_register_styles() {
+	wp_register_style( 'stargazer-fonts', 'http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
+	wp_register_style( 'stargazer-admin-custom-header', hybrid_locate_theme_file( array( 'css/admin-custom-header.css' ) ) );
 }
 
 /**

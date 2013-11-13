@@ -10,54 +10,6 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-/******************************************************************/
-
-/* === Temporary functionality until we wrap everything up. === */
-
-add_action( 'wp_enqueue_scripts', 'stargazer_register_styles', 0 );
-
-function stargazer_register_styles() {
-	wp_register_style( 'stargazer-fonts', "http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700" );
-}
-
-add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
-
-function stargazer_admin_register_styles() {
-	wp_register_style( 'stargazer-fonts', "http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700" );
-	wp_register_style( 'stargazer-admin-custom-header', hybrid_locate_theme_file( array( 'css/admin-custom-header.css' ) ) );
-}
-
-// temp
-add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_styles', 5 );
-
-// temp
-function stargazer_enqueue_styles() {
-
-
-	wp_deregister_style( 'mediaelement' );
-	wp_deregister_style( 'wp-mediaelement' );
-
-	$dir = trailingslashit( get_template_directory_uri() );
-
-	wp_enqueue_style( 'stargazer-fonts' );
-
-//	wp_enqueue_style( 'sg-g-fonts',  "http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700" );
-//	wp_enqueue_style( 'sg-g2-fonts', "http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic&text=%26" );
-
-	wp_enqueue_style( 'sg-one-five', "{$dir}library/css/one-five.min.css" );
-	wp_enqueue_style( 'sg-gallery',  "{$dir}library/css/gallery.min.css"  );
-	wp_enqueue_style( 'sg-mejs',     "{$dir}css/mediaelement/mediaelement.min.css" );
-
-	wp_enqueue_style( 'sg-m-query',  "{$dir}css/media-queries.css" );
-
-	if ( is_child_theme() )
-		wp_enqueue_style( 'parent', "{$dir}style.css" );
-
-	wp_enqueue_style( 'sg-style',    get_stylesheet_uri() );
-}
-
-/******************************************************************************/
-
 /* Get the template directory and make sure it has a trailing slash. */
 $stargazer_dir = trailingslashit( get_template_directory() );
 
@@ -97,6 +49,12 @@ function stargazer_theme_setup() {
 			'2c-r'      => __( '2 Columns: Sidebar / Content', 'stargazer' )
 		),
 		array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) 
+	);
+
+	/* Load stylesheets. */
+	add_theme_support(
+		'hybrid-core-styles',
+		array( 'stargazer-fonts', 'one-five', 'gallery', 'stargazer-mediaelement', 'parent', 'style' )
 	);
 
 	/* Enable custom template hierarchy. */
