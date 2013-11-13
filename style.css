@@ -11,14 +11,48 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-/* @todo - Compress and save as `style.min.css`. */
-
 /********************************************************************************************************
- * IMPORTANT!!!
- *
  * Please do not make edits directly to this file.  You will lose all modifications when the theme is 
  * next updated if you do so.  Please use a child theme.  This theme's styles will automatically be 
  * loaded for you.  You can then overwrite specific style rules in your child theme's `style.css` file.
+ *
+ * This file is only loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file.  Otherwise, 
+ * the `style.min.css` file is loaded.
+ *
+ * TABLE OF CONTENTS:
+ * 	1 - Danger Zone (things to not modify in your child theme)
+ * 		1.1 - Font Face
+ * 		1.2 - Layout
+ * 		1.3 - Defaults
+ * 		1.4 - Genericons
+ * 		1.5 - Header and Footer
+ * 		1.6 - Main and Content
+ * 		1.7 - Media
+ * 		1.8 - Sidebars and Widgets
+ * 		1.9 - Comments Template
+ * 		1.10 - Menus
+ * 		1.11 - Plugins
+ * 	2 - Fun Zone (things you can modify in your child theme)
+ * 		2.1 - Font Family Definitions
+ * 		2.2 - Color Definitions
+ ********************************************************************************************************/
+
+/********************************************************************************************************
+ * 1 - Danger Zone
+ *
+ * This section of the CSS is something I wouldn't recommend overwriting.  It can and most likely will 
+ * be changed in the future as the theme receives updates.  Overwriting the below in your child theme 
+ * is what I consider dangerous territory and might leave you with some broken styles in a future update. 
+ * Basically, do it if you must.  Just be aware of  the consequences.
+ *
+ * The items you'll most likely want to modify (those things dealing with more stylistic elements like 
+ * fonts and colors) are located at the bottom of this file.
+ ********************************************************************************************************/
+
+/********************************************************************************************************
+ * 1.1 Font Face
+ *
+ * This section loads additional fonts needed by the theme.
  ********************************************************************************************************/
 
 /* ====== Adds the Genericons icon font. ====== */
@@ -36,18 +70,15 @@
 }
 
 /********************************************************************************************************
- * This section of the CSS is something I wouldn't recommend overwriting.  It can and most likely will 
- * be changed in the future as the theme receives updates.  Overwriting the below in your child theme 
- * is what I consider dangerous territory and might leave you with some broken styles in a future update 
- * Basically, do it if you must.  Just be aware of  the consequences.
+ * ====== End Font Face ======
  ********************************************************************************************************/
 
-/**
- * Layout
+/********************************************************************************************************
+ * 1.2 - Layout
  *
  * This section of the stylesheet defines the overall layout of the theme's major structural elements. It 
  * is essentially the foundation for the entire design.
- */
+ ********************************************************************************************************/
 
 body { overflow-x: hidden; }
 
@@ -189,17 +220,16 @@ body { overflow-x: hidden; }
 		.sidebar-col-3 .widget:nth-child( 3n + 1 ) { clear: both; }
 	}
 
-
 /********************************************************************************************************
  * ====== End Layout ======
  ********************************************************************************************************/
 
-/**
- * Defaults
+/********************************************************************************************************
+ * 1.3 - Defaults
  *
  * This section handles the default style rules for the majority of possible HTML elements and other 
  * WordPress-specific classes.
- */
+ ********************************************************************************************************/
 
 /* === Body === */
 
@@ -667,17 +697,46 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 		height:    100%;
 	}
 
+/* === Clearing Floats === */
+
+.clearfix::after,
+#header::after,
+#branding::after,
+#main::after,
+#sidebar-subsidiary::after,
+#footer::after,
+.comment-respond::after,
+.entry::after,
+.entry-content::after,
+.entry-summary::after,
+.loop-meta::after,
+li.comment::after,
+li.comment > article::after,
+li.ping::after,
+.loop-nav::after,
+.attachment-meta::after,
+.media-info::after,
+.media-info ul li::after,
+.media-shortcode-extend::after,
+.widget::after,
+.whistles::after,
+.whistle-content::after {
+	content:    ".";
+	display:    block;
+	height:     0;
+	clear:      both;
+	visibility: hidden;
+}
 
 /********************************************************************************************************
  * ====== End Defaults ======
  ********************************************************************************************************/
 
-
-/**
- * Genericons
+/********************************************************************************************************
+ * 1.4 - Genericons
  *
  * This section defines the CSS rules for handling Genericons, the icon font used in this theme.
- */
+ ********************************************************************************************************/
 
 /* Links */
 a[href^="mailto:"]::before,
@@ -1043,286 +1102,27 @@ ul.sub-terms::before,
  * ====== End Genericons ======
  ********************************************************************************************************/
 
-
-
-
-
-/*************** wrap ******************/
-
-	.main {
-		overflow:   hidden;
-		word-wrap:  break-word;
-		word-break: normal;
-
-		-webkit-hyphens:  auto;
-		   -moz-hyphens:  auto;
-		    -ms-hyphens:  auto;
-		       hyphens: auto;
-	}
-
-/********************************* MEDIA PLAYER *******************************************/
-
-/* ====== Attachment Meta (on image attachment pages) ====== */
-
-	.attachment-meta .image-info,
-	.attachment-meta .image-gallery { margin-bottom: 1.5rem; }
-
-
-	@media only screen and ( min-width: 800px ) {
-
-		.attachment-meta .image-info,
-		.attachment-meta .image-gallery { width: 47.5%; }
-
-		.rtl .attachment-meta .image-info,
-		.ltr .attachment-meta .image-gallery { float: right; }
-
-		.ltr .attachment-meta .image-info,
-		.rtl .attachment-meta .image-gallery { float: left; }
-	}
-
-		.media-info ul {
-			margin:     0 0 1.5rem;
-			list-style: none;
-		}
-
-			.media-info li {
-				display:       block;
-				padding:       5px 10px;
-				font-size:     1rem;
-				border-bottom: 1px dotted;
-			}
-
-				.media-info li:last-child { border: none; }
-
-				.media-info .prep,
-				.media-info .data {
-					display:    block;
-					text-align: center;
-				}
-
-				.media-info .prep {
-					font-size:      0.9375rem;
-					text-transform: capitalize;
-				}
-
-				@media only screen and ( min-width: 700px ) {
-
-					.media-info .prep { max-width: 30%; }
-					.media-info .data { max-width: 70%; }
-
-					.ltr .media-info .data { float: right; text-align: right; }
-					.rtl .media-info .data { float: left; text-align: left; }
-
-					.ltr .media-info .prep { float: left; text-align: left; }
-					.rtl .media-info .prep { float: right; text-align: right; }
-				}
-
-
-/* ====== Audio/Video shortcode toggle ====== */
-
-.media-shortcode-extend {
-	margin-top: -1.5rem;
-	text-align: center;
-}
-
-	.media-shortcode-extend .media-info {
-		overflow:   hidden;
-		display:    none;
-		padding:    1.5rem 1.5rem 0;
-	}
-
-		.media-shortcode-extend .audio-info { border-top: 1px solid; }
-
-			.media-shortcode-extend a,
-			.media-shortcode-extend a:hover { border: none; }
-
-			.media-shortcode-extend a:hover { text-decoration: underline; }
-
-			.media-info-toggle,
-			.entry-content .media-info-toggle {
-				position:        relative;
-				display:         inline-block;
-				margin:          0 auto 1.5rem;
-				padding:         10px 1.5rem;
-				font-size:       0.9375rem;
-				line-height:     16px;
-				border:          none;
-				text-decoration: none;
-			}
-
-		@media only screen and (min-width: 700px) {
-
-			.ltr .media-info-toggle { float: right; margin-right: 3rem; }
-			.rtl .media-info-toggle { float: left;  margin-left: 3rem;  }
-		}
-
-
-/* === WP audio/video player === */
-
-.mejs-container {
-	margin-bottom: 1.5rem;
-}
-
-	.wp-audio-shortcode.mejs-container { min-height: 100px !important; }
-
-	.wp-video-shortcode .mejs-controls {
-		border-top:    1px solid;
-		border-bottom: 1px solid;
-		opacity:       0.8;
-	}
-
-	.mejs-controls {
-		width:           100%;
-		height:          50px;
-		padding:         10px;
-		-moz-box-sizing: border-box;
-		     box-sizing: border-box;
-	}
-
-	.wp-audio-shortcode .mejs-controls { top: 25px; }
-
-
-.audio-shortcode-wrap {
-	position:      relative;
-	max-height:    136px;
-	overflow:      hidden;
-	margin-bottom: 1.5rem;
-}
-
-	.audio-image {
-		position:    relative;
-		border:      none;
-		margin:      0;
-		padding:     8px 0 0;
-		max-width:   20%;
-		max-height:  131px;
-		height:      auto;
-	}
-
-		.ltr .audio-image { left: 0;  padding-left: 8px; }
-		.rtl .audio-image { right: 0; padding-right: 8px; }
-
-	.audio-shortcode-wrap .wp-audio-shortcode {
-		position:   absolute !important;
-		top:        50%;
-		margin-top: -1.5rem;
-		clear:      none;
-		width:      79% !important;
-	}
-	.audio-shortcode-wrap .wp-audio-shortcode .mejs-controls { top: 0; }
-
-		.ltr .audio-shortcode-wrap .wp-audio-shortcode { left: 20%; }
-		.rtl .audio-shortcode-wrap .wp-audio-shortcode { left: 0; }
-
-
-		/* Fix for last item dropping below the controls. */
-		.mejs-controls > div:last-of-type {
-			position: relative;
-			clear:    both;
-			float:    right;
-			top:      -31px;
-		}
-
-		.wp-audio-shortcode .mejs-mediaelement {
-			position: relative;
-			top:      0;
-			left:     0;
-			width:    100%;
-			height:   100%;
-		}
-
-		.mejs-overlay-loading span {
-			background: transparent url( 'css/mediaelement/images/loading.gif' ) 50% 50% no-repeat;
-		}
-
-		.mejs-button button {
-			height:     16px;
-			width:      16px;
-			background: transparent url( 'css/mediaelement/images/controls.png' ) no-repeat;
-		}
-
-			.mejs-fullscreen-button button,
-			.mejs-playpause-button button,
-			.mejs-volume-button button { background: none; }
-
-			.mejs-button button:focus { outline: 1px solid; }
-
-		.mejs-time .mejs-currenttime,
-		.mejs-time .mejs-duration {
-			font-size:   0.875rem;
-		}
-
-
-		.mejs-volume-button .mejs-volume-slider {
-			width:       40px;
-			margin-left: -10px;
-		}
-
-			.mejs-volume-button .mejs-volume-slider .mejs-volume-total,
-			.mejs-volume-button .mejs-volume-slider .mejs-volume-current {
-				top:      10px;
-				left:     50%;
-				width:    4px;
-				margin:   0 0 0 -2px;
-			}
-
-			.mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
-				left:     50%;
-				width:    20px;
-				height:   4px;
-				margin:   0 0 0 -10px;
-			}
-
-		.mejs-overlay-button {
-			width:      112px;
-			height:     112px;
-			margin:     -56px 0 0 -56px;
-		}
-
-			.mejs-overlay-play .mejs-overlay-button::after {
-				content:       '\f452';
-				padding:       18px;
-				font-size:     64px;
-				line-height:   64px;
-				border-radius: 50%;
-				opacity:       0.85;
-			}
-
-		.mejs-time-rail .mejs-time-float {
-			top:         -38px;
-			height:      27px;
-			width:       50px;
-			margin-left: -25px;
-			border:      1px solid;
-		}
-
-		.mejs-time-rail .mejs-time-float-current {
-			width:      100%;
-			margin:     8px 0;
-			font-size:  0.75rem;
-			box-sizing: border-box;
-		}
-
-		.mejs-time-rail .mejs-time-float-corner {
-			top:  28px;
-			left: 20px;
-		}
-
-
-/******************************/
-
-
-
-
+/********************************************************************************************************
+ * 1.5 - Header and Footer
+ *
+ * Handles the output of the main site header and footer content.
+ ********************************************************************************************************/
 
 /**
- * Header
- * --------------------------------------------------------------------------- */
+ * Handles the output of the header content.
+ */
 
 .display-header-text #header {
 	padding-top:   1.5rem;
 	border-bottom: 1px solid;
 }
+
+	@media only screen and (min-width: 800px) {
+
+		     #branding { width: 42.85%; max-width: 450px; }
+		.ltr #branding { float: left; }
+		.rtl #branding { float: right; }
+	}
 
 		.logo-image {
 			float:  left;
@@ -1360,30 +1160,70 @@ ul.sub-terms::before,
 .header-image,
 .logo-image a { opacity: 1; }
 
-@media only screen and (min-width: 800px) {
 
-	/* ====== Branding ====== */
+/**
+ * Handles the output of the footer content.
+ */
 
-	#branding {
-		width:     42.85%;
-		max-width: 28.125rem; /* 450 */
+#footer {
+	overflow:    hidden;
+	padding:     1.5rem 0 0;
+	font-size:   0.9375rem;
+	font-family: 'Open Sans', sans-serif;
+	text-align:  center;
+}
+
+	@media only screen and ( min-width: 950px ) {
+
+		.layout-1c   #footer .credit,
+		.layout-2c-l #footer .credit,
+		.layout-2c-r #footer .credit { max-width: 47.5%; }
+
+		.ltr.layout-1c   #footer,
+		.ltr.layout-2c-l #footer,
+		.ltr.layout-2c-r #footer { text-align: left;  }
+
+		.rtl.layout-1c   #footer,
+		.rtl.layout-2c-l #footer,
+		.rtl.layout-2c-r #footer { text-align: right; }
 	}
 
-		.ltr #branding { float: left; }
-		.rtl #branding { float: right; }
+/********************************************************************************************************
+ * ====== End Header and Footer ======
+ ********************************************************************************************************/
+
+/********************************************************************************************************
+ * 1.6 - Main and Content
+ *
+ * This section deals with the #main section of the site, which wraps the content and primary sidebar. 
+ * Sidebars have their own section in this stylesheet.
+ ********************************************************************************************************/
+
+.main {
+	padding-top: 3rem;
+	overflow:    hidden;
+	word-wrap:   break-word;
+	word-break:  normal;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	       hyphens: auto;
+}
+
+.main,
+.mceContentBody {
+	font-size:   1.25rem;
+	font-weight: 400;
 }
 
 /**
- * Main
- * --------------------------------------------------------------------------- */
-
-#main { padding-top: 3rem; }
-
-/* ====== BREADCRUMBS ====== */
+ * Breadcrumbs
+ */
 
 .breadcrumb-trail {
-	margin-top:  -1.5rem;
-	font-size:   1rem;
+	margin-top: -1.5rem;
+	font-size:  1rem;
 }
 
 	.breadcrumb-trail span.trail-end { opacity: 0.5; }
@@ -1402,20 +1242,8 @@ ul.sub-terms::before,
 	.breadcrumb-trail a:hover { opacity: 1; }
 
 /**
- * Content
- * --------------------------------------------------------------------------- */
-
-.main,
-.mceContentBody {
-	font-size:   1.25rem;
-	font-weight: 400;
-}
-
-
-	.entry-byline,
-	.entry-footer { font-size: 1rem; }
-
-/* ====== POSTS ====== */
+ * Posts
+ */
 
 .entry  {
 	overflow:      hidden;
@@ -1424,34 +1252,35 @@ ul.sub-terms::before,
 	border-bottom: 1px solid;
 }
 
-	.entry:last-of-type {
-		margin:  0 0 1.5rem;
+.entry:last-of-type {
+	margin:  0 0 1.5rem;
+	padding: 0;
+	border:  none;
+}
+
+	.plural .content .entry-title {
+		margin:  0 0 0.75rem;
 		padding: 0;
 		border:  none;
 	}
 
-	/* === Post Header === */
+	.plural .content .entry-byline { margin: 0 0 0.75rem; }
 
-			.plural .content .entry-title {
-				margin:  0 0 0.75rem;
-				padding: 0;
-				border:  none;
-			}
+	.entry-byline,
+	.entry-footer { font-size: 1rem; }
 
-			.plural .content .entry-byline { margin: 0 0 0.75rem; }
+	.entry-byline,
+	.entry-footer,
+	.comment-meta {
+		margin:      0 0 1.5rem;
+		font-weight: 400;
+		font-style:  normal;
+	}
 
-		.entry-byline,
-		.entry-footer,
-		.comment-meta {
-			margin:      0 0 1.5rem;
-			font-weight: 400;
-			font-style:  normal;
-		}
+	.entry-footer,
+	.comment-meta { clear: both; }
 
-		.entry-footer,
-		.comment-meta { clear: both; }
-
-		.image-sizes a    { margin: 0 3px; }
+		.image-sizes a { margin: 0 3px; }
 
 		/* Elements */
 		.ltr .entry-author,
@@ -1474,32 +1303,31 @@ ul.sub-terms::before,
 		.ltr span.comments-link,
 		.rtl span.comments-link { display: none; }
 
-
 	/* === Asides === */
 
-		.format-aside .entry-content a.permalink { font-weight: bold; }
+	.format-aside .entry-content a.permalink { font-weight: bold; }
 
 	/* === Chats === */
 
-			.format-chat .chat-text { margin-left: 1.125rem; }
+	.format-chat .chat-text { margin-left: 1.125rem; }
 
-			.format-chat .chat-author {
-				margin-top:  -12px;
-				padding-top: 12px;
-				border-top:  1px dotted;
-			}
+	.format-chat .chat-author {
+		margin-top:  -12px;
+		padding-top: 12px;
+		border-top:  1px dotted;
+	}
 
-			.format-chat .chat-row:first-child .chat-author {
-				margin:  0;
-				padding: 0;
-				border:  none;
-			}
+	.format-chat .chat-row:first-child .chat-author {
+		margin:  0;
+		padding: 0;
+		border:  none;
+	}
 
-			.format-chat cite {
-				font-size:   1rem;
-				font-style:  normal;
-				font-weight: 700;
-			}
+		.format-chat cite {
+			font-size:   1rem;
+			font-style:  normal;
+			font-weight: 700;
+		}
 
 	/* === Images === */
 
@@ -1507,8 +1335,11 @@ ul.sub-terms::before,
 	.format-image > a img,
 	.format-image > .wp-caption { margin-bottom: 1.5rem; }
 
-
-/* ====== LOOP META ====== */
+/**
+ * Loop Meta
+ *
+ * This displays the archive, blog, and search title + description.
+ */
 
 .loop-meta { margin: 0 0 1.5rem; }
 
@@ -1518,44 +1349,9 @@ ul.sub-terms::before,
 		border:  1px solid;
 	}
 
-	/* Sub-terms list. */
-
-	ul.sub-terms {
-		list-style: none;
-		margin:     0 0 1.5rem;
-	}
-
-		.ltr ul.sub-terms { margin-left:  0.75rem; }
-		.rtl ul.sub-terms { margin-right: 0.75rem; }
-
-		ul.sub-terms::before {
-			content:      '\f412';
-			margin-right: 0.3125rem;
-		}
-
-			.rtl ul.sub-terms::before {
-				-webkit-transform: scaleX(-1);
-				   -moz-transform: scaleX(-1);
-				     -o-transform: scaleX(-1);
-				        transform: scaleX(-1);
-
-				       -ms-filter: "FlipH";
-				           filter: FlipH;
-			}
-
-		ul.sub-terms li { display: inline-block; }
-
-			ul.sub-terms li a {
-				display:     inline-block;
-				padding:     0.5rem 0.75rem;
-				font-size:   0.8125rem;
-				font-weight: 400;
-			}
-
-				.ltr ul.sub-terms li a { margin-right: 5px; }
-				.rtl ul.sub-terms li a { margin-left:  5px; }
-
-/* ====== PAGINATION ====== */
+/**
+ * Pagination
+ */
 
 /* === Single posts using <!--nextpage--> === */
 
@@ -1593,56 +1389,280 @@ ul.sub-terms::before,
 	border-top: 1px solid;
 }
 
-/**
- * Social Menu
- * --------------------------------------------------------------------------- */
+/********************************************************************************************************
+ * ====== End Main ======
+ ********************************************************************************************************/
 
-	#menu-social ul {
-		list-style: none;
-		margin:     0 0 0.875rem;
-		text-align: center;
+/********************************************************************************************************
+ * 1.7 - Media
+ *
+ * This section deals with handling media and the output of media-related elements.
+ ********************************************************************************************************/
+
+/**
+ * Attachment meta
+ *
+ * Attachment meta is shown on attachment pages and along with the WordPress media player.
+ */
+
+.attachment-meta .media-info,
+.attachment-meta .image-gallery { margin-bottom: 1.5rem; }
+
+	@media only screen and ( min-width: 800px ) {
+
+		.attachment-meta .image-info,
+		.attachment-meta .image-gallery { width: 47.5%; }
+
+		.rtl .attachment-meta .image-info,
+		.ltr .attachment-meta .image-gallery { float: right; }
+
+		.ltr .attachment-meta .image-info,
+		.rtl .attachment-meta .image-gallery { float: left; }
 	}
 
-		#menu-social ul li {
-			display:       inline-block;
-			margin-bottom: 0.625rem;
+	.media-info ul {
+		margin:     0 0 1.5rem;
+		list-style: none;
+	}
+
+		.media-info li {
+			display:       block;
+			padding:       5px 10px;
+			font-size:     1rem;
+			border-bottom: 1px dotted;
 		}
 
-			#menu-social li a {
-				position: relative;
-				display: inline-block;
-				text-decoration: none;
+			.media-info li:last-child { border: none; }
+
+			.media-info .prep,
+			.media-info .data {
+				display:    block;
+				text-align: center;
 			}
 
-	@media only screen and ( min-width: 950px ) {
+			.media-info .prep {
+				font-size:      0.9375rem;
+				text-transform: capitalize;
+			}
 
-		.layout-1c   #menu-social,
-		.layout-2c-l #menu-social,
-		.layout-2c-r #menu-social { max-width: 47.5%; }
+			@media only screen and ( min-width: 700px ) {
 
-		.ltr.layout-1c   #menu-social,
-		.ltr.layout-2c-l #menu-social,
-		.ltr.layout-2c-r #menu-social { float: right; }
+				.media-info .prep { max-width: 30%; }
+				.media-info .data { max-width: 70%; }
 
-		.rtl.layout-1c   #menu-social,
-		.rtl.layout-2c-l #menu-social,
-		.rtl.layout-2c-r #menu-social { float: left;  }
+				.ltr .media-info .data { float: right; text-align: right; }
+				.rtl .media-info .data { float: left; text-align: left; }
 
-		.ltr.layout-1c   #menu-social ul,
-		.ltr.layout-2c-l #menu-social ul,
-		.ltr.layout-2c-r #menu-social ul { text-align: right; }
-
-		.rtl.layout-1c   #menu-social ul,
-		.rtl.layout-2c-l #menu-social ul,
-		.rtl.layout-2c-r #menu-social ul { text-align: left;  }
-
-	}
+				.ltr .media-info .prep { float: left; text-align: left; }
+				.rtl .media-info .prep { float: right; text-align: right; }
+			}
 
 /**
- * Sidebars and widgets
- * --------------------------------------------------------------------------- */
+ * Audio/Video shortcode extend
+ *
+ * This feature adds a toggle button to the WordPress media player for showing/hiding additional meta 
+ * information about the media.
+ */
 
-/* ====== General ====== */
+.media-shortcode-extend {
+	margin-top: -1.5rem;
+	text-align: center;
+}
+
+	.media-shortcode-extend .media-info {
+		overflow:   hidden;
+		display:    none;
+		padding:    1.5rem 1.5rem 0;
+	}
+
+	.media-shortcode-extend .audio-info { border-top: 1px solid; }
+
+	.media-shortcode-extend a,
+	.media-shortcode-extend a:hover { border: none; }
+	.media-shortcode-extend a:hover { text-decoration: underline; }
+
+	.media-info-toggle,
+	.entry-content .media-info-toggle {
+		position:        relative;
+		display:         inline-block;
+		margin:          0 auto 1.5rem;
+		padding:         10px 1.5rem;
+		font-size:       0.9375rem;
+		line-height:     16px;
+		border:          none;
+		text-decoration: none;
+	}
+
+		@media only screen and (min-width: 700px) {
+			.ltr .media-info-toggle { float: right; margin-right: 3rem; }
+			.rtl .media-info-toggle { float: left;  margin-left: 3rem;  }
+		}
+
+/**
+ * WordPress media player.
+ *
+ * This overwrites various elements of the media player styles included.  For the full media player styles, 
+ * see the `css/mediaelement/medialement.css` stylesheet.
+ */
+
+.mejs-container { margin-bottom: 1.5rem; }
+
+	.wp-audio-shortcode.mejs-container { min-height: 100px !important; }
+
+	.mejs-controls {
+		width:           100%;
+		height:          50px;
+		padding:         10px;
+		-moz-box-sizing: border-box;
+		     box-sizing: border-box;
+	}
+
+	.wp-video-shortcode .mejs-controls {
+		border-top:    1px solid;
+		border-bottom: 1px solid;
+		opacity:       0.8;
+	}
+
+	.wp-audio-shortcode .mejs-controls { top: 25px; }
+
+		/* Fix for last item dropping below the controls. */
+		.mejs-controls > div:last-of-type {
+			position: relative;
+			clear:    both;
+			float:    right;
+			top:      -31px;
+		}
+
+		.wp-audio-shortcode .mejs-mediaelement {
+			position: relative;
+			top:      0;
+			left:     0;
+			width:    100%;
+			height:   100%;
+		}
+
+		.mejs-overlay-loading span {
+			background: transparent url( 'css/mediaelement/images/loading.gif' ) 50% 50% no-repeat;
+		}
+
+		.mejs-button button {
+			height:     16px;
+			width:      16px;
+			background: transparent url( 'css/mediaelement/images/controls.png' ) no-repeat;
+		}
+
+			.mejs-fullscreen-button button,
+			.mejs-playpause-button button,
+			.mejs-volume-button button { background: none; }
+
+			.mejs-button button:focus { outline: 1px solid; }
+
+		.mejs-time .mejs-currenttime,
+		.mejs-time .mejs-duration {
+			font-size: 0.875rem;
+		}
+
+		.mejs-volume-button .mejs-volume-slider {
+			width:       40px;
+			margin-left: -10px;
+		}
+
+			.mejs-volume-button .mejs-volume-slider .mejs-volume-total,
+			.mejs-volume-button .mejs-volume-slider .mejs-volume-current {
+				top:    10px;
+				left:   50%;
+				width:  4px;
+				margin: 0 0 0 -2px;
+			}
+
+			.mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
+				left:   50%;
+				width:  20px;
+				height: 4px;
+				margin: 0 0 0 -10px;
+			}
+
+		.mejs-overlay-button {
+			width:  112px;
+			height: 112px;
+			margin: -56px 0 0 -56px;
+		}
+
+			.mejs-overlay-play .mejs-overlay-button::after {
+				content:       '\f452';
+				padding:       18px;
+				font-size:     64px;
+				line-height:   64px;
+				border-radius: 50%;
+				opacity:       0.85;
+			}
+
+		.mejs-time-rail .mejs-time-float {
+			top:         -38px;
+			height:      27px;
+			width:       50px;
+			margin-left: -25px;
+			border:      1px solid;
+		}
+
+		.mejs-time-rail .mejs-time-float-current {
+			width:      100%;
+			margin:     8px 0;
+			font-size:  0.75rem;
+			box-sizing: border-box;
+		}
+
+		.mejs-time-rail .mejs-time-float-corner {
+			top:  28px;
+			left: 20px;
+		}
+
+	/* Wrapper added when the audio player has an accompanying image. */
+
+	.audio-shortcode-wrap {
+		position:      relative;
+		max-height:    136px;
+		overflow:      hidden;
+		margin-bottom: 1.5rem;
+	}
+
+		.audio-image {
+			position:    relative;
+			border:      none;
+			margin:      0;
+			padding:     8px 0 0;
+			max-width:   20%;
+			max-height:  131px;
+			height:      auto;
+		}
+
+			.ltr .audio-image { left: 0;  padding-left: 8px; }
+			.rtl .audio-image { right: 0; padding-right: 8px; }
+
+		.audio-shortcode-wrap .wp-audio-shortcode {
+			position:   absolute !important;
+			top:        50%;
+			margin-top: -1.5rem;
+			clear:      none;
+			width:      79% !important;
+		}
+
+		.audio-shortcode-wrap .wp-audio-shortcode .mejs-controls { top: 0; }
+
+			.ltr .audio-shortcode-wrap .wp-audio-shortcode { left: 20%; }
+			.rtl .audio-shortcode-wrap .wp-audio-shortcode { left: 0; }
+
+/********************************************************************************************************
+ * ====== End Media ======
+ ********************************************************************************************************/
+
+/********************************************************************************************************
+ * 1.8 - Sidebars and Widgets
+ *
+ * This section handles the output of sidebars and widgets.  Note that the layout of sidebars is handled 
+ * in the layout section.  There's also a few style rules for non-sidebar elements that have the same 
+ * design.
+ ********************************************************************************************************/
 
 .sidebar { font-size: 1.0675rem; }
 
@@ -1651,10 +1671,9 @@ ul.sub-terms::before,
 	border-top:  1px solid;
 }
 
-
 	.widget {
-		margin:     0;
-		padding:    0 0 1.5rem;
+		margin:  0;
+		padding: 0 0 1.5rem;
 	}
 
 		.widget-title,
@@ -1682,14 +1701,11 @@ ul.sub-terms::before,
 		font-size: 0.875em; /* relative */
 	}
 
-	/* RSS widget. */
-
 	/* Search widget. */
-
-		.widget_search > .search-form {
-			padding: 1.5rem;
-			margin:  -1.5rem 0 1.5rem;
-		}
+	.widget_search > .search-form {
+		padding: 1.5rem;
+		margin:  -1.5rem 0 1.5rem;
+	}
 
 		.widget_search input[type="search"] {
 			display: block;
@@ -1699,6 +1715,7 @@ ul.sub-terms::before,
 			opacity: 1;
 			box-sizing: border-box;
 		}
+
 		.widget_search input[type="submit"] { display: none; }
 
 	/* Members login widget */
@@ -1708,11 +1725,22 @@ ul.sub-terms::before,
 	.widget-login img + p,
 	.widget.login img + p { padding-top: 0.75rem; }
 
-/**
- * Comments Template
- * --------------------------------------------------------------------------- */
+/********************************************************************************************************
+ * ====== End Sidebars and Widgets ======
+ ********************************************************************************************************/
 
-/* ====== COMMENTS ======= */
+/********************************************************************************************************
+ * 1.9 - Comments Template
+ *
+ * This section handles the output of the comments template.  In particular, it styles the output of the 
+ * comments section (comments list) and the respond section (comment form).
+ ********************************************************************************************************/
+
+/**
+ * Comments
+ *
+ * Handles the output of the comments list and related elements.
+ */
 
 #comments { padding: 0 0 1.5rem; }
 
@@ -1733,15 +1761,13 @@ ul.sub-terms::before,
 	}
 
 		.comment-list li > .children,
-		.comment-list .children li > .children {
-			list-style: none;
-		}
+		.comment-list .children li > .children { list-style: none; }
 
-			.ltr .comment-list li > .children,
-			.ltr .comment-list .children li > .children { margin: 0 0 0 1.5rem; }
+		.ltr .comment-list li > .children,
+		.ltr .comment-list .children li > .children { margin: 0 0 0 1.5rem; }
 
-			.rtl .comment-list li > .children,
-			.rtl .comment-list .children li > .children { margin: 0 1.5rem 0 0; }
+		.rtl .comment-list li > .children,
+		.rtl .comment-list .children li > .children { margin: 0 1.5rem 0 0; }
 
 		/* === Individual comments */
 
@@ -1752,16 +1778,8 @@ ul.sub-terms::before,
 
 			/* === Avatars === */
 
-				.ltr li.ping .avatar {
-					float:       right;
-					margin-left: 1.5rem;
-				}
-
-				.rtl li.ping .avatar {
-					float:        left;
-					margin-right: 1.5rem;
-				}
-
+			.ltr li.ping .avatar { float: right; margin-left: 1.5rem;  }
+			.rtl li.ping .avatar { float: left;  margin-right: 1.5rem; }
 
 			/* === Meta === */
 
@@ -1772,21 +1790,21 @@ ul.sub-terms::before,
 
 				.has-avatar.comment .comment-author { margin-top: 10px; }
 
-					.comment-author {
-						font-size:   1rem;
-						font-weight: 700;
-						font-style:  normal;
-					}
+				.comment-author {
+					font-size:   1rem;
+					font-weight: 700;
+					font-style:  normal;
+				}
 
-					.ltr .comment-author,
-					.ltr .comment-published,
-					.ltr .comment-permalink,
-					.ltr .comment-edit-link { display: inline-block; margin-right: 5px; }
+				.ltr .comment-author,
+				.ltr .comment-published,
+				.ltr .comment-permalink,
+				.ltr .comment-edit-link { display: inline-block; margin-right: 5px; }
 
-					.rtl .comment-author,
-					.rtl .comment-published,
-					.rtl .comment-permalink,
-					.rtl .comment-edit-link { display: inline-block; margin-left: 5px; }
+				.rtl .comment-author,
+				.rtl .comment-published,
+				.rtl .comment-permalink,
+				.rtl .comment-edit-link { display: inline-block; margin-left: 5px; }
 
 			/* === Comment text/content === */
 
@@ -1796,7 +1814,6 @@ ul.sub-terms::before,
 				padding: 1.5rem 1.5rem 0;
 				border:  1px solid;
 			}
-
 
 			/* === Reply link === */
 
@@ -1808,37 +1825,38 @@ ul.sub-terms::before,
 				font-weight:    400;
 			}
 
-				.ltr .comment-reply-link,
-				.ltr .comment-reply-login { float: right; margin-right: 0.75rem; }
+			.ltr .comment-reply-link,
+			.ltr .comment-reply-login { float: right; margin-right: 0.75rem; }
 
-				.rtl .comment-reply-link,
-				.rtl .comment-reply-login { float: left;  margin-left:  0.75rem; }
+			.rtl .comment-reply-link,
+			.rtl .comment-reply-login { float: left;  margin-left:  0.75rem; }
 
-/* ====== RESPOND (COMMENT FORM) ====== */
+/**
+ * Respond
+ *
+ * Handles the output of the comment form.
+ */
 
 .comment-respond { padding: 0 0 1.5rem; }
 
 	.comment-respond .required { font-weight: 700; }
 
-		#reply-title small a {
-			display:        inline-block;
-			padding:        0.8125rem;
-			font-size:      1em;
-			font-weight:    400;
-			text-transform: none;
-		}
-
-			.ltr #reply-title small a { margin: -0.75rem -1.5rem -0.625rem 1.5rem; }
-			.rtl #reply-title small a { margin: -0.75rem 1.5rem -0.625rem -1.5rem; }
-
-	.gallery-count,
-	.comment-respond .must-log-in,
-	.comment-respond .logged-in-as,
-	.comments-closed,
-	.comment-notes {
-		font-size: 1.125rem;
+	#reply-title small a {
+		display:        inline-block;
+		padding:        0.8125rem;
+		font-size:      1em;
+		font-weight:    400;
+		text-transform: none;
 	}
 
+	.ltr #reply-title small a { margin: -0.75rem -1.5rem -0.625rem 1.5rem; }
+	.rtl #reply-title small a { margin: -0.75rem 1.5rem -0.625rem -1.5rem; }
+
+	.gallery-count,
+	.comments-closed,
+	.comment-notes,
+	.comment-respond .must-log-in,
+	.comment-respond .logged-in-as { font-size: 1.125rem; }
 
 	.form-allowed-tags {
 		margin:     -0.75rem 0 1.1875rem;
@@ -1852,223 +1870,112 @@ ul.sub-terms::before,
 			font-size:      14px;
 		}
 
-/**
- * Footer
- * --------------------------------------------------------------------------- */
-
-#footer {
-	overflow:    hidden;
-	padding:     1.5rem 0 0;
-	font-size:   0.9375rem;
-	font-family: 'Open Sans', sans-serif;
-	text-align:  center;
-}
-
-	@media only screen and ( min-width: 950px ) {
-
-		.layout-1c   #footer .credit,
-		.layout-2c-l #footer .credit,
-		.layout-2c-r #footer .credit { max-width: 47.5%; }
-
-		.ltr.layout-1c   #footer,
-		.ltr.layout-2c-l #footer,
-		.ltr.layout-2c-r #footer { text-align: left;  }
-
-		.rtl.layout-1c   #footer,
-		.rtl.layout-2c-l #footer,
-		.rtl.layout-2c-r #footer { text-align: right; }
-	}
-
-/**
- * Plugins
- * --------------------------------------------------------------------------- */
-
-/* === Clean My Archives === */
-
-	.clean-my-archives .month-year a { border: none; }
-
-	.clean-my-archives ul { list-style: none; }
-
-		.ltr .clean-my-archives ul { margin-left:  10px; }
-		.rtl .clean-my-archives ul { margin-right: 10px; }
-
-		.clean-my-archives li {
-			position:    relative;
-			line-height: 1.75;
-		}
-
-			.ltr .clean-my-archives li { padding-left: 40px; }
-			.rtl .clean-my-archives li { padding-right: 40px; }
-
-			.clean-my-archives .day {
-				position:    absolute;
-				display:     inline-block;
-				font-weight: 600;
-			}
-
-				.ltr .clean-my-archives .day { left:  0; }
-				.rtl .clean-my-archives .day { right: 0; }
-
-			.clean-my-archives .comments-number {
-				display:    inline-block;
-				font-size:  1rem;
-				font-style: italic;
-			}
-
-			.clean-my-archives .day-duplicate .day {
-				text-indent: -9999em;
-				border-left: 1px solid;
-			}
-
-				.ltr .clean-my-archives .day-duplicate .day { margin-left:  12px; }
-				.rtl .clean-my-archives .day-duplicate .day { margin-right: 12px; }
-
-/* === Whistles === */
-.whistles {
-	clear:       both;
-	width:       100%;
-	margin:      0 0 1.5rem;
-}
-
-.whistles::after,
-.whistle-content::after {
-	content:    ".";
-	display:    block;
-	height:     0;
-	clear:      both;
-	visibility: hidden;
-}
-
-.whistle-title:hover {
-	cursor: pointer;
-}
-
-.whistle-content {
-	overflow: hidden;
-}
-
-/**
- * Tabs
- */
-
-/* Wraps the entire tabbed section. */
-.whistles-tabs {}
-
-	/* Unordered list. */
-	.whistles-tabs .whistles-tabs-nav {
-		position: relative;
-		z-index: 1;
-		list-style: none;
-		margin: 0;
-	}
-
-		/* Individual list item. */
-		.whistles-tabs-nav li { display: inline; }
-
-			.rtl .whistles-tabs-nav li { float: right; }
-
-			/* Link within list item. */
-			.whistles-tabs-nav li a {
-				display:     inline-block;
-				padding:     0.75rem 1.5rem;
-				font-size:   0.9375rem;
-				font-weight: 700;
-				border:      1px solid;
-			}
-
-				.ltr .whistles-tabs-nav li a { border-right-width: 0; }
-				.rtl .whistles-tabs-nav li a { border-left-width: 0; }
-
-				.ltr .whistles-tabs-nav li:last-child a { border-right-width: 1px; }
-				.rtl .whistles-tabs-nav li:last-child a { border-left-width: 1px; }
-
-
-	/* Wraps all of the tab content panels. */
-	.whistles-tabs .whistles-tabs-wrap {
-		position: relative;
-		clear:    both;
-		top:      -1px;
-		padding:  1.5rem 1.5rem 0;
-		border:   1px solid;
-	}
-
-/**
- * Toggle/Accordion
- */
-
-	/* Title for individual section. */
-	.whistles-toggle .whistle-title,
-	.whistles-accordion .whistle-title {
-		margin:      0;
-		padding:     0.75rem 1.5rem;
-		font-size:   0.9375rem;
-		font-weight: 700;
-		border:      1px solid;
-		border-top-width: 0;
-	}
-
-		.whistles-toggle .whistle-title:first-child, 
-		.whistles-accordion .whistle-title:first-child {
-			border-top-width: 1px;
-		}
-
-
-	/* Individual toggle section content. */
-	.whistles-toggle .whistle-content,
-	.whistles-accordion .whistle-content {
-		margin:  -1px 0 0;
-		padding: 1.5rem 1.5rem 0 1.5rem;
-		border:  1px solid;
-
-		-moz-box-sizing: border-box;
-		     box-sizing: border-box;
-	}
-
-
-/**
- * Extras
- * --------------------------------------------------------------------------- */
-
-
-/* === Screen reader text === */
-
-/* === Clearing Floats === */
-
-.clearfix::after,
-#header::after,
-#branding::after,
-#main::after,
-#sidebar-subsidiary::after,
-#footer::after,
-.comment-respond::after,
-.entry::after,
-.entry-content::after,
-.entry-summary::after,
-.loop-meta::after,
-li.comment::after,
-li.comment > article::after,
-li.ping::after,
-.loop-nav::after,
-.attachment-meta::after,
-.media-info::after,
-.media-info ul li::after,
-.media-shortcode-extend::after,
-.widget::after {
-	content:    ".";
-	display:    block;
-	height:     0;
-	clear:      both;
-	visibility: hidden;
-}
+/********************************************************************************************************
+ * ====== End Comments Template ======
+ ********************************************************************************************************/
 
 /********************************************************************************************************
+ * 1.10 - Menus
+ *
  * This section of the CSS is for handling the design of the various menus used within the theme.
  ********************************************************************************************************/
 
+/**
+ * Sub-terms menu
+ *
+ * This menu is shown along with the description on term archives if the taxonomy is hierarchical (like 
+ * categories).  It displays the child terms if the current term has any.
+ */
+	ul.sub-terms {
+		list-style: none;
+		margin:     0 0 1.5rem;
+	}
+
+		.ltr ul.sub-terms { margin-left:  0.75rem; }
+		.rtl ul.sub-terms { margin-right: 0.75rem; }
+
+		ul.sub-terms::before {
+			content:      '\f412';
+			margin-right: 0.3125rem;
+		}
+
+			.rtl ul.sub-terms::before {
+				-webkit-transform: scaleX(-1);
+				   -moz-transform: scaleX(-1);
+				     -o-transform: scaleX(-1);
+				        transform: scaleX(-1);
+
+				       -ms-filter: "FlipH";
+				           filter: FlipH;
+			}
+
+		ul.sub-terms li { display: inline-block; }
+
+			ul.sub-terms li a {
+				display:     inline-block;
+				padding:     0.5rem 0.75rem;
+				font-size:   0.8125rem;
+				font-weight: 400;
+			}
+
+				.ltr ul.sub-terms li a { margin-right: 5px; }
+				.rtl ul.sub-terms li a { margin-left:  5px; }
+
+/**
+ * Social menu
+ *
+ * The social menu is displayed in the footer next to the credit links.
+ */
+
+	#menu-social ul {
+		list-style: none;
+		margin:     0 0 0.875rem;
+		text-align: center;
+	}
+
+		#menu-social ul li {
+			display:       inline-block;
+			margin-bottom: 0.625rem;
+		}
+
+			#menu-social li a {
+				position:        relative;
+				display:         inline-block;
+				text-decoration: none;
+			}
+
+	@media only screen and ( min-width: 950px ) {
+
+		.layout-1c   #menu-social,
+		.layout-2c-l #menu-social,
+		.layout-2c-r #menu-social { max-width: 47.5%; }
+
+		.ltr.layout-1c   #menu-social,
+		.ltr.layout-2c-l #menu-social,
+		.ltr.layout-2c-r #menu-social { float: right; }
+
+		.rtl.layout-1c   #menu-social,
+		.rtl.layout-2c-l #menu-social,
+		.rtl.layout-2c-r #menu-social { float: left;  }
+
+		.ltr.layout-1c   #menu-social ul,
+		.ltr.layout-2c-l #menu-social ul,
+		.ltr.layout-2c-r #menu-social ul { text-align: right; }
+
+		.rtl.layout-1c   #menu-social ul,
+		.rtl.layout-2c-l #menu-social ul,
+		.rtl.layout-2c-r #menu-social ul { text-align: left;  }
+	}
+
+/**
+ * Primary and Secondary menus
+ *
+ * The primary menu is shown at the top of the page.  The secondary menu is shown in the header if the
+ * user has selected to display header text.
+ */
 
 #menu-primary { padding: 10px 0 0; }
-
-	#menu-primary li a { font-weight: 400; }
+#menu-primary li a { font-weight: 400; }
 
 
 @media only screen and (max-width: 799px) {
@@ -2402,8 +2309,148 @@ li.ping::after,
 				#menu-primary .search-form input[type="submit"] { display: none; }
 }
 
+/********************************************************************************************************
+ * ====== End Menus ======
+ ********************************************************************************************************/
 
 /********************************************************************************************************
+ * 1.11 - Plugins
+ *
+ * This section handles the output of specific plugins that the theme supports.  The theme isn't limited 
+ * to these plugins.  It merely gives some extra love to these plugins.
+ ********************************************************************************************************/
+
+/**
+ * Clean My Archives
+ * @link http://themehybrid.com/plugins/clean-my-archives
+ */
+
+	.clean-my-archives .month-year a { border: none; }
+
+	.clean-my-archives ul { list-style: none; }
+
+		.ltr .clean-my-archives ul { margin-left:  10px; }
+		.rtl .clean-my-archives ul { margin-right: 10px; }
+
+		.clean-my-archives li {
+			position:    relative;
+			line-height: 1.75;
+		}
+
+			.ltr .clean-my-archives li { padding-left:  40px; }
+			.rtl .clean-my-archives li { padding-right: 40px; }
+
+			.clean-my-archives .day {
+				position:    absolute;
+				display:     inline-block;
+				font-weight: 600;
+			}
+
+			.ltr .clean-my-archives .day { left:  0; }
+			.rtl .clean-my-archives .day { right: 0; }
+
+			.clean-my-archives .comments-number {
+				display:    inline-block;
+				font-size:  1rem;
+				font-style: italic;
+			}
+
+			.clean-my-archives .day-duplicate .day {
+				text-indent: -9999em;
+				border-left: 1px solid;
+			}
+
+			.ltr .clean-my-archives .day-duplicate .day { margin-left:  12px; }
+			.rtl .clean-my-archives .day-duplicate .day { margin-right: 12px; }
+
+/**
+ * Whistles
+ * @link http://themehybrid.com/plugins/whistles
+ */
+
+.whistles {
+	clear:       both;
+	width:       100%;
+	margin:      0 0 1.5rem;
+}
+
+	.whistle-title:hover { cursor: pointer; }
+
+	.whistle-content { overflow: hidden; }
+
+/* === Tabs === */
+
+	/* Unordered list. */
+	.whistles-tabs .whistles-tabs-nav {
+		position: relative;
+		z-index: 1;
+		list-style: none;
+		margin: 0;
+	}
+
+		/* Individual list item. */
+		.whistles-tabs-nav li { display: inline; }
+
+		.rtl .whistles-tabs-nav li { float: right; }
+
+			/* Link within list item. */
+			.whistles-tabs-nav li a {
+				display:     inline-block;
+				padding:     0.75rem 1.5rem;
+				font-size:   0.9375rem;
+				font-weight: 700;
+				border:      1px solid;
+			}
+
+			.ltr .whistles-tabs-nav li a { border-right-width: 0; }
+			.rtl .whistles-tabs-nav li a { border-left-width:  0; }
+
+			.ltr .whistles-tabs-nav li:last-child a { border-right-width: 1px; }
+			.rtl .whistles-tabs-nav li:last-child a { border-left-width:  1px; }
+
+	/* Wraps all of the tab content panels. */
+	.whistles-tabs .whistles-tabs-wrap {
+		position: relative;
+		clear:    both;
+		top:      -1px;
+		padding:  1.5rem 1.5rem 0;
+		border:   1px solid;
+	}
+
+/* === Toggle / Accordion === */
+
+	/* Title for individual section. */
+	.whistles-toggle    .whistle-title,
+	.whistles-accordion .whistle-title {
+		margin:      0;
+		padding:     0.75rem 1.5rem;
+		font-size:   0.9375rem;
+		font-weight: 700;
+		border:      1px solid;
+		border-top-width: 0;
+	}
+
+	.whistles-toggle    .whistle-title:first-child, 
+	.whistles-accordion .whistle-title:first-child { border-top-width: 1px; }
+
+	/* Individual toggle section content. */
+	.whistles-toggle .whistle-content,
+	.whistles-accordion .whistle-content {
+		margin:  -1px 0 0;
+		padding: 1.5rem 1.5rem 0 1.5rem;
+		border:  1px solid;
+
+		-moz-box-sizing: border-box;
+		     box-sizing: border-box;
+	}
+
+/********************************************************************************************************
+ * ====== End Plugins ======
+ ********************************************************************************************************/
+
+/********************************************************************************************************
+ * 2 - Fun Zone
+ *
  * This section of the stylesheet is what I call the fun area.  For the most part, you should feel free 
  * to overwrite the following in your child theme's `style.css` file if your design calls for it.  
  * Specifically, this deals with fonts and colors.  Those things are really the things that give your 
@@ -2411,7 +2458,7 @@ li.ping::after,
  ********************************************************************************************************/
 
 /**
- * Font Family Definitions
+ * 2.1 - Font Family Definitions
  *
  * This theme operates with three dinstinct font rules.  The "primary" font is used for the majority of 
  * text throughout the theme.  The "secondary" font is used for handling secondary use cases.  The 
@@ -2481,7 +2528,7 @@ h6 {
 }
 
 /**
- * Color definitions
+ * 2.2 - Color Definitions
  *
  * The following are all of the colors defined by the theme.  The only other colors are part of the theme 
  * customizer options and should not be overwritten.  If needed, copy the specific sections below into 
