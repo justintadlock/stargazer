@@ -144,7 +144,7 @@ final class Stargazer_Custom_Colors {
 
 		/* Background color. */
 		$style .= "input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, 
-				.comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, ul.sub-terms li a 
+				.comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, #menu-sub-terms li a 
 				{ background-color: rgba( {$rgb}, 0.8 ); } ";
 
 		$style .= "legend, mark, pre, .form-allowed-tags code { background-color: rgba( {$rgb}, 0.1 ); } ";
@@ -154,7 +154,7 @@ final class Stargazer_Custom_Colors {
 				input[type='button']:hover, input[type='button']:focus, button:focus, button:hover,
 				.page-links a:hover, .wp-calendar td.has-posts a:hover, .widget-title > .wrap,
 				#comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, 
-				.widget-search > .search-form, ul.sub-terms li a:hover, .comment-reply-link:hover, 
+				.widget-search > .search-form, #menu-sub-terms li a:hover, .comment-reply-link:hover, 
 				.comment-reply-login:hover, .mejs-time-rail .mejs-time-loaded
 				{ background-color: #{$hex}; } ";
 

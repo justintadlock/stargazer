@@ -126,7 +126,7 @@ jQuery( document ).ready( function() {
 
 			/* background-color */
 
-			jQuery( "input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, .comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, ul.sub-terms li a" ).
+			jQuery( "input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, .comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, #menu-sub-terms li a" ).
 				not( '.mejs-button button' ).
 				css( 'background-color', 'rgba( ' + rgb + ', 0.8 )' );
 

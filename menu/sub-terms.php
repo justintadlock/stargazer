@@ -13,9 +13,9 @@
 
 	<?php if ( !empty( $terms ) ) : // If a list of child categories/terms was found. ?>
 
-		<nav <?php hybrid_attr( 'menu' ); ?>>
+		<nav <?php hybrid_attr( 'menu', 'sub-terms' ); ?>>
 
-			<ul class="sub-terms">
+			<ul id="menu-sub-terms-items" class="menu-items">
 				<?php echo $terms; ?>
 			</ul><!-- .sub-terms -->
 

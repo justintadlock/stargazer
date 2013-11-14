@@ -791,7 +791,7 @@ blockquote::before,
 #menu-primary .search-form .toggle::before,
 
 /* Sub-terms list. */
-ul.sub-terms::before,
+#menu-sub-terms-items::before,
 
 /* Widgets */
 .widget-title > .wrap::before,
@@ -1877,20 +1877,20 @@ ul.sub-terms::before,
  * This menu is shown along with the description on term archives if the taxonomy is hierarchical (like 
  * categories).  It displays the child terms if the current term has any.
  */
-	ul.sub-terms {
+	#menu-sub-terms-items {
 		list-style: none;
 		margin:     0 0 1.5rem;
 	}
 
-		.ltr ul.sub-terms { margin-left:  0.75rem; }
-		.rtl ul.sub-terms { margin-right: 0.75rem; }
+		.ltr #menu-sub-terms-items { margin-left:  0.75rem; }
+		.rtl #menu-sub-terms-items { margin-right: 0.75rem; }
 
-		ul.sub-terms::before {
+		#menu-sub-terms-items::before {
 			content:      '\f412';
 			margin-right: 0.3125rem;
 		}
 
-			.rtl ul.sub-terms::before {
+			.rtl #menu-sub-terms-items::before {
 				-webkit-transform: scaleX(-1);
 				   -moz-transform: scaleX(-1);
 				     -o-transform: scaleX(-1);
@@ -1900,17 +1900,17 @@ ul.sub-terms::before,
 				           filter: FlipH;
 			}
 
-		ul.sub-terms li { display: inline-block; }
+		#menu-sub-terms li { display: inline-block; }
 
-			ul.sub-terms li a {
+			#menu-sub-terms li a {
 				display:     inline-block;
 				padding:     0.5rem 0.75rem;
 				font-size:   0.8125rem;
 				font-weight: 400;
 			}
 
-				.ltr ul.sub-terms li a { margin-right: 5px; }
-				.rtl ul.sub-terms li a { margin-left:  5px; }
+				.ltr #menu-sub-terms li a { margin-right: 5px; }
+				.rtl #menu-sub-terms li a { margin-left:  5px; }
 
 /**
  * Social menu
@@ -2864,7 +2864,7 @@ button,
 #menu-primary   li.current-menu-item > a,
 #menu-primary   li a:hover,
 #menu-secondary li li a:hover,
-ul.sub-terms li a,
+#menu-sub-terms li a,
 .page-links a,
 .page-links a:hover,
 .widget-title > .wrap,
