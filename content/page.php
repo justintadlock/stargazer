@@ -1,6 +1,6 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
-	<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
+	<?php if ( is_page() ) : // If viewing a single page. ?>
 
 		<header class="entry-header">
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
@@ -15,7 +15,7 @@
 			<?php edit_post_link(); ?>
 		</footer><!-- .entry-footer -->
 
-	<?php else : // If not viewing a single post. ?>
+	<?php else : // If not viewing a single page. ?>
 
 		<?php get_the_image( array( 'size' => 'stargazer-full' ) ); ?>
 
@@ -27,6 +27,6 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 
-	<?php endif; // End single post check. ?>
+	<?php endif; // End single page check. ?>
 
 </article><!-- .entry -->

@@ -14,4 +14,4 @@
 		) 
 	); ?>
 
-<?php endif; ?>
+<?php endif; // End check for type of page being viewed. ?>

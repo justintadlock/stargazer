@@ -2,7 +2,7 @@
 <html <?php language_attributes( 'html' ); ?>>
 
 <head>
-<?php wp_head(); // Hook required for JavaScript, stylesheets, and other <head> items. ?>
+<?php wp_head(); // Hook required for scripts, styles, and other <head> items. ?>
 </head>
 
 <body <?php hybrid_attr( 'body' ); ?>>
@@ -24,7 +24,7 @@
 
 				<?php endif; // End check for header text. ?>
 
-					<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
+				<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
 
 			</header><!-- #header -->
 

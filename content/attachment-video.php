@@ -1,4 +1,4 @@
-<?php if ( is_attachment() ) : // If viewing a single post. ?>
+<?php if ( is_attachment() ) : // If viewing a single attachment. ?>
 
 	<article <?php hybrid_attr( 'post' ); ?>>
 
@@ -18,7 +18,7 @@
 			<?php edit_post_link(); ?>
 		</footer><!-- .entry-footer -->
 
-	</article><!-- .hentry -->
+	</article><!-- .entry -->
 
 	<div class="attachment-meta">
 
@@ -32,11 +32,11 @@
 
 	</div><!-- .attachment-meta -->
 
-<?php else : // If not viewing a single post. ?>
+<?php else : // If not viewing a single attachment. ?>
 
 	<article <?php hybrid_attr( 'post' ); ?>>
 
-		<?php get_the_image( array( 'size' => 'stargazer-full' ) ); ?>
+		<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
 
 		<header class="entry-header">
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
@@ -46,6 +46,6 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 
-	</article><!-- .hentry -->
+	</article><!-- .entry -->
 
-<?php endif; // End single post check. ?>
+<?php endif; // End single attachment check. ?>
