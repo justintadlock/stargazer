@@ -103,10 +103,7 @@ function stargazer_custom_header_wp_head() {
 	if ( empty( $hex ) )
 		return;
 
-	$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
-
-	$style  = "body.custom-header #menu-secondary .menu-items > li > a { color: rgba( {$rgb}, 0.75 ); }";
-	$style .= "body.custom-header #site-title a, body.custom-header #menu-secondary-items > li > a:hover { color: #{$hex}; }";
+	$style = "body.custom-header #site-title a { color: #{$hex}; }";
 
 	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
 }

@@ -702,6 +702,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 .clearfix::after,
 #header::after,
 #branding::after,
+#menu-secondary::after,
 #main::after,
 #sidebar-subsidiary::after,
 #footer::after,
@@ -1113,9 +1114,10 @@ ul.sub-terms::before,
  */
 
 .display-header-text #header {
-	padding-top:   1.5rem;
 	border-bottom: 1px solid;
 }
+
+	#branding { margin-top: 1.5rem; }
 
 	@media only screen and (min-width: 800px) {
 
@@ -1123,16 +1125,6 @@ ul.sub-terms::before,
 		.ltr #branding { float: left; }
 		.rtl #branding { float: right; }
 	}
-
-		.logo-image {
-			float:  left;
-			width:  auto;
-			height: 65px;
-			margin: 10px 0 0;
-		}
-
-			.ltr .logo-image { float: left; margin-right: 15px; }
-			.rtl .logo-image { float: right; margin-left: 15px; }
 
 		#site-title {
 			margin:    0;
@@ -1157,8 +1149,7 @@ ul.sub-terms::before,
 
 			.en #site-description { font-style: italic; }
 
-.header-image,
-.logo-image a { opacity: 1; }
+.header-image { opacity: 1; }
 
 
 /**
@@ -1974,8 +1965,13 @@ ul.sub-terms::before,
  * user has selected to display header text.
  */
 
+
 #menu-primary { padding: 10px 0 0; }
 #menu-primary li a { font-weight: 400; }
+
+#menu-secondary {
+	padding-top: 1.5rem;
+}
 
 
 @media only screen and (max-width: 799px) {
@@ -2177,11 +2173,11 @@ ul.sub-terms::before,
 		margin:     24px 0;
 	}
 
-		.ltr #menu-secondary,
-		.ltr #menu-secondary ul { float: right; text-align: right; }
+		.ltr.display-header-text #menu-secondary,
+		.ltr.display-header-text #menu-secondary ul { float: right; text-align: right; }
 
-		.rtl #menu-secondary,
-		.rtl #menu-secondary ul { float: left; text-align: left; }
+		.rtl.display-header-text #menu-secondary,
+		.rtl.display-header-text #menu-secondary ul { float: left; text-align: left; }
 
 		/* Lists */
 

@@ -50,7 +50,7 @@ jQuery( document ).ready( function() {
 			if ( 'blank' === to ) {
 
 				/* Hides branding and menu-secondary. */
-				jQuery( '#branding, #menu-secondary' ).
+				jQuery( '#branding' ).
 					css( 'display', 'none' );
 
 				/* Removes the 'display-header-text' <body> class. */
@@ -61,24 +61,17 @@ jQuery( document ).ready( function() {
 			/* Change the header and secondary menu colors. */
 			else {
 
-				var rgb = stargazer_hex_to_rgb( to );
-
 				/* Adds the 'display-header-text' <body> class. */
 				jQuery( 'body' ).
 					addClass( 'display-header-text' );
 
 				/* Makes sures both branding and menu-secondary display. */
-				jQuery( '#branding, #menu-secondary' ).
+				jQuery( '#branding' ).
 					css( 'display', 'block' );
 
 				/* Changes the color of the site title link. */
 				jQuery( '#site-title a' ).
 					css( 'color', to );
-
-				/* Changes the color of the menu-secondary links (just first level). */
-				jQuery( '#menu-secondary .menu-items > li > a' ).
-					css( 'color', 'rgba( ' + rgb + ', 0.75 )' );
-
 			} // endif
 
 		} ); // value.bind

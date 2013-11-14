@@ -18,22 +18,13 @@
 				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
 
 					<hgroup id="branding">
-
-						<?php if ( $logo = stargazer_get_logo_image() ) : // Check if there's a logo image. ?>
-
-							<div class="logo-image">
-								<a href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( $logo ); ?>" width="<?php echo stargazer_get_custom_logo()->width; ?>" height="<?php echo stargazer_get_custom_logo()->height; ?>" alt="" /></a>
-							</div><!-- .logo-image -->
-
-						<?php endif; // End check for logo image. ?>
-
 						<h1 <?php hybrid_attr( 'site-title' ); ?>><a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						<h2 <?php hybrid_attr( 'site-description' ); ?>><?php bloginfo( 'description' ); ?></h2>
 					</hgroup><!-- #branding -->
 
-					<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
-
 				<?php endif; // End check for header text. ?>
+
+					<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
 
 			</header><!-- #header -->
 

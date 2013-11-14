@@ -263,9 +263,6 @@ function stargazer_body_class( $classes ) {
 	if ( display_header_text() )
 		$classes[] = 'display-header-text';
 
-	if ( stargazer_get_logo_image() )
-		$classes[] = 'custom-logo';
-
 	return $classes;
 }
 
