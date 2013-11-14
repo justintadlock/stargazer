@@ -16,9 +16,6 @@ add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles', 0 );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
-/* Add custom body classes. */
-add_filter( 'body_class', 'stargazer_body_class' );
-
 /* Filters the excerpt length. */
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
@@ -248,22 +245,6 @@ function stargazer_aside_infinity( $html ) {
 		$html = ' <a class="comments-link" href="' . get_permalink() . '">' . number_format_i18n( get_comments_number() ) . '</a>';
 
 	return $html;
-}
-
-/**
- * Adds custom <body> classes.
- *
- * @since  0.1.0
- * @access public
- * @param  array  $classes
- * @return array
- */
-function stargazer_body_class( $classes ) {
-
-	if ( display_header_text() )
-		$classes[] = 'display-header-text';
-
-	return $classes;
 }
 
 /**
