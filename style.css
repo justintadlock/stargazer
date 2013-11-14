@@ -2179,6 +2179,9 @@ blockquote::before,
 		.rtl.display-header-text #menu-secondary,
 		.rtl.display-header-text #menu-secondary ul { float: left; text-align: left; }
 
+			.ltr.display-header-text #menu-secondary ul ul { text-align: left;  }
+			.rtl.display-header-text #menu-secondary ul ul { text-align: right; }
+
 		/* Lists */
 
 			#menu-primary ul ul,
@@ -2194,14 +2197,14 @@ blockquote::before,
 			#menu-secondary .menu-items li:hover > ul { margin: 0; }
 
 				.ltr #menu-primary ul ul,
-				.ltr #menu-primary li:hover > ul,
 				.ltr #menu-secondary ul ul,
-				.ltr #menu-secondary li:hover > ul { text-align: left; margin-left: -24px; }
+				.ltr #menu-primary li:hover > ul,
+				.ltr #menu-secondary li:hover > ul { margin-left: -24px; }
 
 				.rtl #menu-primary ul ul,
+				.rtl #menu-secondary ul ul,
 				.rtl #menu-primary li:hover > ul,
-				.rtl #menu-secondary li:hover > ul,
-				.rtl #menu-secondary ul ul { text-align: right; margin-right: -24px; }
+				.rtl #menu-secondary li:hover > ul { margin-right: -24px; }
 
 				#menu-primary.menu   li li:hover > ul,
 				#menu-secondary.menu li li:hover > ul { margin: 0; }
