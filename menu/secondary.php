@@ -2,9 +2,9 @@
 
 	<nav <?php hybrid_attr( 'menu', 'secondary' ); ?>>
 
-		<?php /*<h3 class="menu-toggle">
+		<h3 class="menu-toggle">
 			<span class="screen-reader-text"><?php _e( 'Navigation', 'stargazer' ); ?></span>
-		</h3><!-- .menu-toggle --> */ ?>
+		</h3><!-- .menu-toggle -->
 
 		<?php wp_nav_menu(
 			array(
