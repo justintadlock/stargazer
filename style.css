@@ -1117,13 +1117,13 @@ blockquote::before,
 	border-bottom: 1px solid;
 }
 
-	#branding { margin-top: 1.5rem; }
+	     #branding { margin-top: 1.5rem; }
+	.ltr #branding { float: left; }
+	.rtl #branding { float: right; }
 
 	@media only screen and (min-width: 800px) {
 
-		     #branding { width: 42.85%; max-width: 450px; }
-		.ltr #branding { float: left; }
-		.rtl #branding { float: right; }
+		#branding { width: 42.85%; max-width: 450px; }
 	}
 
 		#site-title {
