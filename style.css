@@ -1192,7 +1192,6 @@ blockquote::before,
 
 .main {
 	padding-top: 3rem;
-	overflow:    hidden;
 	word-wrap:   break-word;
 	word-break:  normal;
 
