@@ -121,6 +121,9 @@ jQuery( document ).ready( function() {
 				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle' ).
 				css( 'color', 'rgba( ' + rgb + ', 0.75 )' );
 
+			jQuery( '#menu-secondary-items > li > a' ).
+				css( 'color', 'rgba( ' + rgb + ', 0.75 )' );
+
 			jQuery( 'legend, mark, .comment-respond .required, pre, .form-allowed-tags code, pre code' ).
 				css( 'color', to );
 
