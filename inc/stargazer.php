@@ -204,7 +204,7 @@ function stargazer_tiny_mce_before_init( $settings ) {
  */
 function stargazer_mod_theme_layout( $layout ) {
 
-	if ( is_attachment() ) {
+	if ( is_attachment() && wp_attachment_is_image() ) {
 		$post_layout = get_post_layout( get_queried_object_id() );
 
 		if ( 'default' === $post_layout && '1c-narrow' !== $layout )
