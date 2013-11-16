@@ -28,11 +28,9 @@ require_once( $stargazer_dir . 'library/hybrid.php' );
 new Hybrid();
 
 /* Load theme-specific files. */
-require_once( $stargazer_dir . 'inc/stargazer.php'             );
 require_once( $stargazer_dir . 'inc/custom-background.php'     );
 require_once( $stargazer_dir . 'inc/custom-header.php'         );
 require_once( $stargazer_dir . 'inc/custom-colors.php'         );
-require_once( $stargazer_dir . 'inc/customize.php'             );
 
 /* Set up the theme early. */
 add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
@@ -45,6 +43,10 @@ add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
  * @return void
  */
 function stargazer_theme_setup() {
+
+	/* Load files. */
+	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php' );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
 	/* Load widgets. */
 	add_theme_support( 'hybrid-core-widgets' );
