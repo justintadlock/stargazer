@@ -117,6 +117,8 @@ function stargazer_custom_header_wp_head() {
  */
 function stargazer_custom_header_admin_preview() { ?>
 
+		<div <?php hybrid_attr( 'body' ); // Fake <body> class. ?>>
+
 			<header <?php hybrid_attr( 'header' ); ?>>
 
 				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
@@ -139,6 +141,8 @@ function stargazer_custom_header_admin_preview() { ?>
 				<img class="header-image" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
 
 			<?php endif; // End check for header image. ?>
+
+		</div><!-- Fake </body> close. -->
 
 <?php }
 
