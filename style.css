@@ -2290,6 +2290,7 @@ blockquote::before,
 			}
 
 			#menu-primary .search-form > div {
+				display:    none;
 				z-index:    999;
 				clear:      both;
 				position:   relative;
