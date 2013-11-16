@@ -93,7 +93,8 @@ body { overflow-x: hidden; }
 			box-sizing: border-box;
 		}
 
-		#menu-primary > .wrap {
+		#menu-primary > .wrap,
+		#footer        > .wrap {
 			max-width:     1075px;
 			padding-left:  25px;
 			padding-right: 25px;
