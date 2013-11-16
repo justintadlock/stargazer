@@ -7,7 +7,7 @@ add_action( 'after_setup_theme', 'stargazer_custom_background_setup', 15 );
 add_filter( 'theme_mod_background_color', 'stargazer_background_color', 95 );
 
 /* Register default background images. */
-add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds' );
+add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds', 15 );
 
 /**
  * Adds support for the WordPress 'custom-background' theme feature.
