@@ -18,8 +18,8 @@
 				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
 
 					<hgroup id="branding">
-						<h1 <?php hybrid_attr( 'site-title' ); ?>><a href="<?php echo home_url(); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<h2 <?php hybrid_attr( 'site-description' ); ?>><?php bloginfo( 'description' ); ?></h2>
+						<?php hybrid_site_title(); ?>
+						<?php hybrid_site_description(); ?>
 					</hgroup><!-- #branding -->
 
 				<?php endif; // End check for header text. ?>
