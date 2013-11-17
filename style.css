@@ -1176,7 +1176,7 @@ blockquote::before,
 
 		.layout-1c   #footer .credit,
 		.layout-2c-l #footer .credit,
-		.layout-2c-r #footer .credit { max-width: 47.5%; }
+		.layout-2c-r #footer .credit { max-width: 60%; }
 
 		.ltr.layout-1c   #footer,
 		.ltr.layout-2c-l #footer,
@@ -1946,7 +1946,7 @@ blockquote::before,
 
 		.layout-1c   #menu-social,
 		.layout-2c-l #menu-social,
-		.layout-2c-r #menu-social { max-width: 47.5%; }
+		.layout-2c-r #menu-social { max-width: 37.5%; }
 
 		.ltr.layout-1c   #menu-social,
 		.ltr.layout-2c-l #menu-social,
