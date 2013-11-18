@@ -1829,6 +1829,8 @@ blockquote::before,
 			.rtl .comment-reply-link,
 			.rtl .comment-reply-login { float: left;  margin-left:  0.75rem; }
 
+	.comments-closed { margin: -1.5rem 0 3rem; }
+
 /**
  * Respond
  *
