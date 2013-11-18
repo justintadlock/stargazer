@@ -1770,9 +1770,7 @@ blockquote::before,
 		/* === Individual comments */
 
 		li.comment,
-		li.ping { clear: both; }
-
-		.comment-list > .depth-1 { margin-bottom: 1.5rem; }
+		li.ping { clear: both;}
 
 			/* === Avatars === */
 
@@ -1809,6 +1807,7 @@ blockquote::before,
 			li.ping,
 			.comment-content {
 				clear:   both;
+				margin:  0 0 1.5rem;
 				padding: 1.5rem 1.5rem 0;
 				border:  1px solid;
 			}
@@ -1818,6 +1817,7 @@ blockquote::before,
 			.comment-reply-link,
 			.comment-reply-login {
 				display:        inline-block;
+				margin-top:     -1.5rem;
 				padding:        0.5rem 1rem;
 				font-size:      0.875rem;
 				font-weight:    400;
