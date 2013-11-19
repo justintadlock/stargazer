@@ -2768,7 +2768,8 @@ select:focus {
 
 #menu-primary .menu-toggle { color: rgba( 255, 255, 255, 0.75 ); }
 
-#menu-primary li a { color: rgba( 255, 255, 255, 0.75 ); }
+#menu-primary li a,
+#menu-secondary li li a { color: rgba( 255, 255, 255, 0.75 ); }
 
 @media only screen and (max-width: 799px) {
 
