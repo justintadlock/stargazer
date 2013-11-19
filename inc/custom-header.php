@@ -16,7 +16,7 @@ function stargazer_custom_header_setup() {
 	add_theme_support( 
 		'custom-header', 
 		array(
-			'default-image'          => '',
+			'default-image'          => '%s/images/headers/orange-burn.jpg',
 			'random-default'         => false,
 			'width'                  => 1175,
 			'height'                 => 400,
