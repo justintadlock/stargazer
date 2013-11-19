@@ -17,10 +17,10 @@
 
 				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
 
-					<hgroup id="branding">
+					<div id="branding">
 						<?php hybrid_site_title(); ?>
 						<?php hybrid_site_description(); ?>
-					</hgroup><!-- #branding -->
+					</div><!-- #branding -->
 
 				<?php endif; // End check for header text. ?>
 
