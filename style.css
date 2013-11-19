@@ -1984,6 +1984,8 @@ blockquote::before,
 
 @media only screen and (max-width: 799px) {
 
+	#menu-primary > .wrap { padding: 0; }
+
 	.menu-toggle {
 		position:    relative;
 		display:     inline-block;
@@ -2026,13 +2028,48 @@ blockquote::before,
 	#menu-secondary .wrap {
 		position: relative;
 		z-index:  2;
-		padding:  1.5rem 0 0;
 	}
 		.ltr #menu-secondary .wrap { text-align: left;  }
 		.rtl #menu-secondary .wrap { text-align: right; }
 
 	#menu-primary .wrap,
 	#menu-secondary .wrap { display: none; }
+
+	#menu-primary ul,
+	#menu-secondary ul {
+		margin:     0;
+		list-style: none;
+	}
+
+		#menu-primary li,
+		#menu-secondary li { width: 100%; display: block; }
+
+		#menu-primary li a,
+		#menu-secondary li a {
+			display:    block;
+			width:      100%;
+			padding:    0.75rem 1.5rem;
+			border-top: 1px solid;
+			box-sizing: border-box;
+		}
+
+		.ltr #menu-primary li li a,
+		.ltr #menu-secondary li li a { padding-left: 3rem; }
+
+		.rtl #menu-primary li li a,
+		.rtl #menu-secondary li li a { padding-right: 3rem; }
+
+		.ltr #menu-primary li li li a,
+		.ltr #menu-secondary li li li a { padding-left: 4.5rem; }
+
+		.rtl #menu-primary li li li a,
+		.rtl #menu-secondary li li li a { padding-right: 4.5rem; }
+
+		.ltr #menu-primary li li li li a,
+		.ltr #menu-secondary li li li li a { padding-left: 6rem; }
+
+		.rtl #menu-primary li li li li a,
+		.rtl #menu-secondary li li li li a { padding-right: 6rem; }
 }
 
 /* === MIN-WIDTH 800PX === */
@@ -2263,8 +2300,7 @@ blockquote::before,
 						font-size:      0.75rem;
 						font-weight:    400;
 						line-height:    1.5;
-						border-top-width: 1px;
-						border-top-style: solid;
+						border-top:     1px solid;
 					}
 
 	/* === Search form === */
@@ -2732,16 +2768,24 @@ select:focus {
 
 #menu-primary .menu-toggle { color: rgba( 255, 255, 255, 0.75 ); }
 
+#menu-primary li a { color: rgba( 255, 255, 255, 0.75 ); }
+
 @media only screen and (max-width: 799px) {
+
 	#menu-secondary .wrap { background: #1f1f1f; }
-}
 
-#menu-primary li a,
-#menu-secondary li li a { color: rgba( 255, 255, 255, 0.75 ); }
+	#menu-primary li a,
+	#menu-secondary li a {
+		color:        rgba( 255, 255, 255, 0.75 );
+		background:   #1f1f1f;
+		border-color: #1c1c1c;
+	}
 
-@media only screen and (max-width: 799px) {
-	#menu-secondary li a { color: rgba( 255, 255, 255, 0.75 ); }
-	#menu-secondary li a:hover { color: #fff; }
+	#menu-primary li a:hover,
+	#menu-secondary li a:hover {
+		color: #fff;
+		background: #191919;
+	}
 }
 
 #site-title a:hover { border-bottom-color: #d3d3d3; }
