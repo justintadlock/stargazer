@@ -95,14 +95,40 @@ jQuery( document ).ready( function() {
 	);
 
 	/*
-	 * Search form toggle.
+	 * Menu and search form toggles.
 	 */
+
+	jQuery( '.menu-toggle' ).click(
+		function() {
+			jQuery( this ).parent().children( '.wrap' ).fadeToggle();
+			jQuery( this ).toggleClass( 'active' );
+		}
+	);
+
 	jQuery( '#menu-primary .search-form' ).wrapInner( '<div />' ).prepend( '<a class="toggle">&nbsp;</a>' );
-	jQuery( '#menu-primary .search-form > div' ).hide();
+
+	jQuery( window ).resize(
+		function() {
+			var width = jQuery( window ).width();
+
+			if ( 800 <= width ) {
+				jQuery( '#menu-primary .search-form > div' ).hide();
+				jQuery( '.menu-toggle' ).removeClass( 'active' )
+			} else {
+				jQuery( '#menu-primary .search-form > div' ).show();
+				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle' ).addClass( 'active' );
+			}
+		}
+	);
 
 	jQuery( 'html' ).click(
-		function() {
-			jQuery( '#menu-primary .search-form > div' ).hide( 'slow' );
+		function( event ) {
+			if ( jQuery( event.target ).hasClass( 'menu-toggle' ) ) {
+				jQuery( '#menu-primary .search-form > div' ).show( 'slow' );
+
+			} else if ( !jQuery( '.menu-toggle' ).hasClass( 'active' ) ) {
+				jQuery( '#menu-primary .search-form > div' ).hide( 'slow' );
+			}
 		}
 	);
 
@@ -163,31 +189,3 @@ jQuery( document ).ready( function() {
 	);
 
 } );
-
-/**
- * Mobile Menu Toggle
- *
- * Toggles a nav menu in mobile-ready designs.  The theme should have a link with the '.menu-toggle' class 
- * for toggling the menu.  The menu must be wrapped with an element with the '.wrap' and/or the '.menu-items' 
- * class.  The theme should also use media queries to handle any other design elements.  This script merely 
- * toggles the menu when the '.menu-toggle' link is clicked.
- *
- * This code is a modified version of David Chandra's original menu code for the Shell theme.
- *
- * @author    Justin Tadlock <justin@justintadlock.com>
- * @author    David Chandra <david.warna@gmail.com>
- * @copyright Copyright (c) 2013
- * @link      http://justintadlock.com
- * @link      http://shellcreeper.com
- * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- */
-jQuery( document ).ready(
-	function() {
-		jQuery( '.menu-toggle' ).click(
-			function() {
-				jQuery( this ).parent().children( '.wrap, .menu-items' ).fadeToggle();
-				jQuery( this ).toggleClass( 'active' );
-			}
-		);
-	}
-);
