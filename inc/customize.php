@@ -18,10 +18,16 @@ function stargazer_customize_register( $wp_customize ) {
 	/* Load JavaScript files. */
 	add_action( 'customize_preview_init', 'stargazer_enqueue_customizer_scripts' );
 
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'header_image' )->transport     = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport              = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport       = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport      = 'postMessage';
+	$wp_customize->get_setting( 'header_image' )->transport          = 'postMessage';
+	$wp_customize->get_setting( 'background_color' )->transport      = 'postMessage';
+	$wp_customize->get_setting( 'background_image' )->transport      = 'postMessage';
+	$wp_customize->get_setting( 'background_position_x' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'background_repeat' )->transport     = 'postMessage';
+	$wp_customize->get_setting( 'background_attachment' )->transport = 'postMessage';
+
 
 	/* Remove the WordPress background image control. */
 	$wp_customize->remove_control( 'background_image' );

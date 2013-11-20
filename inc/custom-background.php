@@ -101,7 +101,7 @@ function stargazer_custom_background_callback() {
 	$style = "background: #{$color};";
 
 ?>
-<style type="text/css">body.custom-background { <?php echo trim( $style ); ?> }</style>
+<style type="text/css" id="custom-background-css">body.custom-background { <?php echo trim( $style ); ?> }</style>
 <?php
 
 }
