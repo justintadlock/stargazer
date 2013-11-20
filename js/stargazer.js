@@ -85,16 +85,6 @@ jQuery( document ).ready( function() {
 	jQuery( '.wp-calendar tbody td' ).has( 'a' ).addClass( 'has-posts' );
 
 	/*
-	 * Beautiful ampersands for those typography geeks.
-	 */
-	jQuery( "*:contains('&')", document.body ).not( 'code, pre, tt, kbd, var, sup, sub' ).contents().each(
-		function() {
-			if ( 3 === this.nodeType )
-				jQuery( this ).replaceWith( this.nodeValue.replace( /&/g, '<span class="amp">&</span>' ) );
-		}
-	);
-
-	/*
 	 * Menu and search form toggles.
 	 */
 
