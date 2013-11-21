@@ -328,16 +328,6 @@ blockquote {
 		.en-us blockquote p.has-cite-only:last-child::after,
 		.en-us blockquote p.has-cite-only:last-child::before { content: ''; }
 
-/* === Ampersands === */
-
-span.amp {
-	vertical-align: text-bottom;
-	font-family:    'Playfair Display', Baskerville, 'Goudy Old Style', Palatino, Constantia, "Book Antiqua", "URW Palladio L", serif;
-	font-size:      1.25em;
-	font-style:     italic;
-	line-height:    1em;
-}
-
 /* === Mark === */
 
 mark {
