@@ -1,8 +1,20 @@
 <?php
 /**
+ * Handles the custom colors feature for the theme.  This feature allows the theme or child theme author to 
+ * set a custom color by default.  However the user can overwrite this default color via the theme customizer 
+ * to a color of their choosing.
+ *
+ * @package    Stargazer
+ * @author     Justin Tadlock <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2013, Justin Tadlock
+ * @link       http://themehybrid.com/themes/stargazer
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
+
+/**
  * Handles custom theme color options via the WordPress theme customizer.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  */
 final class Stargazer_Custom_Colors {
@@ -10,7 +22,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Holds the instance of this class.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access private
 	 * @var    object
 	 */
@@ -19,7 +31,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Sets up the Custom Colors Palette feature.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -49,7 +61,7 @@ final class Stargazer_Custom_Colors {
 	 * Returns a default primary color if there is none set.  We use this instead of setting a default
 	 * so that child themes can overwrite the default early.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @param  string  $hex
 	 * @return string
@@ -61,7 +73,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Adds the 'custom-colors' class to the <body> element.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @param  array  $classes
 	 * @return array
@@ -76,7 +88,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Callback for 'wp_head' that outputs the CSS for this feature.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -108,7 +120,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Ajax callback for outputting the primary styles for the WordPress visual editor.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -122,7 +134,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Formats the primary styles for output.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return string
 	 */
@@ -190,7 +202,7 @@ final class Stargazer_Custom_Colors {
 	 * Registers the customize settings and controls.  We're tagging along on WordPress' built-in 
 	 * 'Colors' section.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @param  object $wp_customize
 	 * @return void
@@ -228,7 +240,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Deletes the cached style CSS that's output into the header.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
@@ -239,7 +251,7 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Returns the instance.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @access public
 	 * @return object
 	 */
