@@ -1,4 +1,13 @@
 <?php
+/**
+ * Handles the setup and usage of the WordPress custom backgrounds feature.
+ *
+ * @package    Stargazer
+ * @author     Justin Tadlock <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2013, Justin Tadlock
+ * @link       http://themehybrid.com/themes/stargazer
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 
 /* Call late so child themes can override. */
 add_action( 'after_setup_theme', 'stargazer_custom_background_setup', 15 );
@@ -12,7 +21,7 @@ add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds', 15 );
 /**
  * Adds support for the WordPress 'custom-background' theme feature.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -33,7 +42,7 @@ function stargazer_custom_background_setup() {
  * theme's main container's background is also white.  In this case, we drop some margins/padding so that 
  * the theme design flows better and doesn't appear that we have large, empty areas.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $color
  * @return string
@@ -45,7 +54,7 @@ function stargazer_background_color( $color ) {
 /**
  * Registers custom backgrounds for the theme.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -75,7 +84,7 @@ function stargazer_default_backgrounds( $backgrounds ) {
  * @link http://core.trac.wordpress.org/ticket/16919
  * @link http://core.trac.wordpress.org/ticket/21510
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */

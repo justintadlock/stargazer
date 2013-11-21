@@ -1,4 +1,13 @@
 <?php
+/**
+ * Handles the setup and usage of the WordPress custom headers feature.
+ *
+ * @package    Stargazer
+ * @author     Justin Tadlock <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2013, Justin Tadlock
+ * @link       http://themehybrid.com/themes/stargazer
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 
 /* Call late so child themes can override. */
 add_action( 'after_setup_theme', 'stargazer_custom_header_setup', 15 );
@@ -6,7 +15,7 @@ add_action( 'after_setup_theme', 'stargazer_custom_header_setup', 15 );
 /**
  * Adds support for the WordPress 'custom-header' theme feature and registers custom headers.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -74,7 +83,7 @@ function stargazer_custom_header_setup() {
 /**
  * Enqueues the styles for the "Appearance > Custom Header" screen in the admin.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -89,7 +98,7 @@ function stargazer_enqueue_admin_custom_header_styles( $hook_suffix ) {
 /**
  * Callback function for outputting the custom header CSS to `wp_head`.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -111,7 +120,7 @@ function stargazer_custom_header_wp_head() {
 /**
  * Callback for the admin preview output on the "Appearance > Custom Header" screen.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -150,7 +159,7 @@ function stargazer_custom_header_admin_preview() { ?>
  * Callback function for outputting the custom header CSS to `admin_head` on "Appearance > Custom Header".  See 
  * the `css/admin-custom-header.css` file for all the style rules specific to this screen.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
