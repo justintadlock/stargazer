@@ -6,7 +6,7 @@ add_action( 'customize_register', 'stargazer_customize_register' );
 function stargazer_enqueue_customizer_scripts() {
 		wp_enqueue_script(
 			'stargazer-customizer',
-			trailingslashit( get_template_directory_uri() ) . 'js/customize.js',
+			trailingslashit( get_template_directory_uri() ) . 'js/customize.min.js',
 			array( 'jquery' ),
 			null,
 			true

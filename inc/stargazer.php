@@ -112,7 +112,7 @@ function stargazer_enqueue_scripts() {
 
 	wp_register_script(
 		'stargazer',
-		trailingslashit( get_template_directory_uri() ) . 'js/stargazer.js',
+		trailingslashit( get_template_directory_uri() ) . 'js/stargazer.min.js',
 		array( 'jquery' ),
 		null,
 		true
