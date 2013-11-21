@@ -183,7 +183,7 @@ final class Stargazer_Custom_Colors {
 		/* outline-color */
 		$style .= "blockquote { outline-color: rgba( {$rgb}, 0.85); } ";
 
-		return $style;
+		return str_replace( array( "\r", "\n", "\t" ), '', $style );
 	}
 
 	/**
