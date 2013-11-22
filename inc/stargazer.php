@@ -147,7 +147,7 @@ function stargazer_register_styles() {
  */
 function stargazer_admin_register_styles() {
 	wp_register_style( 'stargazer-fonts', 'http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
-	wp_register_style( 'stargazer-admin-custom-header', hybrid_locate_theme_file( array( 'css/admin-custom-header.css' ) ) );
+	wp_register_style( 'stargazer-admin-custom-header', trailingslashit( get_template_directory_uri() ) . 'css/admin-custom-header.css' );
 }
 
 /**

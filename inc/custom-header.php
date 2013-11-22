@@ -92,6 +92,14 @@ function stargazer_enqueue_admin_custom_header_styles( $hook_suffix ) {
 	if ( 'appearance_page_custom-header' === $hook_suffix ) {
 		wp_enqueue_style( 'stargazer-fonts' );
 		wp_enqueue_style( 'stargazer-admin-custom-header' );
+
+		if ( is_child_theme() ) {
+			$dir = trailingslashit( get_stylesheet_directory() );
+			$uri = trailingslashit( get_stylesheet_directory_uri() );
+
+			if ( file_exists( $dir . 'css/admin-custom-header.css' ) )
+				wp_enqueue_style( get_stylesheet() . '-admin-custom-header', "{$uri}css/admin-custom-header.css" );
+		}
 	}
 }
 
