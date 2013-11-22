@@ -1,5 +1,8 @@
 <?php
 /**
+ * "The universe is vast and we are so small. There is only one thing we can ever truly control...Whether 
+ * we are good or evil." ~ Oma Desala (Stargate SG-1)
+ *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
  * General Public License as published by the Free Software Foundation; either version 2 of the License, 
  * or (at your option) any later version.
