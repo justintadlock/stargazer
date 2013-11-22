@@ -1,4 +1,14 @@
 <?php
+/**
+ * Sets up custom filters and actions for the theme.  This does things like sets up sidebars, menus, scripts, 
+ * and lots of other awesome stuff that WordPress themes do.
+ *
+ * @package    Stargazer
+ * @author     Justin Tadlock <justin@justintadlock.com>
+ * @copyright  Copyright (c) 2013, Justin Tadlock
+ * @link       http://themehybrid.com/themes/stargazer
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 
 /* Register custom image sizes. */
 add_action( 'init', 'stargazer_register_image_sizes', 5 );
@@ -49,7 +59,7 @@ add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
 /**
  * Registers custom image sizes for the theme.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -65,7 +75,7 @@ function stargazer_register_image_sizes() {
 /**
  * Registers nav menu locations.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -78,7 +88,7 @@ function stargazer_register_menus() {
 /**
  * Registers sidebars.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -104,7 +114,7 @@ function stargazer_register_sidebars() {
 /**
  * Enqueues scripts.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -125,7 +135,7 @@ function stargazer_enqueue_scripts() {
 /**
  * Registers custom stylesheets for the front end.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -140,7 +150,7 @@ function stargazer_register_styles() {
 /**
  * Registers stylesheets for use in the admin.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
@@ -152,7 +162,7 @@ function stargazer_admin_register_styles() {
 /**
  * Callback function for adding editor styles.  Use along with the add_editor_style() function.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return array
  */
@@ -181,7 +191,7 @@ function stargazer_get_editor_styles() {
 /**
  * Adds the <body> class to the visual editor.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  array  $settings
  * @return array
@@ -197,7 +207,7 @@ function stargazer_tiny_mce_before_init( $settings ) {
  * Modifies the theme layout on attachment pages.  If a specific layout is not selected and the global layout 
  * isn't set to '1c-narrow', this filter will change the layout to '1c'.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $layout
  * @return string
@@ -217,7 +227,7 @@ function stargazer_mod_theme_layout( $layout ) {
 /**
  * Adds the comments link to status posts' content.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $content
  * @return string
@@ -234,7 +244,7 @@ function stargazer_status_content( $content ) {
  * Filter's Hybrid Core's infinity symbol for aside posts.  This changes the symbol to a comments link if 
  * the post's comments are open or if the post has comments.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $html
  * @return string
@@ -250,7 +260,7 @@ function stargazer_aside_infinity( $html ) {
 /**
  * Adds a custom excerpt length.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  int     $length
  * @return int
@@ -268,7 +278,7 @@ function stargazer_excerpt_length( $length ) {
  * figuring out the widget count.
  * @link http://codex.wordpress.org/Function_Reference/wp_get_sidebars_widgets
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  array  $attr
  * @param  string $context
@@ -301,7 +311,7 @@ function stargazer_sidebar_subsidiary_class( $attr, $context ) {
 /**
  * Turns the IDs into classes for the calendar.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $calendar
  * @return string
@@ -314,7 +324,7 @@ function stargazer_get_calendar( $calendar ) {
  * Adds a featured image (if one exists) next to the audio player.  Also adds a section below the player to 
  * display the audio file information (toggled by custom JS).
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $html
  * @param  array   $atts
@@ -381,7 +391,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 /**
  * Adds a section below the player to  display the video file information (toggled by custom JS).
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  string  $html
  * @param  array   $atts
@@ -426,7 +436,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
  * none exist, checks the current post (if in The Loop) for its featured image.  If an image is found, 
  * it's used as the "poster" attribute in the [video] shortcode.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @param  array  $out
  * @return array
