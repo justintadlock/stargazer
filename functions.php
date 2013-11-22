@@ -15,8 +15,7 @@
  *
  * @package    Stargazer
  * @subpackage Functions
- * @version    0.1.0
- * @since      0.1.0
+ * @version    1.0.0
  * @author     Justin Tadlock <justin@justintadlock.com>
  * @copyright  Copyright (c) 2013, Justin Tadlock
  * @link       http://themehybrid.com/themes/stargazer
@@ -41,7 +40,7 @@ add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
 /**
  * The theme setup function.  This function sets up support for various WordPress and framework functionality.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @access public
  * @return void
  */
