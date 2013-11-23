@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Stargazer 0.1.0-alpha-3\n"
+"Project-Id-Version: Stargazer 1.0.0-beta-2013.11.22\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/stargazer\n"
-"POT-Creation-Date: 2013-11-15 09:11:38+00:00\n"
+"POT-Creation-Date: 2013-11-23 15:34:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: comment/comment.php:8 comment/ping.php:6 content/link.php:38
 #: content/quote.php:28 content/status.php:46
-#: library/functions/deprecated.php:477 library/functions/deprecated.php:565
+#: library/functions/deprecated.php:432 library/functions/deprecated.php:520
 msgid "Permalink"
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Tagged %s"
 msgstr ""
 
-#: content/attachment-audio.php:27 inc/stargazer.php:373
+#: content/attachment-audio.php:27 inc/stargazer.php:374
 msgid "Audio Info"
 msgstr ""
 
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Gallery"
 msgstr ""
 
-#: content/attachment-video.php:27 inc/stargazer.php:417
+#: content/attachment-video.php:27 inc/stargazer.php:418
 msgid "Video Info"
 msgstr ""
 
@@ -70,22 +70,6 @@ msgid_plural "This gallery contains %s items."
 msgstr[0] ""
 msgstr[1] ""
 
-#: content/literature.php:22
-msgid "Form: %s"
-msgstr ""
-
-#: content/literature.php:23
-msgid "Technique: %s"
-msgstr ""
-
-#: content/literature.php:24
-msgid "Genre: %s"
-msgstr ""
-
-#: content/portfolio_item.php:12 content/portfolio_item.php:36
-msgid "Portfolio: %s"
-msgstr ""
-
 #. Translators: 1 is current year, 2 is site name/link, 3 is WordPress
 #. name/link, and 4 is theme name/link.
 
@@ -93,86 +77,86 @@ msgstr ""
 msgid "Copyright &#169; %1$s %2$s. Powered by %3$s and %4$s."
 msgstr ""
 
-#: functions.php:56
+#: functions.php:60
 msgid "1 Column Wide"
 msgstr ""
 
-#: functions.php:57
+#: functions.php:61
 msgid "1 Column Narrow"
 msgstr ""
 
-#: functions.php:58
+#: functions.php:62
 msgid "2 Columns: Content / Sidebar"
 msgstr ""
 
-#: functions.php:59
+#: functions.php:63
 msgid "2 Columns: Sidebar / Content"
 msgstr ""
 
-#: inc/custom-colors.php:219
+#: inc/custom-colors.php:231
 msgid "Primary Color"
 msgstr ""
 
 #. Translators: Header image description.
 
-#: inc/custom-header.php:41
+#: inc/custom-header.php:50
 msgid "Horizon"
 msgstr ""
 
 #. Translators: Header image description.
 
-#: inc/custom-header.php:47
+#: inc/custom-header.php:56
 msgid "Orange Burn"
 msgstr ""
 
 #. Translators: Header image description.
 
-#: inc/custom-header.php:53
+#: inc/custom-header.php:62
 msgid "Blue Planets"
 msgstr ""
 
 #. Translators: Header image description.
 
-#: inc/custom-header.php:59
+#: inc/custom-header.php:68
 msgid "Planet Burst"
 msgstr ""
 
 #. Translators: Header image description.
 
-#: inc/custom-header.php:65
+#: inc/custom-header.php:74
 msgid "Space Splatters"
 msgstr ""
 
-#: inc/stargazer.php:73
+#: inc/stargazer.php:83
 msgctxt "nav menu location"
 msgid "Primary"
 msgstr ""
 
-#: inc/stargazer.php:74
+#: inc/stargazer.php:84
 msgctxt "nav menu location"
 msgid "Secondary"
 msgstr ""
 
-#: inc/stargazer.php:75
+#: inc/stargazer.php:85
 msgctxt "nav menu location"
 msgid "Social"
 msgstr ""
 
-#: inc/stargazer.php:90
+#: inc/stargazer.php:100
 msgctxt "sidebar"
 msgid "Primary"
 msgstr ""
 
-#: inc/stargazer.php:91
+#: inc/stargazer.php:101
 msgid "The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout."
 msgstr ""
 
-#: inc/stargazer.php:98
+#: inc/stargazer.php:108
 msgctxt "sidebar"
 msgid "Subsidiary"
 msgstr ""
 
-#: inc/stargazer.php:99
+#: inc/stargazer.php:109
 msgid "A sidebar located in the footer of the site. Optimized for one, two, or three widgets (and multiples thereof)."
 msgstr ""
 
@@ -199,7 +183,7 @@ msgstr ""
 
 #: library/classes/hybrid-media-meta.php:154
 #: library/classes/hybrid-media-meta.php:277
-#: library/functions/template-media.php:101
+#: library/functions/template-media.php:102
 msgid "%1$s &#215; %2$s"
 msgstr ""
 
@@ -305,7 +289,7 @@ msgstr ""
 #: library/classes/widget-archives.php:44
 #: library/classes/widget-archives.php:146
 #: library/extensions/breadcrumb-trail.php:181
-#: library/functions/template-general.php:265
+#: library/functions/template-general.php:318
 msgid "Archives"
 msgstr ""
 
@@ -727,7 +711,7 @@ msgid "Home"
 msgstr ""
 
 #: library/extensions/breadcrumb-trail.php:180
-#: library/functions/template-general.php:420
+#: library/functions/template-general.php:473
 msgid "404 Not Found"
 msgstr ""
 
@@ -735,7 +719,7 @@ msgstr ""
 #. closing curly quotes.
 
 #: library/extensions/breadcrumb-trail.php:183
-#: library/functions/template-general.php:401
+#: library/functions/template-general.php:454
 msgid "Search results for &#8220;%s&#8221;"
 msgstr ""
 
@@ -748,7 +732,7 @@ msgstr ""
 #. Translators: Minute archive title. %s is the minute time format.
 
 #: library/extensions/breadcrumb-trail.php:187
-#: library/functions/template-general.php:362
+#: library/functions/template-general.php:415
 msgid "Minute %s"
 msgstr ""
 
@@ -759,19 +743,19 @@ msgid "Week %s"
 msgstr ""
 
 #: library/extensions/breadcrumb-trail.php:716
-#: library/functions/template-general.php:381
+#: library/functions/template-general.php:434
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
 #: library/extensions/breadcrumb-trail.php:733
-#: library/functions/template-general.php:362
+#: library/functions/template-general.php:415
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
 #: library/extensions/breadcrumb-trail.php:750
-#: library/functions/template-general.php:342
+#: library/functions/template-general.php:395
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
@@ -781,8 +765,8 @@ msgstr ""
 #: library/extensions/breadcrumb-trail.php:822
 #: library/extensions/breadcrumb-trail.php:849
 #: library/extensions/breadcrumb-trail.php:1036
-#: library/functions/template-general.php:284
-#: library/functions/template-general.php:304
+#: library/functions/template-general.php:337
+#: library/functions/template-general.php:357
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
@@ -801,7 +785,7 @@ msgid "j"
 msgstr ""
 
 #: library/extensions/breadcrumb-trail.php:796
-#: library/functions/template-general.php:304
+#: library/functions/template-general.php:357
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
@@ -861,7 +845,7 @@ msgctxt "comment time format"
 msgid "l, F j, Y, g:i a"
 msgstr ""
 
-#: library/functions/deprecated.php:906
+#: library/functions/deprecated.php:861
 msgid "<code>%1$s</code> &mdash; This function has been removed or replaced by another function."
 msgstr ""
 
@@ -871,57 +855,57 @@ msgstr ""
 msgid "%1$s Page %2$s"
 msgstr ""
 
-#: library/functions/media.php:33
+#: library/functions/media.php:30
 msgid "Post Thumbnail"
 msgstr ""
 
-#: library/functions/template-general.php:54
+#: library/functions/template-general.php:55
 msgid "State-of-the-art semantic personal publishing platform"
 msgstr ""
 
-#: library/functions/template-general.php:54
+#: library/functions/template-general.php:55
 msgid "WordPress"
 msgstr ""
 
 #. Translators: Theme name.
 
-#: library/functions/template-general.php:81
-#: library/functions/template-general.php:114
+#: library/functions/template-general.php:82
+#: library/functions/template-general.php:115
 msgid "%s WordPress Theme"
 msgstr ""
 
-#: library/functions/template-general.php:231
+#: library/functions/template-general.php:284
 msgid "You are browsing the search results for &#8220;%s&#8221;"
 msgstr ""
 
-#: library/functions/template-general.php:237
+#: library/functions/template-general.php:290
 msgid "You are browsing the site archives by time."
 msgstr ""
 
-#: library/functions/template-general.php:240
-#: library/functions/template-general.php:243
-#: library/functions/template-general.php:246
+#: library/functions/template-general.php:293
+#: library/functions/template-general.php:296
+#: library/functions/template-general.php:299
 msgid "You are browsing the site archives for %s."
 msgstr ""
 
-#: library/functions/template-general.php:249
+#: library/functions/template-general.php:302
 msgid "You are browsing the site archives."
 msgstr ""
 
 #. Translators: 1 is the week number and 2 is the year.
 
-#: library/functions/template-general.php:304
+#: library/functions/template-general.php:357
 msgid "Week %1$s of %2$s"
 msgstr ""
 
-#: library/functions/template-general.php:323
+#: library/functions/template-general.php:376
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
 #. Translators: Separates tags, categories, etc. when displaying a post.
 
-#: library/functions/template-post.php:92
+#: library/functions/template-post.php:93
 msgctxt "taxonomy terms separator"
 msgid ", "
 msgstr ""
