@@ -118,7 +118,7 @@ jQuery( document ).ready( function() {
 			/* color */
 
 			jQuery( 'a' ).
-				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle' ).
+				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle, .comment-reply-link, .comment-reply-login' ).
 				css( 'color', 'rgba( ' + rgb + ', 0.75 )' );
 
 			jQuery( '#menu-secondary-items > li > a' ).
