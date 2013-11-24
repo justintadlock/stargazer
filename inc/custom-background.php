@@ -61,13 +61,13 @@ function stargazer_background_color( $color ) {
 function stargazer_default_backgrounds( $backgrounds ) {
 
 	$_backgrounds = array(
-		'dark-orange-cross' => array(
-			'url'           => '%s/images/backgrounds/dark-orange-cross.png',
-			'thumbnail_url' => '%s/images/backgrounds/dark-orange-cross.png',
+		'orange-cross' => array(
+			'url'           => '%s/images/backgrounds/orange-cross.png',
+			'thumbnail_url' => '%s/images/backgrounds/orange-cross-thumb.png',
 		),
 		'star-field-dark' => array(
 			'url'           => '%s/images/backgrounds/star-field-dark.jpg',
-			'thumbnail_url' => '%s/images/backgrounds/star-field-dark.jpg',
+			'thumbnail_url' => '%s/images/backgrounds/star-field-dark-thumb.jpg',
 		),
 	);
 
