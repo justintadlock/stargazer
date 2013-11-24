@@ -104,7 +104,7 @@ jQuery( document ).ready( function() {
 			/* special case: hover */
 
 			jQuery( 'a, .mejs-button button' ).
-				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle' ).
+				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle, .comment-reply-link, .comment-reply-login' ).
 				hover(
 					function() {
 						jQuery( this ).css( 'color', to );
