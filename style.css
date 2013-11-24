@@ -1833,11 +1833,14 @@ blockquote::before,
 
 	.comment-respond .required { font-weight: 700; }
 
+	#reply-title small {
+		font-size:      1em;
+		font-weight:    400;
+	}
+
 	#reply-title small a {
 		display:        inline-block;
 		padding:        0.8125rem;
-		font-size:      1em;
-		font-weight:    400;
 		text-transform: none;
 	}
 
