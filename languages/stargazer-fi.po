@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Stargazer Theme in Finnish\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/stargazer\n"
 "POT-Creation-Date: 2013-11-23 15:34:17+00:00\n"
-"PO-Revision-Date: 2013-11-24 11:40+0200\n"
+"PO-Revision-Date: 2013-11-24 11:54+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <sami.keijonen@foxnet.fi>\n"
 "Language: fi\n"
@@ -175,7 +175,7 @@ msgstr "Sivupohja"
 #. Translators: %s is the theme name.
 #: library/admin/theme-settings.php:132 library/admin/theme-settings.php:198
 msgid "%s Theme Settings"
-msgstr "%s  Teeman asetukset"
+msgstr "%s Teeman asetukset"
 
 #: library/admin/theme-settings.php:133
 msgid "Theme Settings"
@@ -406,7 +406,7 @@ msgstr "Näytä nimi"
 
 #: library/classes/widget-authors.php:147
 msgid "Email"
-msgstr "Email"
+msgstr "Sähköposti"
 
 #: library/classes/widget-authors.php:148
 #: library/classes/widget-bookmarks.php:188
@@ -454,7 +454,7 @@ msgstr "<acronym title=\"Hypertext Markup Language\">HTML</acronym>?"
 
 #: library/classes/widget-authors.php:212
 msgid "Exclude admin?"
-msgstr "Poislukien admin?"
+msgstr "Poislukien Pääkäyttäjä?"
 
 #: library/classes/widget-authors.php:216
 msgid "Show full name?"
@@ -716,7 +716,7 @@ msgstr "Näkymä"
 #: library/extensions/breadcrumb-trail.php:1188
 #: library/extensions/breadcrumb-trail.php:1219
 msgid "Edit"
-msgstr "Editoi"
+msgstr "Muokkaa"
 
 #: library/classes/widget-tags.php:181
 msgid "Flat"
@@ -895,7 +895,7 @@ msgstr "%s WordPress teema"
 
 #: library/functions/template-general.php:284
 msgid "You are browsing the search results for &#8220;%s&#8221;"
-msgstr "Hakutulokset haulle   &#8220;%s&#8221;"
+msgstr "Hakutulokset haulle &#8220;%s&#8221;"
 
 #: library/functions/template-general.php:290
 msgid "You are browsing the site archives by time."
