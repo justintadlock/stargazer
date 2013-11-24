@@ -180,9 +180,9 @@ final class Stargazer_Custom_Colors {
 		$style .= "body { border-top-color: #{$hex}; } ";
 
 		/* Border bottom color. */
-		$style .= ".entry-content a, .entry-summary a { border-bottom-color: rgba( {$rgb}, 0.15 ); } ";
+		$style .= ".entry-content a, .entry-summary a, .comment-content a { border-bottom-color: rgba( {$rgb}, 0.15 ); } ";
 
-		$style .= ".entry-content a:hover, .entry-summary a:hover { border-bottom-color: rgba( {$rgb}, 0.75 ); } ";
+		$style .= ".entry-content a:hover, .entry-summary a:hover, .comment-content a:hover { border-bottom-color: rgba( {$rgb}, 0.75 ); } ";
 
 		$style .= "body, .widget-title, #comments-number, #reply-title,
 				.attachment-meta-title { border-bottom-color: #{$hex}; } ";

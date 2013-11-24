@@ -253,13 +253,15 @@ a {
 	a:hover { text-decoration: underline; }
 
 	.entry-content a,
-	.entry-summary a {
+	.entry-summary a,
+	.comment-content a {
 		padding-bottom: 2px;
 		border-bottom:  1px solid;
 	}
 
 		.entry-content a:hover,
-		.entry-summary a:hover { text-decoration: none; }
+		.entry-summary a:hover,
+		.comment-content a:hover { text-decoration: none; }
 
 		a.img-hyperlink,
 		a.img-hyperlink:hover,

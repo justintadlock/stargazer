@@ -155,7 +155,7 @@ jQuery( document ).ready( function() {
 
 			/* border-bottom-color */
 
-			jQuery( '.entry-content a, .entry-summary a' ).
+			jQuery( '.entry-content a, .entry-summary a, .comment-content a' ).
 				css( 'border-bottom-color', 'rgba( ' + rgb + ', 0.15 )' );
 
 			jQuery( 'body, .widget-title, #comments-number, #reply-title, .attachment-meta-title' ).
