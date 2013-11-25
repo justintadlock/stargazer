@@ -134,7 +134,7 @@ function stargazer_register_styles() {
 	wp_deregister_style( 'mediaelement' );
 	wp_deregister_style( 'wp-mediaelement' );
 
-	wp_register_style( 'stargazer-fonts',        'http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
+	wp_register_style( 'stargazer-fonts',        '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
 	wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
 }
 
@@ -146,7 +146,7 @@ function stargazer_register_styles() {
  * @return void
  */
 function stargazer_admin_register_styles() {
-	wp_register_style( 'stargazer-fonts', 'http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
+	wp_register_style( 'stargazer-fonts', '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
 	wp_register_style( 'stargazer-admin-custom-header', trailingslashit( get_template_directory_uri() ) . 'css/admin-custom-header.css' );
 }
 
@@ -166,7 +166,7 @@ function stargazer_get_editor_styles() {
 	$editor_styles[] = trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css';
 
 	/* If a child theme, add its editor styles. Note: WP checks whether the file exists before using it. */
-	if ( is_child_theme() )
+	if ( is_child_theme() && file_exists( trailingslashit( get_stylesheet_directory() ) . 'css/editor-style.css' ) )
 		$editor_styles[] = trailingslashit( get_stylesheet_directory_uri() ) . 'css/editor-style.css';
 
 	/* Add the locale stylesheet. */
