@@ -256,8 +256,11 @@ function stargazer_aside_infinity( $html ) {
  * @param  int     $length
  * @return int
  */
-function stargazer_excerpt_length( $length ) {
-	return 30;
+if ( ! function_exists( 'stargazer_excerpt_length' ) ) {
+
+	function stargazer_excerpt_length( $length ) {
+		return 30;
+	}
 }
 
 /**
