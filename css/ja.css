@@ -10,7 +10,7 @@ textarea,
 .required,
 #site-description,
 #reply-title small { 
-	font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro W3", "HG明朝E", "HG Mincho E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+	font-family: 'Droid Serif', 'Lora', Georgia, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro W3", "HG明朝E", "HG Mincho E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
 	line-height: 1.7;
 }
 
