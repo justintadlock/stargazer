@@ -284,15 +284,14 @@ function stargazer_sidebar_subsidiary_class( $attr, $context ) {
 
 			$count = count( $sidebars_widgets[ $context ] );
 
-			if ( !( $count % 3 ) || $count % 2 )
+			if ( 1 === $count )
+				$attr['class'] .= ' sidebar-col-1';
+
+			elseif ( !( $count % 3 ) || $count % 2 )
 				$attr['class'] .= ' sidebar-col-3';
 
 			elseif ( !( $count % 2 ) )
 				$attr['class'] .= ' sidebar-col-2';
-
-			else
-				$attr['class'] .= ' sidebar-col-1';
-
 		}
 	}
 
