@@ -15,7 +15,7 @@
  *
  * @package    Stargazer
  * @subpackage Functions
- * @version    1.0.0
+ * @version    1.0.1
  * @author     Justin Tadlock <justin@justintadlock.com>
  * @copyright  Copyright (c) 2013, Justin Tadlock
  * @link       http://themehybrid.com/themes/stargazer
