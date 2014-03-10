@@ -1012,7 +1012,7 @@ blockquote::before,
 	.mejs-button button::after { color: #fff; }
 	.mejs-unmute button::after { color: #454545; }
 
-	.mejs-fullscreen-button button::after { content: '\f422'; }
+	.mejs-fullscreen-button button::after { content: '\f474'; }
 	.mejs-play button::after              { content: '\f452'; }
 	.mejs-pause button::after             { content: '\f448'; }
 	.mejs-volume-button button::after     { content: '\f109'; }
