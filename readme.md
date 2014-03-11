@@ -35,6 +35,17 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
+### Version 1.0.1
+
+* Updated to version 3.0.3 of Genericons.
+	* Uses the new "fullscreen" icon for media player.
+	* Dropbox supported in the Social menu.
+* Fix for JS conflict with Gravity Forms embeds.
+* Fixed Subsidiary sidebar column count when using a single widget.
+* Better CSS for Japanese language (`css/ja.css`).
+* Added French language files.
+* Added Romanian language files.
+
 ### Version 1.0.0
 
 * Everything's new!
