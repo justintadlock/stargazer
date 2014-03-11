@@ -4,7 +4,7 @@
  *
  * @package    Stargazer
  * @author     Justin Tadlock <justin@justintadlock.com>
- * @copyright  Copyright (c) 2013, Justin Tadlock
+ * @copyright  Copyright (c) 2013 - 2014, Justin Tadlock
  * @link       http://themehybrid.com/themes/stargazer
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
