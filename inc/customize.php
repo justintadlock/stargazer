@@ -59,7 +59,7 @@ function stargazer_enqueue_customizer_scripts() {
 
 	wp_enqueue_script(
 		'stargazer-customize',
-		trailingslashit( get_template_directory_uri() ) . 'js/customize{$suffix}.js',
+		trailingslashit( get_template_directory_uri() ) . "js/customize{$suffix}.js",
 		array( 'jquery' ),
 		null,
 		true
