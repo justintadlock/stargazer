@@ -159,7 +159,7 @@ jQuery( document ).ready( function() {
 
 	/* Responsive videos. */
 	/* blip.tv adds a second <embed> with "display: none".  We don't want to wrap that. */
-	jQuery( 'object, embed, iframe' ).not( 'embed[style*="display"], [src*="soundcloud.com"], [name^="gform_"]' ).wrap( '<div class="embed-wrap" />' );
+	jQuery( 'object, embed, iframe' ).not( 'embed[style*="display"], [src*="soundcloud.com"], [name^="gform_"], [src*="wordpress.com"]' ).wrap( '<div class="embed-wrap" />' );
 
 	/* Removes the 'width' attribute from embedded videos and replaces it with a max-width. */
 	jQuery( '.embed-wrap object, .embed-wrap embed, .embed-wrap iframe' ).attr( 
