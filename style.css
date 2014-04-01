@@ -893,6 +893,7 @@ blockquote::before,
 
 	#menu-social li a[href*="codepen.io"]::before      { content: '\f216'; color: #fff;    }
 	#menu-social li a[href*="digg.com"]::before        { content: '\f221'; color: #fff;    }
+	#menu-social li a[href*="dribbble.com"]::before    { content: '\f201'; color: #ea4c89; }
 	#menu-social li a[href*="dropbox.com"]::before     { content: '\f225'; color: #007ee5; }
 	#menu-social li a[href*="facebook.com"]::before    { content: '\f203'; color: #3b5998; }
 	#menu-social li a[href*="flickr.com"]::before      { content: '\f211'; color: #ff0084; }
