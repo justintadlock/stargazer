@@ -951,16 +951,6 @@ blockquote::before,
 		padding: 0 3px 1px 0;
 	}
 
-		.rtl #reply-title > .wrap::before { 
-			-webkit-transform: scaleX(-1);
-			   -moz-transform: scaleX(-1);
-			     -o-transform: scaleX(-1);
-			        transform: scaleX(-1);
-
-			-ms-filter: "FlipH";
-			    filter: FlipH;
-		}
-
 	.comment-reply-link::before,
 	.comment-reply-login::before {
 		content:       '\f412';
