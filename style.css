@@ -1503,7 +1503,7 @@ blockquote::before,
 	.mejs-controls {
 		width:           100%;
 		height:          50px;
-		padding:         10px;
+		padding:         0 10px;
 		-moz-box-sizing: border-box;
 		     box-sizing: border-box;
 	}
@@ -1516,12 +1516,14 @@ blockquote::before,
 
 	.wp-audio-shortcode .mejs-controls { top: 25px; }
 
+	.mejs-controls > div { margin-top: 10px; }
+
 		/* Fix for last item dropping below the controls. */
 		.mejs-controls > div:last-of-type {
 			position: relative;
 			clear:    both;
 			float:    right;
-			top:      -31px;
+			top:      -41px;
 		}
 
 		.wp-audio-shortcode .mejs-mediaelement {
