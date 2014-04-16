@@ -353,10 +353,16 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 
 	/* Else, get the ID via the file URL. */
 	else {
-		preg_match( '/src=[\'"](.+?)[\'"]/i', $html, $matches );
+		$extensions = join( '|', wp_get_audio_extensions() );
+
+		preg_match(
+			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i', 
+			preg_replace( '/(\?_=[0-9])/i', '', $html ),
+			$matches
+		);
 
 		if ( !empty( $matches ) )
-			$attachment_id = hybrid_get_attachment_id_from_url( $matches[1] );
+			$attachment_id = hybrid_get_attachment_id_from_url( $matches[2] );
 	}
 
 	/* If an attachment ID was found. */
@@ -419,10 +425,16 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 
 	/* Else, get the ID via the file URL. */
 	else {
-		preg_match( '/src=[\'"](.+?)[\'"]/i', $html, $matches );
+		$extensions = join( '|', wp_get_video_extensions() );
+
+		preg_match(
+			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i', 
+			preg_replace( '/(\?_=[0-9])/i', '', $html ),
+			$matches
+		);
 
 		if ( !empty( $matches ) )
-			$attachment_id = hybrid_get_attachment_id_from_url( $matches[1] );
+			$attachment_id = hybrid_get_attachment_id_from_url( $matches[2] );
 	}
 
 	/* If an attachment ID was found, add the media info section. */
