@@ -126,6 +126,8 @@ final class Stargazer_Custom_Colors {
 	 */
 	public function editor_styles_callback() {
 
+		header( 'Content-type: text/css' );
+
 		echo $this->get_primary_styles();
 
 		die();
