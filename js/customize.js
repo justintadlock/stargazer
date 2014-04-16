@@ -104,7 +104,7 @@ jQuery( document ).ready( function() {
 			/* special case: hover */
 
 			jQuery( 'a, .mejs-button button' ).
-				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle, .comment-reply-link, .comment-reply-login' ).
+				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle, .comment-reply-link, .comment-reply-login, .wp-playlist-item, .wp-playlist-caption' ).
 				hover(
 					function() {
 						jQuery( this ).css( 'color', to );
@@ -115,10 +115,21 @@ jQuery( document ).ready( function() {
 					}
 			); // .hover
 
+			jQuery( '.wp-playlist-light .wp-playlist-item, .wp-playlist-light .wp-playlist-caption' ).
+				hover(
+					function() {
+						jQuery( this ).css( 'color', to );
+
+					},
+					function() {
+						jQuery( this ).css( 'color', 'inherit' );
+					}
+			); // .hover
+
 			/* color */
 
-			jQuery( 'a' ).
-				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle, .comment-reply-link, .comment-reply-login' ).
+			jQuery( 'a, .wp-playlist-light .wp-playlist-playing' ).
+				not( '#header a, .menu a, .entry-title a, #footer a, .media-info-toggle, .comment-reply-link, .comment-reply-login, .wp-playlist-caption' ).
 				css( 'color', 'rgba( ' + rgb + ', 0.75 )' );
 
 			jQuery( '#menu-secondary-items > li > a' ).

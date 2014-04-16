@@ -43,6 +43,7 @@ add_filter( 'hybrid_aside_infinity', 'stargazer_aside_infinity' );
 
 /* Adds custom settings for the visual editor. */
 add_filter( 'tiny_mce_before_init', 'stargazer_tiny_mce_before_init' );
+add_filter( 'mce_css',              'stargazer_mce_css'              );
 
 /* Filters the calendar output. */
 add_filter( 'get_calendar', 'stargazer_get_calendar' );
@@ -192,6 +193,23 @@ function stargazer_tiny_mce_before_init( $settings ) {
 	$settings['body_class'] = join( ' ', get_body_class() );
 
 	return $settings;
+}
+
+/**
+ * Removes the media player styles from the visual editor since we're loading our own.
+ *
+ * @since  1.1.0
+ * @access public
+ * @param  string  $mce_css
+ * @return string
+ */
+function stargazer_mce_css( $mce_css ) {
+	$version = 'ver=' . $GLOBALS['wp_version'];
+
+	$mce_css = str_replace( includes_url( "js/mediaelement/mediaelementplayer.min.css?$version" ) . ',', '', $mce_css );
+	$mce_css = str_replace( includes_url( "js/mediaelement/wp-mediaelement.css?$version" ) . ',',        '', $mce_css );
+
+	return $mce_css;
 }
 
 /**
