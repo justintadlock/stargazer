@@ -35,6 +35,17 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
+### Version 1.1.0
+
+* Updated to Hybrid Core version 2.0.0-beta-1.
+* Only use `customize.min.css` when `SCRIPT_DEBUG` is disabled.
+* Embed JavaScript only targets embeds within posts.
+* Re-added Dribbble support in the Social menu, which was accidentally removed.
+* Fixed Mediaelement.js CSS padding issue introduced in WP 3.9.
+* Full support and styling for WP 3.9's playlist feature.
+* Corrected missing color definitions in the visual editor, which was introduced in WP 3.9.
+* Fixed broken method of getting media info, which was a bug introduced in WP 3.9.
+
 ### Version 1.0.1
 
 * Updated to version 3.0.3 of Genericons.
