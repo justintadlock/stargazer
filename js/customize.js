@@ -85,7 +85,16 @@ jQuery( document ).ready( function() {
 
 		value.bind( function( to ) {
 
-			jQuery( '.header-image' ).attr( 'src', to );
+			/* If removing the header image, make sure to hide it so there's not an error image. */
+			if ( 'remove-header' === to ) {
+				jQuery( '.header-image' ).hide();
+			}
+
+			/* Else, make sure to show the image and change the source. */
+			else {
+				jQuery( '.header-image' ).show();
+				jQuery( '.header-image' ).attr( 'src', to );
+			}
 
 		} ); // value.bind
 
