@@ -31,6 +31,7 @@
 
 		<footer class="entry-footer">
 			<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+			<?php if ( function_exists( 'ev_post_views' ) ) ev_post_views( array( 'text' => '%s' ) ); ?>
 			<?php edit_post_link(); ?>
 		</footer><!-- .entry-footer -->
 

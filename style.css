@@ -772,6 +772,7 @@ blockquote::before,
 .entry-terms::before,
 .image-sizes::before,
 .chat-author cite::before,
+.entry-views::before,
 
 /* Menus */
 #menu-social li a::before,
@@ -833,6 +834,7 @@ blockquote::before,
 	.ltr .post-format-link::before,
 	.ltr .entry-terms::before,
 	.ltr .image-sizes::before,
+	.ltr .entry-views::before,
 	.ltr .comment-published::before,
 	.ltr .comment-edit-link::before,
 	.ltr .comment-author::before,
@@ -849,6 +851,7 @@ blockquote::before,
 	.rtl .post-format-link::before,
 	.rtl .entry-terms::before,
 	.rtl .image-sizes::before,
+	.rtl .entry-views::before,
 	.rtl .comment-published::before,
 	.rtl .comment-edit-link::before,
 	.rtl .comment-author::before,
@@ -882,6 +885,9 @@ blockquote::before,
 	.format-quote .post-format-link::before    { content: '\f106'; }
 	.format-status .post-format-link::before   { content: '\f105'; }
 	.format-video .post-format-link::before    { content: '\f104'; }
+
+	/* Entry Views plugin. */
+	.entry-views::before { content: '\f403'; }
 
 	/* Comments */
 	.comment-published::before    { content: '\f303'; }
@@ -1112,6 +1118,9 @@ blockquote::before,
 	.widget.series-list-posts .widget-title > .wrap::before,
 	.widget.series-list-related .widget-title > .wrap::before { content: '\f411'; }
 
+	/* Entry Views plugin. */
+	.widget-entry-views .widget-title > .wrap::before { content: '\f403'; }
+
 /********************************************************************************************************
  * ====== End Genericons ======
  ********************************************************************************************************/
@@ -1295,7 +1304,8 @@ blockquote::before,
 		.ltr .post-edit-link,
 		.ltr .entry-permalink,
 		.ltr .entry-terms,
-		.ltr .post-format-link { margin-right: 5px; display: inline-block; }
+		.ltr .post-format-link,
+		.ltr .entry-views { margin-right: 5px; display: inline-block; }
 
 		.rtl .entry-author,
 		.rtl .entry-published,
@@ -1303,7 +1313,8 @@ blockquote::before,
 		.rtl .post-edit-link,
 		.rtl .entry-permalink,
 		.rtl .entry-terms,
-		.rtl .post-format-link { margin-left: 5px; display: inline-block; }
+		.rtl .post-format-link,
+		.rtl .entry-views { margin-left: 5px; display: inline-block; }
 
 		/* Output from comments_popup_link() when no comments are found or off. */
 		.ltr span.comments-link,
@@ -1757,8 +1768,9 @@ blockquote::before,
 
 			.widget-title > .wrap a { text-decoration: underline; }
 
-	/* Recent posts widget. */
-	.widget_recent_entries .post-date {
+	/* Recent posts widget and Entry Views plugin. */
+	.widget_recent_entries .post-date,
+	.widget-entry-views .entry-view-count {
 		font-size: 0.875em; /* relative */
 	}
 
@@ -2729,6 +2741,7 @@ select,
 .loop-pagination,
 .loop-nav,
 .widget_recent_entries .post-date,
+.widget-entry-views .entry-view-count,
 .gallery-count,
 .comment-respond .must-log-in,
 .comment-respond .logged-in-as,
