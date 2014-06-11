@@ -47,6 +47,7 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 * Added support for the [Entry Views](http://wordpress.org/plugins/entry-views) plugin.
 * Make sure there's a line break before showing categories on singular views of Quote and Status posts.
 * Added an exception for Amazon embeds in the embed wrap JavaScript.
+* Added the `left-sidebar`, `right-sidebar`, and `responsive-layout` tags to `style.css`.
 
 ### Version 1.1.0
 
