@@ -2,10 +2,10 @@
  * Theme Name:  Stargazer
  * Theme URI:   http://themehybrid.com/themes/stargazer
  * Description: Welcome to Stargazer, the most advanced theme ever created for WordPress without compromising standards. This is the only theme in the world that you'll find that extends WordPress' built-in theme features so robustly but naturally. The theme is built on the rock-solid Hybrid Core theme framework. It's built with search-engine optimization (SEO) in mind by utilizing the most current HTML5 conventions and <a href="http://schema.org">Schema.org</a> microdata. It also integrates with useful theme add-on plugins like <a href="http://wordpress.org/plugins/custom-background-extended">Custom Background Extended</a>, <a href="http://wordpress.org/plugins/custom-header-extended">Custom Header Extended</a>, <a href="http://wordpress.org/plugins/whistles">Whistles</a>, and more.
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      Justin Tadlock
  * Author URI:  http://justintadlock.com
- * Tags:        one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready
+ * Tags:        one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, left-sidebar, post-formats, responsive-layout, right-sidebar, rtl-language-support, theme-options, threaded-comments, translation-ready
  * Text Domain: stargazer
  * License:     GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -623,15 +623,15 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 
 .wp-caption { position: relative; }
 
-	.wp-caption-text {
+	.wp-caption .wp-caption-text {
 		position:   absolute;
 		bottom:     1.5rem;
 		padding:    0.75rem;
 		font-size:  0.9375rem;
 	}
 
-		.ltr .wp-caption-text { margin-right: 1.5rem; }
-		.rtl .wp-caption-text { margin-left:  1.5rem; }
+		.ltr .wp-caption .wp-caption-text { margin-right: 1.5rem; }
+		.rtl .wp-caption .wp-caption-text { margin-left:  1.5rem; }
 
 /* === Gallery === */
 
@@ -772,6 +772,7 @@ blockquote::before,
 .entry-terms::before,
 .image-sizes::before,
 .chat-author cite::before,
+.entry-views::before,
 
 /* Menus */
 #menu-social li a::before,
@@ -833,6 +834,7 @@ blockquote::before,
 	.ltr .post-format-link::before,
 	.ltr .entry-terms::before,
 	.ltr .image-sizes::before,
+	.ltr .entry-views::before,
 	.ltr .comment-published::before,
 	.ltr .comment-edit-link::before,
 	.ltr .comment-author::before,
@@ -849,6 +851,7 @@ blockquote::before,
 	.rtl .post-format-link::before,
 	.rtl .entry-terms::before,
 	.rtl .image-sizes::before,
+	.rtl .entry-views::before,
 	.rtl .comment-published::before,
 	.rtl .comment-edit-link::before,
 	.rtl .comment-author::before,
@@ -882,6 +885,9 @@ blockquote::before,
 	.format-quote .post-format-link::before    { content: '\f106'; }
 	.format-status .post-format-link::before   { content: '\f105'; }
 	.format-video .post-format-link::before    { content: '\f104'; }
+
+	/* Entry Views plugin. */
+	.entry-views::before { content: '\f403'; }
 
 	/* Comments */
 	.comment-published::before    { content: '\f303'; }
@@ -1112,6 +1118,9 @@ blockquote::before,
 	.widget.series-list-posts .widget-title > .wrap::before,
 	.widget.series-list-related .widget-title > .wrap::before { content: '\f411'; }
 
+	/* Entry Views plugin. */
+	.widget-entry-views .widget-title > .wrap::before { content: '\f403'; }
+
 /********************************************************************************************************
  * ====== End Genericons ======
  ********************************************************************************************************/
@@ -1295,7 +1304,8 @@ blockquote::before,
 		.ltr .post-edit-link,
 		.ltr .entry-permalink,
 		.ltr .entry-terms,
-		.ltr .post-format-link { margin-right: 5px; display: inline-block; }
+		.ltr .post-format-link,
+		.ltr .entry-views { margin-right: 5px; display: inline-block; }
 
 		.rtl .entry-author,
 		.rtl .entry-published,
@@ -1303,7 +1313,8 @@ blockquote::before,
 		.rtl .post-edit-link,
 		.rtl .entry-permalink,
 		.rtl .entry-terms,
-		.rtl .post-format-link { margin-left: 5px; display: inline-block; }
+		.rtl .post-format-link,
+		.rtl .entry-views { margin-left: 5px; display: inline-block; }
 
 		/* Output from comments_popup_link() when no comments are found or off. */
 		.ltr span.comments-link,
@@ -1757,8 +1768,9 @@ blockquote::before,
 
 			.widget-title > .wrap a { text-decoration: underline; }
 
-	/* Recent posts widget. */
-	.widget_recent_entries .post-date {
+	/* Recent posts widget and Entry Views plugin. */
+	.widget_recent_entries .post-date,
+	.widget-entry-views .entry-view-count {
 		font-size: 0.875em; /* relative */
 	}
 
@@ -2215,7 +2227,7 @@ blockquote::before,
 					.ltr .menu li li > ul::before {
 						left:         -6px;
 						border-right-width: 6px;
-						border-right-style: 6px;
+						border-right-style: solid;
 						border-left:  0;
 					}
 
@@ -2223,7 +2235,7 @@ blockquote::before,
 						right:        -6px; 
 						border-right:  0;
 						border-left-width: 6px;
-						border-left-style: 6px;
+						border-left-style: solid;
 					}
 
 			.menu li {
@@ -2729,6 +2741,7 @@ select,
 .loop-pagination,
 .loop-nav,
 .widget_recent_entries .post-date,
+.widget-entry-views .entry-view-count,
 .gallery-count,
 .comment-respond .must-log-in,
 .comment-respond .logged-in-as,
@@ -2840,7 +2853,7 @@ select:focus {
 	border-color: #d3d3d3;
 }
 
-.wp-caption-text {
+.wp-caption .wp-caption-text {
 	color:      #e3e3e3;
 	background: rgba( 0, 0, 0, 0.75 );
 }

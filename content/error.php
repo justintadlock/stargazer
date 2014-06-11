@@ -5,7 +5,7 @@
 	</header><!-- .entry-header -->
 
 	<div <?php hybrid_attr( 'entry-content' ); ?>>
-		<?php wpautop( __( 'Apologies, but no entries were found.', 'stargazer' ) ); ?>
+		<?php echo wpautop( __( 'Apologies, but no entries were found.', 'stargazer' ) ); ?>
 	</div><!-- .entry-content -->
 
 </article><!-- .entry -->

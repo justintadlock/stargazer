@@ -1,0 +1,1044 @@
+# Copyright (C) 2013 Justin Tadlock
+# This file is distributed under the GNU General Public License v2.0 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Stargazer  1.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/stargazer\n"
+"POT-Creation-Date: 2013-11-25 01:32:45+00:00\n"
+"PO-Revision-Date: 2014-05-17 22:40-0600\n"
+"Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;_n;_x;esc_html__;"
+"esc_html_e;_x:1,2c;_n:1,2\n"
+"X-Poedit-SearchPath-0: C:\\xampp\\htdocs\\wordpress\\wp-content\\themes"
+"\\stargazer\n"
+
+#: comment/comment.php:7 comment/ping.php:5
+msgid "%s ago"
+msgstr "%s sedan"
+
+#: comment/comment.php:8 comment/ping.php:6 content/link.php:38
+#: content/quote.php:28 content/status.php:46
+#: library/functions/deprecated.php:432 library/functions/deprecated.php:520
+msgid "Permalink"
+msgstr "Permanent länk"
+
+#: content/aside.php:25 content/audio.php:27 content/chat.php:33
+#: content/content.php:24 content/gallery.php:25 content/image.php:27
+#: content/link.php:25 content/quote.php:15 content/status.php:23
+#: content/video.php:27
+msgid "Posted in %s"
+msgstr "Upplagd i %s"
+
+#: content/aside.php:26 content/audio.php:28 content/chat.php:34
+#: content/content.php:25 content/gallery.php:26 content/image.php:28
+#: content/link.php:26 content/quote.php:16 content/status.php:24
+#: content/video.php:28
+msgid "Tagged %s"
+msgstr "Taggad %s"
+
+#: content/attachment-audio.php:27 inc/stargazer.php:374
+msgid "Audio Info"
+msgstr "Audioinfo"
+
+#: content/attachment-image.php:22
+msgid "Sizes: %s"
+msgstr "Storlekars: %s"
+
+#: content/attachment-image.php:59
+msgid "Image Info"
+msgstr "Bildinfo"
+
+#: content/attachment-image.php:70
+msgid "Gallery"
+msgstr "Galleri"
+
+#: content/attachment-video.php:27 inc/stargazer.php:418
+msgid "Video Info"
+msgstr "Videoinfo"
+
+#: content/error.php:4
+msgid "Nothing found"
+msgstr "Ingenting kunde hittas"
+
+#: content/error.php:8
+msgid "Apologies, but no entries were found."
+msgstr "Tyvärr, inga inlägg kunde hittas."
+
+#: content/gallery.php:50
+msgid "This gallery contains %s item."
+msgid_plural "This gallery contains %s items."
+msgstr[0] "Det här galleriet innehåller %s objekt."
+msgstr[1] "Det här galleriet innehåller %s objekt."
+
+#. Translators: 1 is current year, 2 is site name/link, 3 is WordPress
+#. name/link, and 4 is theme name/link.
+#: footer.php:18
+msgid "Copyright &#169; %1$s %2$s. Powered by %3$s and %4$s."
+msgstr "Copyright &#169; %1$s %2$s. Drivs av %3$s och %4$s."
+
+#: functions.php:60
+msgid "1 Column Wide"
+msgstr "1 Kolumn bred"
+
+#: functions.php:61
+msgid "1 Column Narrow"
+msgstr "1 Kolumn smal"
+
+#: functions.php:62
+msgid "2 Columns: Content / Sidebar"
+msgstr "2 Kolumner: Innehåll / Sidebar"
+
+#: functions.php:63
+msgid "2 Columns: Sidebar / Content"
+msgstr "2 Kolumner: Sidebar / Innehåll"
+
+#: inc/custom-colors.php:231
+msgid "Primary Color"
+msgstr "Utvald färg"
+
+#. Translators: Header image description.
+#: inc/custom-header.php:50
+msgid "Horizon"
+msgstr "Horizon"
+
+#. Translators: Header image description.
+#: inc/custom-header.php:56
+msgid "Orange Burn"
+msgstr "Orange Burn"
+
+#. Translators: Header image description.
+#: inc/custom-header.php:62
+msgid "Blue Planets"
+msgstr "Blue Planets"
+
+#. Translators: Header image description.
+#: inc/custom-header.php:68
+msgid "Planet Burst"
+msgstr "Planet Burst"
+
+#. Translators: Header image description.
+#: inc/custom-header.php:74
+msgid "Space Splatters"
+msgstr "Space Splatters"
+
+#: inc/stargazer.php:83
+msgctxt "nav menu location"
+msgid "Primary"
+msgstr "Huvudmeny"
+
+#: inc/stargazer.php:84
+msgctxt "nav menu location"
+msgid "Secondary"
+msgstr "Sekundär meny"
+
+#: inc/stargazer.php:85
+msgctxt "nav menu location"
+msgid "Social"
+msgstr "Social meny"
+
+#: inc/stargazer.php:100
+msgctxt "sidebar"
+msgid "Primary"
+msgstr "Primär"
+
+#: inc/stargazer.php:101
+msgid ""
+"The main sidebar. It is displayed on either the left or right side of the "
+"page based on the chosen layout."
+msgstr ""
+"Sidopanel som visas antingen till vänster eller höger om sidan borende på "
+"vald layout. "
+
+#: inc/stargazer.php:108
+msgctxt "sidebar"
+msgid "Subsidiary"
+msgstr "Sidfot"
+
+#: inc/stargazer.php:109
+msgid ""
+"A sidebar located in the footer of the site. Optimized for one, two, or "
+"three widgets (and multiples thereof)."
+msgstr ""
+"Sidfotspanel optimerad för en, två, eller tre widgets (kan fördelas på flera "
+"rader)."
+
+#: library/admin/meta-box-post-template.php:45
+msgid "Template"
+msgstr "Sidmall (Template)"
+
+#. Translators: %s is the theme name.
+#: library/admin/theme-settings.php:132 library/admin/theme-settings.php:198
+msgid "%s Theme Settings"
+msgstr "%s Temainställningar"
+
+#: library/admin/theme-settings.php:133
+msgid "Theme Settings"
+msgstr "Temainställningar"
+
+#: library/classes/customize-control-background-image.php:43
+msgctxt "theme customizer tab"
+msgid "Default"
+msgstr "Förvalt"
+
+#. Translators: Media dimensions - 1 is width and 2 is height.
+#: library/classes/hybrid-media-meta.php:154
+#: library/classes/hybrid-media-meta.php:277
+#: library/functions/template-media.php:102
+msgid "%1$s &#215; %2$s"
+msgstr "%1$s &#215; %2$s"
+
+#: library/classes/hybrid-media-meta.php:155
+#: library/classes/hybrid-media-meta.php:277
+msgid "Dimensions"
+msgstr "Dimensioner"
+
+#: library/classes/hybrid-media-meta.php:161
+#: library/classes/widget-pages.php:158
+msgid "Date"
+msgstr "Datum"
+
+#: library/classes/hybrid-media-meta.php:165
+msgid "Camera"
+msgstr "Kamera"
+
+# Fotografering
+#: library/classes/hybrid-media-meta.php:169
+msgid "Aperture"
+msgstr "Bländare"
+
+#. Translators: Camera focal length.
+#: library/classes/hybrid-media-meta.php:174
+msgid "%s mm"
+msgstr "%s mm"
+
+# Fotografering
+#: library/classes/hybrid-media-meta.php:174
+msgid "Focal Length"
+msgstr "Brännvidd"
+
+#: library/classes/hybrid-media-meta.php:180
+msgid "International Organization for Standardization"
+msgstr "Internationella standardiseringsorganisationen"
+
+#: library/classes/hybrid-media-meta.php:180
+msgid "ISO"
+msgstr "ISO"
+
+#. Translators: Camera shutter speed. "sec" is an abbreviation for "seconds".
+#: library/classes/hybrid-media-meta.php:199
+msgid "%s sec"
+msgstr "%s sek"
+
+# Fotografering
+#: library/classes/hybrid-media-meta.php:199
+msgid "Shutter Speed"
+msgstr "Exponeringstid"
+
+#: library/classes/hybrid-media-meta.php:218
+#: library/classes/hybrid-media-meta.php:272
+msgid "Run Time"
+msgstr "Körtid"
+
+#: library/classes/hybrid-media-meta.php:222
+msgid "Artist"
+msgstr ""
+
+#: library/classes/hybrid-media-meta.php:226
+msgid "Composer"
+msgstr "Kompositör"
+
+#: library/classes/hybrid-media-meta.php:230
+msgid "Album"
+msgstr ""
+
+#: library/classes/hybrid-media-meta.php:234
+msgid "Track"
+msgstr "Låt"
+
+#: library/classes/hybrid-media-meta.php:238
+msgid "Year"
+msgstr "År"
+
+#: library/classes/hybrid-media-meta.php:242
+msgid "Genre"
+msgstr "Genre"
+
+#: library/classes/hybrid-media-meta.php:245
+#: library/classes/hybrid-media-meta.php:280
+msgid "File Name"
+msgstr "Filnamn"
+
+#: library/classes/hybrid-media-meta.php:249
+#: library/classes/hybrid-media-meta.php:284
+msgid "File Size"
+msgstr "Filstorlek"
+
+#: library/classes/hybrid-media-meta.php:253
+#: library/classes/hybrid-media-meta.php:288
+msgid "File Type"
+msgstr "Filtyp"
+
+#: library/classes/hybrid-media-meta.php:257
+#: library/classes/hybrid-media-meta.php:292
+msgid "Mime Type"
+msgstr "Mime Type"
+
+#: library/classes/widget-archives.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"archives."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur dina arkiv visas."
+
+#: library/classes/widget-archives.php:44
+#: library/classes/widget-archives.php:146
+#: library/extensions/breadcrumb-trail.php:181
+#: library/functions/template-general.php:318
+msgid "Archives"
+msgstr "Arkiv"
+
+#: library/classes/widget-archives.php:83
+msgid "Select Year"
+msgstr "Välj År"
+
+#: library/classes/widget-archives.php:86
+msgid "Select Month"
+msgstr "Välj Månad"
+
+#: library/classes/widget-archives.php:89
+msgid "Select Week"
+msgstr "Välj vecka"
+
+#: library/classes/widget-archives.php:92
+msgid "Select Day"
+msgstr "Välj Dag"
+
+#: library/classes/widget-archives.php:95
+msgid "Select Post"
+msgstr "Välj inlägg"
+
+#: library/classes/widget-archives.php:161
+msgid "Alphabetical"
+msgstr "Alfabetisk"
+
+#: library/classes/widget-archives.php:162
+msgid "Daily"
+msgstr "Daglig"
+
+#: library/classes/widget-archives.php:163
+msgid "Monthly"
+msgstr "Månadsvis"
+
+#: library/classes/widget-archives.php:164
+msgid "Post By Post"
+msgstr "Inlägg efter inlägg"
+
+#: library/classes/widget-archives.php:165
+msgid "Weekly"
+msgstr "Veckovis"
+
+#: library/classes/widget-archives.php:166
+msgid "Yearly"
+msgstr "Årsvis"
+
+#: library/classes/widget-archives.php:171
+#: library/classes/widget-authors.php:141
+#: library/classes/widget-bookmarks.php:182
+#: library/classes/widget-bookmarks.php:194
+#: library/classes/widget-categories.php:171
+#: library/classes/widget-pages.php:152 library/classes/widget-tags.php:186
+msgid "Ascending"
+msgstr "Stigande"
+
+#: library/classes/widget-archives.php:172
+#: library/classes/widget-authors.php:142
+#: library/classes/widget-bookmarks.php:183
+#: library/classes/widget-bookmarks.php:195
+#: library/classes/widget-categories.php:172
+#: library/classes/widget-pages.php:153 library/classes/widget-tags.php:187
+msgid "Descending"
+msgstr "Fallande"
+
+#: library/classes/widget-archives.php:177
+msgid "Custom"
+msgstr "På rad"
+
+#: library/classes/widget-archives.php:178
+msgid "HTML"
+msgstr "HTML"
+
+#: library/classes/widget-archives.php:179
+msgid "Option"
+msgstr "Lista"
+
+#: library/classes/widget-archives.php:185
+#: library/classes/widget-authors.php:160
+#: library/classes/widget-bookmarks.php:217
+#: library/classes/widget-calendar.php:108
+#: library/classes/widget-categories.php:195
+#: library/classes/widget-nav-menu.php:131
+#: library/classes/widget-pages.php:178 library/classes/widget-search.php:144
+#: library/classes/widget-tags.php:207
+msgid "Title:"
+msgstr "Titel:"
+
+#: library/classes/widget-archives.php:229
+#: library/classes/widget-authors.php:208
+msgid "Show post count?"
+msgstr "Visa antal inlägg?"
+
+#: library/classes/widget-authors.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"author lists."
+msgstr ""
+"En avancerad widget som ger dig full kontrol över hur dina författarlistor "
+"visas."
+
+#: library/classes/widget-authors.php:44
+#: library/classes/widget-authors.php:123
+msgid "Authors"
+msgstr "Författare"
+
+#: library/classes/widget-authors.php:146
+msgid "Display Name"
+msgstr "Namn som visas"
+
+#: library/classes/widget-authors.php:147
+msgid "Email"
+msgstr "E-post"
+
+#: library/classes/widget-authors.php:148
+#: library/classes/widget-bookmarks.php:188
+#: library/classes/widget-bookmarks.php:199
+#: library/classes/widget-categories.php:177
+#: library/classes/widget-pages.php:159
+msgid "ID"
+msgstr "ID"
+
+#: library/classes/widget-authors.php:149
+msgid "Nice Name"
+msgstr "Smeknamn"
+
+#: library/classes/widget-authors.php:150
+msgid "Post Count"
+msgstr "Antal inlägg"
+
+#: library/classes/widget-authors.php:151
+msgid "Registered"
+msgstr "Registrerad"
+
+#: library/classes/widget-authors.php:152
+#: library/classes/widget-bookmarks.php:211
+msgid "URL"
+msgstr "URL"
+
+#: library/classes/widget-authors.php:153
+msgid "Login"
+msgstr "Logga in"
+
+#: library/classes/widget-authors.php:186
+#: library/classes/widget-categories.php:166
+#: library/classes/widget-tags.php:182
+msgid "List"
+msgstr "Lista"
+
+#: library/classes/widget-authors.php:186
+#: library/classes/widget-categories.php:167
+msgid "None"
+msgstr "Ingen"
+
+#: library/classes/widget-authors.php:204
+msgid "<acronym title=\"Hypertext Markup Language\">HTML</acronym>?"
+msgstr "<acronym title=\"Hypertext Markup Language\">HTML</acronym>?"
+
+#: library/classes/widget-authors.php:212
+msgid "Exclude admin?"
+msgstr "Exkludera admin?"
+
+#: library/classes/widget-authors.php:216
+msgid "Show full name?"
+msgstr "Visa fullständigt namn?"
+
+#: library/classes/widget-authors.php:220
+#: library/classes/widget-categories.php:298
+#: library/classes/widget-tags.php:318
+msgid "Hide empty?"
+msgstr "Göm tomma?"
+
+#: library/classes/widget-bookmarks.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"bookmarks (links)."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur dina bokmärken "
+"(länkar) visas."
+
+#: library/classes/widget-bookmarks.php:44
+#: library/classes/widget-bookmarks.php:86
+#: library/classes/widget-bookmarks.php:150
+msgid "Bookmarks"
+msgstr "Bokmärken"
+
+#: library/classes/widget-bookmarks.php:187
+#: library/classes/widget-categories.php:176
+#: library/classes/widget-tags.php:192
+msgid "Count"
+msgstr "Antal"
+
+#: library/classes/widget-bookmarks.php:189
+#: library/classes/widget-bookmarks.php:202
+#: library/classes/widget-categories.php:178
+#: library/classes/widget-tags.php:193
+msgid "Name"
+msgstr "Namn"
+
+#: library/classes/widget-bookmarks.php:190
+#: library/classes/widget-categories.php:179
+#: library/classes/widget-pages.php:162
+msgid "Slug"
+msgstr "Bas för länkstruktur"
+
+#: library/classes/widget-bookmarks.php:200
+msgid "Description"
+msgstr "Beskrivning"
+
+#: library/classes/widget-bookmarks.php:201
+msgid "Length"
+msgstr "Längd"
+
+#: library/classes/widget-bookmarks.php:203
+msgid "Notes"
+msgstr "Noteringar"
+
+#: library/classes/widget-bookmarks.php:204
+msgid "Owner"
+msgstr "Ägare"
+
+#: library/classes/widget-bookmarks.php:205
+#: library/classes/widget-tags.php:188
+msgid "Random"
+msgstr "Slumpmässigt"
+
+#: library/classes/widget-bookmarks.php:206
+msgid "Rating"
+msgstr "Betyg"
+
+#: library/classes/widget-bookmarks.php:207
+msgid "Rel"
+msgstr "Rel"
+
+#: library/classes/widget-bookmarks.php:208
+#: library/classes/widget-categories.php:187
+msgid "RSS"
+msgstr "RSS"
+
+#: library/classes/widget-bookmarks.php:209
+msgid "Target"
+msgstr "Mål"
+
+#: library/classes/widget-bookmarks.php:210
+msgid "Updated"
+msgstr "Uppdaterad"
+
+#: library/classes/widget-bookmarks.php:319
+msgid "Categorize?"
+msgstr "Kategorisera?"
+
+#: library/classes/widget-bookmarks.php:323
+msgid "Show description?"
+msgstr "Visa beskrivning?"
+
+#: library/classes/widget-bookmarks.php:327
+msgid "Hide invisible?"
+msgstr "Göm osynliga?"
+
+#: library/classes/widget-bookmarks.php:331
+msgid "Show rating?"
+msgstr "Visa betyg?"
+
+#: library/classes/widget-bookmarks.php:335
+msgid "Show updated?"
+msgstr "Visa uppdaterad?"
+
+#: library/classes/widget-bookmarks.php:339
+msgid "Show images?"
+msgstr "Visa bilder?"
+
+#: library/classes/widget-bookmarks.php:343
+msgid "Show name?"
+msgstr "Visa namn?"
+
+#: library/classes/widget-bookmarks.php:347
+msgid "Show private?"
+msgstr "Visa privata?"
+
+#: library/classes/widget-calendar.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"calendar."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur din kalender visas."
+
+#: library/classes/widget-calendar.php:44
+#: library/classes/widget-calendar.php:99
+msgid "Calendar"
+msgstr "Kalender"
+
+#: library/classes/widget-calendar.php:113
+msgid "One-letter abbreviation?"
+msgstr "Förkortning?"
+
+#: library/classes/widget-categories.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"category links."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur dina kategorier visas."
+
+#: library/classes/widget-categories.php:44
+#: library/classes/widget-categories.php:136
+msgid "Categories"
+msgstr "Kategorier"
+
+#: library/classes/widget-categories.php:180
+msgid "Term Group"
+msgstr "Grupp"
+
+#: library/classes/widget-categories.php:185
+msgid "Atom"
+msgstr "Atom"
+
+#: library/classes/widget-categories.php:186
+msgid "RDF"
+msgstr "RDF"
+
+#: library/classes/widget-categories.php:188
+msgid "RSS 2.0"
+msgstr "RSS 2.0"
+
+#: library/classes/widget-categories.php:286
+#: library/classes/widget-pages.php:277
+msgid "Hierarchical?"
+msgstr "Hierarkiskt?"
+
+#: library/classes/widget-categories.php:290
+msgid "Use description?"
+msgstr "Använd beskrivning?"
+
+#: library/classes/widget-categories.php:294
+msgid "Show count?"
+msgstr "Visa räknare?"
+
+#: library/classes/widget-nav-menu.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"menus."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur dina menyer visas."
+
+#: library/classes/widget-nav-menu.php:44
+msgid "Navigation Menu"
+msgstr "Navigationsmeny"
+
+#: library/classes/widget-nav-menu.php:108 menu/primary.php:10
+#: menu/secondary.php:6
+msgid "Navigation"
+msgstr "Navigation"
+
+#: library/classes/widget-pages.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your page "
+"links."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur dina sidor visas."
+
+#: library/classes/widget-pages.php:44 library/classes/widget-pages.php:125
+msgid "Pages"
+msgstr "Sidor"
+
+#: library/classes/widget-pages.php:157
+msgid "Author"
+msgstr "Författare"
+
+#: library/classes/widget-pages.php:160
+msgid "Menu Order"
+msgstr "Menyordning"
+
+#: library/classes/widget-pages.php:161 library/classes/widget-pages.php:169
+msgid "Modified"
+msgstr "Modifierad"
+
+#: library/classes/widget-pages.php:163
+msgid "Title"
+msgstr "Titel"
+
+#: library/classes/widget-pages.php:168
+msgid "Created"
+msgstr "Skapad"
+
+#: library/classes/widget-search.php:33
+msgid ""
+"An advanced widget that gives you total control over the output of your "
+"search form."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur ditt sökformulär "
+"visas."
+
+#: library/classes/widget-search.php:45 library/classes/widget-search.php:132
+msgid "Search"
+msgstr "Sök"
+
+#: library/classes/widget-search.php:148
+msgid "Search Label:"
+msgstr "Text i sökformulärets label:"
+
+#: library/classes/widget-search.php:152
+msgid "Search Text:"
+msgstr "Text i sökformuläret:"
+
+#: library/classes/widget-search.php:159
+msgid "Search Submit:"
+msgstr "Text på submitknappen:"
+
+#: library/classes/widget-search.php:164
+msgid "Use theme's <code>searchform.php</code>?"
+msgstr "Använd temats <code>searchform.php</code>?"
+
+#: library/classes/widget-tags.php:32
+msgid ""
+"An advanced widget that gives you total control over the output of your tags."
+msgstr ""
+"En avancerad widget som ger dig full kontroll över hur dina etiketter visas."
+
+#: library/classes/widget-tags.php:44 library/classes/widget-tags.php:146
+msgid "Tags"
+msgstr "Etiketter"
+
+#: library/classes/widget-tags.php:176
+msgid "View"
+msgstr "Visa"
+
+#: library/classes/widget-tags.php:177
+#: library/extensions/breadcrumb-trail.php:1135
+#: library/extensions/breadcrumb-trail.php:1171
+#: library/extensions/breadcrumb-trail.php:1188
+#: library/extensions/breadcrumb-trail.php:1219
+msgid "Edit"
+msgstr "Redigera"
+
+#: library/classes/widget-tags.php:181
+msgid "Flat"
+msgstr "Platt"
+
+#: library/classes/widget-tags.php:314
+msgid "Pad counts?"
+msgstr "Inkludera undersidor?"
+
+#: library/extensions/breadcrumb-trail.php:178
+msgid "Browse:"
+msgstr "Bläddra:"
+
+#: library/extensions/breadcrumb-trail.php:179
+msgid "Home"
+msgstr "Hem"
+
+#: library/extensions/breadcrumb-trail.php:180
+#: library/functions/template-general.php:473
+msgid "404 Not Found"
+msgstr "404 Hittades Inte"
+
+#. Translators: %s is the search query. The HTML entities are opening and
+#. closing curly quotes.
+#: library/extensions/breadcrumb-trail.php:183
+#: library/functions/template-general.php:454
+msgid "Search results for &#8220;%s&#8221;"
+msgstr "Sökresultat för &#8220;%s&#8221;"
+
+#. Translators: %s is the page number.
+#: library/extensions/breadcrumb-trail.php:185
+msgid "Page %s"
+msgstr "Sida %s"
+
+#. Translators: Minute archive title. %s is the minute time format.
+#: library/extensions/breadcrumb-trail.php:187
+#: library/functions/template-general.php:415
+msgid "Minute %s"
+msgstr "Minut %s"
+
+#. Translators: Weekly archive title. %s is the week date format.
+#: library/extensions/breadcrumb-trail.php:189
+msgid "Week %s"
+msgstr "Vecka %s"
+
+#: library/extensions/breadcrumb-trail.php:716
+#: library/functions/template-general.php:434
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "g:i a"
+
+#: library/extensions/breadcrumb-trail.php:733
+#: library/functions/template-general.php:415
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "i"
+
+#: library/extensions/breadcrumb-trail.php:750
+#: library/functions/template-general.php:395
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr "g a"
+
+#: library/extensions/breadcrumb-trail.php:766
+#: library/extensions/breadcrumb-trail.php:795
+#: library/extensions/breadcrumb-trail.php:822
+#: library/extensions/breadcrumb-trail.php:849
+#: library/extensions/breadcrumb-trail.php:1036
+#: library/functions/template-general.php:337
+#: library/functions/template-general.php:357
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: library/extensions/breadcrumb-trail.php:767
+#: library/extensions/breadcrumb-trail.php:823
+#: library/extensions/breadcrumb-trail.php:1040
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: library/extensions/breadcrumb-trail.php:768
+#: library/extensions/breadcrumb-trail.php:1044
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: library/extensions/breadcrumb-trail.php:796
+#: library/functions/template-general.php:357
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "W"
+
+#: library/extensions/breadcrumb-trail.php:1163
+msgid "Split"
+msgstr "Dela"
+
+#: library/extensions/breadcrumb-trail.php:1167
+msgid "Merge"
+msgstr "Slå ihop"
+
+#: library/extensions/featured-header.php:202
+msgid "Featured Header"
+msgstr "Utvalt Sidhuvud"
+
+#: library/extensions/post-stylesheets.php:286
+msgid "Stylesheet"
+msgstr "Stylesheet"
+
+#: library/extensions/theme-fonts.php:401
+msgid "Fonts"
+msgstr "Typsnitt"
+
+#. Translators: Default theme layout option.
+#: library/extensions/theme-layouts.php:345
+msgctxt "theme layout"
+msgid "Default"
+msgstr "Förvalt"
+
+#: library/extensions/theme-layouts.php:437
+#: library/extensions/theme-layouts.php:547
+#: library/extensions/theme-layouts.php:632
+msgid "Layout"
+msgstr "Layout"
+
+#: library/extensions/theme-layouts.php:463
+msgid "Layout is a theme-specific structure for the single view of the post."
+msgstr "Layout är en temaspecifik struktur för hur enskilda inlägg visas."
+
+#: library/extensions/theme-layouts.php:665
+msgid "Global Layout"
+msgstr "Global Layout"
+
+#. Translators: Post date/time "title" attribute.
+#: library/functions/attr.php:414
+msgctxt "post time format"
+msgid "l, F j, Y, g:i a"
+msgstr "l, F j, Y, g:i a"
+
+#. Translators: Comment date/time "title" attribute.
+#: library/functions/attr.php:535
+msgctxt "comment time format"
+msgid "l, F j, Y, g:i a"
+msgstr "l, F j, Y, g:i a"
+
+#: library/functions/deprecated.php:861
+msgid ""
+"<code>%1$s</code> &mdash; This function has been removed or replaced by "
+"another function."
+msgstr ""
+"<code>%1$s</code> &mdash; Denna funktion har tagits bort och ersatts av en "
+"annan funktion."
+
+#. Translators: 1 is the page title. 2 is the page number.
+#: library/functions/head.php:149
+msgid "%1$s Page %2$s"
+msgstr "%1$s Sida %2$s"
+
+#: library/functions/media.php:30
+msgid "Post Thumbnail"
+msgstr "Tummnagel"
+
+#: library/functions/template-general.php:55
+msgid "State-of-the-art semantic personal publishing platform"
+msgstr "En toppmodern, semantisk publiceringsplattform"
+
+#: library/functions/template-general.php:55
+msgid "WordPress"
+msgstr "WordPress"
+
+#. Translators: Theme name.
+#: library/functions/template-general.php:82
+#: library/functions/template-general.php:115
+msgid "%s WordPress Theme"
+msgstr "%s WordPress Tema"
+
+#: library/functions/template-general.php:284
+msgid "You are browsing the search results for &#8220;%s&#8221;"
+msgstr "Du bläddrar i sökresultaten för \"&#8220;%s&#8221;"
+
+#: library/functions/template-general.php:290
+msgid "You are browsing the site archives by time."
+msgstr "Du bläddrar i sidans arkiv enligt tidsordning."
+
+#: library/functions/template-general.php:293
+#: library/functions/template-general.php:296
+#: library/functions/template-general.php:299
+msgid "You are browsing the site archives for %s."
+msgstr "Du bläddrar i sidans arkiv för\"%s."
+
+#: library/functions/template-general.php:302
+msgid "You are browsing the site archives."
+msgstr "Du bläddrar i sidans arkiv."
+
+#. Translators: 1 is the week number and 2 is the year.
+#: library/functions/template-general.php:357
+msgid "Week %1$s of %2$s"
+msgstr "Vecka %1$s av %2$s"
+
+#: library/functions/template-general.php:376
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "F j, Y"
+
+#. Translators: Separates tags, categories, etc. when displaying a post.
+#: library/functions/template-post.php:93
+msgctxt "taxonomy terms separator"
+msgid ", "
+msgstr ", "
+
+#: library/functions/utility.php:86
+msgid "(Untitled)"
+msgstr "(Saknar titel)"
+
+#: menu/primary.php:6
+msgid "Skip to content"
+msgstr "Gå till innehållet"
+
+#. Translators: The two %s are placeholders for HTML. The order can't be
+#. changed.
+#: misc/comments-error.php:6
+msgid "Comments are closed, but %strackbacks%s and pingbacks are open."
+msgstr "Kommentarerna är avstängda, men %strackbacks%s och pingbacks är på."
+
+#: misc/comments-error.php:13
+msgid "Comments are closed."
+msgstr "Kommentarerna är avstängda."
+
+#: misc/comments-nav.php:5
+msgctxt "comments navigation"
+msgid "&larr; Previous"
+msgstr "&larr; Föregående"
+
+#. Translators: Comments page numbers. 1 is current page and 2 is total pages.
+#: misc/comments-nav.php:9
+msgid "Page %1$s of %2$s"
+msgstr "Sida %1$s av %2$s"
+
+#: misc/comments-nav.php:12
+msgctxt "comments navigation"
+msgid "Next &rarr;"
+msgstr "Nästa &rarr;"
+
+#: misc/loop-nav.php:4
+msgid "Previous Post: %link"
+msgstr "Föregående Inlägg: %link"
+
+#: misc/loop-nav.php:5
+msgid "Next Post: %link"
+msgstr "Nästa Inlägg: %link"
+
+#: misc/loop-nav.php:12
+msgctxt "posts navigation"
+msgid "&larr; Previous"
+msgstr "&larr; Föregående"
+
+#: misc/loop-nav.php:13
+msgctxt "posts navigation"
+msgid "Next &rarr;"
+msgstr "Nästa &rarr;"
+
+#: sidebar/primary.php:14
+msgid "Example Widget"
+msgstr "Exempelwidget"
+
+#. Translators: The %s are placeholders for HTML, so the order can't be
+#. changed.
+#: sidebar/primary.php:16
+msgid ""
+"This is an example widget to show how the Primary sidebar looks by default. "
+"You can add custom widgets from the %swidgets screen%s in the admin."
+msgstr ""
+"Det här är en exempelwidget som visar hur sidopanelen ser ut. Du kan lägga "
+"till widgets via %swidgets screen%s."
+
+#. Theme Name of the plugin/theme
+msgid "Stargazer"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://themehybrid.com/themes/stargazer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Welcome to Stargazer, the most advanced theme ever created for WordPress "
+"without compromising standards. This is the only theme in the world that "
+"you'll find that extends WordPress' built-in theme features so robustly but "
+"naturally. The theme is built on the rock-solid Hybrid Core theme framework. "
+"It's built with search-engine optimization (SEO) in mind by utilizing the "
+"most current HTML5 conventions and <a href=\"http://schema.org\">Schema.org</"
+"a> microdata. It also integrates with useful theme add-on plugins like <a "
+"href=\"http://wordpress.org/plugins/custom-background-extended\">Custom "
+"Background Extended</a>, <a href=\"http://wordpress.org/plugins/custom-"
+"header-extended\">Custom Header Extended</a>, <a href=\"http://wordpress.org/"
+"plugins/whistles\">Whistles</a>, and more."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Justin Tadlock"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://justintadlock.com"
+msgstr ""
+
+#~ msgid "Lyrics"
+#~ msgstr "Sångtext"

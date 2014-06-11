@@ -15,6 +15,7 @@ if ( post_password_required() || ( !have_comments() && !comments_open() && !ping
 			<ol class="comment-list">
 				<?php wp_list_comments(
 					array(
+						'style'        => 'ol',
 						'callback'     => 'hybrid_comments_callback',
 						'end-callback' => 'hybrid_comments_end_callback'
 					)
