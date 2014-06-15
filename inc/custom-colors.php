@@ -169,7 +169,7 @@ final class Stargazer_Custom_Colors {
 				input[type='button']:hover, input[type='button']:focus, button:focus, button:hover,
 				.page-links a:hover, .wp-calendar td.has-posts a:hover, .widget-title > .wrap,
 				#comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, 
-				.widget-search > .search-form, #menu-sub-terms li a:hover, .comment-reply-link:hover, 
+				.widget_search > .search-form, #menu-sub-terms li a:hover, .comment-reply-link:hover, 
 				.comment-reply-login:hover, .mejs-time-rail .mejs-time-loaded
 				{ background-color: #{$hex}; } ";
 
