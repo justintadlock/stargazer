@@ -84,6 +84,13 @@ jQuery( document ).ready( function() {
 	/* Adds 'has-posts' to any <td> element in the calendar that has posts for that day. */
 	jQuery( '.wp-calendar tbody td' ).has( 'a' ).addClass( 'has-posts' );
 
+	/* Menu focus. */
+	jQuery( '.menu li a' ).on( 'focus blur', 
+		function() {
+			jQuery( this ).parents().toggleClass( 'focus' );
+		}
+	);
+
 	/*
 	 * Menu and search form toggles.
 	 */
