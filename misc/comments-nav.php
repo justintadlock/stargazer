@@ -1,8 +1,8 @@
 <?php if ( get_option( 'page_comments' ) && 1 < get_comment_pages_count() ) : // Check for paged comments. ?>
 
-	<nav class="comments-nav" role="navigation" aria-labelledby="comment-navigation">
+	<nav class="comments-nav" role="navigation" aria-labelledby="comments-nav-title">
 
-		<h3 class="screen-reader-text"><?php _e( 'Comments Navigation', 'stargazer' ); ?></h3>
+		<h3 id="comments-nav-title" class="screen-reader-text"><?php _e( 'Comments Navigation', 'stargazer' ); ?></h3>
 
 		<?php previous_comments_link( _x( '&larr; Previous', 'comments navigation', 'stargazer' ) ); ?>
 
