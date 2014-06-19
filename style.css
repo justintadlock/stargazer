@@ -1774,6 +1774,11 @@ blockquote::before,
 		font-size: 0.875em; /* relative */
 	}
 
+	/* Tags widget (core WP wraps in a `<div>` instead of `<p>`). */
+	.widget .tagcloud,
+	.widget select#cat.postform,
+	.widget select[name="archive-dropdown"] { margin-bottom: 1.5rem; }
+
 	/* Search widget. */
 	.widget_search > .search-form {
 		padding: 1.5rem;
