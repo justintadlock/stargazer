@@ -2,10 +2,6 @@
 
 	<nav <?php hybrid_attr( 'menu', 'primary' ); ?>>
 
-		<div class="assistive-text skip-link">
-			<a href="#content"><?php _e( 'Skip to content', 'stargazer' ); ?></a>
-		</div><!-- .skip-link -->
-
 		<h3 class="menu-toggle">
 			<span class="screen-reader-text"><?php _e( 'Navigation', 'stargazer' ); ?></span>
 		</h3><!-- .menu-toggle -->

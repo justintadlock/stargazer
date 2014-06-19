@@ -9,6 +9,10 @@
 
 	<div id="container">
 
+		<div class="assistive-text skip-link">
+			<a href="#content"><?php _e( 'Skip to content', 'stargazer' ); ?></a>
+		</div><!-- .skip-link -->
+
 		<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
 
 		<div class="wrap">
