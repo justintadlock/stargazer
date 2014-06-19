@@ -55,6 +55,18 @@ jQuery( document ).ready( function() {
 		}
 	);
 
+	/* Focus labels for form elements. */
+	jQuery( 'input, select, textarea' ).on( 'focus blur',
+		function() {
+			var sg_focus_id   = jQuery( this ).attr( 'id' );
+
+			if ( sg_focus_id )
+				jQuery( 'label[for="' + sg_focus_id + '"]' ).toggleClass( 'focus' );
+			else
+				jQuery( this ).parents( 'label' ).toggleClass( 'focus' );
+		}
+	);
+
 	/*
 	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually 
 	 * exist or is not supported by browsers, we have the following.
@@ -83,6 +95,9 @@ jQuery( document ).ready( function() {
 
 	/* Adds 'has-posts' to any <td> element in the calendar that has posts for that day. */
 	jQuery( '.wp-calendar tbody td' ).has( 'a' ).addClass( 'has-posts' );
+
+	/* Fix Webkit focus bug. */
+	jQuery( '#content' ).attr( 'tabindex', '-1' );
 
 	/* Menu focus. */
 	jQuery( '.menu li a' ).on( 'focus blur', 

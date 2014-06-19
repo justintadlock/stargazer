@@ -159,7 +159,7 @@ final class Stargazer_Custom_Colors {
 
 		/* Background color. */
 		$style .= "input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, 
-				.comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, #menu-sub-terms li a 
+				.comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, #menu-sub-terms li a
 				{ background-color: rgba( {$rgb}, 0.8 ); } ";
 
 		$style .= "legend, mark, pre, .form-allowed-tags code { background-color: rgba( {$rgb}, 0.1 ); } ";
@@ -170,7 +170,7 @@ final class Stargazer_Custom_Colors {
 				.page-links a:hover, .wp-calendar td.has-posts a:hover, .widget-title > .wrap,
 				#comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, 
 				.widget_search > .search-form, #menu-sub-terms li a:hover, .comment-reply-link:hover, 
-				.comment-reply-login:hover, .mejs-time-rail .mejs-time-loaded
+				.comment-reply-login:hover, .mejs-time-rail .mejs-time-loaded, .skip-link .screen-reader-text
 				{ background-color: #{$hex}; } ";
 
 		/* Firefox chokes on this rule and drops the rule set, so we're separating it. */

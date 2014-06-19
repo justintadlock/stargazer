@@ -9,7 +9,7 @@
 
 	<div id="container">
 
-		<div class="assistive-text skip-link">
+		<div class="skip-link">
 			<a href="#content" class="screen-reader-text"><?php _e( 'Skip to content', 'stargazer' ); ?></a>
 		</div><!-- .skip-link -->
 

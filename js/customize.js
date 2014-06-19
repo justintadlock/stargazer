@@ -162,7 +162,7 @@ jQuery( document ).ready( function() {
 			jQuery( 'legend, mark, pre, .form-allowed-tags code' ).
 				css( 'background-color', 'rgba( ' + rgb + ', 0.1 )' );
 
-			jQuery( '.widget-title > .wrap, #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, .widget_search > .search-form, .mejs-time-rail .mejs-time-loaded' ).
+			jQuery( '.widget-title > .wrap, #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, .widget_search > .search-form, .mejs-time-rail .mejs-time-loaded, .skip-link .screen-reader-text' ).
 				css( 'background-color', to );
 
 			/* border-color */
