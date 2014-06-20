@@ -110,9 +110,9 @@ jQuery( document ).ready( function() {
 	 * Menu and search form toggles.
 	 */
 
-	jQuery( '.menu-toggle' ).click(
+	jQuery( '.menu-toggle button' ).click(
 		function() {
-			jQuery( this ).parent().children( '.wrap' ).fadeToggle();
+			jQuery( this ).parents( '.menu' ).children( '.wrap' ).fadeToggle();
 			jQuery( this ).toggleClass( 'active' );
 		}
 	);
@@ -125,17 +125,17 @@ jQuery( document ).ready( function() {
 
 			if ( 800 <= width ) {
 				jQuery( '#menu-primary .search-form > div' ).hide();
-				jQuery( '.menu-toggle' ).removeClass( 'active' )
+				jQuery( '.menu-toggle button' ).removeClass( 'active' )
 			} else {
 				jQuery( '#menu-primary .search-form > div' ).show();
-				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle' ).addClass( 'active' );
+				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle button' ).addClass( 'active' );
 			}
 		}
 	);
 
 	jQuery( 'html' ).click(
 		function( event ) {
-			if ( jQuery( event.target ).hasClass( 'menu-toggle' ) ) {
+			if ( jQuery( event.target ).hasClass( 'screen-reader-text' ) ) {
 				jQuery( '#menu-primary .search-form > div' ).show( 'slow' );
 
 			} else if ( !jQuery( '.menu-toggle' ).hasClass( 'active' ) ) {

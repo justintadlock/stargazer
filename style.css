@@ -582,7 +582,8 @@ table {
 		input[type="submit"]:focus,
 		input[type="reset"]:focus,
 		input[type="button"]:focus,
-		button:focus {
+		button:focus,
+		.menu-toggle button:hover {
 			text-decoration: underline;
 		}
 
@@ -2108,32 +2109,47 @@ blockquote::before,
 	#menu-primary > .wrap { padding: 0; }
 
 	.menu-toggle {
-		position:    relative;
-		display:     inline-block;
-		cursor:      pointer;
-		font-size:   0.8125rem;
-		line-height: 1;
+		position:       relative;
+		display:        inline-block;
+		margin:         0;
+		cursor:         pointer;
+		font-size:      0.8125rem;
+		line-height:    24px;
+		vertical-align: middle;
 	}
 
-	#menu-primary .menu-toggle {
+	.menu-toggle button {
+		position: relative;
+		top:      0;
+		left:     0;
+	}
+
+	#menu-primary .menu-toggle button {
 		margin:  0 0 10px;
 		padding: 0;
 	}
 
-	#menu-secondary .menu-toggle { margin: 1.5rem; }
+	#menu-secondary .menu-toggle button { margin: 0 1.5rem; }
 
-		.ltr #menu-primary .menu-toggle { margin-left:  1.5rem; }
-		.rtl #menu-primary .menu-toggle { margin-right: 1.5rem; }
+		.ltr #menu-primary .menu-toggle button { margin-left:  1.5rem; }
+		.rtl #menu-primary .menu-toggle button { margin-right: 1.5rem; }
 
-		.menu-toggle::before {
+		#menu-primary .menu-toggle button::before,
+		#menu-secondary .menu-toggle button::after {
 			content:        '\f419';
 			display:        inline-block;
 			font-family:    'Genericons';
-			font-size:      32px;
-			vertical-align: top;
+			font-size:      24px;
+			vertical-align: middle;
 
 			-webkit-font-smoothing: antialiased;
 		}
+
+		.ltr #menu-primary .menu-toggle button::before,
+		.rtl #menu-secondary .menu-toggle button::after { padding: 0 0.75rem 0 0; }
+
+		.rtl #menu-primary .menu-toggle button::before,
+		.ltr #menu-secondary .menu-toggle button::after { padding: 0 0 0 0.75rem; }
 
 	#branding { z-index: 1; }
 
@@ -2210,7 +2226,7 @@ blockquote::before,
 
 	.menu > .wrap { display: block !important; }
 
-	.menu-toggle { display: none; }
+	.menu-toggle { position: absolute; left: -9999em; right: -9999em; }
 
 		.menu ul {
 			list-style: none;
@@ -2859,7 +2875,10 @@ hr,
 .mejs-embed body,
 .mejs-overlay-button,
 .mejs-controls > .mejs-button button:hover,
-.mejs-controls > .mejs-button button:focus {
+.mejs-controls > .mejs-button button:focus,
+#menu-primary .menu-toggle button,
+#menu-primary .menu-toggle button:hover,
+#menu-primary .menu-toggle button:focus {
 	background: transparent;
 }
 
@@ -2941,10 +2960,12 @@ select:focus {
 .gallery-icon a:hover img,
 .galley-icon a:focus img { background: #f3f3f3; }
 
-#menu-primary .menu-toggle { color: rgba( 255, 255, 255, 0.75 ); }
+#menu-primary .menu-toggle button { color: rgba( 255, 255, 255, 0.75 ); }
 
 #menu-primary li a,
-#menu-secondary li li a { color: rgba( 255, 255, 255, 0.75 ); }
+#menu-secondary li li a,
+#menu-primary .menu-toggle button:hover,
+#menu-primary .menu-toggle button:focus { color: rgba( 255, 255, 255, 0.75 ); }
 
 @media only screen and (max-width: 799px) {
 
@@ -2952,7 +2973,8 @@ select:focus {
 	#menu-primary .search-form > div { background: #1f1f1f; }
 
 	#menu-primary li a,
-	#menu-secondary li a {
+	#menu-secondary li a,
+	#menu-secondary .menu-toggle button {
 		color:        rgba( 255, 255, 255, 0.75 );
 		background:   #1f1f1f;
 		border-color: #1c1c1c;
@@ -3111,8 +3133,8 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 button,
-#menu-primary .menu-toggle:hover,
-#menu-primary .menu-toggle:focus,
+#menu-primary .menu-toggle button:hover,
+#menu-primary .menu-toggle button:focus,
 #menu-primary   li.current-menu-item > a,
 #menu-primary   li a:hover,
 #menu-primary   li a:focus,
