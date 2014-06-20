@@ -26,8 +26,9 @@ add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles', 0 );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
-/* Filters the excerpt length. */
+/* Excerpt-related filters. */
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
+add_filter( 'excerpt_more',   'stargazer_excerpt_more'   );
 
 /* Modifies the theme layout. */
 add_filter( 'theme_mod_theme_layout', 'stargazer_mod_theme_layout', 15 );
@@ -277,6 +278,24 @@ function stargazer_aside_infinity( $html ) {
 function stargazer_excerpt_length( $length ) {
 	return 30;
 }
+
+/**
+ * Custom excerpt more text and link.
+ *
+ * @since  1.2.0
+ * @access public
+ * @param  string  $more
+ * @return string
+ */
+function stargazer_excerpt_more( $more ) {
+
+	/* Translators: The %s is the post title shown to screen readers. */
+	$text = sprintf( __( 'Continue reading %s', 'stargazer' ), '<span class="screen-reader-text">' . get_the_title() . '</span>' );
+	$more = sprintf( ' &hellip; <a href="%s" class="more-link">%s</a>', get_permalink(), $text );
+
+	return $more;
+}
+
 
 /**
  * Adds a custom class to the 'subsidiary' sidebar.  This is used to determine the number of columns used to 
