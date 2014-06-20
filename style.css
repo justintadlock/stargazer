@@ -2121,8 +2121,10 @@ blockquote::before,
 	.menu-toggle button {
 		position: relative;
 		top:      0;
-		left:     0;
 	}
+
+		.ltr .menu-toggle button { left: 0; }
+		.rtl .menu-toggle button { right: 0; }
 
 	#menu-primary .menu-toggle button {
 		margin:  0 0 10px;
