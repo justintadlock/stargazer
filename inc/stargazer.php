@@ -413,7 +413,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 			$html .= '<div class="media-info audio-info">';
 			$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
 			$html .= '</div>';
-			$html .= '<a class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</a>';
+			$html .= '<button class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</button>';
 			$html .= '</div>';
 		}
 	}
@@ -463,7 +463,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 		$html .= '<div class="media-info video-info">';
 		$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
 		$html .= '</div>';
-		$html .= '<a class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</a>';
+		$html .= '<button class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</button>';
 		$html .= '</div>';
 	}
 
