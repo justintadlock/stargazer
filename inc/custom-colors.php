@@ -150,11 +150,12 @@ final class Stargazer_Custom_Colors {
 		/* Color. */
 		$style .= "a, .wp-playlist-light .wp-playlist-playing { color: rgba( {$rgb}, 0.75 ); } ";
 
-		$style .= "a:hover, legend, mark, .comment-respond .required, pre, 
+		$style .= "a:hover, a:focus, legend, mark, .comment-respond .required, pre, 
 				.form-allowed-tags code, pre code, 
 				.wp-playlist-light .wp-playlist-item:hover, 
-				.mejs-button button:hover::after, 
-				.mejs-overlay-button:hover::after 
+				.wp-playlist-light .wp-playlist-item:focus,
+				.mejs-button button:hover::after, .mejs-button button:focus::after,
+				.mejs-overlay-button:hover::after, .mejs-overlay-button:focus::after  
 				{ color: #{$hex}; } ";
 
 		/* Background color. */
@@ -166,11 +167,17 @@ final class Stargazer_Custom_Colors {
 
 		$style .= "input[type='submit']:hover, input[type='submit']:focus, 
 				input[type='reset']:hover, input[type='reset']:focus, 
-				input[type='button']:hover, input[type='button']:focus, button:focus, button:hover,
-				.page-links a:hover, .wp-calendar td.has-posts a:hover, .widget-title > .wrap,
+				input[type='button']:hover, input[type='button']:focus, 
+				button:hover, button:focus, 
+				.page-links a:hover, .page-links a:focus, 
+				.wp-calendar td.has-posts a:hover, .wp-calendar td.has-posts a:focus, 
+				.widget-title > .wrap,
 				#comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, 
-				.widget_search > .search-form, #menu-sub-terms li a:hover, .comment-reply-link:hover, 
-				.comment-reply-login:hover, .mejs-time-rail .mejs-time-loaded, .skip-link .screen-reader-text
+				.widget_search > .search-form, 
+				#menu-sub-terms li a:hover, #menu-sub-terms li a:focus, 
+				.comment-reply-link:hover, .comment-reply-link:focus, 
+				.comment-reply-login:hover, .comment-reply-login:focus, 
+				.mejs-time-rail .mejs-time-loaded, .skip-link .screen-reader-text
 				{ background-color: #{$hex}; } ";
 
 		/* Firefox chokes on this rule and drops the rule set, so we're separating it. */
@@ -185,7 +192,10 @@ final class Stargazer_Custom_Colors {
 		/* Border bottom color. */
 		$style .= ".entry-content a, .entry-summary a, .comment-content a { border-bottom-color: rgba( {$rgb}, 0.15 ); } ";
 
-		$style .= ".entry-content a:hover, .entry-summary a:hover, .comment-content a:hover { border-bottom-color: rgba( {$rgb}, 0.75 ); } ";
+		$style .= ".entry-content a:hover, .entry-content a:focus, 
+		           .entry-summary a:hover, .entry-summary a:focus, 
+		           .comment-content a:hover, .comment-content a:focus
+		           { border-bottom-color: rgba( {$rgb}, 0.75 ); } ";
 
 		$style .= "body, .widget-title, #comments-number, #reply-title,
 				.attachment-meta-title { border-bottom-color: #{$hex}; } ";
