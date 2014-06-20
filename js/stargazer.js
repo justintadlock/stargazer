@@ -128,17 +128,19 @@ jQuery( document ).ready( function() {
 		}
 	);
 
-	jQuery( '#menu-primary .search-form' ).click(
+	jQuery( '#menu-primary .search-form' ).prepend( '<button class="search-toggle" type="button"><span class="screen-reader-text">Expand Search Form</span></button>' );
+
+	jQuery( '#menu-primary .search-toggle' ).click(
 		function( event ) {
 			event.stopPropagation();
 		}
 	);
 
-	jQuery( '#menu-primary .search-form' ).toggle(
+	jQuery( '#menu-primary .label-search' ).hide();
+
+	jQuery( '#menu-primary .search-toggle' ).click(
 		function() {
-			jQuery( '#menu-primary .search-form .search-field' ).focus();
-		},
-		function() {
+			jQuery( '#menu-primary .label-search' ).animate( {width: 'toggle'} );
 		}
 	);
 

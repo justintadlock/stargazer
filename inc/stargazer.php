@@ -122,7 +122,9 @@ function stargazer_register_sidebars() {
  */
 function stargazer_enqueue_scripts() {
 
-	wp_enqueue_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . 'js/stargazer.min.js', array( 'jquery' ), null, true );
+	$suffix = hybrid_get_min_suffix();
+
+	wp_enqueue_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
 }
 
 /**
