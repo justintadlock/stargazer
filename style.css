@@ -264,7 +264,7 @@ a {
 		.entry-content a:focus,
 		.entry-summary a:hover,
 		.entry-summary a:focus,
-		.comment-content a:hover
+		.comment-content a:hover,
 		.comment-content a:focus { text-decoration: none; }
 
 		a.img-hyperlink,
