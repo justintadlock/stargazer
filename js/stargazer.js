@@ -117,22 +117,6 @@ jQuery( document ).ready( function() {
 		}
 	);
 
-	jQuery( '#menu-primary .search-form' ).wrapInner( '<div />' ).prepend( '<a class="toggle">&nbsp;</a>' );
-
-	jQuery( window ).resize(
-		function() {
-			var width = jQuery( window ).width();
-
-			if ( 800 <= width ) {
-				jQuery( '#menu-primary .search-form > div' ).hide();
-				jQuery( '.menu-toggle button' ).removeClass( 'active' )
-			} else {
-				jQuery( '#menu-primary .search-form > div' ).show();
-				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle button' ).addClass( 'active' );
-			}
-		}
-	);
-
 	jQuery( 'html' ).click(
 		function( event ) {
 			if ( jQuery( event.target ).hasClass( 'screen-reader-text' ) ) {
@@ -150,9 +134,11 @@ jQuery( document ).ready( function() {
 		}
 	);
 
-	jQuery( '#menu-primary .search-form a.toggle' ).click(
+	jQuery( '#menu-primary .search-form' ).toggle(
 		function() {
-			jQuery( '#menu-primary .search-form > div' ).toggle( 'slow' );
+			jQuery( '#menu-primary .search-form .search-field' ).focus();
+		},
+		function() {
 		}
 	);
 

@@ -807,7 +807,7 @@ blockquote::before,
 .comment-reply-login::before,
 
 /* Search form */
-#menu-primary .search-form .toggle::before,
+#menu-primary .search-form::before,
 
 /* Sub-terms list. */
 #menu-sub-terms-items::before,
@@ -2485,7 +2485,7 @@ blockquote::before,
 
 	#menu-primary .search-form {
 		position: absolute;
-		top:      0.375rem;
+		top:      0;
 	}
 
 		.ltr #menu-primary .search-form { right: 0; }
@@ -2493,34 +2493,41 @@ blockquote::before,
 
 		#menu-primary .search-form .toggle {
 			display:         block;
+			padding:         0;
 			text-decoration: none;
 		}
 
 			.ltr #menu-primary .search-form .toggle { float: right; }
 			.rtl #menu-primary .search-form .toggle { float: left;  }
 
-			#menu-primary .search-form .toggle::before {
-				content:     '\f400';
-				font-size:   18px;
-				line-height: 18px;
+			#menu-primary .search-form {
+				cursor: pointer;
 			}
-
-			#menu-primary .search-form > div {
-				display:    none;
-				z-index:    999;
-				clear:      both;
-				position:   relative;
-				width:      300px;
-				top:        8px;
-				padding:    16px 24px;
-
-				box-sizing: border-box;
+			#menu-primary .search-form::before {
+				float:       left;
+				content:     '\f400';
+				font-size:   20px;
+				line-height: 20px;
+				cursor:      pointer;
+				padding:     6px 0 0 0;
 			}
 
 				#menu-primary .search-form input[type="search"] {
-					padding:     8px;
-					font-size:   1rem;
+					float: left;
+					width: 0;
+					padding: 6px 0;
+					border-width: 0;
+				}
+
+				#menu-primary .search-form input[type="search"]:focus {
+					display:     inline-block;
+					padding:     6px 8px;
+					width:       200px;
+					margin-left:  0.75rem;
+					border-width: 1px;
+					font-size:   0.9375rem;
 					opacity:     1;
+					box-sizing:  border-box;
 				}
 
 				#menu-primary .search-form input[type="submit"] { display: none; }
@@ -2878,7 +2885,10 @@ hr,
 .mejs-controls > .mejs-button button:focus,
 #menu-primary .menu-toggle button,
 #menu-primary .menu-toggle button:hover,
-#menu-primary .menu-toggle button:focus {
+#menu-primary .menu-toggle button:focus,
+#menu-primary .search-form .toggle,
+#menu-primary .search-form .toggle:hover,
+#menu-primary .search-form .toggle:focus {
 	background: transparent;
 }
 
@@ -3104,12 +3114,11 @@ li.ping,
 		#menu-primary   ul ul li a:focus,
 		#menu-secondary ul ul li a:focus { background: #191919; }
 
-		#menu-primary .search-form .toggle::before {
+		#menu-primary .search-form::before {
 			color: rgba( 255, 255, 255, 0.75 );
 		}
 
-		#menu-primary .search-form .toggle:hover::before,
-		#menu-primary .search-form .toggle:focus::before { color: #fff; }
+		#menu-primary .search-form:hover::before { color: #fff; }
 	}
 
 /* =/=/=/=/=/= End fun zone. =/=/=/=/=/= */
