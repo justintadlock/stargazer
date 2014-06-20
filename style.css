@@ -2218,7 +2218,7 @@ blockquote::before,
 		opacity:   1;
 	}
 
-	#menu-primary .toggle,
+	#menu-primary .search-toggle,
 	#menu-primary .search-form input[type="submit"] { display: none; }
 }
 

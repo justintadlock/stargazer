@@ -117,6 +117,20 @@ jQuery( document ).ready( function() {
 		}
 	);
 
+	jQuery( window ).resize(
+		function() {
+			var width = jQuery( window ).width();
+
+			if ( 800 <= width ) {
+				jQuery( '#menu-primary .search-form .label-search' ).hide();
+				jQuery( '.menu-toggle' ).removeClass( 'active' )
+			} else {
+				jQuery( '#menu-primary .search-form .label-search' ).show();
+				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle' ).addClass( 'active' );
+			}
+		}
+	);
+
 	jQuery( 'html' ).click(
 		function( event ) {
 			if ( jQuery( event.target ).hasClass( 'screen-reader-text' ) ) {
