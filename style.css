@@ -2494,8 +2494,10 @@ blockquote::before,
 		.rtl #menu-primary .search-form { left:  0; }
 
 		#menu-primary .search-toggle {
+			height:      34px;
 			padding:     0 10px;
 			line-height: 34px;
+			box-sizing:  border-box;
 		}
 
 			.ltr #menu-primary .search-toggle { float: left; }
@@ -2513,6 +2515,7 @@ blockquote::before,
 					display:     inline-block;
 					padding:     7px 8px;
 					width:       200px;
+					height:       34px;
 					border-width: 1px;
 					font-size:   0.9375rem;
 					opacity:     1;
