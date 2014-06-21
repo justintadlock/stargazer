@@ -2228,7 +2228,10 @@ blockquote::before,
 
 	.menu > .wrap { display: block !important; }
 
-	.menu-toggle { position: absolute; left: -9999em; right: -9999em; }
+	.menu-toggle { position: absolute; }
+
+		.ltr .menu-toggle { left: -9999em; }
+		.rtl .menu-toggle { right: -9999em; }
 
 		.menu ul {
 			list-style: none;
