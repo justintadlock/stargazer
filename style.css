@@ -2874,9 +2874,9 @@ hr,
 #menu-primary .menu-toggle button,
 #menu-primary .menu-toggle button:hover,
 #menu-primary .menu-toggle button:focus,
-#menu-primary .search-form .toggle,
-#menu-primary .search-form .toggle:hover,
-#menu-primary .search-form .toggle:focus {
+#menu-primary .search-toggle,
+#menu-primary .search-toggle:hover,
+#menu-primary .search-toggle:focus  {
 	background: transparent;
 }
 
@@ -3106,7 +3106,9 @@ li.ping,
 			color: rgba( 255, 255, 255, 0.75 );
 		}
 
-		#menu-primary .search-form:hover::before { color: #fff; }
+		#menu-primary .search-toggle:hover::before,
+		#menu-primary .search-toggle:focus::before { color: #fff; }
+
 	}
 
 /* =/=/=/=/=/= End fun zone. =/=/=/=/=/= */

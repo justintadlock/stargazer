@@ -131,18 +131,7 @@ jQuery( document ).ready( function() {
 		}
 	);
 
-	jQuery( 'html' ).click(
-		function( event ) {
-			if ( jQuery( event.target ).hasClass( 'screen-reader-text' ) ) {
-				jQuery( '#menu-primary .search-form > div' ).show( 'slow' );
-
-			} else if ( !jQuery( '.menu-toggle' ).hasClass( 'active' ) ) {
-				jQuery( '#menu-primary .search-form > div' ).hide( 'slow' );
-			}
-		}
-	);
-
-	jQuery( '#menu-primary .search-form' ).prepend( '<button class="search-toggle" type="button"><span class="screen-reader-text">Expand Search Form</span></button>' );
+	jQuery( '#menu-primary .search-form' ).prepend( '<button class="search-toggle" type="button"><span class="screen-reader-text">' + stargazer_i18n.search_toggle + '</span></button>' );
 
 	jQuery( '#menu-primary .search-toggle' ).click(
 		function( event ) {

@@ -124,7 +124,17 @@ function stargazer_enqueue_scripts() {
 
 	$suffix = hybrid_get_min_suffix();
 
-	wp_enqueue_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
+	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
+
+	wp_localize_script(
+		'stargazer',
+		'stargazer_i18n',
+		array(
+			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
+		)
+	);
+
+	wp_enqueue_script( 'stargazer' );
 }
 
 /**
