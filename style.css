@@ -2251,8 +2251,9 @@ blockquote::before,
 			}
 
 			.menu ul ul {
+				opacity:    0;
+				visibility: hidden;
 				position:   absolute;
-				left:     -9999em;
 				z-index:    1;
 
 				-webkit-transition: all 0.4s ease-in-out;
@@ -2261,21 +2262,12 @@ blockquote::before,
 				        transition: all 0.4s ease-in-out;
 			}
 
-				.ltr .menu ul ul ul { left: auto; right: -99999em; }
-
-				/* Uses default. */
-				.rtl .menu ul ul ul {}
-
 			.menu li:hover > ul,
 			.menu li:focus > ul,
 			.menu li.focus > ul {
-				left: auto;
+				opacity:    1;
+				visibility: visible;
 			}
-				.ltr .menu li li:hover > ul,
-				.ltr .menu li li:focus > ul,
-				.ltr .menu li li.focus > ul {
-					right: auto;
-				}
 
 			.menu li > ul::before {
 				content:       '';
@@ -2431,15 +2423,11 @@ blockquote::before,
 					margin: 0;
 				}
 
-					.ltr #menu-primary   ul ul li:hover > ul,
-					.ltr #menu-primary   ul ul li.focus > ul,
-					.ltr #menu-secondary ul ul li:hover > ul,
-					.ltr #menu-secondary ul ul li.focus > ul { left: 236px; }
+					.ltr #menu-primary   ul ul ul,
+					.ltr #menu-secondary ul ul ul { left: 236px; margin-left: 20px; }
 
-					.rtl #menu-primary   ul ul li:hover > ul,
-					.rtl #menu-primary   ul ul li.focus > ul,
-					.rtl #menu-secondary ul ul li:hover > ul,
-					.rtl #menu-secondary ul ul li.focus > ul { right: 236px; }
+					.rtl #menu-primary   ul ul ul,
+					.rtl #menu-secondary ul ul ul { right: 236px; margin-right: 20px; }
 
 			/* List items */
 
