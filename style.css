@@ -583,7 +583,8 @@ table {
 		input[type="reset"]:focus,
 		input[type="button"]:focus,
 		button:focus,
-		.menu-toggle button:hover {
+		.menu-toggle button:hover,
+		.media-info-toggle:hover {
 			text-decoration: underline;
 		}
 
