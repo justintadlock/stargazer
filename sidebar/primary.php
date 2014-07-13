@@ -7,8 +7,6 @@
 			printf( _x( '%s Sidebar', 'sidebar title', 'stargazer' ), hybrid_get_sidebar_name( 'primary' ) ); 
 		?></h3>
 
-		<h1 class="screen-reader-text" id="sidebar-header"><?php _e( 'Sidebar', 'accessible-twin-cities' ); ?></h1>
-
 		<?php if ( is_active_sidebar( 'primary' ) ) : // If the sidebar has widgets. ?>
 
 			<?php dynamic_sidebar( 'primary' ); // Displays the primary sidebar. ?>
