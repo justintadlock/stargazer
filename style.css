@@ -332,6 +332,7 @@ blockquote {
 		.en-us blockquote p.is-last-child::after { content: '\201D'; }
 
 		.en-us blockquote p.has-cite:last-child::after,
+		.en-us blockquote p.has-cite:last-child::before,
 		.en-us blockquote p.has-cite-only:last-child::after,
 		.en-us blockquote p.has-cite-only:last-child::before { content: ''; }
 
