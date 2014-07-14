@@ -2,6 +2,11 @@
 
 	<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
 
+		<h3 id="sidebar-primary-title" class="screen-reader-text"><?php 
+			/* Translators: %s is the sidebar name. This is the sidebar title shown to screen readers. */
+			printf( _x( '%s Sidebar', 'sidebar title', 'stargazer' ), hybrid_get_sidebar_name( 'primary' ) ); 
+		?></h3>
+
 		<?php if ( is_active_sidebar( 'primary' ) ) : // If the sidebar has widgets. ?>
 
 			<?php dynamic_sidebar( 'primary' ); // Displays the primary sidebar. ?>

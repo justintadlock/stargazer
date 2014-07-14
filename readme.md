@@ -35,6 +35,15 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
+### Version 1.2.0
+
+* Upgraded to Hybrid Core version 2.0.0-rc-1.
+* Made sure styles for default WordPress widgets are handled since Hybrid Core dropped widgets.
+* Major accessibility improvements across the entire theme. It's not ready for the `accessibility-ready` tag yet, but it's close.
+* Changed the way the search form in the Primary menu behaves (slides out rather than opening below).
+* Minor correction in inconsistent blockquote cite CSS.
+* Added Spanish translation files.
+
 ### Version 1.1.1
 
 * Updated to Hybrid Core version 2.0.0-beta-2.

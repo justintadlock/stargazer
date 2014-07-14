@@ -2,12 +2,11 @@
 
 	<nav <?php hybrid_attr( 'menu', 'primary' ); ?>>
 
-		<div class="assistive-text skip-link">
-			<a href="#content"><?php _e( 'Skip to content', 'stargazer' ); ?></a>
-		</div><!-- .skip-link -->
-
-		<h3 class="menu-toggle">
-			<span class="screen-reader-text"><?php _e( 'Navigation', 'stargazer' ); ?></span>
+		<h3 id="menu-primary-title" class="menu-toggle">
+			<button class="screen-reader-text"><?php
+				/* Translators: %s is the nav menu name. This is the nav menu title shown to screen readers. */
+				printf( _x( '%s Menu', 'nav menu title', 'stargazer' ), hybrid_get_menu_location_name( 'primary' ) ); 
+			?></button>
 		</h3><!-- .menu-toggle -->
 
 		<?php wp_nav_menu(

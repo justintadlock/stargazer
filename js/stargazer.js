@@ -55,6 +55,18 @@ jQuery( document ).ready( function() {
 		}
 	);
 
+	/* Focus labels for form elements. */
+	jQuery( 'input, select, textarea' ).on( 'focus blur',
+		function() {
+			var sg_focus_id   = jQuery( this ).attr( 'id' );
+
+			if ( sg_focus_id )
+				jQuery( 'label[for="' + sg_focus_id + '"]' ).toggleClass( 'focus' );
+			else
+				jQuery( this ).parents( 'label' ).toggleClass( 'focus' );
+		}
+	);
+
 	/*
 	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually 
 	 * exist or is not supported by browsers, we have the following.
@@ -84,53 +96,54 @@ jQuery( document ).ready( function() {
 	/* Adds 'has-posts' to any <td> element in the calendar that has posts for that day. */
 	jQuery( '.wp-calendar tbody td' ).has( 'a' ).addClass( 'has-posts' );
 
+	/* Fix Webkit focus bug. */
+	jQuery( '#content' ).attr( 'tabindex', '-1' );
+
+	/* Menu focus. */
+	jQuery( '.menu li a' ).on( 'focus blur', 
+		function() {
+			jQuery( this ).parents().toggleClass( 'focus' );
+		}
+	);
+
 	/*
 	 * Menu and search form toggles.
 	 */
 
-	jQuery( '.menu-toggle' ).click(
+	jQuery( '.menu-toggle button' ).click(
 		function() {
-			jQuery( this ).parent().children( '.wrap' ).fadeToggle();
+			jQuery( this ).parents( '.menu' ).children( '.wrap' ).fadeToggle();
 			jQuery( this ).toggleClass( 'active' );
 		}
 	);
-
-	jQuery( '#menu-primary .search-form' ).wrapInner( '<div />' ).prepend( '<a class="toggle">&nbsp;</a>' );
 
 	jQuery( window ).resize(
 		function() {
 			var width = jQuery( window ).width();
 
 			if ( 800 <= width ) {
-				jQuery( '#menu-primary .search-form > div' ).hide();
+				jQuery( '#menu-primary .search-form .label-search' ).hide();
 				jQuery( '.menu-toggle' ).removeClass( 'active' )
 			} else {
-				jQuery( '#menu-primary .search-form > div' ).show();
+				jQuery( '#menu-primary .search-form .label-search' ).show();
 				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle' ).addClass( 'active' );
 			}
 		}
 	);
 
-	jQuery( 'html' ).click(
-		function( event ) {
-			if ( jQuery( event.target ).hasClass( 'menu-toggle' ) ) {
-				jQuery( '#menu-primary .search-form > div' ).show( 'slow' );
+	jQuery( '#menu-primary .search-form' ).prepend( '<button class="search-toggle" type="button"><span class="screen-reader-text">' + stargazer_i18n.search_toggle + '</span></button>' );
 
-			} else if ( !jQuery( '.menu-toggle' ).hasClass( 'active' ) ) {
-				jQuery( '#menu-primary .search-form > div' ).hide( 'slow' );
-			}
-		}
-	);
-
-	jQuery( '#menu-primary .search-form' ).click(
+	jQuery( '#menu-primary .search-toggle' ).click(
 		function( event ) {
 			event.stopPropagation();
 		}
 	);
 
-	jQuery( '#menu-primary .search-form a.toggle' ).click(
+	jQuery( '#menu-primary .label-search' ).hide();
+
+	jQuery( '#menu-primary .search-toggle' ).click(
 		function() {
-			jQuery( '#menu-primary .search-form > div' ).toggle( 'slow' );
+			jQuery( '#menu-primary .label-search' ).animate( {width: 'toggle'} );
 		}
 	);
 

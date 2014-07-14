@@ -26,7 +26,7 @@ add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles', 0 );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
-/* Filters the excerpt length. */
+/* Excerpt-related filters. */
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
 /* Modifies the theme layout. */
@@ -121,7 +121,19 @@ function stargazer_register_sidebars() {
  */
 function stargazer_enqueue_scripts() {
 
-	wp_enqueue_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . 'js/stargazer.min.js', array( 'jquery' ), null, true );
+	$suffix = hybrid_get_min_suffix();
+
+	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
+
+	wp_localize_script(
+		'stargazer',
+		'stargazer_i18n',
+		array(
+			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
+		)
+	);
+
+	wp_enqueue_script( 'stargazer' );
 }
 
 /**
@@ -394,7 +406,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 			$html .= '<div class="media-info audio-info">';
 			$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
 			$html .= '</div>';
-			$html .= '<a class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</a>';
+			$html .= '<button class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</button>';
 			$html .= '</div>';
 		}
 	}
@@ -444,7 +456,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 		$html .= '<div class="media-info video-info">';
 		$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
 		$html .= '</div>';
-		$html .= '<a class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</a>';
+		$html .= '<button class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</button>';
 		$html .= '</div>';
 	}
 
