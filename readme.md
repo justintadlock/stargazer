@@ -35,6 +35,11 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 
 ## Changelog
 
+### Version 1.2.1
+
+* Upgraded to Hybrid Core version 2.1.0-dev.
+* Added the Hebrew translation files.
+
 ### Version 1.2.0
 
 * Upgraded to Hybrid Core version 2.0.0-rc-1.
