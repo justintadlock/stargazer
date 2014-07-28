@@ -919,7 +919,7 @@ blockquote::before,
 
 	#menu-social li a::before        { content: '\f408'; padding: 0 3px; }
 	#menu-social li a:hover::before,
-	#menu-social li a:focus::befoe  { opacity: 0.75; }
+	#menu-social li a:focus::before  { opacity: 0.75; }
 
 	#menu-social li a[href*="codepen.io"]::before      { content: '\f216'; color: #fff;    }
 	#menu-social li a[href*="digg.com"]::before        { content: '\f221'; color: #fff;    }
