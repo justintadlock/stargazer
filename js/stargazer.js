@@ -1,11 +1,11 @@
 jQuery( document ).ready( function() {
 
 	/*
-	 * Theme fonts handler.  This is so that child themes can make sure to style for future changes.  If 
-	 * they add styles for `.font-primary`, `.font-secondary`, and `.font-headlines`, users will always 
+	 * Theme fonts handler.  This is so that child themes can make sure to style for future changes.  If
+	 * they add styles for `.font-primary`, `.font-secondary`, and `.font-headlines`, users will always
 	 * get the correct styles, even if the parent theme adds extra items.
 	 *
-	 * Child theme should still incorporate the normal selectors in theis `style.css`.  This is just for 
+	 * Child theme should still incorporate the normal selectors in theis `style.css`.  This is just for
 	 * additional future-proofing.
 	 */
 
@@ -20,7 +20,7 @@ jQuery( document ).ready( function() {
 	jQuery( font_headlines ).not( '#site-description' ).addClass( 'font-headlines' );
 
 	/*
-	 * Adds classes to the `<label>` element based on the type of form element the label belongs 
+	 * Adds classes to the `<label>` element based on the type of form element the label belongs
 	 * to. This allows theme devs to style specifically for certain labels (think, icons).
 	 */
 
@@ -68,7 +68,7 @@ jQuery( document ).ready( function() {
 	);
 
 	/*
-	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually 
+	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually
 	 * exist or is not supported by browsers, we have the following.
 	 */
 
@@ -77,7 +77,7 @@ jQuery( document ).ready( function() {
 
 	/*
 	 * Adds the `.has-cite-only` if the last `<p>` in the `<blockquote>` only has the `<cite>` element.
-	 * Adds the `.is-last-child` class to the previous `<p>`.  This is so that we can style correctly 
+	 * Adds the `.is-last-child` class to the previous `<p>`.  This is so that we can style correctly
 	 * for blockquotes in English, in which only the last paragraph should have a closing quote.
 	 */
 	jQuery( 'blockquote p:has( cite )' ).filter(
@@ -100,7 +100,7 @@ jQuery( document ).ready( function() {
 	jQuery( '#content' ).attr( 'tabindex', '-1' );
 
 	/* Menu focus. */
-	jQuery( '.menu li a' ).on( 'focus blur', 
+	jQuery( '.menu li a' ).on( 'focus blur',
 		function() {
 			jQuery( this ).parents().toggleClass( 'focus' );
 		}
@@ -153,18 +153,18 @@ jQuery( document ).ready( function() {
 
 	/* Adds a `<span class="wrap">` around some elements. */
 	jQuery(
-		'.widget-title, #comments-number, #reply-title, .attachment-meta-title' 
+		'.widget-title, #comments-number, #reply-title, .attachment-meta-title'
 	).wrapInner( '<span class="wrap" />' );
 
 	/* Adds <span class="screen-reader-text"> on some elements. */
 	jQuery( '.widget-widget_rss .widget-title img' ).wrap( '<span class="screen-reader-text" />' );
 
-	jQuery( 
+	jQuery(
 		'.breadcrumb-trail a[rel="home"], .breadcrumb-trail .sep, .author-box .social a'
 	).wrapInner( '<span class="screen-reader-text" />' );
 
 	/*
-	 * Video and other embeds.  Let's make them more responsive.	
+	 * Video and other embeds.  Let's make them more responsive.
 	 */
 
 	/* Overrides WP's <div> wrapper around videos, which mucks with flexible videos. */
@@ -172,10 +172,10 @@ jQuery( document ).ready( function() {
 
 	/* Responsive videos. */
 	/* blip.tv adds a second <embed> with "display: none".  We don't want to wrap that. */
-	jQuery( '.entry object, .entry embed, .entry iframe' ).not( 'embed[style*="display"], [src*="soundcloud.com"], [src*="amazon"], [name^="gform_"]' ).wrap( '<div class="embed-wrap" />' );
+	//jQuery( '.entry object, .entry embed, .entry iframe' ).not( 'embed[style*="display"], [src*="soundcloud.com"], [src*="amazon"], [name^="gform_"]' ).wrap( '<div class="embed-wrap" />' );
 
 	/* Removes the 'width' attribute from embedded videos and replaces it with a max-width. */
-	jQuery( '.embed-wrap object, .embed-wrap embed, .embed-wrap iframe' ).attr( 
+	jQuery( '.embed-wrap object, .embed-wrap embed, .embed-wrap iframe, .wp-video, .wp-audio' ).attr(
 		'width',
 		function( index, value ) {
 			jQuery( this ).attr( 'style', 'max-width: ' + value + 'px;' );

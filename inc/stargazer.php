@@ -1,6 +1,6 @@
 <?php
 /**
- * Sets up custom filters and actions for the theme.  This does things like sets up sidebars, menus, scripts, 
+ * Sets up custom filters and actions for the theme.  This does things like sets up sidebars, menus, scripts,
  * and lots of other awesome stuff that WordPress themes do.
  *
  * @package    Stargazer
@@ -47,6 +47,9 @@ add_filter( 'mce_css',              'stargazer_mce_css'              );
 
 /* Filters the calendar output. */
 add_filter( 'get_calendar', 'stargazer_get_calendar' );
+
+# Embed wrap.
+add_filter( 'embed_oembed_html', 'stargazer_maybe_wrap_embed', 10, 2 );
 
 /* Filters the [audio] shortcode. */
 add_filter( 'wp_audio_shortcode', 'stargazer_audio_shortcode', 10, 4 );
@@ -225,7 +228,7 @@ function stargazer_mce_css( $mce_css ) {
 }
 
 /**
- * Modifies the theme layout on attachment pages.  If a specific layout is not selected and the global layout 
+ * Modifies the theme layout on attachment pages.  If a specific layout is not selected and the global layout
  * isn't set to '1c-narrow', this filter will change the layout to '1c'.
  *
  * @since  1.0.0
@@ -262,7 +265,7 @@ function stargazer_status_content( $content ) {
 }
 
 /**
- * Filter's Hybrid Core's infinity symbol for aside posts.  This changes the symbol to a comments link if 
+ * Filter's Hybrid Core's infinity symbol for aside posts.  This changes the symbol to a comments link if
  * the post's comments are open or if the post has comments.
  *
  * @since  1.0.0
@@ -291,11 +294,11 @@ function stargazer_excerpt_length( $length ) {
 }
 
 /**
- * Adds a custom class to the 'subsidiary' sidebar.  This is used to determine the number of columns used to 
+ * Adds a custom class to the 'subsidiary' sidebar.  This is used to determine the number of columns used to
  * display the sidebar's widgets.  This optimizes for 1, 2, and 3 columns or multiples of those values.
  *
- * Note that we're using the global $sidebars_widgets variable here. This is because core has marked 
- * wp_get_sidebars_widgets() as a private function. Therefore, this leaves us with $sidebars_widgets for 
+ * Note that we're using the global $sidebars_widgets variable here. This is because core has marked
+ * wp_get_sidebars_widgets() as a private function. Therefore, this leaves us with $sidebars_widgets for
  * figuring out the widget count.
  * @link http://codex.wordpress.org/Function_Reference/wp_get_sidebars_widgets
  *
@@ -341,7 +344,72 @@ function stargazer_get_calendar( $calendar ) {
 }
 
 /**
- * Adds a featured image (if one exists) next to the audio player.  Also adds a section below the player to 
+ * Wraps embeds with `.embed-wrap` class.
+ *
+ * @since  1.3.0
+ * @access public
+ * @param  string  $html
+ * @return string
+ */
+function stargazer_wrap_embed_html( $html ) {
+
+	return $html && is_string( $html ) ? sprintf( '<div class="embed-wrap">%s</div>', $html ) : $html;
+}
+
+/**
+ * Checks embed URL patterns to see if they should be wrapped in some special HTML, particularly
+ * for responsive videos.
+ *
+ * @author     Automattic
+ * @link       http://jetpack.me
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ * @since  1.3.0
+ * @access public
+ * @param  string  $html
+ * @param  string  $url
+ * @return string
+ */
+function stargazer_maybe_wrap_embed( $html, $url ) {
+
+	if ( ! $html || ! is_string( $html ) || ! $url )
+		return $html;
+
+	$do_wrap = false;
+
+	$patterns = array(
+		'#http://((m|www)\.)?youtube\.com/watch.*#i',
+		'#https://((m|www)\.)?youtube\.com/watch.*#i',
+		'#http://((m|www)\.)?youtube\.com/playlist.*#i',
+		'#https://((m|www)\.)?youtube\.com/playlist.*#i',
+		'#http://youtu\.be/.*#i',
+		'#https://youtu\.be/.*#i',
+		'#https?://(.+\.)?vimeo\.com/.*#i',
+		'#https?://(www\.)?dailymotion\.com/.*#i',
+		'#https?://dai.ly/*#i',
+		'#https?://(www\.)?hulu\.com/watch/.*#i',
+		'#https?://wordpress.tv/.*#i',
+		'#https?://(www\.)?funnyordie\.com/videos/.*#i',
+		'#https?://vine.co/v/.*#i',
+		'#https?://(www\.)?collegehumor\.com/video/.*#i',
+		'#https?://(www\.|embed\.)?ted\.com/talks/.*#i'
+	);
+
+	$patterns = apply_filters( 'stargazer_maybe_wrap_embed_patterns', $patterns );
+
+	foreach ( $patterns as $pattern ) {
+
+		$do_wrap = preg_match( $pattern, $url );
+
+		if ( $do_wrap )
+			return stargazer_wrap_embed_html( $html );
+	}
+
+	return $html;
+}
+
+/**
+ * Adds a featured image (if one exists) next to the audio player.  Also adds a section below the player to
  * display the audio file information (toggled by custom JS).
  *
  * @since  1.0.0
@@ -368,7 +436,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 		$extensions = join( '|', wp_get_audio_extensions() );
 
 		preg_match(
-			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i', 
+			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i',
 			preg_replace( '/(\?_=[0-9])/i', '', $html ),
 			$matches
 		);
@@ -381,13 +449,13 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 	if ( !empty( $attachment_id ) ) {
 
 		/* Get the attachment's featured image. */
-		$image = get_the_image( 
-			array( 
-				'post_id'      => $attachment_id,  
+		$image = get_the_image(
+			array(
+				'post_id'      => $attachment_id,
 				'image_class'  => 'audio-image',
-				'link_to_post' => is_attachment() ? false : true, 
-				'echo'         => false 
-			) 
+				'link_to_post' => is_attachment() ? false : true,
+				'echo'         => false
+			)
 		);
 
 		/* If there's no attachment featured image, see if there's one for the post. */
@@ -440,7 +508,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 		$extensions = join( '|', wp_get_video_extensions() );
 
 		preg_match(
-			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i', 
+			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i',
 			preg_replace( '/(\?_=[0-9])/i', '', $html ),
 			$matches
 		);
@@ -464,8 +532,8 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 }
 
 /**
- * Featured image for self-hosted videos.  Checks the vidoe attachment for sub-attachment images.  If 
- * none exist, checks the current post (if in The Loop) for its featured image.  If an image is found, 
+ * Featured image for self-hosted videos.  Checks the vidoe attachment for sub-attachment images.  If
+ * none exist, checks the current post (if in The Loop) for its featured image.  If an image is found,
  * it's used as the "poster" attribute in the [video] shortcode.
  *
  * @since  1.0.0
@@ -506,13 +574,13 @@ function stargazer_video_atts( $out ) {
 		if ( !empty( $attachment_id ) ) {
 
 			/* Get the attachment's featured image. */
-			$image = get_the_image( 
-				array( 
-					'post_id'      => $attachment_id, 
+			$image = get_the_image(
+				array(
+					'post_id'      => $attachment_id,
 					'size'         => 'full',
 					'format'       => 'array',
 					'echo'         => false
-				) 
+				)
 			);
 		}
 
