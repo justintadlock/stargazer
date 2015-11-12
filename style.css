@@ -1644,7 +1644,7 @@ blockquote::before,
 	.mejs-controls > div { margin-top: 10px; }
 
 		/* Fix for last item dropping below the controls. */
-		.mejs-controls > div:last-of-type {
+		.mejs-controls > :last-child {
 			position: relative;
 			clear:    both;
 			float:    right;
