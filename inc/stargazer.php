@@ -26,6 +26,9 @@ add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles', 0 );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
+// Load styles.
+add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_styles' );
+
 /* Excerpt-related filters. */
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
@@ -152,6 +155,26 @@ function stargazer_register_styles() {
 
 	wp_register_style( 'stargazer-fonts',        '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
 	wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
+}
+
+/**
+ * Loads stylesheets.
+ *
+ * @since  2.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_enqueue_styles() {
+
+	wp_enqueue_style( 'stargazer-fonts'        );
+	wp_enqueue_style( 'hybrid-one-five'        );
+	wp_enqueue_style( 'hybrid-gallery'         );
+	wp_enqueue_style( 'stargazer-mediaelement' );
+
+	if ( is_child_theme() )
+		wp_enqueue_style( 'hybrid-parent' );
+
+	wp_enqueue_style( 'hybrid-style' );
 }
 
 /**
