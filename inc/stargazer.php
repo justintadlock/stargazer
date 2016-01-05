@@ -276,9 +276,9 @@ function stargazer_mce_css( $mce_css ) {
 function stargazer_mod_theme_layout( $layout ) {
 
 	if ( is_attachment() && wp_attachment_is_image() ) {
-		$post_layout = get_post_layout( get_queried_object_id() );
+		$post_layout = hybrid_get_post_layout( get_queried_object_id() );
 
-		if ( 'default' === $post_layout && '1c-narrow' !== $layout )
+		if ( ! $post_layout || 'default' === $post_layout && '1c-narrow' !== $layout )
 			$layout = '1c';
 	}
 
