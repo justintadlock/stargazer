@@ -59,7 +59,19 @@
 
 			<h3 class="attachment-meta-title"><?php _e( 'Image Info', 'stargazer' ); ?></h3>
 
-			<?php hybrid_media_meta(); ?>
+			<ul class="media-meta">
+				<?php $pre = '<li><span class="prep">%s</span>'; ?>
+				<?php hybrid_media_meta( 'dimensions',        array( 'before' => sprintf( $pre, esc_html__( 'Dimensions',    'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'created_timestamp', array( 'before' => sprintf( $pre, esc_html__( 'Date',          'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'camera',            array( 'before' => sprintf( $pre, esc_html__( 'Camera',        'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'aperture',          array( 'before' => sprintf( $pre, esc_html__( 'Aperture',      'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'focal_length',      array( 'before' => sprintf( $pre, esc_html__( 'Focal Length',  'stargazer' ) ), 'after' => '</li>', 'text' => esc_html__( '%s mm', 'stargazer' ) ) ); ?>
+				<?php hybrid_media_meta( 'iso',               array( 'before' => sprintf( $pre, esc_html__( 'ISO',           'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'shutter_speed',     array( 'before' => sprintf( $pre, esc_html__( 'Shutter Speed', 'stargazer' ) ), 'after' => '</li>', 'text' => esc_html__( '%s sec', 'stargazer' ) ) ); ?>
+				<?php hybrid_media_meta( 'file_type',         array( 'before' => sprintf( $pre, esc_html__( 'Type',          'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'file_name',         array( 'before' => sprintf( $pre, esc_html__( 'Name',          'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'mime_type',         array( 'before' => sprintf( $pre, esc_html__( 'Mime Type',     'stargazer' ) ), 'after' => '</li>' ) ); ?>
+			</ul>
 
 		</div><!-- .media-info -->
 

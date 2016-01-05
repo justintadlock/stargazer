@@ -515,6 +515,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 			$html .= hybrid_get_media_meta( 'length_formatted',  array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Run Time',  'stargazer' ) ), 'after' => '</li>' ) );
 			$html .= hybrid_get_media_meta( 'artist',            array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Artist',    'stargazer' ) ), 'after' => '</li>' ) );
 			$html .= hybrid_get_media_meta( 'album',             array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Album',     'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'track_number',      array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Track',     'stargazer' ) ), 'after' => '</li>' ) );
 			$html .= hybrid_get_media_meta( 'year',              array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Year',      'stargazer' ) ), 'after' => '</li>' ) );
 			$html .= hybrid_get_media_meta( 'gennre',            array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Genre',     'stargazer' ) ), 'after' => '</li>' ) );
 			$html .= hybrid_get_media_meta( 'file_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Type', 'stargazer' ) ), 'after' => '</li>' ) );

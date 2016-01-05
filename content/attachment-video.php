@@ -27,8 +27,14 @@
 
 			<h3><?php _e( 'Video Info', 'stargazer' ); ?></h3>
 
-			<?php hybrid_media_meta(); ?>
-
+			<ul class="media-meta">
+				<?php $pre = '<li><span class="prep">%s</span>'; ?>
+				<?php hybrid_media_meta( 'length_formatted',  array( 'before' => sprintf( $pre, esc_html__( 'Run Time',      'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'dimensions',        array( 'before' => sprintf( $pre, esc_html__( 'Dimensions',    'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'file_type',         array( 'before' => sprintf( $pre, esc_html__( 'Type',          'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'file_name',         array( 'before' => sprintf( $pre, esc_html__( 'Name',          'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'mime_type',         array( 'before' => sprintf( $pre, esc_html__( 'Mime Type',     'stargazer' ) ), 'after' => '</li>' ) ); ?>
+			</ul>
 		</div><!-- .media-info -->
 
 	</div><!-- .attachment-meta -->
