@@ -479,7 +479,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 		);
 
 		if ( ! empty( $matches ) )
-			$attachment_id = hybrid_get_attachment_id_from_url( $matches[2] );
+			$attachment_id = attachment_url_to_postid( $matches[2] );
 	}
 
 	// If an attachment ID was found.
@@ -551,7 +551,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 		);
 
 		if ( ! empty( $matches ) )
-			$attachment_id = hybrid_get_attachment_id_from_url( $matches[2] );
+			$attachment_id = attachment_url_to_postid( $matches[2] );
 	}
 
 	// If an attachment ID was found, add the media info section.
@@ -589,7 +589,7 @@ function stargazer_video_atts( $out ) {
 
 		// Check the 'src' attribute for an attachment file.
 		if ( ! empty( $out['src'] ) )
-			$attachment_id = hybrid_get_attachment_id_from_url( $out['src'] );
+			$attachment_id = attachment_url_to_postid( $out['src'] );
 
 		// If we couldn't get an attachment from the 'src' attribute, check other supported file extensions.
 		if ( empty( $attachment_id ) ) {
@@ -599,7 +599,7 @@ function stargazer_video_atts( $out ) {
 			foreach ( $default_types as $type ) {
 
 				if ( ! empty( $out[ $type ] ) ) {
-					$attachment_id = hybrid_get_attachment_id_from_url( $out[ $type ] );
+					$attachment_id = attachment_url_to_postid( $out[ $type ] );
 
 					if ( ! empty( $attachment_id ) )
 						break;
