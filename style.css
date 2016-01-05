@@ -731,7 +731,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 .entry::after,
 .entry-content::after,
 .entry-summary::after,
-.loop-meta::after,
+.archive-header::after,
 li.comment::after,
 li.comment > article::after,
 li.ping::after,
@@ -1411,9 +1411,9 @@ blockquote::before,
  * This displays the archive, blog, and search title + description.
  */
 
-.loop-meta { margin: 0 0 1.5rem; }
+.archive-header { margin: 0 0 1.5rem; }
 
-	.loop-description {
+	.archive-description {
 		margin:  0 0 1.5rem;
 		padding: 1.5rem 1.5rem 0;
 		border:  1px solid;
@@ -2795,7 +2795,7 @@ textarea,
 .media-info li,
 .wp-playlist-tracks,
 .wp-playlist-item,
-.loop-description,
+.archive-description,
 .navigation,
 .loop-nav,
 #sidebar-subsidiary,
@@ -3037,7 +3037,7 @@ select:focus {
 .format-chat .chat-speaker-10 .chat-author,
 .format-chat .chat-speaker-20 .chat-author  { color: #1abc9c; }
 
-.loop-description {
+.archive-description {
 	color:      #757575;
 	background: #f9f9f9;
 }
