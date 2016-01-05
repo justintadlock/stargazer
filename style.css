@@ -1430,7 +1430,7 @@ blockquote::before,
 	font-size: 1rem;
 }
 
-	.loop-pagination .page-numbers,
+	.nav-links .page-numbers,
 	.page-links .page-numbers,
 	.page-links a {
 		display:   inline-block;
@@ -1438,9 +1438,9 @@ blockquote::before,
 		font-size: 1.25rem;
 	}
 
-	.loop-pagination .dots { margin: 0; }
+	.nav-links .dots { margin: 0; }
 
-	.loop-pagination .current {
+	.nav-links .current {
 		font-weight: 700;
 	}
 
@@ -1451,7 +1451,7 @@ blockquote::before,
 
 /* === Single post navigation (between different posts) === */
 
-.loop-pagination,
+.navigation,
 .loop-nav {
 	margin:     0 0 3rem;
 	padding:    3rem 0 0;
@@ -2797,7 +2797,7 @@ textarea,
 .wp-playlist-tracks,
 .wp-playlist-item,
 .loop-description,
-.loop-pagination,
+.navigation,
 .loop-nav,
 #sidebar-subsidiary,
 li.ping,
@@ -2828,7 +2828,7 @@ h6,
 label:hover,
 label:focus,
 label.focus,
-.loop-pagination .current {
+.nav-links .current {
 	color: #555;
 }
 
@@ -2842,7 +2842,7 @@ textarea,
 select,
 .gallery .gallery-caption,
 .page-links,
-.loop-pagination,
+.navigation,
 .loop-nav,
 .widget_recent_entries .post-date,
 .widget-entry-views .entry-view-count,
