@@ -16,6 +16,9 @@ add_action( 'init', 'stargazer_register_image_sizes', 5 );
 /* Register custom menus. */
 add_action( 'init', 'stargazer_register_menus', 5 );
 
+// Register custom layouts.
+add_action( 'hybrid_register_layouts', 'stargazer_register_layouts' );
+
 /* Register sidebars. */
 add_action( 'widgets_init', 'stargazer_register_sidebars', 5 );
 
@@ -116,6 +119,23 @@ function stargazer_register_sidebars() {
 			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, or three widgets (and multiples thereof).', 'stargazer' )
 		)
 	);
+}
+
+/**
+ * Registers custom layouts.
+ *
+ * @since  2.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_layouts() {
+
+	hybrid_get_layout( 'default' )->image = '%s/images/layouts/default.png';
+
+	hybrid_register_layout( '1c',        array( 'label' => __( '1 Column Wide',                'stargazer' ), 'image' => '%s/images/layouts/1c.png' ) );
+	hybrid_register_layout( '1c-narrow', array( 'label' => __( '1 Column Narrow',              'stargazer' ), 'image' => '%s/images/layouts/1c-narrow.png' ) );
+	hybrid_register_layout( '2c-l',      array( 'label' => __( '2 Columns: Content / Sidebar', 'stargazer' ), 'image' => '%s/images/layouts/2c-l.png' ) );
+	hybrid_register_layout( '2c-r',      array( 'label' => __( '2 Columns: Sidebar / Content', 'stargazer' ), 'image' => '%s/images/layouts/2c-r.png' ) );
 }
 
 /**
