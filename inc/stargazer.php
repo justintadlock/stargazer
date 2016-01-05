@@ -496,7 +496,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 		);
 
 		// If there's no attachment featured image, see if there's one for the post.
-		if ( empty( $image ) && !empty( $post_id ) )
+		if ( empty( $image ) && ! empty( $post_id ) )
 			$image = get_the_image( array( 'image_class' => 'audio-image', 'link_to_post' => false, 'echo' => false ) );
 
 		// Add a wrapper for the audio element and image.
@@ -506,11 +506,22 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 		}
 
 		// If not viewing an attachment page, add the media info section.
-		if ( !is_attachment() ) {
+		if ( ! is_attachment() ) {
 			$html .= '<div class="media-shortcode-extend">';
 			$html .= '<div class="media-info audio-info">';
-			$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
-			$html .= '</div>';
+			$html .= '<ul class="media-meta">';
+
+			$pre = '<li><span class="prep">%s</span>';
+			$html .= hybrid_get_media_meta( 'length_formatted',  array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Run Time',  'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'artist',            array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Artist',    'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'album',             array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Album',     'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'year',              array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Year',      'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'gennre',            array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Genre',     'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'file_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Type', 'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'file_name',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Name', 'stargazer' ) ), 'after' => '</li>' ) );
+			$html .= hybrid_get_media_meta( 'mime_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Mime Type', 'stargazer' ) ), 'after' => '</li>' ) );
+
+			$html .= '</ul></div>';
 			$html .= '<button class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</button>';
 			$html .= '</div>';
 		}
@@ -551,7 +562,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 		);
 
 		if ( ! empty( $matches ) )
-			$attachment_id = attachment_url_to_postid( $matches[2] );
+			$attachment_id = stargazer_get_attachment_id_from_url( $matches[2] );
 	}
 
 	// If an attachment ID was found, add the media info section.
@@ -559,13 +570,41 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
 
 		$html .= '<div class="media-shortcode-extend">';
 		$html .= '<div class="media-info video-info">';
-		$html .= hybrid_media_meta( array( 'post_id' => $attachment_id, 'echo' => false ) );
-		$html .= '</div>';
+		$html .= '<ul class="media-meta">';
+
+		$pre = '<li><span class="prep">%s</span>';
+		$html .= hybrid_get_media_meta( 'length_formatted',  array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Run Time',   'stargazer' ) ), 'after' => '</li>' ) );
+		$html .= hybrid_get_media_meta( 'dimensions',        array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Dimensions', 'stargazer' ) ), 'after' => '</li>' ) );
+		$html .= hybrid_get_media_meta( 'file_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Type',  'stargazer' ) ), 'after' => '</li>' ) );
+		$html .= hybrid_get_media_meta( 'file_name',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Name',  'stargazer' ) ), 'after' => '</li>' ) );
+		$html .= hybrid_get_media_meta( 'mime_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Mime Type',  'stargazer' ) ), 'after' => '</li>' ) );
+
+		$html .= '</ul></div>';
 		$html .= '<button class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</button>';
 		$html .= '</div>';
 	}
 
 	return $html;
+}
+
+/**
+ * Retrieves an attachment ID based on an attachment file URL.
+ *
+ * @copyright Pippin Williamson
+ * @license   http://www.gnu.org/licenses/gpl-2.0.html
+ * @link      http://pippinsplugins.com/retrieve-attachment-id-from-image-url/
+ *
+ * @since  2.0.0
+ * @access public
+ * @param  string  $url
+ * @return int
+ */
+function stargazer_get_attachment_id_from_url( $url ) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$posts = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $url ) );
+
+	return array_shift( $posts );
 }
 
 /**
