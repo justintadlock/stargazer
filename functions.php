@@ -50,9 +50,6 @@ function stargazer_theme_setup() {
 	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php' );
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
-	// Load widgets.
-	add_theme_support( 'hybrid-core-widgets' );
-
 	// Theme layouts.
 	add_theme_support( 'theme-layouts', array( 'default' => '2c-l' ) );
 
