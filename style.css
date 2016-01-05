@@ -640,7 +640,10 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 
 /* === Captions === */
 
-.wp-caption { position: relative; }
+.wp-caption {
+	position: relative;
+	max-width: 100%;
+}
 
 	.wp-caption .wp-caption-text {
 		position:   absolute;
