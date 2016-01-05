@@ -130,8 +130,6 @@ function stargazer_register_sidebars() {
  */
 function stargazer_register_layouts() {
 
-	hybrid_get_layout( 'default' )->image = '%s/images/layouts/default.png';
-
 	hybrid_register_layout( '1c',        array( 'label' => __( '1 Column Wide',                'stargazer' ), 'image' => '%s/images/layouts/1c.png' ) );
 	hybrid_register_layout( '1c-narrow', array( 'label' => __( '1 Column Narrow',              'stargazer' ), 'image' => '%s/images/layouts/1c-narrow.png' ) );
 	hybrid_register_layout( '2c-l',      array( 'label' => __( '2 Columns: Content / Sidebar', 'stargazer' ), 'image' => '%s/images/layouts/2c-l.png' ) );
