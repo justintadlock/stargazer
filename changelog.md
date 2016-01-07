@@ -2,7 +2,28 @@
 
 ## [2.0.0] - 2016-01-07
 
+### Changed
 
+* Upgraded to version 3.0.0 of the Hybrid Core framework.
+* Upgraded to version 3.4.1 of Genericons.
+* Upgraded to version 20141221 of Theme Mediaelement.
+* Author URI now points to http://themehybrid.com
+* Use WP's `the_archive_title()` for archive titles.
+* Use WP's `the_archive_description()` for archive descriptions.
+* Use WP's `the_post_pagination()` to handle numeric pagination.
+* General code cleanup.
+
+### Fixed
+
+* Secondary menu button text now hidden below 580px to help avoid clashing with site title.
+* Added missing comment moderation notice.
+* Embed wrapping for responsive embeds.  Now, we use PHP to limit to a specific list of video providers.
+* CSS typo.
+
+### Removed
+
+* Support for admin-side custom header functionality, which is now all handled in the customizer.
+* Custom widgets (removed from Hybrid Core). Users should use the [Widgets Reloaded](http://themehybrid.com/plugns/widgets-reloaded) plugin.
 
 ## [1.2.0]
 
