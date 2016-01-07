@@ -2,15 +2,21 @@
 
 ## [2.0.0] - 2016-01-07
 
+### Added
+
+* Added Japanese (`ja`), Brazilian Portuguese (`pt_BR`), and Norwegian (`nb_NO`) language files.
+
 ### Changed
 
-* Upgraded to version 3.0.0 of the Hybrid Core framework.
+* Upgraded to version 3.1.0-dev of the Hybrid Core framework.
 * Upgraded to version 3.4.1 of Genericons.
 * Upgraded to version 20141221 of Theme Mediaelement.
 * Author URI now points to http://themehybrid.com
 * Use WP's `the_archive_title()` for archive titles.
 * Use WP's `the_archive_description()` for archive descriptions.
 * Use WP's `the_post_pagination()` to handle numeric pagination.
+* New, updated screenshot with larger size.
+* New text strings added, updated POT.
 * General code cleanup.
 
 ### Fixed
