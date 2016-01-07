@@ -6,9 +6,9 @@
 
 		<?php previous_comments_link( _x( '&larr; Previous', 'comments navigation', 'stargazer' ) ); ?>
 
-		<span class="page-numbers"><?php 
-			/* Translators: Comments page numbers. 1 is current page and 2 is total pages. */
-			printf( __( 'Page %1$s of %2$s', 'stargazer' ), get_query_var( 'cpage' ) ? absint( get_query_var( 'cpage' ) ) : 1, get_comment_pages_count() ); 
+		<span class="page-numbers"><?php
+			// Translators: Comments page numbers. 1 is current page and 2 is total pages.
+			printf( __( 'Page %1$s of %2$s', 'stargazer' ), get_query_var( 'cpage' ) ? absint( get_query_var( 'cpage' ) ) : 1, get_comment_pages_count() );
 		?></span>
 
 		<?php next_comments_link( _x( 'Next &rarr;', 'comments navigation', 'stargazer' ) ); ?>

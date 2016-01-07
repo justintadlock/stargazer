@@ -27,8 +27,18 @@
 
 			<h3><?php _e( 'Audio Info', 'stargazer' ); ?></h3>
 
-			<?php hybrid_media_meta(); ?>
-
+			<ul class="media-meta">
+				<?php $pre = '<li><span class="prep">%s</span>'; ?>
+				<?php hybrid_media_meta( 'length_formatted',  array( 'before' => sprintf( $pre, esc_html__( 'Run Time',  'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'artist',            array( 'before' => sprintf( $pre, esc_html__( 'Artist',    'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'album',             array( 'before' => sprintf( $pre, esc_html__( 'Album',     'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'track_number',      array( 'before' => sprintf( $pre, esc_html__( 'Track',     'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'year',              array( 'before' => sprintf( $pre, esc_html__( 'Year',      'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'gennre',            array( 'before' => sprintf( $pre, esc_html__( 'Genre',     'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'file_type',         array( 'before' => sprintf( $pre, esc_html__( 'Type',      'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'file_name',         array( 'before' => sprintf( $pre, esc_html__( 'Name',      'stargazer' ) ), 'after' => '</li>' ) ); ?>
+				<?php hybrid_media_meta( 'mime_type',         array( 'before' => sprintf( $pre, esc_html__( 'Mime Type', 'stargazer' ) ), 'after' => '</li>' ) ); ?>
+			</ul>
 		</div><!-- .media-info -->
 
 	</div><!-- .attachment-meta -->

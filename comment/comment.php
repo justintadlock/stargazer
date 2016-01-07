@@ -10,6 +10,13 @@
 		</header><!-- .comment-meta -->
 
 		<div <?php hybrid_attr( 'comment-content' ); ?>>
+
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="comment-moderation">
+					<?php _e( 'Your comment is awaiting moderation.', 'stargazer' ); ?>
+				</p>
+			<?php endif; ?>
+
 			<?php comment_text(); ?>
 		</div><!-- .comment-content -->
 

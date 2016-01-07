@@ -2,9 +2,9 @@
  * Theme Name:  Stargazer
  * Theme URI:   http://themehybrid.com/themes/stargazer
  * Description: Welcome to Stargazer, the most advanced theme ever created for WordPress without compromising standards. This is the only theme in the world that you'll find that extends WordPress' built-in theme features so robustly but naturally. The theme is built on the rock-solid Hybrid Core theme framework. It's built with search-engine optimization (SEO) in mind by utilizing the most current HTML5 conventions and <a href="http://schema.org">Schema.org</a> microdata. It also integrates with useful theme add-on plugins like <a href="http://wordpress.org/plugins/custom-background-extended">Custom Background Extended</a>, <a href="http://wordpress.org/plugins/custom-header-extended">Custom Header Extended</a>, <a href="http://wordpress.org/plugins/whistles">Whistles</a>, and more.
- * Version:     1.2.0
+ * Version:     2.0.0
  * Author:      Justin Tadlock
- * Author URI:  http://justintadlock.com
+ * Author URI:  http://themehybrid.com
  * Tags:        one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, left-sidebar, post-formats, responsive-layout, right-sidebar, rtl-language-support, theme-options, threaded-comments, translation-ready
  * Text Domain: stargazer
  * License:     GNU General Public License v2.0 or later
@@ -12,11 +12,11 @@
  */
 
 /********************************************************************************************************
- * Please do not make edits directly to this file.  You will lose all modifications when the theme is 
- * next updated if you do so.  Please use a child theme.  This theme's styles will automatically be 
+ * Please do not make edits directly to this file.  You will lose all modifications when the theme is
+ * next updated if you do so.  Please use a child theme.  This theme's styles will automatically be
  * loaded for you.  You can then overwrite specific style rules in your child theme's `style.css` file.
  *
- * This file is only loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file.  Otherwise, 
+ * This file is only loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file.  Otherwise,
  * the `style.min.css` file is loaded.
  *
  * TABLE OF CONTENTS:
@@ -40,12 +40,12 @@
 /********************************************************************************************************
  * 1 - Danger Zone
  *
- * This section of the CSS is something I wouldn't recommend overwriting.  It can and most likely will 
- * be changed in the future as the theme receives updates.  Overwriting the below in your child theme 
- * is what I consider dangerous territory and might leave you with some broken styles in a future update. 
+ * This section of the CSS is something I wouldn't recommend overwriting.  It can and most likely will
+ * be changed in the future as the theme receives updates.  Overwriting the below in your child theme
+ * is what I consider dangerous territory and might leave you with some broken styles in a future update.
  * Basically, do it if you must.  Just be aware of  the consequences.
  *
- * The items you'll most likely want to modify (those things dealing with more stylistic elements like 
+ * The items you'll most likely want to modify (those things dealing with more stylistic elements like
  * fonts and colors) are located at the bottom of this file.
  ********************************************************************************************************/
 
@@ -76,7 +76,7 @@
 /********************************************************************************************************
  * 1.2 - Layout
  *
- * This section of the stylesheet defines the overall layout of the theme's major structural elements. It 
+ * This section of the stylesheet defines the overall layout of the theme's major structural elements. It
  * is essentially the foundation for the entire design.
  ********************************************************************************************************/
 
@@ -163,10 +163,10 @@ body { overflow-x: hidden; }
 					.layout-2c-l #content,
 					.layout-2c-r #content { width: 63.41%; }
 
-					.layout-2c-l #content, 
+					.layout-2c-l #content,
 					.layout-2c-r #sidebar-primary { float: left; }
 
-					.layout-2c-r #content, 
+					.layout-2c-r #content,
 					.layout-2c-l #sidebar-primary { float: right; }
 				}
 
@@ -230,7 +230,7 @@ body { overflow-x: hidden; }
 /********************************************************************************************************
  * 1.3 - Defaults
  *
- * This section handles the default style rules for the majority of possible HTML elements and other 
+ * This section handles the default style rules for the majority of possible HTML elements and other
  * WordPress-specific classes.
  ********************************************************************************************************/
 
@@ -346,7 +346,7 @@ mark {
 
 /* === <hr> tag === */
 
-hr { 
+hr {
 	height:        3px;
 	border-bottom: 1px solid;
 	border-top:    1px solid;
@@ -640,7 +640,10 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 
 /* === Captions === */
 
-.wp-caption { position: relative; }
+.wp-caption {
+	position: relative;
+	max-width: 100%;
+}
 
 	.wp-caption .wp-caption-text {
 		position:   absolute;
@@ -711,6 +714,11 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 		height:    100%;
 	}
 
+	iframe.wp-embedded-content {
+		width: 100%;
+		margin: 0;
+	}
+
 /* === Clearing Floats === */
 
 .clearfix::after,
@@ -726,7 +734,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 .entry::after,
 .entry-content::after,
 .entry-summary::after,
-.loop-meta::after,
+.archive-header::after,
 li.comment::after,
 li.comment > article::after,
 li.ping::after,
@@ -762,7 +770,7 @@ a[href^="tel:"]::before,
 
 /* Breadcrumbs */
 .breadcrumb-trail a[rel="home"]::before,
-.breadcrumb-trail .sep::before,
+.breadcrumb-trail li::after,
 
 /* Quotes. */
 blockquote::before,
@@ -919,7 +927,7 @@ blockquote::before,
 
 	#menu-social li a::before        { content: '\f408'; padding: 0 3px; }
 	#menu-social li a:hover::before,
-	#menu-social li a:focus::befoe  { opacity: 0.75; }
+	#menu-social li a:focus::before  { opacity: 0.75; }
 
 	#menu-social li a[href*="codepen.io"]::before      { content: '\f216'; color: #fff;    }
 	#menu-social li a[href*="digg.com"]::before        { content: '\f221'; color: #fff;    }
@@ -949,16 +957,22 @@ blockquote::before,
 
 	.breadcrumb-trail a[rel="home"]::before {
 		content:     '\f409';
+		margin-top:  -3px;
 		font-size:   24px;
 		font-weight: normal;
 	}
 
-	.breadcrumb-trail .sep::before {
+	.breadcrumb-trail li::after {
 		content:     '\f431';
+		margin:      -3px 5px 0;
 		font-weight: normal;
 	}
 
-	.ltr .breadcrumb-trail .sep::before {
+		.breadcrumb-trail li:last-of-type::after {
+			display: none;
+		}
+
+	.ltr .breadcrumb-trail li::after {
 		-webkit-transform: rotate(-90deg);
 		   -moz-transform: rotate(-90deg);
 		    -ms-transform: rotate(-90deg);
@@ -966,7 +980,7 @@ blockquote::before,
 		        transform: rotate(-90deg);
 	}
 
-	.rtl .breadcrumb-trail .sep::before {
+	.rtl .breadcrumb-trail li::after {
 		-webkit-transform: rotate(90deg);
 		   -moz-transform: rotate(90deg);
 		    -ms-transform: rotate(90deg);
@@ -981,7 +995,7 @@ blockquote::before,
 		padding: 0 3px 1px 0;
 	}
 
-		.rtl #reply-title > .wrap::before { 
+		.rtl #reply-title > .wrap::before {
 			-webkit-transform: scaleX(-1);
 			   -moz-transform: scaleX(-1);
 			     -o-transform: scaleX(-1);
@@ -999,9 +1013,9 @@ blockquote::before,
 	}
 
 	/* flip icons */
-	.rtl #reply-title > .wrap::before 
+	.rtl #reply-title > .wrap::before
 	.rtl .comment-reply-link::before,
-	.rtl .comment-reply-login::before { 
+	.rtl .comment-reply-login::before {
 		-webkit-transform: scaleX(-1);
 		   -moz-transform: scaleX(-1);
 		     -o-transform: scaleX(-1);
@@ -1063,7 +1077,7 @@ blockquote::before,
 
 	.whistles-toggle .whistle-title::after,
 	.whistles-accordion .whistle-title::after {
-		content: '\f431'; 
+		content: '\f431';
 		padding: 3px 0 0;
 	}
 
@@ -1248,7 +1262,7 @@ blockquote::before,
 /********************************************************************************************************
  * 1.6 - Main and Content
  *
- * This section deals with the #main section of the site, which wraps the content and primary sidebar. 
+ * This section deals with the #main section of the site, which wraps the content and primary sidebar.
  * Sidebars have their own section in this stylesheet.
  ********************************************************************************************************/
 
@@ -1278,6 +1292,10 @@ blockquote::before,
 	font-size:  1rem;
 }
 
+	.breadcrumb-trail ul { list-style: none; margin: 0; }
+
+		.breadcrumb-trail ul li { display: inline-block; }
+
 	.breadcrumb-trail span.trail-end { opacity: 0.5; }
 
 	.breadcrumb-trail .sep {
@@ -1288,7 +1306,7 @@ blockquote::before,
 
 	.breadcrumb-trail a {
 		display: inline-block;
-		opacity: 0.75; 
+		opacity: 0.75;
 	}
 
 	.breadcrumb-trail a:hover,
@@ -1396,9 +1414,9 @@ blockquote::before,
  * This displays the archive, blog, and search title + description.
  */
 
-.loop-meta { margin: 0 0 1.5rem; }
+.archive-header { margin: 0 0 1.5rem; }
 
-	.loop-description {
+	.archive-description {
 		margin:  0 0 1.5rem;
 		padding: 1.5rem 1.5rem 0;
 		border:  1px solid;
@@ -1415,7 +1433,7 @@ blockquote::before,
 	font-size: 1rem;
 }
 
-	.loop-pagination .page-numbers,
+	.nav-links .page-numbers,
 	.page-links .page-numbers,
 	.page-links a {
 		display:   inline-block;
@@ -1423,9 +1441,9 @@ blockquote::before,
 		font-size: 1.25rem;
 	}
 
-	.loop-pagination .dots { margin: 0; }
+	.nav-links .dots { margin: 0; }
 
-	.loop-pagination .current {
+	.nav-links .current {
 		font-weight: 700;
 	}
 
@@ -1436,7 +1454,7 @@ blockquote::before,
 
 /* === Single post navigation (between different posts) === */
 
-.loop-pagination,
+.navigation,
 .loop-nav {
 	margin:     0 0 3rem;
 	padding:    3rem 0 0;
@@ -1515,7 +1533,7 @@ blockquote::before,
 /**
  * Audio/Video shortcode extend
  *
- * This feature adds a toggle button to the WordPress media player for showing/hiding additional meta 
+ * This feature adds a toggle button to the WordPress media player for showing/hiding additional meta
  * information about the media.
  */
 
@@ -1559,7 +1577,7 @@ blockquote::before,
 /**
  * WordPress playlist
  *
- * Customizes the output of the media playlist.  For the full media playlist styles, see the 
+ * Customizes the output of the media playlist.  For the full media playlist styles, see the
  * `css/mediaelement/medialement.css` stylesheet.
  */
 
@@ -1612,7 +1630,7 @@ blockquote::before,
 /**
  * WordPress media player.
  *
- * This overwrites various elements of the media player styles included.  For the full media player styles, 
+ * This overwrites various elements of the media player styles included.  For the full media player styles,
  * see the `css/mediaelement/medialement.css` stylesheet.
  */
 
@@ -1639,7 +1657,7 @@ blockquote::before,
 	.mejs-controls > div { margin-top: 10px; }
 
 		/* Fix for last item dropping below the controls. */
-		.mejs-controls > div:last-of-type {
+		.mejs-controls > :last-child {
 			position: relative;
 			clear:    both;
 			float:    right;
@@ -1772,8 +1790,8 @@ blockquote::before,
 /********************************************************************************************************
  * 1.8 - Sidebars and Widgets
  *
- * This section handles the output of sidebars and widgets.  Note that the layout of sidebars is handled 
- * in the layout section.  There's also a few style rules for non-sidebar elements that have the same 
+ * This section handles the output of sidebars and widgets.  Note that the layout of sidebars is handled
+ * in the layout section.  There's also a few style rules for non-sidebar elements that have the same
  * design.
  ********************************************************************************************************/
 
@@ -1851,7 +1869,7 @@ blockquote::before,
 /********************************************************************************************************
  * 1.9 - Comments Template
  *
- * This section handles the output of the comments template.  In particular, it styles the output of the 
+ * This section handles the output of the comments template.  In particular, it styles the output of the
  * comments section (comments list) and the respond section (comment form).
  ********************************************************************************************************/
 
@@ -2007,7 +2025,7 @@ blockquote::before,
 /**
  * Sub-terms menu
  *
- * This menu is shown along with the description on term archives if the taxonomy is hierarchical (like 
+ * This menu is shown along with the description on term archives if the taxonomy is hierarchical (like
  * categories).  It displays the child terms if the current term has any.
  */
 	#menu-sub-terms-items {
@@ -2134,6 +2152,14 @@ blockquote::before,
 	}
 
 	#menu-secondary .menu-toggle button { margin: 0 1.5rem; }
+
+		@media only screen and ( max-width: 540px ) {
+
+			#menu-secondary .menu-toggle button { font-size: 0; }
+
+			.ltr #menu-secondary .menu-toggle button { padding-left: 0.25rem;  }
+			.rtl #menu-secondary .menu-toggle button { padding-right: 0.25rem; }
+		}
 
 		.ltr #menu-primary .menu-toggle button { margin-left:  1.5rem; }
 		.rtl #menu-primary .menu-toggle button { margin-right: 1.5rem; }
@@ -2300,7 +2326,7 @@ blockquote::before,
 					}
 
 					.rtl .menu li li > ul::before {
-						right:        -6px; 
+						right:        -6px;
 						border-right:  0;
 						border-left-width: 6px;
 						border-left-style: solid;
@@ -2412,7 +2438,7 @@ blockquote::before,
 				.rtl #menu-primary   li:focus > ul,
 				.rtl #menu-primary   li.focus > ul,
 				.rtl #menu-secondary li:hover > ul,
-				.rtl #menu-secondary li:focus > ul, 
+				.rtl #menu-secondary li:focus > ul,
 				.rtl #menu-secondary li.focus > ul { margin-right: -24px; }
 
 				#menu-primary.menu   li li:hover > ul,
@@ -2514,7 +2540,7 @@ blockquote::before,
 					opacity:     1;
 					box-sizing:  border-box;
 				}
-				
+
 					.ltr #menu-primary .search-field { margin-left:  -2px; }
 					.rtl #menu-primary .search-field { margin-right: -2px; }
 
@@ -2528,7 +2554,7 @@ blockquote::before,
 /********************************************************************************************************
  * 1.11 - Plugins
  *
- * This section handles the output of specific plugins that the theme supports.  The theme isn't limited 
+ * This section handles the output of specific plugins that the theme supports.  The theme isn't limited
  * to these plugins.  It merely gives some extra love to these plugins.
  ********************************************************************************************************/
 
@@ -2581,7 +2607,6 @@ blockquote::before,
  */
 
 .whistles {
-	clear:       both;
 	width:       100%;
 	margin:      0 0 1.5rem;
 }
@@ -2642,7 +2667,7 @@ blockquote::before,
 		border-top-width: 0;
 	}
 
-	.whistles-toggle    .whistle-title:first-child, 
+	.whistles-toggle    .whistle-title:first-child,
 	.whistles-accordion .whistle-title:first-child { border-top-width: 1px; }
 
 	/* Individual toggle section content. */
@@ -2663,22 +2688,22 @@ blockquote::before,
 /********************************************************************************************************
  * 2 - Fun Zone
  *
- * This section of the stylesheet is what I call the fun area.  For the most part, you should feel free 
- * to overwrite the following in your child theme's `style.css` file if your design calls for it.  
- * Specifically, this deals with fonts and colors.  Those things are really the things that give your 
+ * This section of the stylesheet is what I call the fun area.  For the most part, you should feel free
+ * to overwrite the following in your child theme's `style.css` file if your design calls for it.
+ * Specifically, this deals with fonts and colors.  Those things are really the things that give your
  * child theme its uniqueness.  Have fun with it.  Go wild!
  ********************************************************************************************************/
 
 /**
  * 2.1 - Font Family Definitions
  *
- * This theme operates with three dinstinct font rules.  The "primary" font is used for the majority of 
- * text throughout the theme.  The "secondary" font is used for handling secondary use cases.  The 
+ * This theme operates with three dinstinct font rules.  The "primary" font is used for the majority of
+ * text throughout the theme.  The "secondary" font is used for handling secondary use cases.  The
  * "headlines" font is specific to h1-h6 headers (with the exception of #site-description).
  *
- * If building a child theme for public release with custom fonts, the child theme should define only the 
- * font rules it needs.  Copy the specific section below that you want to overwrite into the child theme. 
- * Make sure to include the `.font-*` class as this will maintain forward compatibility with future 
+ * If building a child theme for public release with custom fonts, the child theme should define only the
+ * font rules it needs.  Copy the specific section below that you want to overwrite into the child theme.
+ * Make sure to include the `.font-*` class as this will maintain forward compatibility with future
  * changes in the parent theme.
  */
 
@@ -2692,8 +2717,8 @@ textarea,
 .label-radio,
 .required,
 #site-description,
-#reply-title small { 
-	font-family: 'Droid Serif', 'Lora', 'Georgia', serif; 
+#reply-title small {
+	font-family: 'Droid Serif', 'Lora', 'Georgia', serif;
 }
 
 /* ====== Secondary Font ====== */
@@ -2704,7 +2729,7 @@ th,
 legend,
 label,
 input[type="submit"],
-input[type="reset"], 
+input[type="reset"],
 input[type="button"],
 button,
 select,
@@ -2743,8 +2768,8 @@ h6 {
 /**
  * 2.2 - Color Definitions
  *
- * The following are all of the colors defined by the theme.  The only other colors are part of the theme 
- * customizer options and should not be overwritten.  If needed, copy the specific sections below into 
+ * The following are all of the colors defined by the theme.  The only other colors are part of the theme
+ * customizer options and should not be overwritten.  If needed, copy the specific sections below into
  * your child theme and make the necessary changes there.
  */
 
@@ -2781,8 +2806,8 @@ textarea,
 .media-info li,
 .wp-playlist-tracks,
 .wp-playlist-item,
-.loop-description,
-.loop-pagination,
+.archive-description,
+.navigation,
 .loop-nav,
 #sidebar-subsidiary,
 li.ping,
@@ -2813,7 +2838,7 @@ h6,
 label:hover,
 label:focus,
 label.focus,
-.loop-pagination .current {
+.nav-links .current {
 	color: #555;
 }
 
@@ -2827,7 +2852,7 @@ textarea,
 select,
 .gallery .gallery-caption,
 .page-links,
-.loop-pagination,
+.navigation,
 .loop-nav,
 .widget_recent_entries .post-date,
 .widget-entry-views .entry-view-count,
@@ -2867,8 +2892,8 @@ select,
 /* ====== background: transparent ====== */
 
 hr,
-.mejs-container, 
-.mejs-embed, 
+.mejs-container,
+.mejs-embed,
 .mejs-embed body,
 .mejs-overlay-button,
 .mejs-controls > .mejs-button button:hover,
@@ -3023,7 +3048,7 @@ select:focus {
 .format-chat .chat-speaker-10 .chat-author,
 .format-chat .chat-speaker-20 .chat-author  { color: #1abc9c; }
 
-.loop-description {
+.archive-description {
 	color:      #757575;
 	background: #f9f9f9;
 }
@@ -3057,8 +3082,8 @@ li.ping,
 .whistles-toggle .whistle-title:hover,
 .whistles-toggle .whistle-title:focus,
 .whistles-toggle .whistle-title[aria-selected="true"],
-.whistles-accordion .whistle-title:hover, 
-.whistles-accordion .whistle-title:focus, 
+.whistles-accordion .whistle-title:hover,
+.whistles-accordion .whistle-title:focus,
 .whistles-accordion .whistle-title[aria-selected="true"] {
 	background: #efefef;
 }
@@ -3116,7 +3141,7 @@ li.ping,
 /* =/=/=/=/=/= End fun zone. =/=/=/=/=/= */
 
 /*
- * Colors Danger Zone: The white color is used in contrast to the 'primary' theme color. It's not recommended to 
+ * Colors Danger Zone: The white color is used in contrast to the 'primary' theme color. It's not recommended to
  * overwrite this specific color section. If overwriting, it should be a very light color.
  */
 
@@ -3170,8 +3195,8 @@ button,
 .mejs-overlay-play .mejs-overlay-button::after,
 .mejs-time-rail .mejs-time-float,
 .wp-playlist-dark .wp-playlist-playing,
-.wp-playlist-dark .wp-playlist-caption:hover, 
-.wp-playlist-dark .wp-playlist-caption:focus, 
+.wp-playlist-dark .wp-playlist-caption:hover,
+.wp-playlist-dark .wp-playlist-caption:focus,
 .wp-playlist-dark .wp-playlist-item:hover
 .wp-playlist-dark .wp-playlist-item:focus,
 .skip-link .screen-reader-text:focus {
@@ -3192,7 +3217,7 @@ blockquote { border-color: rgba( 255, 255, 255, 0.15 ); }
 blockquote a,
 .entry-content blockquote a {
 	color:        rgba( 255, 255, 255, 0.75 );
-	border-color: rgba( 255, 255, 255, 0.25 ); 
+	border-color: rgba( 255, 255, 255, 0.25 );
 }
 
 blockquote a:hover,

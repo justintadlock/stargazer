@@ -1,31 +1,29 @@
-# Translation of Trunk in Finnish
-# This file is distributed under the same license as the Trunk package.
+# Copyright (C) 2014 Justin Tadlock
+# This file is distributed under the GNU General Public License v2.0 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Stargazer Theme en Français\n"
+"Project-Id-Version: Stargazer 1.2.0-alpha-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/stargazer\n"
 "POT-Creation-Date: 2016-01-07 18:15:23+00:00\n"
-"PO-Revision-Date: 2016-01-07 12:16-0600\n"
+"PO-Revision-Date: 2016-01-07 12:17-0600\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
-"Language-Team: Jean-François Boisvert\n"
-"Language: fr\n"
+"Language-Team: Alexandre Kozoubsky <alexandre@alexandrekozoubsky.com>\n"
+"Language: Português\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e;_n;"
-"_x;_x:1,2c;_n:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Textdomain-Support: yes\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: comment/comment.php:7 comment/ping.php:5
 msgid "%s ago"
-msgstr "%s auparavant"
+msgstr "%s atrás"
 
 #: comment/comment.php:8 comment/ping.php:6 content/link.php:39
 #: content/quote.php:29 content/status.php:47
 msgid "Permalink"
-msgstr "Permalien"
+msgstr "Link permanente"
 
 #: comment/comment.php:16
 msgid "Your comment is awaiting moderation."
@@ -36,88 +34,89 @@ msgstr ""
 #: content/link.php:26 content/quote.php:16 content/status.php:24
 #: content/video.php:28
 msgid "Posted in %s"
-msgstr "Publié dans %s"
+msgstr "Publicado em %s"
 
 #: content/aside.php:27 content/audio.php:29 content/chat.php:35
 #: content/content.php:26 content/gallery.php:27 content/image.php:29
 #: content/link.php:27 content/quote.php:17 content/status.php:25
 #: content/video.php:29
 msgid "Tagged %s"
-msgstr "Mots clés %s"
+msgstr "Marcação %s"
 
 #: content/attachment-audio.php:28 inc/stargazer.php:526
 msgid "Audio Info"
-msgstr "Information Audio"
+msgstr "Informações do áudio"
 
 #: content/attachment-audio.php:32 content/attachment-video.php:32
 #: inc/stargazer.php:515 inc/stargazer.php:577
 msgid "Run Time"
-msgstr "Temps d'exécution"
+msgstr "Tempo de execução"
 
 #: content/attachment-audio.php:33 inc/stargazer.php:516
 msgid "Artist"
-msgstr "Artiste"
+msgstr ""
 
 #: content/attachment-audio.php:34 inc/stargazer.php:517
 msgid "Album"
-msgstr "Album"
+msgstr ""
 
 #: content/attachment-audio.php:35 inc/stargazer.php:518
 msgid "Track"
-msgstr "Piste"
+msgstr "Trilha"
 
 #: content/attachment-audio.php:36 inc/stargazer.php:519
 msgid "Year"
-msgstr "Année"
+msgstr "Ano"
 
 #: content/attachment-audio.php:37 inc/stargazer.php:520
 msgid "Genre"
-msgstr "Genre"
+msgstr "Gênero"
 
 #: content/attachment-audio.php:38 content/attachment-image.php:71
 #: content/attachment-video.php:34
 #, fuzzy
 msgid "Type"
-msgstr "Type du fichier"
+msgstr "Tipo do arquivo"
 
 #: content/attachment-audio.php:39 content/attachment-image.php:72
 #: content/attachment-video.php:35
+#, fuzzy
 msgid "Name"
-msgstr "Nom"
+msgstr "Nome do arquivo"
 
 #: content/attachment-audio.php:40 content/attachment-image.php:73
 #: content/attachment-video.php:36 inc/stargazer.php:523 inc/stargazer.php:581
 msgid "Mime Type"
-msgstr "Type du Mime"
+msgstr "Mime Type"
 
 #: content/attachment-image.php:22
 msgid "Sizes: %s"
-msgstr "Tailles : %s"
+msgstr "Tamanhos: %s"
 
 #: content/attachment-image.php:60
 msgid "Image Info"
-msgstr "Information Image"
+msgstr "Informações da imagem"
 
 #: content/attachment-image.php:64 content/attachment-video.php:33
 #: inc/stargazer.php:578
 msgid "Dimensions"
-msgstr "Dimensions"
+msgstr "Dimensões"
 
 #: content/attachment-image.php:65
 msgid "Date"
-msgstr "Date"
+msgstr "Data"
 
 #: content/attachment-image.php:66
 msgid "Camera"
-msgstr "Caméra"
+msgstr "Câmera"
 
 #: content/attachment-image.php:67
 msgid "Aperture"
-msgstr "Ouverture"
+msgstr "Abertura"
 
 #: content/attachment-image.php:68
 msgid "Focal Length"
-msgstr "Longueur focale"
+msgstr "Distância focal"
 
 #: content/attachment-image.php:68
 msgid "%s mm"
@@ -129,47 +128,47 @@ msgstr "ISO"
 
 #: content/attachment-image.php:70
 msgid "Shutter Speed"
-msgstr "Vitesse d'ouverture"
+msgstr "Velocidade do obturador"
 
 #: content/attachment-image.php:70
 msgid "%s sec"
-msgstr "%s sec"
+msgstr "%s seg"
 
 #: content/attachment-image.php:83
 msgid "Gallery"
-msgstr "Galerie"
+msgstr "Galeria"
 
 #: content/attachment-video.php:28 inc/stargazer.php:584
 msgid "Video Info"
-msgstr "Information Video"
+msgstr "Informações do vídeo"
 
 #: content/error.php:4
 msgid "Nothing found"
-msgstr "Aucun résultat"
+msgstr "Nada encontrado"
 
 #: content/error.php:8
 msgid "Apologies, but no entries were found."
-msgstr "Désolé, aucun résultat n'a été trouvé."
+msgstr "Desculpas, mas nenhum registro  foi encontrado."
 
 #: content/gallery.php:51
 msgid "This gallery contains %s item."
 msgid_plural "This gallery contains %s items."
-msgstr[0] "Cette galerie contient %s élément."
-msgstr[1] "Cette galerie contient %s éléments."
+msgstr[0] "Esta galeria contém %s item."
+msgstr[1] "Esta galeria contém %s itens."
 
 #. Translators: 1 is current year, 2 is site name/link, 3 is WordPress
 #. name/link, and 4 is theme name/link. */
 #: footer.php:18
 msgid "Copyright &#169; %1$s %2$s. Powered by %3$s and %4$s."
-msgstr "Copyright &#169; %1$s %2$s. Conçu avec %3$s et %4$s."
+msgstr "Direitos autorais &#169; %1$s %2$s. Desenvolvido por %3$s and %4$s."
 
 #: header.php:13
 msgid "Skip to content"
-msgstr "Sauter le contenu"
+msgstr "Pular para conteúdo"
 
 #: inc/custom-colors.php:244
 msgid "Primary Color"
-msgstr "Couleur principale"
+msgstr "Côr primária"
 
 #. Translators: Header image description.
 #: inc/custom-header.php:48
@@ -179,109 +178,109 @@ msgstr "Horizon"
 #. Translators: Header image description.
 #: inc/custom-header.php:54
 msgid "Orange Burn"
-msgstr "Orange brûlé"
+msgstr "Orange Burn"
 
 #. Translators: Header image description.
 #: inc/custom-header.php:60
 msgid "Blue Planets"
-msgstr "Bleu planète"
+msgstr "Blue Planets"
 
 #. Translators: Header image description.
 #: inc/custom-header.php:66
 msgid "Planet Burst"
-msgstr "Planète éclatante"
+msgstr "Planet Burst"
 
 #. Translators: Header image description.
 #: inc/custom-header.php:72
 msgid "Space Splatters"
-msgstr "Éclaboussures spatiales"
+msgstr "Space Splatters"
 
 #: inc/stargazer.php:89
 msgctxt "nav menu location"
 msgid "Primary"
-msgstr "Principal"
+msgstr "Primaria"
 
 #: inc/stargazer.php:90
 msgctxt "nav menu location"
 msgid "Secondary"
-msgstr "Secondaire"
+msgstr "Secundária"
 
 #: inc/stargazer.php:91
 msgctxt "nav menu location"
 msgid "Social"
-msgstr "Media sociaux"
+msgstr "Social"
 
 #: inc/stargazer.php:106
 msgctxt "sidebar"
 msgid "Primary"
-msgstr "Principal"
+msgstr "Primária"
 
 #: inc/stargazer.php:107
 msgid ""
 "The main sidebar. It is displayed on either the left or right side of the "
 "page based on the chosen layout."
 msgstr ""
-"Barre latérale principale.  Elle est affichée à la gauche ou à la droite de "
-"la page selon la disposition choisie."
+"A barra lateral principal. Ela é exibida no lado esquerdo ou no lado direito "
+"da página com base no layout escolhido."
 
 #: inc/stargazer.php:114
 msgctxt "sidebar"
 msgid "Subsidiary"
-msgstr "Auxiliaire"
+msgstr "Auxiliar"
 
 #: inc/stargazer.php:115
 msgid ""
 "A sidebar located in the footer of the site. Optimized for one, two, or "
 "three widgets (and multiples thereof)."
 msgstr ""
-"Une barre située dans le pied de page du site.  Optimisée pour un, deux ou "
-"trois widgets."
+"Uma barra lateral localizada no rodapé do site. Optimizada para um, dois, ou "
+"três widgets (e seus múltiplos)."
 
 #: inc/stargazer.php:129
 msgid "1 Column Wide"
-msgstr "1 Colonne Large"
+msgstr "1 Coluna larga"
 
 #: inc/stargazer.php:130
 msgid "1 Column Narrow"
-msgstr "1 Colonne Étroite"
+msgstr "1 Coluna estreita"
 
 #: inc/stargazer.php:131
 msgid "2 Columns: Content / Sidebar"
-msgstr "2 Colonnes : Contenu / Barre latérale"
+msgstr "2 Colunas: Conteúdo / Barra lateral"
 
 #: inc/stargazer.php:132
 msgid "2 Columns: Sidebar / Content"
-msgstr "2 Colonnes : Barre latérale / Contenu"
+msgstr "2 Colunas: Barra lateral / Conteúdo"
 
 #: inc/stargazer.php:179
 msgid "Expand Search Form"
-msgstr ""
+msgstr "Expandir formulário de pesquisa"
 
 #: inc/stargazer.php:521 inc/stargazer.php:579
 msgid "File Type"
-msgstr "Type du fichier"
+msgstr "Tipo do arquivo"
 
 #: inc/stargazer.php:522 inc/stargazer.php:580
 msgid "File Name"
-msgstr "Nom du fichier"
+msgstr "Nome do arquivo"
 
 #: library/admin/meta-box-post-layout.php:35
 #: library/inc/functions-customize.php:72
 msgid "Layout"
-msgstr "Disposition"
+msgstr "Layout"
 
 #: library/admin/meta-box-post-style.php:35
 #, fuzzy
 msgid "Style"
-msgstr "Feuille de style"
+msgstr "Folha de estilo"
 
 #: library/admin/meta-box-post-template.php:41
 msgid "Template"
-msgstr "Gabarit"
+msgstr "Modelo"
 
 #: library/ext/breadcrumb-trail.php:244
 msgid "Browse:"
-msgstr "Parcourir : "
+msgstr "Procurar:"
 
 #: library/ext/breadcrumb-trail.php:245
 msgctxt "breadcrumbs aria label"
@@ -290,41 +289,41 @@ msgstr ""
 
 #: library/ext/breadcrumb-trail.php:246
 msgid "Home"
-msgstr "Accueil"
+msgstr "Início"
 
 #: library/ext/breadcrumb-trail.php:247 library/inc/template-general.php:422
 msgid "404 Not Found"
-msgstr "404 Non trouvé"
+msgstr "404 Não encontrado"
 
 #: library/ext/breadcrumb-trail.php:248 library/inc/template-general.php:218
 msgid "Archives"
-msgstr "Archives"
+msgstr "Arquivo"
 
 #. Translators: %s is the search query. The HTML entities are opening and
 #. closing curly quotes.
 #: library/ext/breadcrumb-trail.php:250 library/inc/template-general.php:400
 msgid "Search results for &#8220;%s&#8221;"
-msgstr "Résultats de recherche pour &#8220;%s&#8221;"
+msgstr "Resultado da pesquisa por &#8220;%s&#8221;"
 
 #. Translators: %s is the page number.
 #: library/ext/breadcrumb-trail.php:252
 msgid "Page %s"
-msgstr "Page %s"
+msgstr "Página %s"
 
 #. Translators: Minute archive title. %s is the minute time format.
 #: library/ext/breadcrumb-trail.php:254 library/inc/template-general.php:354
 msgid "Minute %s"
-msgstr "Minute %s"
+msgstr "Minuto %s"
 
 #. Translators: Weekly archive title. %s is the week date format.
 #: library/ext/breadcrumb-trail.php:256
 msgid "Week %s"
-msgstr "Semaine %s"
+msgstr "Semana %s"
 
 #: library/ext/breadcrumb-trail.php:708 library/inc/template-general.php:376
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
-msgstr "G:i"
+msgstr "g:i a"
 
 #: library/ext/breadcrumb-trail.php:725 library/inc/template-general.php:354
 msgctxt "minute archives time format"
@@ -370,46 +369,46 @@ msgstr "%1$s &#215; %2$s"
 #: library/inc/functions-attr.php:202
 msgctxt "sidebar aria label"
 msgid "%s Sidebar"
-msgstr ""
+msgstr "%s Barra lateral"
 
 #. Translators: The %s is the menu name. This is used for the 'aria-label'
 #. attribute.
 #: library/inc/functions-attr.php:235
 msgctxt "nav menu aria label"
 msgid "%s Menu"
-msgstr ""
+msgstr "%s Menu"
 
 #. Translators: Post date/time "title" attribute.
 #: library/inc/functions-attr.php:476
 msgctxt "post time format"
 msgid "l, F j, Y, g:i a"
-msgstr "l j.m.Y, G:i"
+msgstr "l, F j, Y, g:i a"
 
 #. Translators: Comment date/time "title" attribute.
 #: library/inc/functions-attr.php:601
 msgctxt "comment time format"
 msgid "l, F j, Y, g:i a"
-msgstr "l j.m.Y, G:i"
+msgstr "l, F j, Y, g:i a"
 
 #: library/inc/functions-customize.php:95
 msgid "Global Layout"
-msgstr "Disposition globale"
+msgstr "Layout global"
 
 #. Translators: 1 is the page title. 2 is the page number.
 #: library/inc/functions-head.php:140
 msgid "%1$s Page %2$s"
-msgstr "%1$s Page %2$s"
+msgstr "%1$s Página %2$s"
 
 #. Translators: Default theme layout option.
 #: library/inc/functions-layouts.php:51
 msgctxt "theme layout"
 msgid "Default"
-msgstr "Défaut"
+msgstr "Padrão"
 
 #. Translators: Used as a placeholder for untitled posts on non-singular views.
 #: library/inc/functions-utility.php:94
 msgid "(Untitled)"
-msgstr "(Sans titre)"
+msgstr "(Sem título)"
 
 #: library/inc/template-general.php:55
 msgid "http://wordpress.org"
@@ -422,12 +421,12 @@ msgstr "WordPress"
 #. Translators: 1 is the week number and 2 is the year.
 #: library/inc/template-general.php:286
 msgid "Week %1$s of %2$s"
-msgstr "Semaine %1$s / %2$s"
+msgstr "Semana %1$s de %2$s"
 
 #: library/inc/template-general.php:308
 msgctxt "daily archives date format"
 msgid "F j, Y"
-msgstr "j.m.Y"
+msgstr "F j, Y"
 
 #. Translators: Separates tags, categories, etc. when displaying a post.
 #: library/inc/template-post.php:219
@@ -440,60 +439,59 @@ msgstr ", "
 #: misc/comments-error.php:6
 msgid "Comments are closed, but %strackbacks%s and pingbacks are open."
 msgstr ""
-"Les commentaires sont fermés, mais les rétroliens et les pings sont ouverts."
+"Os comentários estão fechado mas %strackbacks%s e pingbacks estão abertos."
 
 #: misc/comments-error.php:13
 msgid "Comments are closed."
-msgstr "Les commentaires sont fermés."
+msgstr "Os comentários estão fechados."
 
 #: misc/comments-nav.php:5
-#, fuzzy
 msgid "Comments Navigation"
-msgstr "Navigation"
+msgstr "Navegação pelos comentários"
 
 #: misc/comments-nav.php:7
 msgctxt "comments navigation"
 msgid "&larr; Previous"
-msgstr "&larr; Précédent"
+msgstr "&larr; Anterior"
 
 #. Translators: Comments page numbers. 1 is current page and 2 is total pages.
 #: misc/comments-nav.php:11
 msgid "Page %1$s of %2$s"
-msgstr "Page %1$s / %2$s"
+msgstr "Página %1$s de %2$s"
 
 #: misc/comments-nav.php:14
 msgctxt "comments navigation"
 msgid "Next &rarr;"
-msgstr "Suivant &rarr;"
+msgstr "Próximo &rarr;"
 
 #: misc/loop-nav.php:4
 msgid "Previous Post: %link"
-msgstr "Article précédent : %link"
+msgstr "Publicação anterior: %link"
 
 #: misc/loop-nav.php:5
 msgid "Next Post: %link"
-msgstr "Article suivant : %link"
+msgstr "Próxima publicação: %link"
 
 #: misc/loop-nav.php:12
 msgctxt "posts navigation"
 msgid "&larr; Previous"
-msgstr "&larr; Précédent"
+msgstr "&larr; Anterior"
 
 #: misc/loop-nav.php:13
 msgctxt "posts navigation"
 msgid "Next &rarr;"
-msgstr "Suivant &rarr;"
+msgstr "Próximo &rarr;"
 
 #. Translators: %s is the sidebar name. This is the sidebar title shown to
 #. screen readers.
 #: sidebar/primary.php:7
 msgctxt "sidebar title"
 msgid "%s Sidebar"
-msgstr ""
+msgstr "%s Barra lateral"
 
 #: sidebar/primary.php:19
 msgid "Example Widget"
-msgstr "Exemple de widget"
+msgstr "Widget de exemplo"
 
 #. Translators: The %s are placeholders for HTML, so the order can't be
 #. changed.
@@ -502,9 +500,9 @@ msgid ""
 "This is an example widget to show how the Primary sidebar looks by default. "
 "You can add custom widgets from the %swidgets screen%s in the admin."
 msgstr ""
-"Ceci est un exemple de widget montrant l'apparence par défaut de la barre "
-"latérale principale.  Vous pouvez ajouter des widgets personnalisés à partir "
-"du %swidgets screen%s dans le panneau d'administration."
+"Este é um widget de exemplo para mostrar como a barra lateral primária se "
+"parece por padrão. Você pode adicionar widgets personalizados a partir da "
+"%swidgets screen%s no admin."
 
 #. Theme Name of the plugin/theme
 msgid "Stargazer"
@@ -528,17 +526,17 @@ msgid ""
 "header-extended\">Custom Header Extended</a>, <a href=\"http://wordpress.org/"
 "plugins/whistles\">Whistles</a>, and more."
 msgstr ""
-"Bienvenue dans Stargazer, le thème le plus avancé jamais créé pour "
-"WordPress. Il s'agit du seul thème que vous trouverez dans le monde qui "
-"étend les fonctionnalités internes de WordPress de façon robuste mais "
-"toujours naturelle. Ce thème est bâti sur le solide noyau \"Hybrid core\". "
-"Il est conçu en gardant en tête l'optimisation pour les engins de recherche "
-"(SEO), en utilisant les conventions courantes du HTML5 et les micro-données "
-"<a href=\"http://schema.org\">Schema.org</a>. Il intègre aussi plusieurs "
-"extensions très utiles comme <a href=\"http://wordpress.org/plugins/custom-"
-"background-extended\">Custom Background Extended</a>, <a href=\"http://"
-"wordpress.org/plugins/custom-header-extended\">Custom Header Extended</a>, "
-"<a href=\"http://wordpress.org/plugins/whistles\">Whistles</a>, et plus."
+"Bem-vindo ao Stargazer, o tema mais avançado já criado para o WordPress sem "
+"comprometer os padrões. Este é o único tema no mundo que você vai encontrar "
+"que estende os recursos embutidos no WordPress de modo robusto mas natural. "
+"O tema é construído sobre a sólida estrutura do framework Hybrid Core. Ele é "
+"construído com Otimização para Ferramentas de Busca (SEO) em mente, "
+"utilizando as convenções HTML5 mais atuais e <a href=\"http://schema.org"
+"\">Schema.org</a> microdados. Ele também se integra com plugins como <a href="
+"\"http://wordpress.org/plugins/custom-background-extended\">Custom "
+"Background Extended</a>, <a href=\"http://wordpress.org/plugins/custom-"
+"header-extended\">Custom Header Extended</a>, <a href=\"http://wordpress.org/"
+"plugins/whistles\">Whistles</a>, além de outros."
 
 #. Author of the plugin/theme
 msgid "Justin Tadlock"
@@ -550,375 +548,61 @@ msgid "http://themehybrid.com"
 msgstr "http://themehybrid.com/themes/stargazer"
 
 #~ msgid "%s Theme Settings"
-#~ msgstr "%s Réglages du thème"
+#~ msgstr "%s Definições do tema"
 
 #~ msgid "Theme Settings"
-#~ msgstr "Réglages du thème"
+#~ msgstr "Definições do tema"
 
 #~ msgctxt "theme customizer tab"
 #~ msgid "Default"
-#~ msgstr "Valeur de défaut"
+#~ msgstr "Padrão"
 
 #~ msgid "International Organization for Standardization"
-#~ msgstr "Organisation Internationale de Standardisation"
+#~ msgstr "International Organization for Standardization"
 
 #~ msgid "Edit"
-#~ msgstr "Éditer"
+#~ msgstr "Editar"
 
 #~ msgid "Split"
-#~ msgstr "Séparer"
+#~ msgstr "Dividir"
 
 #~ msgid "Merge"
-#~ msgstr "Fusionner"
+#~ msgstr "Misturar"
 
 #~ msgid "Post Thumbnail"
-#~ msgstr "Vignette de l'article"
+#~ msgstr "Thumbnail do post"
 
 #~ msgid "File Size"
-#~ msgstr "Taille du fichier"
+#~ msgstr "Tamanho do arquivo"
 
 #~ msgid "Composer"
-#~ msgstr "Compositeur"
+#~ msgstr "Compositor"
+
+#~ msgid "Lyrics"
+#~ msgstr "Letra"
 
 #~ msgid "State-of-the-art semantic personal publishing platform"
-#~ msgstr "Plateforme sémantique de publication personnelle à la fine pointe"
+#~ msgstr "A melhor plataforma de publicação pessoal semântica"
 
 #~ msgid "%s WordPress Theme"
-#~ msgstr "%s Thème WordPress"
+#~ msgstr "%s Tema WordPress"
 
 #~ msgid "You are browsing the search results for &#8220;%s&#8221;"
-#~ msgstr "Vous consultez les résultats de la recherche &#8220;%s&#8221;"
+#~ msgstr ""
+#~ "Você está navegando pelos resultado da pesquisa por &#8220;%s&#8221;"
 
 #~ msgid "You are browsing the site archives by time."
-#~ msgstr "Vous consultez les archives chronologiques du site."
+#~ msgstr "Você está navegando pelo arquivo do site por tempo. "
 
 #~ msgid "You are browsing the site archives for %s."
-#~ msgstr "Vous consultez les archives du site pour %s."
+#~ msgstr "Você está navegando pelo arquivo do site por %s."
 
 #~ msgid "You are browsing the site archives."
-#~ msgstr "Vous consultez les archives du site."
+#~ msgstr "Você está navegando pelo arquivo do site."
+
+#~ msgctxt "nav menu title"
+#~ msgid "%s Menu"
+#~ msgstr "%s Menu"
 
 #~ msgid "http://justintadlock.com"
 #~ msgstr "http://justintadlock.com"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "archives."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "archives."
-
-#~ msgid "Select Year"
-#~ msgstr "Choisissez l'année"
-
-#~ msgid "Select Month"
-#~ msgstr "Choisissez le mois"
-
-#~ msgid "Select Week"
-#~ msgstr "Choisissez la semaine"
-
-#~ msgid "Select Day"
-#~ msgstr "Choisissez le jour"
-
-#~ msgid "Select Post"
-#~ msgstr "Choisissez l'article"
-
-#~ msgid "Alphabetical"
-#~ msgstr "Alphabétique"
-
-#~ msgid "Daily"
-#~ msgstr "Quotidien"
-
-#~ msgid "Monthly"
-#~ msgstr "Mensuel"
-
-#~ msgid "Post By Post"
-#~ msgstr "Article par article"
-
-#~ msgid "Weekly"
-#~ msgstr "Hebdomadaire"
-
-#~ msgid "Yearly"
-#~ msgstr "Annuel"
-
-#~ msgid "Ascending"
-#~ msgstr "Ascendant"
-
-#~ msgid "Descending"
-#~ msgstr "Descendant"
-
-#~ msgid "Custom"
-#~ msgstr "Spécial"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Option"
-#~ msgstr "Option"
-
-#~ msgid "Title:"
-#~ msgstr "Titre :"
-
-#~ msgid "Show post count?"
-#~ msgstr "Afficher le nombre d'articles ?"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "author lists."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "listes d'auteurs."
-
-#~ msgid "Authors"
-#~ msgstr "Auteurs"
-
-#~ msgid "Display Name"
-#~ msgstr "Nom affiché"
-
-#~ msgid "Email"
-#~ msgstr "Courriel"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Nice Name"
-#~ msgstr "Pseudonyme"
-
-#~ msgid "Post Count"
-#~ msgstr "Nombre d'articles"
-
-#~ msgid "Registered"
-#~ msgstr "Enregistré"
-
-#~ msgid "URL"
-#~ msgstr "URL"
-
-#~ msgid "Login"
-#~ msgstr "Connexion"
-
-#~ msgid "List"
-#~ msgstr "Liste"
-
-#~ msgid "None"
-#~ msgstr "Aucun"
-
-#~ msgid "<acronym title=\"Hypertext Markup Language\">HTML</acronym>?"
-#~ msgstr "<acronym title=\"Hypertext Markup Language\">HTML</acronym> ?"
-
-#~ msgid "Exclude admin?"
-#~ msgstr "Exclure l'administrateur ?"
-
-#~ msgid "Show full name?"
-#~ msgstr "Afficher le nom complet ?"
-
-#~ msgid "Hide empty?"
-#~ msgstr "Cacher si vide ?"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "bookmarks (links)."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "signets (liens)."
-
-#~ msgid "Bookmarks"
-#~ msgstr "Signets"
-
-#~ msgid "Count"
-#~ msgstr "Nombre"
-
-#~ msgid "Slug"
-#~ msgstr "Identifiant (\"slug\") de l'article"
-
-#~ msgid "Description"
-#~ msgstr "Description"
-
-#~ msgid "Length"
-#~ msgstr "Longueur"
-
-#~ msgid "Notes"
-#~ msgstr "Notes"
-
-#~ msgid "Owner"
-#~ msgstr "Propriétaire"
-
-#~ msgid "Random"
-#~ msgstr "Aléatoire"
-
-#~ msgid "Rating"
-#~ msgstr "Cote"
-
-#~ msgid "Rel"
-#~ msgstr "Rel"
-
-#~ msgid "RSS"
-#~ msgstr "RSS"
-
-#~ msgid "Target"
-#~ msgstr "Cible"
-
-#~ msgid "Updated"
-#~ msgstr "Mis à jour"
-
-#~ msgid "Categorize?"
-#~ msgstr "Catégoriser ?"
-
-#~ msgid "Show description?"
-#~ msgstr "Afficher la description ?"
-
-#~ msgid "Hide invisible?"
-#~ msgstr "Cacher si invisible ?"
-
-#~ msgid "Show rating?"
-#~ msgstr "Afficher la cote ?"
-
-#~ msgid "Show updated?"
-#~ msgstr "Afficher les mises à jour ?"
-
-#~ msgid "Show images?"
-#~ msgstr "Afficher les images ?"
-
-#~ msgid "Show name?"
-#~ msgstr "Afficher le nom ?"
-
-#~ msgid "Show private?"
-#~ msgstr "Afficher si privé ?"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "calendar."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de "
-#~ "votre calendrier."
-
-#~ msgid "Calendar"
-#~ msgstr "Calendrier"
-
-#~ msgid "One-letter abbreviation?"
-#~ msgstr "Abréviation d'une lettre ?"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "category links."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "catégories de liens."
-
-#~ msgid "Categories"
-#~ msgstr "Catégories"
-
-#~ msgid "Term Group"
-#~ msgstr "Groupe de termes"
-
-#~ msgid "Atom"
-#~ msgstr "Atom"
-
-#~ msgid "RDF"
-#~ msgstr "RDF"
-
-#~ msgid "RSS 2.0"
-#~ msgstr "RSS 2.0"
-
-#~ msgid "Hierarchical?"
-#~ msgstr "Hiérarchique ?"
-
-#~ msgid "Use description?"
-#~ msgstr "Utiliser la description ?"
-
-#~ msgid "Show count?"
-#~ msgstr "Afficher le nombre ?"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "menus."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "menus."
-
-#~ msgid "Navigation Menu"
-#~ msgstr "Menu de navigation"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "page links."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "liens de page."
-
-#~ msgid "Pages"
-#~ msgstr "Pages"
-
-#~ msgid "Author"
-#~ msgstr "Auteur"
-
-#~ msgid "Menu Order"
-#~ msgstr "Ordre du menu"
-
-#~ msgid "Modified"
-#~ msgstr "Modifié"
-
-#~ msgid "Title"
-#~ msgstr "Titre"
-
-#~ msgid "Created"
-#~ msgstr "Créé"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "search form."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de "
-#~ "votre formulaire de recherche."
-
-#~ msgid "Search"
-#~ msgstr "Recherche"
-
-#~ msgid "Search Label:"
-#~ msgstr "Étiquette de recherche :"
-
-#~ msgid "Search Text:"
-#~ msgstr "Texte de recherche :"
-
-#~ msgid "Search Submit:"
-#~ msgstr "Lancer la recherche :"
-
-#~ msgid "Use theme's <code>searchform.php</code>?"
-#~ msgstr "Utiliser le <code>searchform.php</code> du thème ?"
-
-#~ msgid ""
-#~ "An advanced widget that gives you total control over the output of your "
-#~ "tags."
-#~ msgstr ""
-#~ "Un widget élaboré qui vous donne le contrôle total sur l'affichage de vos "
-#~ "mots clés."
-
-#~ msgid "Tags"
-#~ msgstr "Mots clés"
-
-#~ msgid "View"
-#~ msgstr "Vue"
-
-#~ msgid "Flat"
-#~ msgstr "Plat"
-
-#~ msgid "Pad counts?"
-#~ msgstr "Nombre de notes ?"
-
-#~ msgid "Featured Header"
-#~ msgstr "Entête sélectionné"
-
-#~ msgid "Fonts"
-#~ msgstr "Polices"
-
-#~ msgid ""
-#~ "Layout is a theme-specific structure for the single view of the post."
-#~ msgstr ""
-#~ "La disposition est une structure spécifique au thème pour l'affichage "
-#~ "unitaire d'un article."
-
-#~ msgid ""
-#~ "<code>%1$s</code> &mdash; This function has been removed or replaced by "
-#~ "another function."
-#~ msgstr ""
-#~ "<code>%1$s</code> &mdash; Cette fonction a été retirée ou remplacée par "
-#~ "une autre."
