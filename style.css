@@ -2153,6 +2153,14 @@ blockquote::before,
 
 	#menu-secondary .menu-toggle button { margin: 0 1.5rem; }
 
+		@media only screen and ( max-width: 540px ) {
+
+			#menu-secondary .menu-toggle button { font-size: 0; }
+
+			.ltr #menu-secondary .menu-toggle button { padding-left: 0.25rem;  }
+			.rtl #menu-secondary .menu-toggle button { padding-right: 0.25rem; }
+		}
+
 		.ltr #menu-primary .menu-toggle button { margin-left:  1.5rem; }
 		.rtl #menu-primary .menu-toggle button { margin-right: 1.5rem; }
 
