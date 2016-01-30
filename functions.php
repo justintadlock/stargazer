@@ -77,6 +77,9 @@ function stargazer_theme_setup() {
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
 	);
 
+	// Jetpack Site Logo.
+	add_theme_support( 'site-logo' );
+
 	// Editor styles.
 	add_editor_style( stargazer_get_editor_styles() );
 
