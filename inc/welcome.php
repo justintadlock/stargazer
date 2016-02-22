@@ -115,7 +115,7 @@ function stargazer_welcome_page() {
 
 				<ul>
 					<?php foreach ( $plugins as $plugin ) : ?>
-						<li><a href="<?php echo esc_url( "https://wordpress.org/plugins/{$plugin->slug}" ); ?>"><?php echo esc_html( $plugin->name ); ?></a></li>
+						<li><a href="<?php echo esc_url( "https://wordpress.org/plugins/{$plugin->slug}" ); ?>" target="_blank"><?php echo esc_html( $plugin->name ); ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 
