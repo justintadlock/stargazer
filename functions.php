@@ -30,9 +30,10 @@ require_once( $stargazer_dir . 'library/hybrid.php' );
 new Hybrid();
 
 // Load theme-specific files.
-require_once( $stargazer_dir . 'inc/custom-background.php'     );
-require_once( $stargazer_dir . 'inc/custom-header.php'         );
-require_once( $stargazer_dir . 'inc/custom-colors.php'         );
+require_once( $stargazer_dir . 'inc/custom-background.php' );
+require_once( $stargazer_dir . 'inc/custom-header.php'     );
+require_once( $stargazer_dir . 'inc/custom-colors.php'     );
+require_once( $stargazer_dir . 'inc/welcome.php'           );
 
 // Set up the theme early.
 add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
