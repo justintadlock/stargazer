@@ -143,7 +143,7 @@ function stargazer_get_recommended_plugins() {
 	if ( ! $api ) {
 
 		// If `plugins_api()` isn't available, load the file that holds the function
-		if ( ! function_exists( 'plugins_api' ) && file_exists( trailingslashit( ABSPATH ) . 'wp-admin/includes/plugin.php' ) )
+		if ( ! function_exists( 'plugins_api' ) && file_exists( trailingslashit( ABSPATH ) . 'wp-admin/includes/plugin-install.php' ) )
 			require_once( trailingslashit( ABSPATH ) . 'wp-admin/includes/plugin-install.php' );
 
 		// Make sure the function exists.
