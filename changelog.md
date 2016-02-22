@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.1.1] - 2016-02-22
+
+### Fixed
+
+* Wrong path for file check.
+
 ## [2.1.0] - 2016-02-22
 
 ### Added
