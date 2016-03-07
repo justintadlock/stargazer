@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.1.2] - 2016-03-07
+
+### Fixed
+
+* Fixes the layout check for the Primary sidebar. Widgets did not appear when global layout was overwritten.
+
 ## [2.1.1] - 2016-02-22
 
 ### Fixed
