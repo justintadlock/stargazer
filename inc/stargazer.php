@@ -30,6 +30,9 @@ add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_styles'  );
 
+# Embed styles.
+add_action( 'enqueue_embed_scripts', 'stargazer_embed_enqueue_styles' );
+
 # Excerpt-related filters.
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
@@ -61,6 +64,58 @@ add_filter( 'wp_video_shortcode', 'stargazer_video_shortcode', 10, 3 );
 
 # Filter the [video] shortcode attributes.
 add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
+
+remove_filter( 'excerpt_more',           'wp_embed_excerpt_more',          20    );
+
+function stargazer_get_embed_template() {
+
+	// Set up an empty array and get the post type.
+	$templates = array();
+	$post_type = get_post_type();
+
+	// Assume the theme developer is creating an attachment template.
+	if ( 'attachment' === $post_type ) {
+		remove_filter( 'the_content', 'prepend_attachment' );
+
+		$type = hybrid_get_attachment_type();
+
+		$templates[] = "embed-attachment-{$type}.php";
+		$templates[] = "embed/attachment-{$type}.php";
+	}
+
+	// If the post type supports 'post-formats', get the template based on the format.
+	if ( post_type_supports( $post_type, 'post-formats' ) ) {
+
+		// Get the post format.
+		$post_format = get_post_format() ? get_post_format() : 'standard';
+
+		// Template based off post type and post format.
+		$templates[] = "embed-{$post_type}-{$post_format}.php";
+		$templates[] = "embed/{$post_type}-{$post_format}.php";
+
+		// Template based off the post format.
+		$templates[] = "embed-{$post_format}.php";
+		$templates[] = "embed/{$post_format}.php";
+	}
+
+	// Template based off the post type.
+	$templates[] = "embed-{$post_type}.php";
+	$templates[] = "embed/{$post_type}.php";
+
+	// Fallback 'content.php' template.
+	$templates[] = 'embed-content.php';
+	$templates[] = 'embed/content.php';
+
+	// Apply filters to the templates array.
+	$templates = apply_filters( 'stargazer_embed_template_hierarchy', $templates );
+
+	// Locate the template.
+	$template = locate_template( $templates );
+
+	// If template is found, include it.
+	if ( apply_filters( 'stargazer_embed_template', $template, $templates ) )
+		include( $template );
+}
 
 /**
  * Registers custom image sizes for the theme.
@@ -201,6 +256,35 @@ function stargazer_enqueue_styles() {
 		wp_enqueue_style( 'hybrid-parent' );
 
 	wp_enqueue_style( 'hybrid-style' );
+}
+
+function stargazer_embed_enqueue_styles() {
+
+	$suffix = hybrid_get_min_suffix();
+
+	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
+
+	wp_localize_script(
+		'stargazer',
+		'stargazer_i18n',
+		array(
+			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
+		)
+	);
+
+	wp_enqueue_script( 'stargazer' );
+
+	wp_deregister_style( 'mediaelement' );
+	wp_deregister_style( 'wp-mediaelement' );
+
+	wp_enqueue_style( 'stargazer-on', HYBRID_CSS . 'one-five.min.css' );
+
+	wp_enqueue_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
+
+	wp_enqueue_style( 'stargazer-fonts', '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
+
+	//wp_enqueue_style( 'stargazer-style', trailingslashit( get_template_directory_uri() ) . 'style.css' );
+	wp_enqueue_style( 'stargazer-embed', trailingslashit( get_template_directory_uri() ) . 'css/embed.css' );
 }
 
 /**
@@ -506,7 +590,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 		}
 
 		// If not viewing an attachment page, add the media info section.
-		if ( ! is_attachment() ) {
+		if ( ! is_attachment() && ! is_embed() ) {
 			$html .= '<div class="media-shortcode-extend">';
 			$html .= '<div class="media-info audio-info">';
 			$html .= '<ul class="media-meta">';
@@ -544,7 +628,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 function stargazer_video_shortcode( $html, $atts, $video ) {
 
 	// Don't show on single attachment pages or in the admin.
-	if ( is_attachment() || is_admin() )
+	if ( is_attachment() || is_admin() || is_embed() )
 		return $html;
 
 	// If we have an actual attachment to work with, use the ID.
@@ -602,6 +686,7 @@ function stargazer_video_shortcode( $html, $atts, $video ) {
  */
 function stargazer_get_attachment_id_from_url( $url ) {
 	global $wpdb;
+
 	$prefix = $wpdb->prefix;
 	$posts = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $url ) );
 

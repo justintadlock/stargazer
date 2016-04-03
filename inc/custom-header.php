@@ -97,6 +97,23 @@ function stargazer_custom_header_wp_head() {
 	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
 }
 
+add_action( 'embed_head', 'stargazer_custom_header_embed_head', 26 );
+
+function stargazer_custom_header_embed_head() {
+
+	//if ( ! display_header_text() )
+	//	return;
+
+	$hex = get_header_textcolor();
+
+	if ( ! $hex )
+		return;
+
+	$style = ".wp-embed-site-title a { color: #{$hex}; }";
+
+	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
+}
+
 /**
  * Enqueues the styles for the "Appearance > Custom Header" screen in the admin.
  *
