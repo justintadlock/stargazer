@@ -50,7 +50,7 @@ jQuery( document ).ready( function() {
 			if ( 'blank' === to ) {
 
 				/* Hides branding and menu-secondary. */
-				jQuery( '#branding' ).
+				jQuery( '#site-title, #site-description' ).
 					css( 'display', 'none' );
 
 				/* Removes the 'display-header-text' <body> class. */
@@ -66,7 +66,7 @@ jQuery( document ).ready( function() {
 					addClass( 'display-header-text' );
 
 				/* Makes sures both branding and menu-secondary display. */
-				jQuery( '#branding' ).
+				jQuery( '#site-title, #site-description' ).
 					css( 'display', 'block' );
 
 				/* Changes the color of the site title link. */

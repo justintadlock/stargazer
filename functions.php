@@ -77,6 +77,15 @@ function stargazer_theme_setup() {
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
 	);
 
+	// Adds custom logo support
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'     => 78,
+			'flex-width' => true
+		)
+	);
+
 	// Editor styles.
 	add_editor_style( stargazer_get_editor_styles() );
 

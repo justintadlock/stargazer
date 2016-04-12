@@ -1188,7 +1188,8 @@ blockquote::before,
 #header,
 #branding { position: relative; }
 
-.display-header-text #header {
+.display-header-text #header,
+.custom-header #header {
 	border-bottom: 1px solid;
 }
 
@@ -1200,6 +1201,14 @@ blockquote::before,
 
 		#branding { width: 42.85%; max-width: 450px; }
 	}
+
+		.custom-logo { margin-bottom: 1.5rem; }
+
+		.ltr .custom-logo { float: left; }
+		.rtl .custom-logo { float: right; }
+
+		.ltr.display-header-text .custom-logo { margin-right: 0.75rem; }
+		.rtl.display-header-text .custom-logo { margin-left: 0.75rem; }
 
 		#site-title {
 			margin:    0;
@@ -2086,13 +2095,20 @@ blockquote::before,
 	}
 
 		.ltr.display-header-text #menu-secondary,
-		.ltr.display-header-text #menu-secondary ul { float: right; text-align: right; }
+		.ltr.display-header-text #menu-secondary ul,
+		.ltr.wp-custom-logo #menu-secondary,
+		.ltr.wp-custom-logo #menu-secondary ul { float: right; text-align: right; }
 
 		.rtl.display-header-text #menu-secondary,
-		.rtl.display-header-text #menu-secondary ul { float: left; text-align: left; }
+		.rtl.display-header-text #menu-secondary ul,
+		.rtl.wp-custom-logo #menu-secondary,
+		.rtl.wp-custom-logo #menu-secondary ul { float: left; text-align: left; }
 
-			.ltr.display-header-text #menu-secondary ul ul { text-align: left;  }
-			.rtl.display-header-text #menu-secondary ul ul { text-align: right; }
+			.ltr.display-header-text #menu-secondary ul ul,
+			.ltr.wp-custom-logo #menu-secondary ul ul { text-align: left;  }
+
+			.rtl.display-header-text #menu-secondary ul ul,
+			.rtl.wp-custom-logo #menu-secondary ul ul { text-align: right; }
 
 		/* Lists */
 
@@ -2490,6 +2506,7 @@ textarea,
 .gallery .gallery-icon a img,
 .avatar,
 .display-header-text #header,
+.wp-custom-logo #header,
 .entry,
 .format-chat .chat-author,
 .media-info li,
