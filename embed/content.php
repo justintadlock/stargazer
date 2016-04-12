@@ -17,6 +17,7 @@
 		<?php the_embed_site_title() ?>
 
 		<div class="wp-embed-meta">
+			<?php stargazer_post_format_permalink(); ?>
 			<?php do_action( 'embed_content_meta' ); ?>
 		</div><!-- .wp-embed-meta -->
 

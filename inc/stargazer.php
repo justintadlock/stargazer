@@ -24,6 +24,7 @@ add_action( 'widgets_init', 'stargazer_register_sidebars', 5 );
 
 # Register custom styles.
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles',       0 );
+add_action( 'enqueue_embed_scripts', 'stargazer_register_styles',       0 );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
 # Load scripts and styles.
@@ -67,6 +68,15 @@ add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
 
 remove_filter( 'excerpt_more',           'wp_embed_excerpt_more',          20    );
 
+
+add_action( 'admin_enqueue_scripts', 'stargazer_admin_enqueue_scripts' );
+function stargazer_admin_enqueue_scripts() {
+
+
+	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
+
+}
+
 function stargazer_get_embed_template() {
 
 	// Set up an empty array and get the post type.
@@ -75,7 +85,8 @@ function stargazer_get_embed_template() {
 
 	// Assume the theme developer is creating an attachment template.
 	if ( 'attachment' === $post_type ) {
-		remove_filter( 'the_content', 'prepend_attachment' );
+		remove_filter( 'the_content',       'prepend_attachment'          );
+		remove_filter( 'the_excerpt_embed', 'wp_embed_excerpt_attachment' );
 
 		$type = hybrid_get_attachment_type();
 
@@ -103,7 +114,7 @@ function stargazer_get_embed_template() {
 	$templates[] = "embed/{$post_type}.php";
 
 	// Fallback 'content.php' template.
-	$templates[] = 'embed-content.php';
+	//$templates[] = 'embed-content.php'; // conflicts with core.
 	$templates[] = 'embed/content.php';
 
 	// Apply filters to the templates array.
@@ -115,6 +126,17 @@ function stargazer_get_embed_template() {
 	// If template is found, include it.
 	if ( apply_filters( 'stargazer_embed_template', $template, $templates ) )
 		include( $template );
+}
+
+function stargazer_post_format_permalink() {
+	echo stargazer_get_post_format_permalink();
+}
+
+function stargazer_get_post_format_permalink() {
+
+	$format = get_post_format();
+
+	return $format ? sprintf( '<a href="%s" class="post-format-link"><span class="screen-reader-text">%s</span></a>', esc_url( get_permalink() ), get_post_format_string( $format ) ) : '';
 }
 
 /**
@@ -200,6 +222,8 @@ function stargazer_register_styles() {
 
 	wp_register_style( 'stargazer-fonts',        '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
 	wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
+	wp_register_style( 'stargazer-media',        trailingslashit( get_template_directory_uri() ) . 'css/media.css' );
+	wp_register_style( 'stargazer-embed',        trailingslashit( get_template_directory_uri() ) . 'css/embed.css' );
 }
 
 /**
@@ -224,6 +248,8 @@ function stargazer_admin_register_styles() {
 function stargazer_enqueue_scripts() {
 
 	$suffix = hybrid_get_min_suffix();
+
+	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
 
 	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
 
@@ -251,6 +277,7 @@ function stargazer_enqueue_styles() {
 	wp_enqueue_style( 'hybrid-one-five'        );
 	wp_enqueue_style( 'hybrid-gallery'         );
 	wp_enqueue_style( 'stargazer-mediaelement' );
+	wp_enqueue_style( 'stargazer-media'        );
 
 	if ( is_child_theme() )
 		wp_enqueue_style( 'hybrid-parent' );
@@ -261,6 +288,8 @@ function stargazer_enqueue_styles() {
 function stargazer_embed_enqueue_styles() {
 
 	$suffix = hybrid_get_min_suffix();
+
+	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_script_data() );
 
 	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
 
@@ -274,18 +303,23 @@ function stargazer_embed_enqueue_styles() {
 
 	wp_enqueue_script( 'stargazer' );
 
-	wp_deregister_style( 'mediaelement' );
-	wp_deregister_style( 'wp-mediaelement' );
-
-	wp_enqueue_style( 'stargazer-on', HYBRID_CSS . 'one-five.min.css' );
-
-	wp_enqueue_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
-
-	wp_enqueue_style( 'stargazer-fonts', '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
-
-	//wp_enqueue_style( 'stargazer-style', trailingslashit( get_template_directory_uri() ) . 'style.css' );
-	wp_enqueue_style( 'stargazer-embed', trailingslashit( get_template_directory_uri() ) . 'css/embed.css' );
+	wp_enqueue_style( 'stargazer-fonts'        );
+	wp_enqueue_style( 'hybrid-one-five'        );
+	wp_enqueue_style( 'stargazer-mediaelement' );
+	wp_enqueue_style( 'stargazer-media'        );
+	wp_enqueue_style( 'stargazer-embed' );
 }
+
+function stargazer_get_mediaelement_inline_script() {
+
+	return "( function( window ) {
+
+		var settings = window._wpmejsSettings || {};
+
+		settings.features = [ 'progress', 'playpause', 'volume', 'tracks', 'current', 'duration', 'fullscreen' ];
+	} )( window );";
+}
+
 
 /**
  * Callback function for adding editor styles.  Use along with the add_editor_style() function.
@@ -550,20 +584,23 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 	// If we have an actual attachment to work with, use the ID.
 	if ( is_object( $audio ) ) {
 		$attachment_id = $audio->ID;
-	}
 
-	// Else, get the ID via the file URL.
+	} else if ( $post_id && hybrid_attachment_is_audio( $post_id ) ) {
+
+		$attachment_id = $post_id;
+
+	} // Else, get the ID via the file URL.
 	else {
 		$extensions = join( '|', wp_get_audio_extensions() );
 
-		preg_match(
-			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i',
-			preg_replace( '/(\?_=[0-9])/i', '', $html ),
-			$matches
-		);
+			preg_match(
+				'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i',
+				preg_replace( '/(\?_=[0-9])/i', '', $html ),
+				$matches
+			);
 
-		if ( ! empty( $matches ) )
-			$attachment_id = stargazer_get_attachment_id_from_url( $matches[2] );
+			if ( ! empty( $matches ) )
+				$attachment_id = stargazer_get_attachment_id_from_url( $matches[2] );
 	}
 
 	// If an attachment ID was found.
@@ -589,6 +626,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 			$html = '<div class="audio-shortcode-wrap">' . $image . $html . '</div>';
 		}
 
+	/*
 		// If not viewing an attachment page, add the media info section.
 		if ( ! is_attachment() && ! is_embed() ) {
 			$html .= '<div class="media-shortcode-extend">';
@@ -610,6 +648,7 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 			$html .= '<button class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</button>';
 			$html .= '</div>';
 		}
+	*/
 	}
 
 	return $html;
@@ -626,6 +665,8 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
  * @return string
  */
 function stargazer_video_shortcode( $html, $atts, $video ) {
+
+	return $html;
 
 	// Don't show on single attachment pages or in the admin.
 	if ( is_attachment() || is_admin() || is_embed() )

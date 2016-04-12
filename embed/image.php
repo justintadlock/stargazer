@@ -6,8 +6,8 @@
 		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 	</p><!-- .wp-embed-heading -->
 
-	<div class="wp-embed-excerpt">
-		<?php the_excerpt_embed(); ?>
+	<div class="wp-embed-content">
+		<?php the_content(); ?>
 	</div><!-- .wp-embed-excerpt -->
 
 	<?php do_action( 'embed_content' ); ?>
