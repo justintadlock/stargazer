@@ -289,7 +289,7 @@ function stargazer_embed_enqueue_styles() {
 
 	$suffix = hybrid_get_min_suffix();
 
-	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_script_data() );
+	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
 
 	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
 
@@ -319,7 +319,6 @@ function stargazer_get_mediaelement_inline_script() {
 		settings.features = [ 'progress', 'playpause', 'volume', 'tracks', 'current', 'duration', 'fullscreen' ];
 	} )( window );";
 }
-
 
 /**
  * Callback function for adding editor styles.  Use along with the add_editor_style() function.
@@ -599,8 +598,14 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 				$matches
 			);
 
-			if ( ! empty( $matches ) )
-				$attachment_id = stargazer_get_attachment_id_from_url( $matches[2] );
+			if ( ! empty( $matches ) ) {
+
+				$dir  = wp_upload_dir();
+				$file = parse_url( $matches[ 2 ] );
+
+				if ( isset( $dir['baseurl'] ) && isset( $file['path'] ) )
+					$attachment_id = attachment_url_to_postid( trim( str_replace( $dir['baseurl'], '', $file['path'] ), '/' ) );
+			}
 	}
 
 	// If an attachment ID was found.
