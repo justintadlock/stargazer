@@ -22,17 +22,17 @@ add_action( 'hybrid_register_layouts', 'stargazer_register_layouts' );
 # Register sidebars.
 add_action( 'widgets_init', 'stargazer_register_sidebars', 5 );
 
-# Register custom styles.
+# Register scripts/styles.
+add_action( 'wp_enqueue_scripts',    'stargazer_register_scripts',      0 );
+add_action( 'enqueue_embed_scripts', 'stargazer_register_scripts',      0 );
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles',       0 );
 add_action( 'enqueue_embed_scripts', 'stargazer_register_styles',       0 );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
-# Load scripts and styles.
-add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_scripts' );
-add_action( 'wp_enqueue_scripts', 'stargazer_enqueue_styles'  );
-
-# Embed styles.
-add_action( 'enqueue_embed_scripts', 'stargazer_embed_enqueue_styles' );
+# Load scripts/styles.
+add_action( 'wp_enqueue_scripts',    'stargazer_enqueue'       );
+add_action( 'enqueue_embed_scripts', 'stargazer_embed_enqueue' );
+add_action( 'admin_enqueue_scripts', 'stargazer_admin_enqueue_scripts' );
 
 # Excerpt-related filters.
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
@@ -67,15 +67,6 @@ add_filter( 'wp_video_shortcode', 'stargazer_video_shortcode', 10, 3 );
 add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
 
 remove_filter( 'excerpt_more',           'wp_embed_excerpt_more',          20    );
-
-
-add_action( 'admin_enqueue_scripts', 'stargazer_admin_enqueue_scripts' );
-function stargazer_admin_enqueue_scripts() {
-
-
-	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
-
-}
 
 /**
  * Registers custom image sizes for the theme.
@@ -148,6 +139,28 @@ function stargazer_register_layouts() {
 }
 
 /**
+ * Registers custom scripts.
+ *
+ * @since  2.2.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_scripts() {
+
+	$suffix = hybrid_get_min_suffix();
+
+	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
+
+	wp_localize_script(
+		'stargazer',
+		'stargazer_i18n',
+		array(
+			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
+		)
+	);
+}
+
+/**
  * Registers custom stylesheets for the front end.
  *
  * @since  1.0.0
@@ -177,39 +190,21 @@ function stargazer_admin_register_styles() {
 }
 
 /**
- * Enqueues scripts.
+ * Load scripts/styles on the front end.
  *
- * @since  1.0.0
+ * @since  2.2.0
  * @access public
  * @return void
  */
-function stargazer_enqueue_scripts() {
+function stargazer_enqueue() {
 
-	$suffix = hybrid_get_min_suffix();
+	// Scripts
 
 	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
 
-	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
-
-	wp_localize_script(
-		'stargazer',
-		'stargazer_i18n',
-		array(
-			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
-		)
-	);
-
 	wp_enqueue_script( 'stargazer' );
-}
 
-/**
- * Loads stylesheets.
- *
- * @since  2.0.0
- * @access public
- * @return void
- */
-function stargazer_enqueue_styles() {
+	// Styles
 
 	wp_enqueue_style( 'stargazer-fonts'        );
 	wp_enqueue_style( 'hybrid-one-five'        );
@@ -223,21 +218,16 @@ function stargazer_enqueue_styles() {
 	wp_enqueue_style( 'hybrid-style' );
 }
 
-function stargazer_embed_enqueue_styles() {
-
-	$suffix = hybrid_get_min_suffix();
+/**
+ * Load scripts/styles for embeds.
+ *
+ * @since  2.2.0
+ * @access public
+ * @return void
+ */
+function stargazer_embed_enqueue() {
 
 	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
-
-	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
-
-	wp_localize_script(
-		'stargazer',
-		'stargazer_i18n',
-		array(
-			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
-		)
-	);
 
 	wp_enqueue_script( 'stargazer' );
 
@@ -245,7 +235,14 @@ function stargazer_embed_enqueue_styles() {
 	wp_enqueue_style( 'hybrid-one-five'        );
 	wp_enqueue_style( 'stargazer-mediaelement' );
 	wp_enqueue_style( 'stargazer-media'        );
-	wp_enqueue_style( 'stargazer-embed' );
+	wp_enqueue_style( 'stargazer-embed'        );
+}
+
+function stargazer_admin_enqueue_scripts() {
+
+
+	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
+
 }
 
 function stargazer_get_mediaelement_inline_script() {
@@ -787,3 +784,21 @@ function stargazer_video_atts( $out ) {
 
 	return $out;
 }
+
+/**
+ * Enqueues scripts.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_enqueue_scripts() {}
+
+/**
+ * Loads stylesheets.
+ *
+ * @since  2.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_enqueue_styles() {}
