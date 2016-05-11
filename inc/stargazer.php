@@ -271,11 +271,11 @@ function stargazer_get_editor_styles() {
 	$editor_styles = array();
 
 	// Add the theme's editor styles.
-	$editor_styles[] = trailingslashit( get_template_directory_uri() ) . 'css/editor-style.css';
+	$editor_styles[] = stargazer_get_parent_editor_stylesheet_uri();
 
-	// If a child theme, add its editor styles. Note: WP checks whether the file exists before using it.
-	if ( is_child_theme() && file_exists( trailingslashit( get_stylesheet_directory() ) . 'css/editor-style.css' ) )
-		$editor_styles[] = trailingslashit( get_stylesheet_directory_uri() ) . 'css/editor-style.css';
+	// If a child theme, add its editor styles.
+	if ( is_child_theme() && $style = stargazer_get_editor_stylesheet_uri() )
+		$editor_styles[] = stargazer_get_editor_stylesheet_uri();
 
 	// Add the locale stylesheet.
 	$editor_styles[] = get_locale_stylesheet_uri();
@@ -285,6 +285,52 @@ function stargazer_get_editor_styles() {
 
 	// Return the styles.
 	return $editor_styles;
+}
+
+/**
+ * Returns the active theme editor stylesheet URI.
+ *
+ * @since  2.2.0
+ * @access public
+ * @return string
+ */
+function stargazer_get_editor_stylesheet_uri() {
+
+	$style_uri = '';
+	$suffix    = hybrid_get_min_suffix();
+	$dir       = trailingslashit( get_stylesheet_directory() );
+	$uri       = trailingslashit( get_stylesheet_directory_uri() );
+
+	if ( $suffix && file_exists( "{$dir}editor-style{$suffix}.css" ) )
+		$style_uri = "{$dir}editor-style{$suffix}.css";
+
+	else if ( file_exists( "{$dir}editor-style.css" ) )
+		$style_uri = "{$dir}editor-style.css";
+
+	return $style_uri;
+}
+
+/**
+ * Returns the parent theme editor stylesheet URI.
+ *
+ * @since  2.2.0
+ * @access public
+ * @return string
+ */
+function stargazer_get_parent_editor_stylesheet_uri() {
+
+	$style_uri = '';
+	$suffix    = hybrid_get_min_suffix();
+	$dir       = trailingslashit( get_template_directory() );
+	$uri       = trailingslashit( get_template_directory_uri() );
+
+	if ( $suffix && file_exists( "{$dir}editor-style{$suffix}.css" ) )
+		$style_uri = "{$dir}editor-style{$suffix}.css";
+
+	else if ( file_exists( "{$dir}editor-style.css" ) )
+		$style_uri = "{$dir}editor-style.css";
+
+	return $style_uri;
 }
 
 /**
