@@ -48,6 +48,7 @@ function stargazer_theme_setup() {
 
 	// Load files.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php' );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/template.php'  );
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
 	// Theme layouts.
