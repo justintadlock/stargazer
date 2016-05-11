@@ -1822,7 +1822,7 @@ blockquote::before,
 	padding-top: 1.5rem;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 1024px) {
 
 	#menu-primary > .wrap { padding: 0; }
 
@@ -1950,7 +1950,7 @@ blockquote::before,
 
 /* === MIN-WIDTH 800PX === */
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1025px) {
 
 	.menu > .wrap { display: block !important; }
 
@@ -2698,7 +2698,7 @@ select:focus {
 #menu-primary .menu-toggle button:hover,
 #menu-primary .menu-toggle button:focus { color: rgba( 255, 255, 255, 0.75 ); }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 1024px) {
 
 	#menu-secondary .wrap,
 	#menu-primary .search-form > div { background: #1f1f1f; }
@@ -2808,7 +2808,7 @@ li.ping,
 
 	/* Menu colors */
 
-	@media only screen and (min-width: 800px) {
+	@media only screen and (min-width: 1025px) {
 
 		.menu li > ul::before {
 			border-right-color:  transparent;
