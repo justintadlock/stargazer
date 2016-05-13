@@ -1853,10 +1853,12 @@ blockquote::before,
 
 		@media only screen and ( max-width: 540px ) {
 
+		/*
 			#menu-secondary .menu-toggle button { font-size: 0; }
 
 			.ltr #menu-secondary .menu-toggle button { padding-left: 0.25rem;  }
 			.rtl #menu-secondary .menu-toggle button { padding-right: 0.25rem; }
+		*/
 		}
 
 		.ltr #menu-primary .menu-toggle button { margin-left:  1.5rem; }
@@ -1878,6 +1880,24 @@ blockquote::before,
 
 		.rtl #menu-primary .menu-toggle button::before,
 		.ltr #menu-secondary .menu-toggle button::after { padding: 0 0 0 0.75rem; }
+
+		@media only screen and ( max-width: 540px ) {
+
+			#menu-secondary .menu-toggle button::after { display: none; }
+
+			#menu-secondary .menu-toggle button::before {
+				content:        '\f419';
+				display:        inline-block;
+				font-family:    'Genericons';
+				font-size:      24px;
+				vertical-align: middle;
+
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.ltr #menu-secondary .menu-toggle button::before { padding: 0 0.75rem 0 0; }
+			.rtl #menu-secondary .menu-toggle button::before { padding: 0 0 0 0.75rem; }
+		}
 
 	#branding { z-index: 1; }
 
@@ -1946,6 +1966,64 @@ blockquote::before,
 
 	#menu-primary .search-toggle,
 	#menu-primary .search-form input[type="submit"] { display: none; }
+}
+
+/* === MAX-WIDTH 540PX === */
+
+@media only screen and ( max-width: 540px ) {
+
+	.header-image {
+		position: absolute;
+		top:      -9999em;
+	}
+	.ltr .header-image { left: -9999em; }
+	.rtl .header-image { right: -9999em; }
+
+	.custom-background #container > .wrap {
+		margin-top: 0;
+	}
+
+	.display-header-text #header,
+	.custom-header #header { margin-bottom: 0.75rem; }
+
+	#branding,
+	#site-title,
+	#site-description {
+		max-width: 100%;
+		width: 100%;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.ltr #branding,
+	.rtl #branding {
+	}
+
+	#menu-primary .menu-toggle,
+	#menu-primary .menu-toggle button {
+		text-align: center;
+		width: 100%;
+	}
+
+		.ltr #menu-primary .menu-toggle button,
+		.rtl #menu-primary .menu-toggle button {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+	#menu-secondary {
+		position: initial;
+		clear: both;
+		width: calc( 100% + 3rem + 2px );
+		margin-top: -1.5rem;
+		margin-left: calc( -1.5rem - 1px );
+	}
+
+		#menu-secondary .menu-toggle,
+		#menu-secondary .menu-toggle button {
+			width: 100%;
+			margin: 0;
+		}
 }
 
 /* === MIN-WIDTH 800PX === */
