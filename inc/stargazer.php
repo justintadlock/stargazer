@@ -34,6 +34,9 @@ add_action( 'wp_enqueue_scripts',    'stargazer_enqueue'       );
 add_action( 'enqueue_embed_scripts', 'stargazer_embed_enqueue' );
 add_action( 'admin_enqueue_scripts', 'stargazer_admin_enqueue_scripts' );
 
+# Remove locale stylsheet (load later). @see https://core.trac.wordpress.org/ticket/36839
+remove_action( 'embed_head', 'locale_stylesheet' );
+
 # Excerpt-related filters.
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
@@ -175,6 +178,9 @@ function stargazer_register_styles() {
 	wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . 'css/mediaelement/mediaelement.min.css' );
 	wp_register_style( 'stargazer-media',        trailingslashit( get_template_directory_uri() ) . 'css/media.css' );
 	wp_register_style( 'stargazer-embed',        trailingslashit( get_template_directory_uri() ) . 'css/embed.css' );
+
+	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
+	wp_register_style( 'stargazer-locale', get_locale_stylesheet_uri() );
 }
 
 /**
@@ -236,6 +242,7 @@ function stargazer_embed_enqueue() {
 	wp_enqueue_style( 'stargazer-mediaelement' );
 	wp_enqueue_style( 'stargazer-media'        );
 	wp_enqueue_style( 'stargazer-embed'        );
+	wp_enqueue_style( 'stargazer-locale'       );
 }
 
 function stargazer_admin_enqueue_scripts() {
