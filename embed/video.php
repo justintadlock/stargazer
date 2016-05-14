@@ -1,6 +1,18 @@
 <div <?php post_class( 'wp-embed' ); ?>>
 
-	<?php echo hybrid_media_grabber( array( 'type' => 'video', 'split_media' => true ) ); ?>
+	<?php echo $video = hybrid_media_grabber(
+		array(
+			'type'        => 'video', 
+			'split_media' => true, 
+			'shortcodes'  => array( 'video' ), 
+			'autoembeds'  => false, 
+			'embedded'    => false 
+		)
+	); ?>
+
+	<?php if ( ! $video ) : ?>
+		<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
+	<?php endif; ?>
 
 	<p class="wp-embed-heading">
 		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

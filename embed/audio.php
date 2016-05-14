@@ -1,6 +1,18 @@
 <div <?php post_class( 'wp-embed' ); ?>>
 
-	<?php echo hybrid_media_grabber( array( 'type' => 'audio', 'split_media' => true ) ); ?>
+	<?php echo $audio = hybrid_media_grabber(
+		array(
+			'type'        => 'audio',
+			'split_media' => true,
+			'shortcodes'  => array( 'audio' ),
+			'autoembeds'  => false,
+			'embedded'    => false
+		)
+	); ?>
+
+	<?php if ( ! $audio ) : ?>
+		<?php get_the_image( array( 'size' => 'stargazer-full', 'order' => array( 'featured', 'attachment' ) ) ); ?>
+	<?php endif; ?>
 
 	<p class="wp-embed-heading">
 		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
