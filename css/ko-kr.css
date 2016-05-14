@@ -10,7 +10,9 @@ textarea,
 .label-radio,
 .required,
 #site-description,
-#reply-title small { 
+#reply-title small,
+.wp-embed-excerpt,
+.wp-embed-content {
 	font-family: 'Droid Serif', 'Lora', 'Georgia', 'Malgun Gothic', 'Gulim', 'Batang', "돋움", 'Dotum', 'Hangangche', serif;
 }
 
@@ -20,7 +22,7 @@ th,
 legend,
 label,
 input[type="submit"],
-input[type="reset"], 
+input[type="reset"],
 input[type="button"],
 button,
 select,
@@ -39,7 +41,8 @@ option,
 .comment-reply-link,
 .comment-reply-login,
 .clean-my-archives .day,
-.whistle-title {
+.whistle-title,
+.wp-embed-footer {
 	font-family: 'Open Sans', 'Malgun Gothic', 'Gulim', 'Batang', "돋움", 'Dotum', 'Hangangche', sans-serif;
 }
 
@@ -49,6 +52,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.wp-embed-heading,
+.wp-embed-site-title {
 	font-family: 'Open Sans', 'Malgun Gothic', 'Gulim', 'Batang', "돋움", 'Dotum', 'Hangangche', sans-serif;
 }
