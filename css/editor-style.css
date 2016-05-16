@@ -1,13 +1,10 @@
 @import url( '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
 @import url( '../library/css/one-five.min.css' );
-@import url( 'media.css' );
+@import url( 'media.min.css' );
 @import url( '../style.css' );
 
 /* Styles specific to the editor. */
 
-/*
-body#wpview-iframe-sandbox { height: auto; max-height: 100px; }
-*/
 body#tinymce {
 	min-height: 50px;
 	margin:    0 auto;
