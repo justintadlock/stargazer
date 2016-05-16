@@ -254,7 +254,7 @@ function stargazer_embed_enqueue() {
  */
 function stargazer_admin_enqueue_scripts() {
 
-	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
+	//wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
 }
 
 /**
