@@ -725,6 +725,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 #header::after,
 #branding::after,
 #menu-secondary::after,
+#menu-primary::after,
 #menu-primary .wrap::after,
 #menu-secondary .wrap::after,
 #main::after,
@@ -1986,13 +1987,18 @@ blockquote::before,
 	.display-header-text #header,
 	.custom-header #header { margin-bottom: 0.75rem; }
 
+	#branding {
+		text-align: center;
+	}
+
+	#branding .custom-logo { float: none; margin: 0; }
+
 	#branding,
 	#site-title,
 	#site-description {
 		max-width: 100%;
 		width: 100%;
 		margin-bottom: 0;
-		text-align: center;
 	}
 
 	.ltr #branding,
@@ -2010,6 +2016,10 @@ blockquote::before,
 			margin-left: 0;
 			margin-right: 0;
 		}
+
+	#header { clear: both; }
+
+	#menu-primary { width: 100%; float: left; }
 
 	#menu-secondary {
 		position: initial;
