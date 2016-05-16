@@ -19,21 +19,17 @@
 
 			<header <?php hybrid_attr( 'header' ); ?>>
 
-
 				<?php if ( display_header_text() || has_custom_logo() ) : // If user chooses to display header text. ?>
 
 					<div id="branding">
-				<?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
+						<?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
+							<?php the_custom_logo(); // Output custom logo. ?>
+						<?php endif; // End check for custom logo. ?>
 
-					<?php the_custom_logo(); // Output custom logo. ?>
-
-				<?php endif; // End check for custom logo. ?>
-
-				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
-
-						<?php hybrid_site_title(); ?>
-						<?php hybrid_site_description(); ?>
-				<?php endif; // End check for header text. ?>
+						<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
+							<?php hybrid_site_title(); ?>
+							<?php hybrid_site_description(); ?>
+						<?php endif; // End check for header text. ?>
 					</div><!-- #branding -->
 
 				<?php endif; // End check for header text. ?>
@@ -42,9 +38,9 @@
 
 			</header><!-- #header -->
 
-			<?php if ( get_header_image() && !display_header_text() ) : // If there's a header image but no header text. ?>
+			<?php if ( get_header_image() && ! display_header_text() ) : // If there's a header image but no header text. ?>
 
-				<a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home"><img class="header-image" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+				<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home"><img class="header-image" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
 
 			<?php elseif ( get_header_image() ) : // If there's a header image. ?>
 
