@@ -168,7 +168,7 @@ jQuery( document ).ready( function() {
 	 */
 
 	/* Overrides WP's <div> wrapper around videos, which mucks with flexible videos. */
-	jQuery( 'div[style*="max-width: 100%"] > video' ).parent().css( 'width', '100%' );
+	//jQuery( 'div[style*="max-width: 100%"] > video' ).parent().css( 'width', '100%' );
 
 	/* Responsive videos. */
 	/* blip.tv adds a second <embed> with "display: none".  We don't want to wrap that. */
@@ -178,8 +178,12 @@ jQuery( document ).ready( function() {
 	jQuery( '.embed-wrap object, .embed-wrap embed, .embed-wrap iframe, .wp-video, .wp-audio' ).attr(
 		'width',
 		function( index, value ) {
-			jQuery( this ).attr( 'style', 'max-width: ' + value + 'px;' );
-			jQuery( this ).removeAttr( 'width' );
+
+			if ( null != value ) {
+
+				jQuery( this ).attr( 'style', 'max-width: ' + value + 'px;' );
+				jQuery( this ).removeAttr( 'width' );
+			}
 		}
 	);
 

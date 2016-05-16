@@ -1,0 +1,233 @@
+﻿
+/**
+ * Images
+ * --------------------------------------------------------------------------- */
+
+img {
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+}
+
+	a img {
+		opacity:            0.85;
+		-webkit-transition: all 0.5s ease-in-out;
+		   -moz-transition: all 0.5s ease-in-out;
+		      -o-transition:  all 0.5s ease-in-out;
+		        transition: all 0.5s ease-in-out;
+	}
+
+		a:hover img,
+		a:focus img { opacity: 1; }
+
+/* === Image sizes === */
+
+@media only screen and ( min-width: 700px ) {
+	.ltr img.portrait.stargazer-full {
+		float:     right;
+		max-width: 33%;
+		margin:    0 0 1.5rem 1.5rem;
+	}
+
+	.rtl img.portrait.stargazer-full {
+		float:     left;
+		max-width: 33%;
+		margin:    0 1.5rem 1.5rem 0;
+	}
+}
+
+img.stargazer-medium,
+img.stargazer-full { margin: 0 0 1.5rem; }
+
+/* === Captions === */
+
+.wp-caption {
+	position: relative;
+	max-width: 100%;
+}
+
+	.wp-caption .wp-caption-text {
+		position:   absolute;
+		bottom:     1.5rem;
+		padding:    0.75rem;
+		font-size:  0.9375rem;
+	}
+
+		.ltr .wp-caption .wp-caption-text { margin-right: 1.5rem; }
+		.rtl .wp-caption .wp-caption-text { margin-left:  1.5rem; }
+
+/* === Gallery === */
+
+.main .gallery { margin-bottom: 1rem; }
+
+	.gallery .gallery-item { margin-bottom: 0.5rem; }
+
+			.gallery .gallery-icon a img {
+				padding: 9px;
+				border:  1px solid;
+			}
+
+		.gallery .gallery-caption { font-size: 0.9375rem; }
+
+			.singular-attachment .gallery-caption { display: none; }
+
+		@media only screen and ( max-width: 481px ) {
+
+			.gallery .gallery-row .gallery-item { float: none; width: 100%; }
+
+			.gallery .gallery-icon img { max-width: 100%; }
+		}
+
+/* === Avatars === */
+
+.avatar {
+	width:         60px;
+	height:        60px;
+	margin:        0 0 1.5rem;
+	border:        1px solid;
+	border-radius: 50%;
+}
+
+	.ltr .avatar { float: left;  margin-right: 1.5rem; }
+	.rtl .avatar { float: right; margin-left:  1.5rem; }
+
+/* === Embeds === */
+
+
+
+	.embed-wrap {
+		position:       relative;
+		margin-bottom:  1.5rem;
+		padding-bottom: 56.25%;
+		padding-top:    30px;
+		height:         0;
+		overflow:       hidden;
+	}
+
+	.embed-wrap iframe,
+	.embed-wrap object,
+	.embed-wrap embed {
+		position:  absolute;
+		top:       0;
+		left:      0;
+		width:     100%;
+		max-width: 100%;
+		height:    100%;
+	}
+
+	iframe.wp-embedded-content {
+		width: 100%;
+		margin: 0;
+	}
+/********************************************************************************************************
+ * 1.7 - Media
+ *
+ * This section deals with handling media and the output of media-related elements.
+ ********************************************************************************************************/
+
+/**
+ * Attachment meta
+ *
+ * Attachment meta is shown on attachment pages and along with the WordPress media player.
+ */
+
+.attachment-meta .media-info,
+.attachment-meta .image-gallery { margin-bottom: 1.5rem; }
+
+	@media only screen and ( min-width: 800px ) {
+
+		.attachment-meta .image-info,
+		.attachment-meta .image-gallery { width: 47.5%; }
+
+		.rtl .attachment-meta .image-info,
+		.ltr .attachment-meta .image-gallery { float: right; }
+
+		.ltr .attachment-meta .image-info,
+		.rtl .attachment-meta .image-gallery { float: left; }
+	}
+
+	.media-info ul {
+		margin:     0 0 1.5rem;
+		list-style: none;
+	}
+
+		.media-info li {
+			display:       block;
+			padding:       5px 10px;
+			font-size:     1rem;
+			border-bottom: 1px dotted;
+		}
+
+			.media-info li:last-child { border: none; }
+
+			.media-info .prep,
+			.media-info .data {
+				display:    block;
+				text-align: center;
+			}
+
+			.media-info .prep {
+				font-size:      0.9375rem;
+				text-transform: capitalize;
+			}
+
+			@media only screen and ( min-width: 700px ) {
+
+				.media-info .prep { max-width: 30%; }
+				.media-info .data { max-width: 70%; }
+
+				.ltr .media-info .data { float: right; text-align: right; }
+				.rtl .media-info .data { float: left; text-align: left; }
+
+				.ltr .media-info .prep { float: left; text-align: left; }
+				.rtl .media-info .prep { float: right; text-align: right; }
+			}
+
+/********************************************************************************************************
+ * ====== End Media ======
+ ********************************************************************************************************/
+
+
+/**
+ * 2.2 - Color Definitions
+ *
+ * The following are all of the colors defined by the theme.  The only other colors are part of the theme
+ * customizer options and should not be overwritten.  If needed, copy the specific sections below into
+ * your child theme and make the necessary changes there.
+ */
+
+/*
+ * Fun Zone: The colors below are safe to overwrite depending on what you need to do.  Have at it!
+ */
+
+/* ====== border-color: #e3e3e3 ====== */
+
+.gallery .gallery-icon a img,
+.avatar,
+.media-info li
+	border-color: #e3e3e3;
+}
+
+/* ====== color: #555 ====== */
+
+
+/* ====== color: #858585 ====== */
+
+.gallery .gallery-caption,
+.gallery-count {
+	color: #858585;
+}
+
+
+.wp-caption .wp-caption-text {
+	color:      #e3e3e3;
+	background: rgba( 0, 0, 0, 0.75 );
+}
+
+.gallery .gallery-icon a img { background: #f9f9f9; }
+
+.gallery-icon a:hover img,
+.galley-icon a:focus img { background: #f3f3f3; }
+
+.image-sizes .sep { color: #e3e3e3; }
+
+

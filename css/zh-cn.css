@@ -11,7 +11,9 @@ textarea,
 .label-radio,
 .required,
 #site-description,
-#reply-title small { 
+#reply-title small,
+.wp-embed-excerpt,
+.wp-embed-content {
 	font-family: 'Droid Serif', 'Lora', Georgia, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", serif;
 }
 
@@ -21,7 +23,7 @@ th,
 legend,
 label,
 input[type="submit"],
-input[type="reset"], 
+input[type="reset"],
 input[type="button"],
 button,
 select,
@@ -40,7 +42,8 @@ option,
 .comment-reply-link,
 .comment-reply-login,
 .clean-my-archives .day,
-.whistle-title {
+.whistle-title,
+.wp-embed-footer {
 	font-family: 'Open Sans', "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
 }
 
@@ -50,6 +53,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.wp-embed-heading,
+.wp-embed-site-title {
 	font-family: 'Open Sans', "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
 }

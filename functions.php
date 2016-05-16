@@ -48,6 +48,7 @@ function stargazer_theme_setup() {
 
 	// Load files.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php' );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/template.php'  );
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
 	// Theme layouts.
@@ -75,6 +76,15 @@ function stargazer_theme_setup() {
 	add_theme_support(
 		'post-formats',
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
+	);
+
+	// Adds custom logo support
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'     => 78,
+			'flex-width' => true
+		)
 	);
 
 	// Editor styles.

@@ -1,10 +1,10 @@
-<?php if ( ! in_array( get_theme_mod( 'theme_layout' ), array( '1c', '1c-narrow' ) ) ) : // If not a one-column layout. ?>
+<?php if ( ! in_array( hybrid_get_theme_layout(), array( '1c', '1c-narrow' ) ) ) : // If not a one-column layout. ?>
 
 	<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
 
-		<h3 id="sidebar-primary-title" class="screen-reader-text"><?php 
+		<h3 id="sidebar-primary-title" class="screen-reader-text"><?php
 			// Translators: %s is the sidebar name. This is the sidebar title shown to screen readers.
-			printf( _x( '%s Sidebar', 'sidebar title', 'stargazer' ), hybrid_get_sidebar_name( 'primary' ) ); 
+			printf( _x( '%s Sidebar', 'sidebar title', 'stargazer' ), hybrid_get_sidebar_name( 'primary' ) );
 		?></h3>
 
 		<?php if ( is_active_sidebar( 'primary' ) ) : // If the sidebar has widgets. ?>
