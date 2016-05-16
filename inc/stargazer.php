@@ -62,14 +62,14 @@ add_filter( 'get_calendar', 'stargazer_get_calendar' );
 # Embed wrap.
 add_filter( 'embed_oembed_html', 'stargazer_maybe_wrap_embed', 10, 2 );
 
-# Filters the [audio] and [video] shortcode output.
+# Filters the [audio] shortcode output.
 add_filter( 'wp_audio_shortcode', 'stargazer_audio_shortcode', 10, 4 );
-add_filter( 'wp_video_shortcode', 'stargazer_video_shortcode', 10, 3 );
 
 # Filter the [video] shortcode attributes.
 add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
 
-remove_filter( 'excerpt_more',           'wp_embed_excerpt_more',          20    );
+# Remove WP's excerpt more filter on embeds.
+remove_filter( 'excerpt_more', 'wp_embed_excerpt_more', 20 );
 
 /**
  * Registers custom image sizes for the theme.
@@ -245,13 +245,25 @@ function stargazer_embed_enqueue() {
 	wp_enqueue_style( 'stargazer-locale'       );
 }
 
+/**
+ * Enqueues admin scripts.
+ *
+ * @since  3.0.0
+ * @access public
+ * @return void
+ */
 function stargazer_admin_enqueue_scripts() {
 
-
 	wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
-
 }
 
+/**
+ * Returns custom Mediaelement settings script.
+ *
+ * @since  3.0.0
+ * @access public
+ * @return string
+ */
 function stargazer_get_mediaelement_inline_script() {
 
 	return "( function( window ) {
@@ -618,89 +630,6 @@ function stargazer_audio_shortcode( $html, $atts, $audio, $post_id ) {
 			$image = preg_replace( array( '/width=[\'"].+?[\'"]/i', '/height=[\'"].+?[\'"]/i' ), '', $image );
 			$html = '<div class="audio-shortcode-wrap">' . $image . $html . '</div>';
 		}
-
-	/*
-		// If not viewing an attachment page, add the media info section.
-		if ( ! is_attachment() && ! is_embed() ) {
-			$html .= '<div class="media-shortcode-extend">';
-			$html .= '<div class="media-info audio-info">';
-			$html .= '<ul class="media-meta">';
-
-			$pre = '<li><span class="prep">%s</span>';
-			$html .= hybrid_get_media_meta( 'length_formatted',  array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Run Time',  'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'artist',            array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Artist',    'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'album',             array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Album',     'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'track_number',      array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Track',     'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'year',              array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Year',      'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'gennre',            array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Genre',     'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'file_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Type', 'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'file_name',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Name', 'stargazer' ) ), 'after' => '</li>' ) );
-			$html .= hybrid_get_media_meta( 'mime_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Mime Type', 'stargazer' ) ), 'after' => '</li>' ) );
-
-			$html .= '</ul></div>';
-			$html .= '<button class="media-info-toggle">' . __( 'Audio Info', 'stargazer' ) . '</button>';
-			$html .= '</div>';
-		}
-	*/
-	}
-
-	return $html;
-}
-
-/**
- * Adds a section below the player to  display the video file information (toggled by custom JS).
- *
- * @since  1.0.0
- * @access public
- * @param  string  $html
- * @param  array   $atts
- * @param  object  $audio
- * @return string
- */
-function stargazer_video_shortcode( $html, $atts, $video ) {
-
-	return $html;
-
-	// Don't show on single attachment pages or in the admin.
-	if ( is_attachment() || is_admin() || is_embed() )
-		return $html;
-
-	// If we have an actual attachment to work with, use the ID.
-	if ( is_object( $video ) ) {
-		$attachment_id = $video->ID;
-	}
-
-	// Else, get the ID via the file URL.
-	else {
-		$extensions = join( '|', wp_get_video_extensions() );
-
-		preg_match(
-			'/(src|' . $extensions . ')=[\'"](.+?)[\'"]/i',
-			preg_replace( '/(\?_=[0-9])/i', '', $html ),
-			$matches
-		);
-
-		if ( ! empty( $matches ) )
-			$attachment_id = stargazer_get_attachment_id_from_url( $matches[2] );
-	}
-
-	// If an attachment ID was found, add the media info section.
-	if ( ! empty( $attachment_id ) ) {
-
-		$html .= '<div class="media-shortcode-extend">';
-		$html .= '<div class="media-info video-info">';
-		$html .= '<ul class="media-meta">';
-
-		$pre = '<li><span class="prep">%s</span>';
-		$html .= hybrid_get_media_meta( 'length_formatted',  array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Run Time',   'stargazer' ) ), 'after' => '</li>' ) );
-		$html .= hybrid_get_media_meta( 'dimensions',        array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Dimensions', 'stargazer' ) ), 'after' => '</li>' ) );
-		$html .= hybrid_get_media_meta( 'file_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Type',  'stargazer' ) ), 'after' => '</li>' ) );
-		$html .= hybrid_get_media_meta( 'file_name',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'File Name',  'stargazer' ) ), 'after' => '</li>' ) );
-		$html .= hybrid_get_media_meta( 'mime_type',         array( 'post_id' => $attachment_id, 'before' => sprintf( $pre, esc_html__( 'Mime Type',  'stargazer' ) ), 'after' => '</li>' ) );
-
-		$html .= '</ul></div>';
-		$html .= '<button class="media-info-toggle">' . __( 'Video Info', 'stargazer' ) . '</button>';
-		$html .= '</div>';
 	}
 
 	return $html;
@@ -809,3 +738,17 @@ function stargazer_enqueue_scripts() {}
  * @return void
  */
 function stargazer_enqueue_styles() {}
+
+/**
+ * Adds a section below the player to  display the video file information (toggled by custom JS).
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string  $html
+ * @param  array   $atts
+ * @param  object  $audio
+ * @return string
+ */
+function stargazer_video_shortcode( $html, $atts, $video ) {
+	return $html;
+}
