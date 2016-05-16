@@ -317,11 +317,11 @@ function stargazer_get_editor_stylesheet_uri() {
 	$dir       = trailingslashit( get_stylesheet_directory() );
 	$uri       = trailingslashit( get_stylesheet_directory_uri() );
 
-	if ( $suffix && file_exists( "{$dir}editor-style{$suffix}.css" ) )
-		$style_uri = "{$dir}editor-style{$suffix}.css";
+	if ( $suffix && file_exists( "{$dir}css/editor-style{$suffix}.css" ) )
+		$style_uri = "{$uri}css/editor-style{$suffix}.css";
 
-	else if ( file_exists( "{$dir}editor-style.css" ) )
-		$style_uri = "{$dir}editor-style.css";
+	else if ( file_exists( "{$dir}css/editor-style.css" ) )
+		$style_uri = "{$uri}css/editor-style.css";
 
 	return $style_uri;
 }
@@ -340,11 +340,11 @@ function stargazer_get_parent_editor_stylesheet_uri() {
 	$dir       = trailingslashit( get_template_directory() );
 	$uri       = trailingslashit( get_template_directory_uri() );
 
-	if ( $suffix && file_exists( "{$dir}editor-style{$suffix}.css" ) )
-		$style_uri = "{$dir}editor-style{$suffix}.css";
+	if ( $suffix && file_exists( "{$dir}css/editor-style{$suffix}.css" ) )
+		$style_uri = "{$uri}css/editor-style{$suffix}.css";
 
-	else if ( file_exists( "{$dir}editor-style.css" ) )
-		$style_uri = "{$dir}editor-style.css";
+	else if ( file_exists( "{$dir}css/editor-style.css" ) )
+		$style_uri = "{$uri}css/editor-style.css";
 
 	return $style_uri;
 }
