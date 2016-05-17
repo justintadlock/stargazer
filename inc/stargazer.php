@@ -144,7 +144,7 @@ function stargazer_register_layouts() {
 /**
  * Registers custom scripts.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return void
  */
@@ -201,7 +201,7 @@ function stargazer_admin_register_styles() {
 /**
  * Load scripts/styles on the front end.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return void
  */
@@ -230,7 +230,7 @@ function stargazer_enqueue() {
 /**
  * Load scripts/styles for embeds.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return void
  */
@@ -309,7 +309,7 @@ function stargazer_get_editor_styles() {
 /**
  * Returns the active theme editor stylesheet URI.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return string
  */
@@ -332,7 +332,7 @@ function stargazer_get_editor_stylesheet_uri() {
 /**
  * Returns the parent theme editor stylesheet URI.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return string
  */

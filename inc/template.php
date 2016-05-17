@@ -12,7 +12,7 @@
 /**
  * Gets the embed template used for embedding posts from the site.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return void
  */
@@ -69,7 +69,7 @@ function stargazer_get_embed_template() {
 /**
  * Prints the the post format permalink.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return void
  */
@@ -80,7 +80,7 @@ function stargazer_post_format_permalink() {
 /**
  * Returns the post permalink (URL) with the post format as the link text.
  *
- * @since  2.2.0
+ * @since  3.0.0
  * @access public
  * @return string
  */
