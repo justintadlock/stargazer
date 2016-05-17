@@ -101,7 +101,7 @@ jQuery( document ).ready( function() {
 	} ); // wp.customize
 
 	/*
-	 * Handles the Primary color for the theme.  This color is used for various elements and at different 
+	 * Handles the Primary color for the theme.  This color is used for various elements and at different
 	 * shades. It must set an rgba color value to handle the "shades".
 	 */
 	wp.customize( 'color_primary', function( value ) {
@@ -189,5 +189,33 @@ jQuery( document ).ready( function() {
 		} ); // value.bind
 
 	} ); // wp.customize
+
+	/*
+	 * Handles the selective refresh for sidebars and widgets.
+	 */
+	wp.customize.selectiveRefresh.bind( 'sidebar-updated', function( sidebarPartial ) {
+
+		// Wrap widget titles.
+		jQuery( '.widget-title' ).wrapInner( '<span class="wrap" />' );
+
+		// Sets the proper `.sidebar-col-*` class for the Subsidiary sidebar.
+		if ( 'subsidiary' === sidebarPartial.sidebarId ) {
+
+			var columnns = 1;
+			var count    = jQuery( '#sidebar-' + sidebarPartial.sidebarId + ' > .widget' ).length;
+
+			if ( 1 === count )
+				columns = 1;
+
+			else if ( ! ( count % 3 ) || count % 2 )
+				columns = 3;
+
+			else if ( ! ( count % 2 ) )
+				columns = 2;
+
+			var classes = jQuery( '#sidebar-' + sidebarPartial.sidebarId ).attr( 'class' ).replace( /\ssidebar-col-[0-9]*/g, '' );
+			jQuery( '#sidebar-' + sidebarPartial.sidebarId ).attr( 'class', classes ).addClass( 'sidebar-col-' + columns );
+		}
+	} );
 
 } ); // jQuery( document ).ready

@@ -69,6 +69,9 @@ function stargazer_theme_setup() {
 	// Automatically add feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Support selective refresh of widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
 	// Whistles plugin.
 	add_theme_support( 'whistles', array( 'styles' => true ) );
 
