@@ -12,6 +12,9 @@
 # Call late so child themes can override.
 add_action( 'after_setup_theme', 'stargazer_custom_header_setup', 15 );
 
+# Custom header color for embeds.
+add_action( 'embed_head', 'stargazer_custom_header_embed_head', 26 );
+
 /**
  * Adds support for the WordPress 'custom-header' theme feature and registers custom headers.
  *
@@ -97,12 +100,14 @@ function stargazer_custom_header_wp_head() {
 	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
 }
 
-add_action( 'embed_head', 'stargazer_custom_header_embed_head', 26 );
-
+/**
+ * Uses the correct color for the site title on embeds.
+ *
+ * @since  3.0.0
+ * @access public
+ * @return void
+ */
 function stargazer_custom_header_embed_head() {
-
-	//if ( ! display_header_text() )
-	//	return;
 
 	$hex = get_header_textcolor();
 
