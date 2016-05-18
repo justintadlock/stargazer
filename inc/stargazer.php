@@ -27,7 +27,6 @@ add_action( 'wp_enqueue_scripts',    'stargazer_register_scripts',      0 );
 add_action( 'enqueue_embed_scripts', 'stargazer_register_scripts',      0 );
 add_action( 'wp_enqueue_scripts',    'stargazer_register_styles',       0 );
 add_action( 'enqueue_embed_scripts', 'stargazer_register_styles',       0 );
-add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 
 # Load scripts/styles.
 add_action( 'wp_enqueue_scripts',    'stargazer_enqueue'       );
@@ -183,18 +182,6 @@ function stargazer_register_styles() {
 
 	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
 	wp_register_style( 'stargazer-locale', get_locale_stylesheet_uri() );
-}
-
-/**
- * Registers stylesheets for use in the admin.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_admin_register_styles() {
-	wp_register_style( 'stargazer-fonts', '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
-	wp_register_style( 'stargazer-admin-custom-header', trailingslashit( get_template_directory_uri() ) . 'css/admin-custom-header.css' );
 }
 
 /**
@@ -728,6 +715,15 @@ function stargazer_enqueue_scripts() {}
  * @return void
  */
 function stargazer_enqueue_styles() {}
+
+/**
+ * Registers stylesheets for use in the admin.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_admin_register_styles() {}
 
 /**
  * Adds a section below the player to  display the video file information (toggled by custom JS).
