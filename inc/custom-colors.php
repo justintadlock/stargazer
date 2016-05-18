@@ -39,6 +39,7 @@ final class Stargazer_Custom_Colors {
 
 		// Output CSS into <head>.
 		add_action( 'wp_head', array( $this, 'wp_head_callback' ) );
+		add_action( 'embed_head', array( $this, 'wp_head_callback' ), 25 );
 
 		// Add a '.custom-colors' <body> class.
 		add_filter( 'body_class', array( $this, 'body_class' ) );
@@ -148,14 +149,18 @@ final class Stargazer_Custom_Colors {
 		$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
 
 		// color
-		$style .= "a, .wp-playlist-light .wp-playlist-playing { color: rgba( {$rgb}, 0.75 ); } ";
+		$style .= "a, .wp-playlist-light .wp-playlist-playing, .wp-embed-comments a,
+				.wp-embed-share-dialog-open, .wp-embed a { color: rgba( {$rgb}, 0.75 ); } ";
 
 		$style .= "a:hover, a:focus, legend, mark, .comment-respond .required, pre,
 				.form-allowed-tags code, pre code,
 				.wp-playlist-light .wp-playlist-item:hover,
 				.wp-playlist-light .wp-playlist-item:focus,
 				.mejs-button button:hover::after, .mejs-button button:focus::after,
-				.mejs-overlay-button:hover::after, .mejs-overlay-button:focus::after
+				.mejs-overlay-button:hover::after, .mejs-overlay-button:focus::after,
+				.wp-embed-comments a:hover, .wp-embed-comments a:focus,
+				.wp-embed-share-dialog-open:hover, .wp-embed-share-dialog-open:focus,
+				.wp-embed a:hover, .wp-embed a:focus
 				{ color: #{$hex}; } ";
 
 		// background-color

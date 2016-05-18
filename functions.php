@@ -48,6 +48,7 @@ function stargazer_theme_setup() {
 
 	// Load files.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php' );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/template.php'  );
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
 	// Theme layouts.
@@ -68,6 +69,9 @@ function stargazer_theme_setup() {
 	// Automatically add feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Support selective refresh of widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
 	// Whistles plugin.
 	add_theme_support( 'whistles', array( 'styles' => true ) );
 
@@ -75,6 +79,15 @@ function stargazer_theme_setup() {
 	add_theme_support(
 		'post-formats',
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
+	);
+
+	// Adds custom logo support
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'     => 78,
+			'flex-width' => true
+		)
 	);
 
 	// Editor styles.

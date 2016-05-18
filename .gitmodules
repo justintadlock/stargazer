@@ -1,6 +1,3 @@
 [submodule "library"]
 	path = library
 	url = https://github.com/justintadlock/hybrid-core.git
-[submodule "css/mediaelement"]
-	path = css/mediaelement
-	url = https://github.com/justintadlock/theme-mediaelement.git

@@ -2,7 +2,7 @@
  * Theme Name:  Stargazer
  * Theme URI:   http://themehybrid.com/themes/stargazer
  * Description: Welcome to Stargazer, the most advanced theme ever created for WordPress without compromising standards. This is the only theme in the world that you'll find that extends WordPress' built-in theme features so robustly but naturally. The theme is built on the rock-solid Hybrid Core theme framework. It's built with search-engine optimization (SEO) in mind by utilizing the most current HTML5 conventions and <a href="http://schema.org">Schema.org</a> microdata. It also integrates with useful theme add-on plugins like <a href="http://wordpress.org/plugins/custom-background-extended">Custom Background Extended</a>, <a href="http://wordpress.org/plugins/custom-header-extended">Custom Header Extended</a>, <a href="http://wordpress.org/plugins/whistles">Whistles</a>, and more.
- * Version:     2.1.1
+ * Version:     3.0.0
  * Author:      Justin Tadlock
  * Author URI:  http://themehybrid.com
  * Tags:        one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, left-sidebar, post-formats, responsive-layout, right-sidebar, rtl-language-support, theme-options, threaded-comments, translation-ready
@@ -186,9 +186,9 @@ body { overflow-x: hidden; }
 				margin-left: 5%;
 			}
 
-		#sidebar-primary .widget:nth-child( 2n ) { margin-right: 0; margin-left: 0; }
+		#sidebar-primary .widget:nth-of-type( 2n ) { margin-right: 0; margin-left: 0; }
 
-		#sidebar-primary .widget:nth-child( 2n + 1 ) { clear: both; }
+		#sidebar-primary .widget:nth-of-type( 2n + 1 ) { clear: both; }
 	}
 
 	@media only screen and ( min-width: 700px ) {
@@ -601,7 +601,7 @@ table {
 
 /**
  * Images
- * --------------------------------------------------------------------------- */
+ * --------------------------------------------------------------------------- *
 
 img {
 	-moz-box-sizing: border-box;
@@ -619,7 +619,7 @@ img {
 		a:hover img,
 		a:focus img { opacity: 1; }
 
-/* === Image sizes === */
+/* === Image sizes === *
 
 @media only screen and ( min-width: 700px ) {
 	.ltr img.portrait.stargazer-full {
@@ -638,7 +638,7 @@ img {
 img.stargazer-medium,
 img.stargazer-full { margin: 0 0 1.5rem; }
 
-/* === Captions === */
+/* === Captions === *
 
 .wp-caption {
 	position: relative;
@@ -655,7 +655,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 		.ltr .wp-caption .wp-caption-text { margin-right: 1.5rem; }
 		.rtl .wp-caption .wp-caption-text { margin-left:  1.5rem; }
 
-/* === Gallery === */
+/* === Gallery === *
 
 .main .gallery { margin-bottom: 1rem; }
 
@@ -677,7 +677,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 			.gallery .gallery-icon img { max-width: 100%; }
 		}
 
-/* === Avatars === */
+/* === Avatars === *
 
 .avatar {
 	width:         60px;
@@ -690,7 +690,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 	.ltr .avatar { float: left;  margin-right: 1.5rem; }
 	.rtl .avatar { float: right; margin-left:  1.5rem; }
 
-/* === Embeds === */
+/* === Embeds === *
 
 
 
@@ -725,6 +725,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 #header::after,
 #branding::after,
 #menu-secondary::after,
+#menu-primary::after,
 #menu-primary .wrap::after,
 #menu-secondary .wrap::after,
 #main::after,
@@ -934,6 +935,7 @@ blockquote::before,
 	#menu-social li a[href*="dribbble.com"]::before    { content: '\f201'; color: #ea4c89; }
 	#menu-social li a[href*="dropbox.com"]::before     { content: '\f225'; color: #007ee5; }
 	#menu-social li a[href*="facebook.com"]::before    { content: '\f203'; color: #3b5998; }
+	#menu-social li a[href*="/feed"]::before           { content: '\f413'; color: #cc4a00; }
 	#menu-social li a[href*="flickr.com"]::before      { content: '\f211'; color: #ff0084; }
 	#menu-social li a[href*="plus.google.com"]::before { content: '\f206'; color: #dd4b39; }
 	#menu-social li a[href*="github.com"]::before      { content: '\f200'; color: #4183c4; }
@@ -1188,7 +1190,8 @@ blockquote::before,
 #header,
 #branding { position: relative; }
 
-.display-header-text #header {
+.display-header-text #header,
+.custom-header #header {
 	border-bottom: 1px solid;
 }
 
@@ -1200,6 +1203,14 @@ blockquote::before,
 
 		#branding { width: 42.85%; max-width: 450px; }
 	}
+
+		.custom-logo { margin-bottom: 1.5rem; }
+
+		.ltr .custom-logo { float: left; }
+		.rtl .custom-logo { float: right; }
+
+		.ltr.display-header-text .custom-logo { margin-right: 0.75rem; }
+		.rtl.display-header-text .custom-logo { margin-left: 0.75rem; }
 
 		#site-title {
 			margin:    0;
@@ -1471,317 +1482,6 @@ blockquote::before,
  *
  * This section deals with handling media and the output of media-related elements.
  ********************************************************************************************************/
-
-/**
- * Attachment meta
- *
- * Attachment meta is shown on attachment pages and along with the WordPress media player.
- */
-
-.attachment-meta .media-info,
-.attachment-meta .image-gallery { margin-bottom: 1.5rem; }
-
-	@media only screen and ( min-width: 800px ) {
-
-		.attachment-meta .image-info,
-		.attachment-meta .image-gallery { width: 47.5%; }
-
-		.rtl .attachment-meta .image-info,
-		.ltr .attachment-meta .image-gallery { float: right; }
-
-		.ltr .attachment-meta .image-info,
-		.rtl .attachment-meta .image-gallery { float: left; }
-	}
-
-	.media-info ul {
-		margin:     0 0 1.5rem;
-		list-style: none;
-	}
-
-		.media-info li {
-			display:       block;
-			padding:       5px 10px;
-			font-size:     1rem;
-			border-bottom: 1px dotted;
-		}
-
-			.media-info li:last-child { border: none; }
-
-			.media-info .prep,
-			.media-info .data {
-				display:    block;
-				text-align: center;
-			}
-
-			.media-info .prep {
-				font-size:      0.9375rem;
-				text-transform: capitalize;
-			}
-
-			@media only screen and ( min-width: 700px ) {
-
-				.media-info .prep { max-width: 30%; }
-				.media-info .data { max-width: 70%; }
-
-				.ltr .media-info .data { float: right; text-align: right; }
-				.rtl .media-info .data { float: left; text-align: left; }
-
-				.ltr .media-info .prep { float: left; text-align: left; }
-				.rtl .media-info .prep { float: right; text-align: right; }
-			}
-
-/**
- * Audio/Video shortcode extend
- *
- * This feature adds a toggle button to the WordPress media player for showing/hiding additional meta
- * information about the media.
- */
-
-.media-shortcode-extend {
-	margin-top: -1.5rem;
-	text-align: center;
-}
-
-	.media-shortcode-extend .media-info {
-		overflow:   hidden;
-		display:    none;
-		padding:    1.5rem 1.5rem 0;
-	}
-
-	.media-shortcode-extend .audio-info { border-top: 1px solid; }
-
-	.media-shortcode-extend a,
-	.media-shortcode-extend a:hover,
-	.media-shortcode-extend a:focus { border: none; }
-
-	.media-shortcode-extend a:hover,
-	.media-shortcode-extend a:focus { text-decoration: underline; }
-
-	.media-info-toggle,
-	.entry-content .media-info-toggle {
-		position:        relative;
-		display:         inline-block;
-		margin:          0 auto 1.5rem;
-		padding:         10px 1.5rem;
-		font-size:       0.9375rem;
-		line-height:     16px;
-		border:          none;
-		text-decoration: none;
-	}
-
-		@media only screen and (min-width: 700px) {
-			.ltr .media-info-toggle { float: right; margin-right: 3rem; }
-			.rtl .media-info-toggle { float: left;  margin-left: 3rem;  }
-		}
-
-/**
- * WordPress playlist
- *
- * Customizes the output of the media playlist.  For the full media playlist styles, see the
- * `css/mediaelement/medialement.css` stylesheet.
- */
-
-.wp-playlist {
-	padding: 0;
-	border:  none;
-}
-
-	.wp-playlist-dark  { padding-top: 1.5rem; }
-	.wp-video-playlist { padding-top: 0;      }
-
-	/* Currently playing. */
-	.wp-playlist-current-item {
-		padding: 0 1.5rem 0.75rem;
-	}
-
-		.wp-playlist-current-item img { max-width: 75px; }
-
-		.wp-playlist-item-meta { font-size: 1rem; }
-
-	/* Media player. */
-	.wp-playlist-dark .mejs-controls {
-		border-top:    1px solid;
-		border-bottom: 1px solid;
-	}
-
-	/* Playlist tracks (list of items). */
-
-	.wp-playlist-tracks {
-		margin-top: 0;
-		padding:    1rem 1.5rem;
-		border:     1px solid;
-	}
-
-		.wp-playlist-dark .wp-playlist-tracks { border: none; }
-
-		.wp-playlist-item {
-			margin:        0;
-			padding:       0.5rem 0;
-			font-size:     1rem;
-			border-bottom: 1px dotted;
-		}
-
-			.wp-playlist-item a { color: inherit; border: none; }
-
-			.wp-playlist-item-title { text-transform: capitalize; }
-
-		.wp-playlist-playing { font-weight: normal; }
-
-/**
- * WordPress media player.
- *
- * This overwrites various elements of the media player styles included.  For the full media player styles,
- * see the `css/mediaelement/medialement.css` stylesheet.
- */
-
-.mejs-container { margin-bottom: 1.5rem; }
-
-	.wp-audio-shortcode.mejs-container { min-height: 100px !important; }
-
-	.mejs-controls {
-		width:           100%;
-		height:          50px;
-		padding:         0 10px;
-		-moz-box-sizing: border-box;
-		     box-sizing: border-box;
-	}
-
-	.wp-video-shortcode .mejs-controls {
-		border-top:    1px solid;
-		border-bottom: 1px solid;
-		opacity:       0.8;
-	}
-
-	.wp-audio-shortcode .mejs-controls { top: 25px; }
-
-	.mejs-controls > div { margin-top: 10px; }
-
-		/* Fix for last item dropping below the controls. */
-		.mejs-controls > :last-child {
-			position: relative;
-			clear:    both;
-			float:    right;
-			top:      -41px;
-		}
-
-		.wp-audio-shortcode .mejs-mediaelement {
-			position: relative;
-			top:      0;
-			left:     0;
-			width:    100%;
-			height:   100%;
-		}
-
-		.mejs-overlay-loading span {
-			background: transparent url( 'css/mediaelement/images/loading.gif' ) 50% 50% no-repeat;
-		}
-
-		.mejs-button button {
-			height:     16px;
-			width:      16px;
-			background: transparent url( 'css/mediaelement/images/controls.png' ) no-repeat;
-		}
-
-			.mejs-fullscreen-button button,
-			.mejs-playpause-button button,
-			.mejs-volume-button button { background: none; }
-
-			.mejs-button button:focus { outline: 1px solid; }
-
-		.mejs-time .mejs-currenttime,
-		.mejs-time .mejs-duration {
-			font-size: 0.875rem;
-		}
-
-		.mejs-volume-button .mejs-volume-slider {
-			width:       40px;
-			margin-left: -10px;
-		}
-
-			.mejs-volume-button .mejs-volume-slider .mejs-volume-total,
-			.mejs-volume-button .mejs-volume-slider .mejs-volume-current {
-				top:    10px;
-				left:   50%;
-				width:  4px;
-				margin: 0 0 0 -2px;
-			}
-
-			.mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
-				left:   50%;
-				width:  20px;
-				height: 4px;
-				margin: 0 0 0 -10px;
-			}
-
-		.mejs-overlay-button {
-			width:  112px;
-			height: 112px;
-			margin: -56px 0 0 -56px;
-		}
-
-			.mejs-overlay-play .mejs-overlay-button::after {
-				content:       '\f452';
-				padding:       18px;
-				font-size:     64px;
-				line-height:   64px;
-				border-radius: 50%;
-				opacity:       0.85;
-			}
-
-		.mejs-time-rail .mejs-time-float {
-			top:         -38px;
-			height:      27px;
-			width:       50px;
-			margin-left: -25px;
-			border:      1px solid;
-		}
-
-		.mejs-time-rail .mejs-time-float-current {
-			width:      100%;
-			margin:     8px 0;
-			font-size:  0.75rem;
-			box-sizing: border-box;
-		}
-
-		.mejs-time-rail .mejs-time-float-corner {
-			top:  28px;
-			left: 20px;
-		}
-
-	/* Wrapper added when the audio player has an accompanying image. */
-
-	.audio-shortcode-wrap {
-		position:      relative;
-		max-height:    136px;
-		overflow:      hidden;
-		margin-bottom: 1.5rem;
-	}
-
-		.audio-image {
-			position:    relative;
-			border:      none;
-			margin:      0;
-			padding:     8px 0 0;
-			max-width:   20%;
-			max-height:  131px;
-			height:      auto;
-		}
-
-			.ltr .audio-image { left: 0;  padding-left: 8px; }
-			.rtl .audio-image { right: 0; padding-right: 8px; }
-
-		.audio-shortcode-wrap .wp-audio-shortcode {
-			position:   absolute !important;
-			top:        50%;
-			margin-top: -1.5rem;
-			clear:      none;
-			width:      79% !important;
-		}
-
-		.audio-shortcode-wrap .wp-audio-shortcode .mejs-controls { top: 0; }
-
-			.ltr .audio-shortcode-wrap .wp-audio-shortcode { left: 20%; }
-			.rtl .audio-shortcode-wrap .wp-audio-shortcode { left: 0; }
 
 /********************************************************************************************************
  * ====== End Media ======
@@ -2124,7 +1824,7 @@ blockquote::before,
 	padding-top: 1.5rem;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 1024px) {
 
 	#menu-primary > .wrap { padding: 0; }
 
@@ -2155,10 +1855,12 @@ blockquote::before,
 
 		@media only screen and ( max-width: 540px ) {
 
+		/*
 			#menu-secondary .menu-toggle button { font-size: 0; }
 
 			.ltr #menu-secondary .menu-toggle button { padding-left: 0.25rem;  }
 			.rtl #menu-secondary .menu-toggle button { padding-right: 0.25rem; }
+		*/
 		}
 
 		.ltr #menu-primary .menu-toggle button { margin-left:  1.5rem; }
@@ -2180,6 +1882,24 @@ blockquote::before,
 
 		.rtl #menu-primary .menu-toggle button::before,
 		.ltr #menu-secondary .menu-toggle button::after { padding: 0 0 0 0.75rem; }
+
+		@media only screen and ( max-width: 540px ) {
+
+			#menu-secondary .menu-toggle button::after { display: none; }
+
+			#menu-secondary .menu-toggle button::before {
+				content:        '\f419';
+				display:        inline-block;
+				font-family:    'Genericons';
+				font-size:      24px;
+				vertical-align: middle;
+
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.ltr #menu-secondary .menu-toggle button::before { padding: 0 0.75rem 0 0; }
+			.rtl #menu-secondary .menu-toggle button::before { padding: 0 0 0 0.75rem; }
+		}
 
 	#branding { z-index: 1; }
 
@@ -2250,9 +1970,76 @@ blockquote::before,
 	#menu-primary .search-form input[type="submit"] { display: none; }
 }
 
+/* === MAX-WIDTH 540PX === */
+
+@media only screen and ( max-width: 540px ) {
+
+	.header-image {
+		position: absolute;
+		top:      -9999em;
+	}
+	.ltr .header-image { left: -9999em; }
+	.rtl .header-image { right: -9999em; }
+
+	.custom-background #container > .wrap {
+		margin-top: 0;
+	}
+
+	.display-header-text #header,
+	.custom-header #header { margin-bottom: 0.75rem; }
+
+	#branding {
+		text-align: center;
+	}
+
+	#branding .custom-logo { float: none; margin: 0; }
+
+	#branding,
+	#site-title,
+	#site-description {
+		max-width: 100%;
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.ltr #branding,
+	.rtl #branding {
+	}
+
+	#menu-primary .menu-toggle,
+	#menu-primary .menu-toggle button {
+		text-align: center;
+		width: 100%;
+	}
+
+		.ltr #menu-primary .menu-toggle button,
+		.rtl #menu-primary .menu-toggle button {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+	#header { clear: both; }
+
+	#menu-primary { width: 100%; float: left; }
+
+	#menu-secondary {
+		position: initial;
+		clear: both;
+		width: calc( 100% + 3rem + 2px );
+		margin-top: -1.5rem;
+		margin-left: calc( -1.5rem - 1px );
+	}
+
+		#menu-secondary .menu-toggle,
+		#menu-secondary .menu-toggle button {
+			width: 100%;
+			margin: 0;
+		}
+}
+
 /* === MIN-WIDTH 800PX === */
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1025px) {
 
 	.menu > .wrap { display: block !important; }
 
@@ -2397,13 +2184,20 @@ blockquote::before,
 	}
 
 		.ltr.display-header-text #menu-secondary,
-		.ltr.display-header-text #menu-secondary ul { float: right; text-align: right; }
+		.ltr.display-header-text #menu-secondary ul,
+		.ltr.wp-custom-logo #menu-secondary,
+		.ltr.wp-custom-logo #menu-secondary ul { float: right; text-align: right; }
 
 		.rtl.display-header-text #menu-secondary,
-		.rtl.display-header-text #menu-secondary ul { float: left; text-align: left; }
+		.rtl.display-header-text #menu-secondary ul,
+		.rtl.wp-custom-logo #menu-secondary,
+		.rtl.wp-custom-logo #menu-secondary ul { float: left; text-align: left; }
 
-			.ltr.display-header-text #menu-secondary ul ul { text-align: left;  }
-			.rtl.display-header-text #menu-secondary ul ul { text-align: right; }
+			.ltr.display-header-text #menu-secondary ul ul,
+			.ltr.wp-custom-logo #menu-secondary ul ul { text-align: left;  }
+
+			.rtl.display-header-text #menu-secondary ul ul,
+			.rtl.wp-custom-logo #menu-secondary ul ul { text-align: right; }
 
 		/* Lists */
 
@@ -2801,6 +2595,7 @@ textarea,
 .gallery .gallery-icon a img,
 .avatar,
 .display-header-text #header,
+.wp-custom-logo #header,
 .entry,
 .format-chat .chat-author,
 .media-info li,
@@ -2992,7 +2787,7 @@ select:focus {
 #menu-primary .menu-toggle button:hover,
 #menu-primary .menu-toggle button:focus { color: rgba( 255, 255, 255, 0.75 ); }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 1024px) {
 
 	#menu-secondary .wrap,
 	#menu-primary .search-form > div { background: #1f1f1f; }
@@ -3102,7 +2897,7 @@ li.ping,
 
 	/* Menu colors */
 
-	@media only screen and (min-width: 800px) {
+	@media only screen and (min-width: 1025px) {
 
 		.menu li > ul::before {
 			border-right-color:  transparent;
