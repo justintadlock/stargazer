@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Stargazer Theme en Français\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/stargazer\n"
-"POT-Creation-Date: 2016-01-07 18:15:23+00:00\n"
-"PO-Revision-Date: 2016-01-07 12:16-0600\n"
+"POT-Creation-Date: 2016-05-18 15:11:30+00:00\n"
+"PO-Revision-Date: 2016-05-18 10:14-0600\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Jean-François Boisvert\n"
 "Language: fr\n"
@@ -45,32 +45,31 @@ msgstr "Publié dans %s"
 msgid "Tagged %s"
 msgstr "Mots clés %s"
 
-#: content/attachment-audio.php:28 inc/stargazer.php:526
+#: content/attachment-audio.php:28
 msgid "Audio Info"
 msgstr "Information Audio"
 
 #: content/attachment-audio.php:32 content/attachment-video.php:32
-#: inc/stargazer.php:515 inc/stargazer.php:577
 msgid "Run Time"
 msgstr "Temps d'exécution"
 
-#: content/attachment-audio.php:33 inc/stargazer.php:516
+#: content/attachment-audio.php:33
 msgid "Artist"
 msgstr "Artiste"
 
-#: content/attachment-audio.php:34 inc/stargazer.php:517
+#: content/attachment-audio.php:34
 msgid "Album"
 msgstr "Album"
 
-#: content/attachment-audio.php:35 inc/stargazer.php:518
+#: content/attachment-audio.php:35
 msgid "Track"
 msgstr "Piste"
 
-#: content/attachment-audio.php:36 inc/stargazer.php:519
+#: content/attachment-audio.php:36
 msgid "Year"
 msgstr "Année"
 
-#: content/attachment-audio.php:37 inc/stargazer.php:520
+#: content/attachment-audio.php:37
 msgid "Genre"
 msgstr "Genre"
 
@@ -86,7 +85,7 @@ msgid "Name"
 msgstr "Nom"
 
 #: content/attachment-audio.php:40 content/attachment-image.php:73
-#: content/attachment-video.php:36 inc/stargazer.php:523 inc/stargazer.php:581
+#: content/attachment-video.php:36
 msgid "Mime Type"
 msgstr "Type du Mime"
 
@@ -99,7 +98,6 @@ msgid "Image Info"
 msgstr "Information Image"
 
 #: content/attachment-image.php:64 content/attachment-video.php:33
-#: inc/stargazer.php:578
 msgid "Dimensions"
 msgstr "Dimensions"
 
@@ -139,19 +137,19 @@ msgstr "%s sec"
 msgid "Gallery"
 msgstr "Galerie"
 
-#: content/attachment-video.php:28 inc/stargazer.php:584
+#: content/attachment-video.php:28
 msgid "Video Info"
 msgstr "Information Video"
 
-#: content/error.php:4
+#: content/error.php:4 embed/error.php:4
 msgid "Nothing found"
 msgstr "Aucun résultat"
 
-#: content/error.php:8
+#: content/error.php:8 embed/error.php:8
 msgid "Apologies, but no entries were found."
 msgstr "Désolé, aucun résultat n'a été trouvé."
 
-#: content/gallery.php:51
+#: content/gallery.php:51 embed/gallery.php:12
 msgid "This gallery contains %s item."
 msgid_plural "This gallery contains %s items."
 msgstr[0] "Cette galerie contient %s élément."
@@ -167,56 +165,56 @@ msgstr "Copyright &#169; %1$s %2$s. Conçu avec %3$s et %4$s."
 msgid "Skip to content"
 msgstr "Sauter le contenu"
 
-#: inc/custom-colors.php:244
+#: inc/custom-colors.php:249
 msgid "Primary Color"
 msgstr "Couleur principale"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:48
+#: inc/custom-header.php:51
 msgid "Horizon"
 msgstr "Horizon"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:54
+#: inc/custom-header.php:57
 msgid "Orange Burn"
 msgstr "Orange brûlé"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:60
+#: inc/custom-header.php:63
 msgid "Blue Planets"
 msgstr "Bleu planète"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:66
+#: inc/custom-header.php:69
 msgid "Planet Burst"
 msgstr "Planète éclatante"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:72
+#: inc/custom-header.php:75
 msgid "Space Splatters"
 msgstr "Éclaboussures spatiales"
 
-#: inc/stargazer.php:89
+#: inc/stargazer.php:98
 msgctxt "nav menu location"
 msgid "Primary"
 msgstr "Principal"
 
-#: inc/stargazer.php:90
+#: inc/stargazer.php:99
 msgctxt "nav menu location"
 msgid "Secondary"
 msgstr "Secondaire"
 
-#: inc/stargazer.php:91
+#: inc/stargazer.php:100
 msgctxt "nav menu location"
 msgid "Social"
 msgstr "Media sociaux"
 
-#: inc/stargazer.php:106
+#: inc/stargazer.php:115
 msgctxt "sidebar"
 msgid "Primary"
 msgstr "Principal"
 
-#: inc/stargazer.php:107
+#: inc/stargazer.php:116
 msgid ""
 "The main sidebar. It is displayed on either the left or right side of the "
 "page based on the chosen layout."
@@ -224,12 +222,12 @@ msgstr ""
 "Barre latérale principale.  Elle est affichée à la gauche ou à la droite de "
 "la page selon la disposition choisie."
 
-#: inc/stargazer.php:114
+#: inc/stargazer.php:123
 msgctxt "sidebar"
 msgid "Subsidiary"
 msgstr "Auxiliaire"
 
-#: inc/stargazer.php:115
+#: inc/stargazer.php:124
 msgid ""
 "A sidebar located in the footer of the site. Optimized for one, two, or "
 "three widgets (and multiples thereof)."
@@ -237,33 +235,67 @@ msgstr ""
 "Une barre située dans le pied de page du site.  Optimisée pour un, deux ou "
 "trois widgets."
 
-#: inc/stargazer.php:129
+#: inc/stargazer.php:138
 msgid "1 Column Wide"
 msgstr "1 Colonne Large"
 
-#: inc/stargazer.php:130
+#: inc/stargazer.php:139
 msgid "1 Column Narrow"
 msgstr "1 Colonne Étroite"
 
-#: inc/stargazer.php:131
+#: inc/stargazer.php:140
 msgid "2 Columns: Content / Sidebar"
 msgstr "2 Colonnes : Contenu / Barre latérale"
 
-#: inc/stargazer.php:132
+#: inc/stargazer.php:141
 msgid "2 Columns: Sidebar / Content"
 msgstr "2 Colonnes : Barre latérale / Contenu"
 
-#: inc/stargazer.php:179
+#: inc/stargazer.php:161
 msgid "Expand Search Form"
 msgstr ""
 
-#: inc/stargazer.php:521 inc/stargazer.php:579
-msgid "File Type"
-msgstr "Type du fichier"
+#: inc/welcome.php:77
+msgid "Help &amp; Support"
+msgstr ""
 
-#: inc/stargazer.php:522 inc/stargazer.php:580
-msgid "File Name"
-msgstr "Nom du fichier"
+#: inc/welcome.php:80
+msgid ""
+"Instead of giving you crippleware (\"lite\" themes) and selling the real "
+"theme, I believe it is better to offer you a useful service, which is the "
+"Theme Hybrid club. By joining, you will get full theme support directly from "
+"the theme author via the forums or live chat."
+msgstr ""
+
+#: inc/welcome.php:84
+msgid "Join The Club"
+msgstr ""
+
+#: inc/welcome.php:91
+msgid "Child Themes"
+msgstr ""
+
+#: inc/welcome.php:94
+msgid ""
+"Are you getting tired of your current design or do you want to try something "
+"different than the default? No problem. There are many child themes "
+"available for download (with more on the way). Browse them and choose one "
+"that fits your site."
+msgstr ""
+
+#: inc/welcome.php:98
+msgid "View Child Themes"
+msgstr ""
+
+#: inc/welcome.php:110
+msgid "Supported Plugins"
+msgstr ""
+
+#: inc/welcome.php:113
+msgid ""
+"Do you need extra functionality? Stargazer has built-in support for the "
+"following plugins."
+msgstr ""
 
 #: library/admin/meta-box-post-layout.php:35
 #: library/inc/functions-customize.php:72
@@ -407,7 +439,7 @@ msgid "Default"
 msgstr "Défaut"
 
 #. Translators: Used as a placeholder for untitled posts on non-singular views.
-#: library/inc/functions-utility.php:94
+#: library/inc/functions-utility.php:95
 msgid "(Untitled)"
 msgstr "(Sans titre)"
 
@@ -491,21 +523,6 @@ msgctxt "sidebar title"
 msgid "%s Sidebar"
 msgstr ""
 
-#: sidebar/primary.php:19
-msgid "Example Widget"
-msgstr "Exemple de widget"
-
-#. Translators: The %s are placeholders for HTML, so the order can't be
-#. changed.
-#: sidebar/primary.php:21
-msgid ""
-"This is an example widget to show how the Primary sidebar looks by default. "
-"You can add custom widgets from the %swidgets screen%s in the admin."
-msgstr ""
-"Ceci est un exemple de widget montrant l'apparence par défaut de la barre "
-"latérale principale.  Vous pouvez ajouter des widgets personnalisés à partir "
-"du %swidgets screen%s dans le panneau d'administration."
-
 #. Theme Name of the plugin/theme
 msgid "Stargazer"
 msgstr "Stargazer"
@@ -548,6 +565,24 @@ msgstr "Justin Tadlock"
 #, fuzzy
 msgid "http://themehybrid.com"
 msgstr "http://themehybrid.com/themes/stargazer"
+
+#~ msgid "File Type"
+#~ msgstr "Type du fichier"
+
+#~ msgid "File Name"
+#~ msgstr "Nom du fichier"
+
+#~ msgid "Example Widget"
+#~ msgstr "Exemple de widget"
+
+#~ msgid ""
+#~ "This is an example widget to show how the Primary sidebar looks by "
+#~ "default. You can add custom widgets from the %swidgets screen%s in the "
+#~ "admin."
+#~ msgstr ""
+#~ "Ceci est un exemple de widget montrant l'apparence par défaut de la barre "
+#~ "latérale principale.  Vous pouvez ajouter des widgets personnalisés à "
+#~ "partir du %swidgets screen%s dans le panneau d'administration."
 
 #~ msgid "%s Theme Settings"
 #~ msgstr "%s Réglages du thème"

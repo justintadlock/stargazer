@@ -3,16 +3,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Stargazer 1.2.0-alpha-1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/stargazer\n"
-"POT-Creation-Date: 2014-07-13 22:32:59+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/stargazer\n"
+"POT-Creation-Date: 2016-05-18 15:11:30+00:00\n"
+"PO-Revision-Date: 2016-05-18 10:14-0600\n"
+"Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-06 19:32+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nb\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__n;_n;__ngettext_noop;_n_noop;_x;_nx;_nx_noop;"
@@ -30,6 +30,10 @@ msgstr "%s siden"
 msgid "Permalink"
 msgstr "Permalenke"
 
+#: comment/comment.php:16
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
 #: content/aside.php:26 content/audio.php:28 content/chat.php:34
 #: content/content.php:25 content/gallery.php:26 content/image.php:28
 #: content/link.php:26 content/quote.php:16 content/status.php:24
@@ -44,9 +48,50 @@ msgstr "I kategorien %s"
 msgid "Tagged %s"
 msgstr "Tagget %s"
 
-#: content/attachment-audio.php:28 inc/stargazer.php:409
+#: content/attachment-audio.php:28
 msgid "Audio Info"
 msgstr "Lydinfo"
+
+#: content/attachment-audio.php:32 content/attachment-video.php:32
+msgid "Run Time"
+msgstr "Varighet"
+
+#: content/attachment-audio.php:33
+msgid "Artist"
+msgstr ""
+
+#: content/attachment-audio.php:34
+msgid "Album"
+msgstr ""
+
+#: content/attachment-audio.php:35
+msgid "Track"
+msgstr "Spor"
+
+#: content/attachment-audio.php:36
+msgid "Year"
+msgstr "År"
+
+#: content/attachment-audio.php:37
+msgid "Genre"
+msgstr "Sjanger"
+
+#: content/attachment-audio.php:38 content/attachment-image.php:71
+#: content/attachment-video.php:34
+#, fuzzy
+msgid "Type"
+msgstr "Filtype"
+
+#: content/attachment-audio.php:39 content/attachment-image.php:72
+#: content/attachment-video.php:35
+#, fuzzy
+msgid "Name"
+msgstr "Filnavn"
+
+#: content/attachment-audio.php:40 content/attachment-image.php:73
+#: content/attachment-video.php:36
+msgid "Mime Type"
+msgstr "Mime Type"
 
 #: content/attachment-image.php:22
 msgid "Sizes: %s"
@@ -56,104 +101,124 @@ msgstr "Størrelser: %s"
 msgid "Image Info"
 msgstr "Bildeinfo"
 
-#: content/attachment-image.php:71
+#: content/attachment-image.php:64 content/attachment-video.php:33
+msgid "Dimensions"
+msgstr "Dimensjoner"
+
+#: content/attachment-image.php:65
+msgid "Date"
+msgstr "Dato"
+
+#: content/attachment-image.php:66
+msgid "Camera"
+msgstr "Kamera"
+
+#: content/attachment-image.php:67
+msgid "Aperture"
+msgstr "Blender"
+
+#: content/attachment-image.php:68
+msgid "Focal Length"
+msgstr "Brennvidde"
+
+#: content/attachment-image.php:68
+msgid "%s mm"
+msgstr "%s mm"
+
+#: content/attachment-image.php:69
+msgid "ISO"
+msgstr "ISO"
+
+#: content/attachment-image.php:70
+msgid "Shutter Speed"
+msgstr "Lukkerhastighet"
+
+#: content/attachment-image.php:70
+msgid "%s sec"
+msgstr "%s sek"
+
+#: content/attachment-image.php:83
 msgid "Gallery"
 msgstr "Galleri"
 
-#: content/attachment-video.php:28 inc/stargazer.php:459
+#: content/attachment-video.php:28
 msgid "Video Info"
 msgstr "Videoinfo"
 
-#: content/error.php:4
+#: content/error.php:4 embed/error.php:4
 msgid "Nothing found"
 msgstr "Ingenting funnet"
 
-#: content/error.php:8
+#: content/error.php:8 embed/error.php:8
 msgid "Apologies, but no entries were found."
 msgstr "Beklager, men ingen innlegg ble funnet."
 
-#: content/gallery.php:51
+#: content/gallery.php:51 embed/gallery.php:12
 msgid "This gallery contains %s item."
 msgid_plural "This gallery contains %s items."
 msgstr[0] "Dette galleriet inneholder %s objekt."
 msgstr[1] "Dette galleriet inneholder %s objekter."
 
 #. Translators: 1 is current year, 2 is site name/link, 3 is WordPress
-#. name/link, and 4 is theme name/link.
+#. name/link, and 4 is theme name/link. */
 #: footer.php:18
 msgid "Copyright &#169; %1$s %2$s. Powered by %3$s and %4$s."
 msgstr "Copyright &#169; %1$s %2$s. Drevet med %3$s og %4$s."
-
-#: functions.php:60
-msgid "1 Column Wide"
-msgstr "1 Kolonne Bred"
-
-#: functions.php:61
-msgid "1 Column Narrow"
-msgstr "1 Kolonne Smal"
-
-#: functions.php:62
-msgid "2 Columns: Content / Sidebar"
-msgstr "2 Kolonner: Innhold / Sidebar"
-
-#: functions.php:63
-msgid "2 Columns: Sidebar / Content"
-msgstr "2 Kolonner: Sidebar / Innhold"
 
 #: header.php:13
 msgid "Skip to content"
 msgstr "Gå til innhold"
 
-#: inc/custom-colors.php:244
+#: inc/custom-colors.php:249
 msgid "Primary Color"
 msgstr "Hovedfarge"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:50
+#: inc/custom-header.php:51
 msgid "Horizon"
 msgstr "Horizon"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:56
+#: inc/custom-header.php:57
 msgid "Orange Burn"
 msgstr "Orange Burn"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:62
+#: inc/custom-header.php:63
 msgid "Blue Planets"
 msgstr "Blue Planets"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:68
+#: inc/custom-header.php:69
 msgid "Planet Burst"
 msgstr "Planet Burst"
 
 #. Translators: Header image description.
-#: inc/custom-header.php:74
+#: inc/custom-header.php:75
 msgid "Space Splatters"
 msgstr "Space Splatters"
 
-#: inc/stargazer.php:84
+#: inc/stargazer.php:98
 msgctxt "nav menu location"
 msgid "Primary"
 msgstr "Hovedmeny"
 
-#: inc/stargazer.php:85
+#: inc/stargazer.php:99
 msgctxt "nav menu location"
 msgid "Secondary"
 msgstr "Tilleggsmeny"
 
-#: inc/stargazer.php:86
+#: inc/stargazer.php:100
 msgctxt "nav menu location"
 msgid "Social"
 msgstr "Sosiale medier-meny"
 
-#: inc/stargazer.php:101
+#: inc/stargazer.php:115
 msgctxt "sidebar"
 msgid "Primary"
 msgstr "Hoved-sidebar"
 
-#: inc/stargazer.php:102
+#: inc/stargazer.php:116
 msgid ""
 "The main sidebar. It is displayed on either the left or right side of the "
 "page based on the chosen layout."
@@ -161,12 +226,12 @@ msgstr ""
 "Hoved-sidebar. Den vises enten på venstre eller høyre side av siden basert "
 "på valgte layout."
 
-#: inc/stargazer.php:109
+#: inc/stargazer.php:123
 msgctxt "sidebar"
 msgid "Subsidiary"
 msgstr "Reserve-sidebar"
 
-#: inc/stargazer.php:110
+#: inc/stargazer.php:124
 msgid ""
 "A sidebar located in the footer of the site. Optimized for one, two, or "
 "three widgets (and multiples thereof)."
@@ -174,338 +239,237 @@ msgstr ""
 "En sidebar i footeren på websiden. Optimalisert for en, to eller tre "
 "widgeter (og flere instanser av samme widget)."
 
-#: inc/stargazer.php:132
+#: inc/stargazer.php:138
+msgid "1 Column Wide"
+msgstr "1 Kolonne Bred"
+
+#: inc/stargazer.php:139
+msgid "1 Column Narrow"
+msgstr "1 Kolonne Smal"
+
+#: inc/stargazer.php:140
+msgid "2 Columns: Content / Sidebar"
+msgstr "2 Kolonner: Innhold / Sidebar"
+
+#: inc/stargazer.php:141
+msgid "2 Columns: Sidebar / Content"
+msgstr "2 Kolonner: Sidebar / Innhold"
+
+#: inc/stargazer.php:161
 msgid "Expand Search Form"
 msgstr "Vis Hele Søkeskjemaet"
 
-#: library/admin/meta-box-post-template.php:48
+#: inc/welcome.php:77
+msgid "Help &amp; Support"
+msgstr ""
+
+#: inc/welcome.php:80
+msgid ""
+"Instead of giving you crippleware (\"lite\" themes) and selling the real "
+"theme, I believe it is better to offer you a useful service, which is the "
+"Theme Hybrid club. By joining, you will get full theme support directly from "
+"the theme author via the forums or live chat."
+msgstr ""
+
+#: inc/welcome.php:84
+msgid "Join The Club"
+msgstr ""
+
+#: inc/welcome.php:91
+msgid "Child Themes"
+msgstr ""
+
+#: inc/welcome.php:94
+msgid ""
+"Are you getting tired of your current design or do you want to try something "
+"different than the default? No problem. There are many child themes "
+"available for download (with more on the way). Browse them and choose one "
+"that fits your site."
+msgstr ""
+
+#: inc/welcome.php:98
+msgid "View Child Themes"
+msgstr ""
+
+#: inc/welcome.php:110
+msgid "Supported Plugins"
+msgstr ""
+
+#: inc/welcome.php:113
+msgid ""
+"Do you need extra functionality? Stargazer has built-in support for the "
+"following plugins."
+msgstr ""
+
+#: library/admin/meta-box-post-layout.php:35
+#: library/inc/functions-customize.php:72
+msgid "Layout"
+msgstr "Layout"
+
+#: library/admin/meta-box-post-style.php:35
+#, fuzzy
+msgid "Style"
+msgstr "Stilark"
+
+#: library/admin/meta-box-post-template.php:41
 msgid "Template"
 msgstr "Mal"
 
-#. Translators: %s is the theme name.
-#: library/admin/theme-settings.php:134 library/admin/theme-settings.php:199
-msgid "%s Theme Settings"
-msgstr "%s Tema Innstillinger"
-
-#: library/admin/theme-settings.php:135
-msgid "Theme Settings"
-msgstr "Tema Innstillinger"
-
-#: library/classes/customize-control-background-image.php:49
-msgctxt "theme customizer tab"
-msgid "Default"
-msgstr "Standard"
-
-#. Translators: Media dimensions - 1 is width and 2 is height.
-#: library/classes/hybrid-media-meta.php:154
-#: library/classes/hybrid-media-meta.php:282
-#: library/functions/template-media.php:102
-msgid "%1$s &#215; %2$s"
-msgstr "%1$s &#215; %2$s"
-
-#: library/classes/hybrid-media-meta.php:155
-#: library/classes/hybrid-media-meta.php:282
-msgid "Dimensions"
-msgstr "Dimensjoner"
-
-#: library/classes/hybrid-media-meta.php:161
-msgid "Date"
-msgstr "Dato"
-
-#: library/classes/hybrid-media-meta.php:165
-msgid "Camera"
-msgstr "Kamera"
-
-#: library/classes/hybrid-media-meta.php:169
-msgid "Aperture"
-msgstr "Blender"
-
-#. Translators: Camera focal length.
-#: library/classes/hybrid-media-meta.php:174
-msgid "%s mm"
-msgstr "%s mm"
-
-#: library/classes/hybrid-media-meta.php:174
-msgid "Focal Length"
-msgstr "Brennvidde"
-
-#: library/classes/hybrid-media-meta.php:180
-msgid "International Organization for Standardization"
-msgstr "International Organisasjon for Standarder"
-
-#: library/classes/hybrid-media-meta.php:180
-msgid "ISO"
-msgstr "ISO"
-
-#. Translators: Camera shutter speed. "sec" is an abbreviation for "seconds".
-#: library/classes/hybrid-media-meta.php:199
-msgid "%s sec"
-msgstr "%s sek"
-
-#: library/classes/hybrid-media-meta.php:199
-msgid "Shutter Speed"
-msgstr "Lukkerhastighet"
-
-#: library/classes/hybrid-media-meta.php:248
-#: library/classes/hybrid-media-meta.php:285
-msgid "File Name"
-msgstr "Filnavn"
-
-#: library/classes/hybrid-media-meta.php:256
-#: library/classes/hybrid-media-meta.php:293
-msgid "File Type"
-msgstr "Filtype"
-
-#: library/extensions/breadcrumb-trail.php:178
+#: library/ext/breadcrumb-trail.php:244
 msgid "Browse:"
 msgstr "Se igjennom:"
 
-#: library/extensions/breadcrumb-trail.php:179
+#: library/ext/breadcrumb-trail.php:245
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: library/ext/breadcrumb-trail.php:246
 msgid "Home"
 msgstr "Hjem"
 
-#: library/extensions/breadcrumb-trail.php:180
-#: library/functions/template-general.php:513
+#: library/ext/breadcrumb-trail.php:247 library/inc/template-general.php:422
 msgid "404 Not Found"
 msgstr "404 Ikke Funnet"
 
-#: library/extensions/breadcrumb-trail.php:181
-#: library/functions/template-general.php:339
+#: library/ext/breadcrumb-trail.php:248 library/inc/template-general.php:218
 msgid "Archives"
 msgstr "Arkiv"
 
 #. Translators: %s is the search query. The HTML entities are opening and
 #. closing curly quotes.
-#: library/extensions/breadcrumb-trail.php:183
-#: library/functions/template-general.php:494
+#: library/ext/breadcrumb-trail.php:250 library/inc/template-general.php:400
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Søkeresultat for &#8220;%s&#8221;"
 
 #. Translators: %s is the page number.
-#: library/extensions/breadcrumb-trail.php:185
+#: library/ext/breadcrumb-trail.php:252
 msgid "Page %s"
 msgstr "Side %s"
 
 #. Translators: Minute archive title. %s is the minute time format.
-#: library/extensions/breadcrumb-trail.php:187
-#: library/functions/template-general.php:455
+#: library/ext/breadcrumb-trail.php:254 library/inc/template-general.php:354
 msgid "Minute %s"
 msgstr "Minutt %s"
 
 #. Translators: Weekly archive title. %s is the week date format.
-#: library/extensions/breadcrumb-trail.php:189
+#: library/ext/breadcrumb-trail.php:256
 msgid "Week %s"
 msgstr "Uke %s"
 
-#: library/extensions/breadcrumb-trail.php:716
-#: library/functions/template-general.php:474
+#: library/ext/breadcrumb-trail.php:708 library/inc/template-general.php:376
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr "g:i a"
 
-#: library/extensions/breadcrumb-trail.php:733
-#: library/functions/template-general.php:455
+#: library/ext/breadcrumb-trail.php:725 library/inc/template-general.php:354
 msgctxt "minute archives time format"
 msgid "i"
 msgstr "i"
 
-#: library/extensions/breadcrumb-trail.php:750
-#: library/functions/template-general.php:435
+#: library/ext/breadcrumb-trail.php:742 library/inc/template-general.php:330
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr "g a"
 
-#: library/extensions/breadcrumb-trail.php:766
-#: library/extensions/breadcrumb-trail.php:795
-#: library/extensions/breadcrumb-trail.php:822
-#: library/extensions/breadcrumb-trail.php:849
-#: library/extensions/breadcrumb-trail.php:1036
-#: library/functions/template-general.php:377
-#: library/functions/template-general.php:397
+#: library/ext/breadcrumb-trail.php:758 library/ext/breadcrumb-trail.php:787
+#: library/ext/breadcrumb-trail.php:814 library/ext/breadcrumb-trail.php:841
+#: library/ext/breadcrumb-trail.php:1176 library/inc/template-general.php:262
+#: library/inc/template-general.php:286
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
-#: library/extensions/breadcrumb-trail.php:767
-#: library/extensions/breadcrumb-trail.php:823
-#: library/extensions/breadcrumb-trail.php:1040
+#: library/ext/breadcrumb-trail.php:759 library/ext/breadcrumb-trail.php:815
+#: library/ext/breadcrumb-trail.php:1180
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr "F"
 
-#: library/extensions/breadcrumb-trail.php:768
-#: library/extensions/breadcrumb-trail.php:1044
+#: library/ext/breadcrumb-trail.php:760 library/ext/breadcrumb-trail.php:1184
 msgctxt "daily archives date format"
 msgid "j"
 msgstr "j"
 
-#: library/extensions/breadcrumb-trail.php:796
-#: library/functions/template-general.php:397
+#: library/ext/breadcrumb-trail.php:788 library/inc/template-general.php:286
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr "W"
 
-#: library/extensions/breadcrumb-trail.php:1135
-#: library/extensions/breadcrumb-trail.php:1171
-#: library/extensions/breadcrumb-trail.php:1188
-#: library/extensions/breadcrumb-trail.php:1219
-msgid "Edit"
-msgstr "Rediger"
-
-#: library/extensions/breadcrumb-trail.php:1163
-msgid "Split"
-msgstr "Del opp"
-
-#: library/extensions/breadcrumb-trail.php:1167
-msgid "Merge"
-msgstr "Slå sammen"
-
-#: library/extensions/post-stylesheets.php:286
-msgid "Stylesheet"
-msgstr "Stilark"
-
-#. Translators: Default theme layout option.
-#: library/extensions/theme-layouts.php:363
-msgctxt "theme layout"
-msgid "Default"
-msgstr "Standard"
-
-#: library/extensions/theme-layouts.php:458
-#: library/extensions/theme-layouts.php:565
-#: library/extensions/theme-layouts.php:650
-msgid "Layout"
-msgstr "Layout"
-
-#: library/extensions/theme-layouts.php:683
-msgid "Global Layout"
-msgstr "Global Layout"
+#. Translators: Media dimensions - 1 is width and 2 is height.
+#: library/inc/class-media-meta.php:245 library/inc/template-media.php:172
+msgid "%1$s &#215; %2$s"
+msgstr "%1$s &#215; %2$s"
 
 #. Translators: The %s is the sidebar name. This is used for the 'aria-label'
 #. attribute.
-#: library/functions/attr.php:195
+#: library/inc/functions-attr.php:202
 msgctxt "sidebar aria label"
 msgid "%s Sidebar"
 msgstr "%s Sidebar"
 
 #. Translators: The %s is the menu name. This is used for the 'aria-label'
 #. attribute.
-#: library/functions/attr.php:223
+#: library/inc/functions-attr.php:235
 msgctxt "nav menu aria label"
 msgid "%s Menu"
 msgstr "%s Meny"
 
 #. Translators: Post date/time "title" attribute.
-#: library/functions/attr.php:440
+#: library/inc/functions-attr.php:476
 msgctxt "post time format"
 msgid "l, F j, Y, g:i a"
 msgstr "l, F j, Y, g:i a"
 
 #. Translators: Comment date/time "title" attribute.
-#: library/functions/attr.php:561
+#: library/inc/functions-attr.php:601
 msgctxt "comment time format"
 msgid "l, F j, Y, g:i a"
 msgstr "l, F j, Y, g:i a"
 
+#: library/inc/functions-customize.php:95
+msgid "Global Layout"
+msgstr "Global Layout"
+
 #. Translators: 1 is the page title. 2 is the page number.
-#: library/functions/head.php:149
+#: library/inc/functions-head.php:140
 msgid "%1$s Page %2$s"
 msgstr "%1$s Side %2$s"
 
-#: library/functions/media.php:32
-msgid "Post Thumbnail"
-msgstr "Innlegg Miniatyrbilde"
+#. Translators: Default theme layout option.
+#: library/inc/functions-layouts.php:51
+msgctxt "theme layout"
+msgid "Default"
+msgstr "Standard"
 
-#: library/functions/media.php:53
-msgid "File Size"
-msgstr "Filstørrelse"
+#. Translators: Used as a placeholder for untitled posts on non-singular views.
+#: library/inc/functions-utility.php:95
+msgid "(Untitled)"
+msgstr "(Ingen tittel)"
 
-#: library/functions/media.php:54
-msgid "Mime Type"
-msgstr "Mime Type"
+#: library/inc/template-general.php:55
+msgid "http://wordpress.org"
+msgstr ""
 
-#: library/functions/media.php:55
-msgid "Run Time"
-msgstr "Varighet"
-
-#: library/functions/media.php:60
-msgid "Genre"
-msgstr "Sjanger"
-
-#: library/functions/media.php:61
-msgid "Year"
-msgstr "År"
-
-#: library/functions/media.php:62
-msgid "Composer"
-msgstr "Komponist"
-
-#: library/functions/media.php:63
-msgid "Track"
-msgstr "Spor"
-
-#: library/functions/media.php:66
-msgid "Lyrics"
-msgstr "Tekst"
-
-#: library/functions/template-general.php:55
-msgid "State-of-the-art semantic personal publishing platform"
-msgstr "State-of-the-art logisk personlig publiseringsplatform"
-
-#: library/functions/template-general.php:55
+#: library/inc/template-general.php:55
 msgid "WordPress"
 msgstr "WordPress"
 
-#. Translators: Theme name.
-#: library/functions/template-general.php:82
-#: library/functions/template-general.php:115
-msgid "%s WordPress Theme"
-msgstr "%s WordPress Tema"
-
-#: library/functions/template-general.php:305
-msgid "You are browsing the search results for &#8220;%s&#8221;"
-msgstr "Du ser igjennom søkeresultat for &#8220;%s&#8221;"
-
-#: library/functions/template-general.php:311
-msgid "You are browsing the site archives by time."
-msgstr "Du ser igjennom websidens arkiv sortert ved tid."
-
-#: library/functions/template-general.php:314
-#: library/functions/template-general.php:317
-#: library/functions/template-general.php:320
-msgid "You are browsing the site archives for %s."
-msgstr "Du ser igjennom websidens arkiv for %s."
-
-#: library/functions/template-general.php:323
-msgid "You are browsing the site archives."
-msgstr "Du ser igjennom websidens arkiv."
-
 #. Translators: 1 is the week number and 2 is the year.
-#: library/functions/template-general.php:397
+#: library/inc/template-general.php:286
 msgid "Week %1$s of %2$s"
 msgstr "Uke %1$s i %2$s"
 
-#: library/functions/template-general.php:416
+#: library/inc/template-general.php:308
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "F j, Y"
 
 #. Translators: Separates tags, categories, etc. when displaying a post.
-#: library/functions/template-post.php:144
+#: library/inc/template-post.php:219
 msgctxt "taxonomy terms separator"
 msgid ", "
 msgstr ","
-
-#. Translators: Used as a placeholder for untitled posts on non-singular views.
-#: library/functions/utility.php:88
-msgid "(Untitled)"
-msgstr "(Ingen tittel)"
-
-#. Translators: %s is the nav menu name. This is the nav menu title shown to
-#. screen readers.
-#: menu/primary.php:8 menu/secondary.php:8
-msgctxt "nav menu title"
-msgid "%s Menu"
-msgstr "%s Meny"
 
 #. Translators: The two %s are placeholders for HTML. The order can't be
 #. changed.
@@ -561,20 +525,6 @@ msgctxt "sidebar title"
 msgid "%s Sidebar"
 msgstr "%s Sidebar"
 
-#: sidebar/primary.php:19
-msgid "Example Widget"
-msgstr "Eksempel-Widget"
-
-#. Translators: The %s are placeholders for HTML, so the order can't be
-#. changed.
-#: sidebar/primary.php:21
-msgid ""
-"This is an example widget to show how the Primary sidebar looks by default. "
-"You can add custom widgets from the %swidgets screen%s in the admin."
-msgstr ""
-"Dette er en eksempel-widget for å vise hvordan standard Hoved-sidebar ser "
-"ut. Du kan legge til egne widgets fra %swidgets valg%s i admin."
-
 #. Theme Name of the plugin/theme
 msgid "Stargazer"
 msgstr "Stargazer"
@@ -614,5 +564,76 @@ msgid "Justin Tadlock"
 msgstr "Justin Tadlock"
 
 #. Author URI of the plugin/theme
-msgid "http://justintadlock.com"
-msgstr "http://justintadlock.com"
+#, fuzzy
+msgid "http://themehybrid.com"
+msgstr "http://themehybrid.com/themes/stargazer"
+
+#~ msgid "%s Theme Settings"
+#~ msgstr "%s Tema Innstillinger"
+
+#~ msgid "Theme Settings"
+#~ msgstr "Tema Innstillinger"
+
+#~ msgctxt "theme customizer tab"
+#~ msgid "Default"
+#~ msgstr "Standard"
+
+#~ msgid "International Organization for Standardization"
+#~ msgstr "International Organisasjon for Standarder"
+
+#~ msgid "Edit"
+#~ msgstr "Rediger"
+
+#~ msgid "Split"
+#~ msgstr "Del opp"
+
+#~ msgid "Merge"
+#~ msgstr "Slå sammen"
+
+#~ msgid "Post Thumbnail"
+#~ msgstr "Innlegg Miniatyrbilde"
+
+#~ msgid "File Size"
+#~ msgstr "Filstørrelse"
+
+#~ msgid "Composer"
+#~ msgstr "Komponist"
+
+#~ msgid "Lyrics"
+#~ msgstr "Tekst"
+
+#~ msgid "State-of-the-art semantic personal publishing platform"
+#~ msgstr "State-of-the-art logisk personlig publiseringsplatform"
+
+#~ msgid "%s WordPress Theme"
+#~ msgstr "%s WordPress Tema"
+
+#~ msgid "You are browsing the search results for &#8220;%s&#8221;"
+#~ msgstr "Du ser igjennom søkeresultat for &#8220;%s&#8221;"
+
+#~ msgid "You are browsing the site archives by time."
+#~ msgstr "Du ser igjennom websidens arkiv sortert ved tid."
+
+#~ msgid "You are browsing the site archives for %s."
+#~ msgstr "Du ser igjennom websidens arkiv for %s."
+
+#~ msgid "You are browsing the site archives."
+#~ msgstr "Du ser igjennom websidens arkiv."
+
+#~ msgctxt "nav menu title"
+#~ msgid "%s Menu"
+#~ msgstr "%s Meny"
+
+#~ msgid "Example Widget"
+#~ msgstr "Eksempel-Widget"
+
+#~ msgid ""
+#~ "This is an example widget to show how the Primary sidebar looks by "
+#~ "default. You can add custom widgets from the %swidgets screen%s in the "
+#~ "admin."
+#~ msgstr ""
+#~ "Dette er en eksempel-widget for å vise hvordan standard Hoved-sidebar ser "
+#~ "ut. Du kan legge til egne widgets fra %swidgets valg%s i admin."
+
+#~ msgid "http://justintadlock.com"
+#~ msgstr "http://justintadlock.com"
