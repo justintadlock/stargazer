@@ -186,9 +186,9 @@ body { overflow-x: hidden; }
 				margin-left: 5%;
 			}
 
-		#sidebar-primary .widget:nth-child( 2n ) { margin-right: 0; margin-left: 0; }
+		#sidebar-primary .widget:nth-of-type( 2n ) { margin-right: 0; margin-left: 0; }
 
-		#sidebar-primary .widget:nth-child( 2n + 1 ) { clear: both; }
+		#sidebar-primary .widget:nth-of-type( 2n + 1 ) { clear: both; }
 	}
 
 	@media only screen and ( min-width: 700px ) {
