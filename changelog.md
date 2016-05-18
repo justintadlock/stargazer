@@ -1,5 +1,36 @@
 # Change Log
 
+## [3.0.0] - 2016-05-18
+
+### Added
+
+* Custom embed templates and styling.
+* Support for WordPress logo feature.
+* Editor stylesheet URI functions. Child themes can now serve up `css/editor-style.min.css` if they want.
+* German translation files.
+* Feed icon for social nav menu.
+* Support for selective refresh of widgets in the customizer.
+
+### Changed
+
+* Updated to latest Hybrid Core framework.
+* Separated media CSS into its own file to be reused where needed.
+* Combined theme's media player CSS with the `theme-mediaelement` project CSS.
+* Better mobile phone menu handling (check child themes for 540px and below).
+* Mobile menu now appears on iPad landscape view (1024px).
+* Header image is hidden on mobile phones (540px and below).
+* Default Primary sidebar widgets changed to Categories, Tags, and Meta widgets.
+
+### Fixed
+
+* Use correct check in Primary sidebar for getting the theme layout.
+
+### Removed
+
+* Code for old custom header feature in WordPress admin.
+* Support for galleries and media player in visual editor (WP makes it next to impossible to style).
+* Theme Medialement project as a sub-module (just bringing in the CSS manually).
+
 ## [2.1.2] - 2016-03-07
 
 ### Fixed
