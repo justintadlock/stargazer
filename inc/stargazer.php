@@ -32,7 +32,6 @@ add_action( 'admin_enqueue_scripts', 'stargazer_admin_register_styles', 0 );
 # Load scripts/styles.
 add_action( 'wp_enqueue_scripts',    'stargazer_enqueue'       );
 add_action( 'enqueue_embed_scripts', 'stargazer_embed_enqueue' );
-add_action( 'admin_enqueue_scripts', 'stargazer_admin_enqueue_scripts' );
 
 # Remove locale stylsheet (load later). @see https://core.trac.wordpress.org/ticket/36839
 remove_action( 'embed_head', 'locale_stylesheet' );
@@ -246,18 +245,6 @@ function stargazer_embed_enqueue() {
 	wp_enqueue_style( 'stargazer-media'        );
 	wp_enqueue_style( 'stargazer-embed'        );
 	wp_enqueue_style( 'stargazer-locale'       );
-}
-
-/**
- * Enqueues admin scripts.
- *
- * @since  3.0.0
- * @access public
- * @return void
- */
-function stargazer_admin_enqueue_scripts() {
-
-	//wp_add_inline_script( 'wp-mediaelement', stargazer_get_mediaelement_inline_script() );
 }
 
 /**
