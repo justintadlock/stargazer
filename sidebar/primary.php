@@ -13,13 +13,13 @@
 
 		<?php else : // If the sidebar has no widgets. ?>
 
-			<?php if ( stargazer_widget_exists( 'WP_Widget_Search' ) ) : ?>
+			<?php if ( stargazer_widget_exists( 'WP_Widget_Categories' ) ) : ?>
 
 				<?php the_widget(
-					'WP_Widget_Search',
-					array(),
+					'WP_Widget_Categories',
+					array( 'dropdown' => true, 'hierarchical' => true ),
 					array(
-						'before_widget' => '<section class="widget widget_search">',
+						'before_widget' => '<section class="widget widget_categories">',
 						'after_widget'  => '</section>',
 						'before_title'  => '<h3 class="widget-title">',
 						'after_title'   => '</h3>'
