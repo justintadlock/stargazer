@@ -10,24 +10,6 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-# Register custom image sizes.
-add_action( 'init', 'stargazer_register_image_sizes', 5 );
-
-# Register custom menus.
-add_action( 'init', 'stargazer_register_menus', 5 );
-
-# Register custom layouts.
-add_action( 'hybrid_register_layouts', 'stargazer_register_layouts' );
-
-# Register sidebars.
-add_action( 'widgets_init', 'stargazer_register_sidebars', 5 );
-
-# Register scripts/styles.
-add_action( 'wp_enqueue_scripts',    'stargazer_register_scripts',      0 );
-add_action( 'enqueue_embed_scripts', 'stargazer_register_scripts',      0 );
-add_action( 'wp_enqueue_scripts',    'stargazer_register_styles',       0 );
-add_action( 'enqueue_embed_scripts', 'stargazer_register_styles',       0 );
-
 # Load scripts/styles.
 add_action( 'wp_enqueue_scripts',    'stargazer_enqueue'       );
 add_action( 'enqueue_embed_scripts', 'stargazer_embed_enqueue' );
@@ -68,121 +50,6 @@ add_filter( 'shortcode_atts_video', 'stargazer_video_atts' );
 
 # Remove WP's excerpt more filter on embeds.
 remove_filter( 'excerpt_more', 'wp_embed_excerpt_more', 20 );
-
-/**
- * Registers custom image sizes for the theme.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_register_image_sizes() {
-
-	// Sets the 'post-thumbnail' size.
-	set_post_thumbnail_size( 175, 131, true );
-
-	// Adds the 'stargazer-full' image size.
-	add_image_size( 'stargazer-full', 1025, 500, false );
-}
-
-/**
- * Registers nav menu locations.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_register_menus() {
-	register_nav_menu( 'primary',   _x( 'Primary',   'nav menu location', 'stargazer' ) );
-	register_nav_menu( 'secondary', _x( 'Secondary', 'nav menu location', 'stargazer' ) );
-	register_nav_menu( 'social',    _x( 'Social',    'nav menu location', 'stargazer' ) );
-}
-
-/**
- * Registers sidebars.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_register_sidebars() {
-
-	hybrid_register_sidebar(
-		array(
-			'id'          => 'primary',
-			'name'        => _x( 'Primary', 'sidebar', 'stargazer' ),
-			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'stargazer' )
-		)
-	);
-
-	hybrid_register_sidebar(
-		array(
-			'id'          => 'subsidiary',
-			'name'        => _x( 'Subsidiary', 'sidebar', 'stargazer' ),
-			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, or three widgets (and multiples thereof).', 'stargazer' )
-		)
-	);
-}
-
-/**
- * Registers custom layouts.
- *
- * @since  2.0.0
- * @access public
- * @return void
- */
-function stargazer_register_layouts() {
-
-	hybrid_register_layout( '1c',        array( 'label' => __( '1 Column Wide',                'stargazer' ), 'image' => '%s/images/layouts/1c.png' ) );
-	hybrid_register_layout( '1c-narrow', array( 'label' => __( '1 Column Narrow',              'stargazer' ), 'image' => '%s/images/layouts/1c-narrow.png' ) );
-	hybrid_register_layout( '2c-l',      array( 'label' => __( '2 Columns: Content / Sidebar', 'stargazer' ), 'image' => '%s/images/layouts/2c-l.png' ) );
-	hybrid_register_layout( '2c-r',      array( 'label' => __( '2 Columns: Sidebar / Content', 'stargazer' ), 'image' => '%s/images/layouts/2c-r.png' ) );
-}
-
-/**
- * Registers custom scripts.
- *
- * @since  3.0.0
- * @access public
- * @return void
- */
-function stargazer_register_scripts() {
-
-	$suffix = hybrid_get_min_suffix();
-
-	wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
-
-	wp_localize_script(
-		'stargazer',
-		'stargazer_i18n',
-		array(
-			'search_toggle' => __( 'Expand Search Form', 'stargazer' )
-		)
-	);
-}
-
-/**
- * Registers custom stylesheets for the front end.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_register_styles() {
-
-	$suffix = hybrid_get_min_suffix();
-
-	wp_deregister_style( 'mediaelement' );
-	wp_deregister_style( 'wp-mediaelement' );
-
-	wp_register_style( 'stargazer-fonts',        '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
-	wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . "css/mediaelement{$suffix}.css" );
-	wp_register_style( 'stargazer-media',        trailingslashit( get_template_directory_uri() ) . "css/media{$suffix}.css" );
-	wp_register_style( 'stargazer-embed',        trailingslashit( get_template_directory_uri() ) . "css/embed{$suffix}.css" );
-
-	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
-	wp_register_style( 'stargazer-locale', get_locale_stylesheet_uri() );
-}
 
 /**
  * Load scripts/styles on the front end.
@@ -738,3 +605,66 @@ function stargazer_admin_register_styles() {}
 function stargazer_video_shortcode( $html, $atts, $video ) {
 	return $html;
 }
+
+/**
+ * Registers custom image sizes for the theme.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_image_sizes() {}
+
+/**
+ * Registers nav menu locations.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_menus() {}
+
+/**
+ * Registers sidebars.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_sidebars() {}
+
+/**
+ * Registers custom layouts.
+ *
+ * @since  2.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_layouts() {}
+
+/**
+ * Registers custom scripts.
+ *
+ * @since  3.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_scripts() {}
+
+/**
+ * Registers custom stylesheets for the front end.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_register_styles() {}
+
+/**
+ * The theme setup function.  This function sets up support for various WordPress and framework functionality.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_theme_setup() {}

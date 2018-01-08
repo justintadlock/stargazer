@@ -9,33 +9,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-# Call late so child themes can override.
-add_action( 'after_setup_theme', 'stargazer_custom_background_setup', 15 );
-
 # Filter the background color late.
 add_filter( 'theme_mod_background_color', 'stargazer_background_color', 95 );
 
 # Register default background images.
 add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds', 15 );
-
-/**
- * Adds support for the WordPress 'custom-background' theme feature.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_custom_background_setup() {
-
-	add_theme_support(
-		'custom-background',
-		array(
-			'default-color'    => '2d2d2d',
-			'default-image'    => '',
-			'wp-head-callback' => 'stargazer_custom_background_callback',
-		)
-	);
-}
 
 /**
  * If the color is `ffffff` (white), return an empty string for the background color.  This is because the
@@ -114,3 +92,12 @@ function stargazer_custom_background_callback() {
 <?php
 
 }
+
+/**
+ * Adds support for the WordPress 'custom-background' theme feature.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function stargazer_custom_background_setup() {}
