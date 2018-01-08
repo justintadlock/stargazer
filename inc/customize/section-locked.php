@@ -87,7 +87,7 @@ class Stargazer_Customize_Section_Locked extends WP_Customize_Section {
 
 					<div class="customize-section-title">
 						<button type="button" class="customize-section-back" tabindex="-1">
-							<span class="screen-reader-text"><?php _e( 'Back', 'extant' ); ?></span>
+							<span class="screen-reader-text"><?php _e( 'Back', 'stargazer' ); ?></span>
 						</button>
 						<h3>
 							<span class="customize-action">
