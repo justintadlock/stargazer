@@ -26,7 +26,6 @@ $stargazer_dir = trailingslashit( get_template_directory() );
 
 // Load the Hybrid Core framework and launch it.
 require_once( $stargazer_dir . 'library/hybrid.php' );
-new Hybrid();
 
 // Load theme-specific files.
 require_once( $stargazer_dir . 'inc/custom-background.php' );
@@ -47,9 +46,10 @@ add_action( 'after_setup_theme', 'stargazer_theme_setup', 5 );
 function stargazer_theme_setup() {
 
 	// Load files.
-	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php' );
-	require_once( trailingslashit( get_template_directory() ) . 'inc/template.php'  );
-	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/stargazer.php'      );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/template.php'       );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php'      );
+	require_once( trailingslashit( get_template_directory() ) . 'inc/functions-attr.php' );
 
 	// Theme layouts.
 	add_theme_support( 'theme-layouts', array( 'default' => '2c-l' ) );
