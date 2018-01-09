@@ -14,7 +14,7 @@
 add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 
 # Modifies the theme layout.
-add_filter( 'theme_mod_theme_layout', 'stargazer_mod_theme_layout', 15 );
+add_filter( 'hybrid_get_theme_layout', 'stargazer_mod_theme_layout', 15 );
 
 # Adds custom attributes to the subsidiary sidebar.
 add_filter( 'hybrid_attr_sidebar', 'stargazer_sidebar_subsidiary_class', 10, 2 );
