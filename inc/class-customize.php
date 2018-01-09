@@ -254,8 +254,8 @@ final class Stargazer_Customize {
 		$suffix = hybrid_get_min_suffix();
 
 		wp_enqueue_script(
-			'stargazer-customize',
-			trailingslashit( get_template_directory_uri() ) . "js/customize{$suffix}.js",
+			'stargazer-customize-preview',
+			trailingslashit( get_template_directory_uri() ) . "js/customize-preview{$suffix}.js",
 			array( 'jquery' ),
 			null,
 			true
