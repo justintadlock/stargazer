@@ -601,7 +601,7 @@ table {
 
 /**
  * Images
- * --------------------------------------------------------------------------- *
+ * --------------------------------------------------------------------------- */
 
 img {
 	-moz-box-sizing: border-box;
@@ -619,7 +619,7 @@ img {
 		a:hover img,
 		a:focus img { opacity: 1; }
 
-/* === Image sizes === *
+/* === Image sizes === */
 
 @media only screen and ( min-width: 700px ) {
 	.ltr img.portrait.stargazer-full {
@@ -638,7 +638,7 @@ img {
 img.stargazer-medium,
 img.stargazer-full { margin: 0 0 1.5rem; }
 
-/* === Captions === *
+/* === Captions === */
 
 .wp-caption {
 	position: relative;
@@ -655,7 +655,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 		.ltr .wp-caption .wp-caption-text { margin-right: 1.5rem; }
 		.rtl .wp-caption .wp-caption-text { margin-left:  1.5rem; }
 
-/* === Gallery === *
+/* === Gallery === */
 
 .main .gallery { margin-bottom: 1rem; }
 
@@ -677,7 +677,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 			.gallery .gallery-icon img { max-width: 100%; }
 		}
 
-/* === Avatars === *
+/* === Avatars === */
 
 .avatar {
 	width:         60px;
@@ -690,7 +690,7 @@ img.stargazer-full { margin: 0 0 1.5rem; }
 	.ltr .avatar { float: left;  margin-right: 1.5rem; }
 	.rtl .avatar { float: right; margin-left:  1.5rem; }
 
-/* === Embeds === *
+/* === Embeds === */
 
 
 
