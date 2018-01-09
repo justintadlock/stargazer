@@ -235,9 +235,11 @@ final class Stargazer_Customize {
 	 */
 	public function register_control_scripts() {
 
-		wp_register_script( 'stargazer-customize-controls', trailingslashit( get_template_directory_uri() ) . 'css/customize-controls.js', array( 'customize-controls' ), null, true );
+		$suffix = hybrid_get_min_suffix();
 
-		wp_register_style( 'stargazer-customize-controls', trailingslashit( get_template_directory_uri() ) . 'css/customize-controls.css' );
+		wp_register_script( 'stargazer-customize-controls', trailingslashit( get_template_directory_uri() ) . "css/customize-controls{$suffix}.js", array( 'customize-controls' ), null, true );
+
+		wp_register_style( 'stargazer-customize-controls', trailingslashit( get_template_directory_uri() ) . "css/customize-controls{$suffix}.css" );
 	}
 
 	/**
@@ -249,8 +251,7 @@ final class Stargazer_Customize {
 	 */
 	public function preview_enqueue() {
 
-		// Use the .min script if SCRIPT_DEBUG is turned off.
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		$suffix = hybrid_get_min_suffix();
 
 		wp_enqueue_script(
 			'stargazer-customize',
