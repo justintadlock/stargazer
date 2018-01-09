@@ -9,6 +9,19 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+/**
+ * Checks if a widget exists.  Pass in the widget class name.  This function is useful for
+ * checking if the widget exists before directly calling `the_widget()` within a template.
+ *
+ * @since      3.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @param      string  $widget
+ * @return     bool
+ */
+function stargazer_widget_exists( $widget ) {
+	return hybrid_widget_exists( $widget );
+}
 
 /**
  * Adds support for the WordPress 'custom-background' theme feature.

@@ -90,18 +90,3 @@ function stargazer_get_post_format_permalink() {
 
 	return $format ? sprintf( '<a href="%s" class="post-format-link"><span class="screen-reader-text">%s</span></a>', esc_url( get_permalink() ), get_post_format_string( $format ) ) : '';
 }
-
-/**
- * Checks if a widget exists.  Pass in the widget class name.  This function is useful for 
- * checking if the widget exists before directly calling `the_widget()` within a template.
- *
- * @since  3.0.0
- * @access public
- * @param  string  $widget
- * @return bool
- */
-function stargazer_widget_exists( $widget ) {
-	global $wp_widget_factory;
-
-	return isset( $wp_widget_factory->widgets[ $widget ] );
-}

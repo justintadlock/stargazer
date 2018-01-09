@@ -13,7 +13,7 @@
 
 		<?php else : // If the sidebar has no widgets. ?>
 
-			<?php if ( stargazer_widget_exists( 'WP_Widget_Categories' ) ) : ?>
+			<?php if ( hybrid_widget_exists( 'WP_Widget_Categories' ) ) : ?>
 
 				<?php the_widget(
 					'WP_Widget_Categories',
@@ -28,7 +28,7 @@
 
 			<?php endif; ?>
 
-			<?php if ( stargazer_widget_exists( 'WP_Widget_Tag_Cloud' ) ) : ?>
+			<?php if ( hybrid_widget_exists( 'WP_Widget_Tag_Cloud' ) ) : ?>
 
 				<?php the_widget(
 					'WP_Widget_Tag_Cloud',
@@ -43,7 +43,7 @@
 
 			<?php endif; ?>
 
-			<?php if ( stargazer_widget_exists( 'WP_Widget_Meta' ) ) : ?>
+			<?php if ( hybrid_widget_exists( 'WP_Widget_Meta' ) ) : ?>
 
 				<?php the_widget(
 					'WP_Widget_Meta',
