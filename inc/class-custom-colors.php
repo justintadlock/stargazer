@@ -145,7 +145,7 @@ final class Stargazer_Custom_Colors {
 
 		$style = '';
 
-		$hex = get_theme_mod( 'color_primary', '' );
+		$hex = hybrid_get_theme_mod( 'color_primary', '' );
 		$rgb = join( ', ', hybrid_hex_to_rgb( $hex ) );
 
 		// color
