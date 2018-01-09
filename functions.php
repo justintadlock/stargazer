@@ -191,8 +191,14 @@ final class Stargazer_Theme {
 			)
 		);
 
-		// Editor styles.
-		add_editor_style( stargazer_get_editor_styles() );
+		// Gutenberg editor support.
+		add_theme_support( 'editor-color-palette', '#cc4a00', '#252525', '#2d2d2d', '#ffffff' );
+
+		add_theme_support( 'gutenberg',
+			array(
+				'colors' => array( '#cc4a00', '#252525', '#2d2d2d', '#ffffff' ),
+			)
+		);
 
 		// Handle content width for embeds and images.
 		// Note: this is the largest size based on the theme's various layouts.
