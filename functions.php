@@ -110,6 +110,7 @@ final class Stargazer_Theme {
 		require_once( $this->dir . 'inc/stargazer.php'         );
 		require_once( $this->dir . 'inc/template.php'          );
 		require_once( $this->dir . 'inc/functions-attr.php'    );
+		require_once( $this->dir . 'inc/functions-scripts.php' );
 	}
 
 	/**
