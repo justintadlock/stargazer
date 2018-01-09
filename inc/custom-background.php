@@ -92,12 +92,3 @@ function stargazer_custom_background_callback() {
 <?php
 
 }
-
-/**
- * Adds support for the WordPress 'custom-background' theme feature.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_custom_background_setup() {}
