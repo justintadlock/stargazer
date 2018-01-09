@@ -131,10 +131,60 @@ function stargazer_register_scripts() {}
 function stargazer_register_styles() {}
 
 /**
+ * Callback function for adding editor styles.  Use along with the add_editor_style() function.
+ *
+ * @since      1.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_get_editor_styles() {}
+
+/**
+ * Returns the active theme editor stylesheet URI.
+ *
+ * @since      3.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_get_editor_stylesheet_uri() {}
+
+/**
+ * Returns the parent theme editor stylesheet URI.
+ *
+ * @since      3.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_get_parent_editor_stylesheet_uri() {}
+
+/**
+ * Adds the <body> class to the visual editor.
+ *
+ * @since      1.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_tiny_mce_before_init() {}
+
+/**
+ * Removes the media player styles from the visual editor since we're loading our own.
+ *
+ * @since      1.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_mce_css() {}
+
+/**
  * Enqueues the styles for the "Appearance > Custom Header" screen in the admin.
  *
  * @since      1.0.0
- * @deprecated 2.0.0
+ * @deprecated 4.0.0
  * @access     public
  * @return     void
  */
