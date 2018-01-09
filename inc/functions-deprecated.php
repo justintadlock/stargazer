@@ -46,6 +46,16 @@ function stargazer_get_embed_template() {
 function stargazer_custom_background_setup() {}
 
 /**
+ * Registers custom backgrounds for the theme.
+ *
+ * @since      1.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_default_backgrounds() {}
+
+/**
  * Adds support for the WordPress 'custom-header' theme feature and registers custom headers.
  *
  * @since      1.0.0

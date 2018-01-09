@@ -12,9 +12,6 @@
 # Filter the background color late.
 add_filter( 'theme_mod_background_color', 'stargazer_background_color', 95 );
 
-# Register default background images.
-add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds', 15 );
-
 /**
  * If the color is `ffffff` (white), return an empty string for the background color.  This is because the
  * theme's main container's background is also white.  In this case, we drop some margins/padding so that
@@ -28,30 +25,6 @@ add_filter( 'hybrid_default_backgrounds', 'stargazer_default_backgrounds', 15 );
 function stargazer_background_color( $color ) {
 	return 'ffffff' === $color ? '' : $color;
 }
-
-/**
- * Registers custom backgrounds for the theme.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function stargazer_default_backgrounds( $backgrounds ) {
-
-	$_backgrounds = array(
-		'orange-cross' => array(
-			'url'           => '%s/images/backgrounds/orange-cross.png',
-			'thumbnail_url' => '%s/images/backgrounds/orange-cross-thumb.png',
-		),
-		'star-field-dark' => array(
-			'url'           => '%s/images/backgrounds/star-field-dark.jpg',
-			'thumbnail_url' => '%s/images/backgrounds/star-field-dark-thumb.jpg',
-		),
-	);
-
-	return array_merge( $backgrounds, $_backgrounds );
-}
-
 
 /**
  * This is a fix for when a user sets a custom background color with no custom background image.  What
