@@ -105,8 +105,6 @@ final class Stargazer_Theme {
 		// Load theme includes.
 		require_once( $this->dir . 'inc/class-custom-colors.php'  );
 		require_once( $this->dir . 'inc/class-customize.php'      );
-		require_once( $this->dir . 'inc/custom-background.php'    );
-		require_once( $this->dir . 'inc/custom-header.php'        );
 		require_once( $this->dir . 'inc/template.php'             );
 		require_once( $this->dir . 'inc/functions-attr.php'       );
 		require_once( $this->dir . 'inc/functions-filters.php'    );

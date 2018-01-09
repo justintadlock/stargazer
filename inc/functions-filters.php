@@ -16,6 +16,9 @@ add_filter( 'excerpt_length', 'stargazer_excerpt_length' );
 # Modifies the theme layout.
 add_filter( 'hybrid_get_theme_layout', 'stargazer_mod_theme_layout', 15 );
 
+# Filter the background color late.
+add_filter( 'theme_mod_background_color', 'stargazer_background_color', 95 );
+
 # Adds custom attributes to the subsidiary sidebar.
 add_filter( 'hybrid_attr_sidebar', 'stargazer_sidebar_subsidiary_class', 10, 2 );
 
@@ -59,6 +62,20 @@ function stargazer_mod_theme_layout( $layout ) {
 	}
 
 	return $layout;
+}
+
+/**
+ * If the color is `ffffff` (white), return an empty string for the background color.  This is because the
+ * theme's main container's background is also white.  In this case, we drop some margins/padding so that
+ * the theme design flows better and doesn't appear that we have large, empty areas.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string  $color
+ * @return string
+ */
+function stargazer_background_color( $color ) {
+	return 'ffffff' === $color ? '' : $color;
 }
 
 /**
