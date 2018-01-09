@@ -24,6 +24,18 @@ function stargazer_widget_exists( $widget ) {
 }
 
 /**
+ * Gets the embed template used for embedding posts from the site.
+ *
+ * @since      3.0.0
+ * @deprecated 4.0.0
+ * @access     public
+ * @return     void
+ */
+function stargazer_get_embed_template() {
+	hybrid_get_embed_template();
+}
+
+/**
  * Adds support for the WordPress 'custom-background' theme feature.
  *
  * @since      1.0.0

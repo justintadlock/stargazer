@@ -6,7 +6,7 @@
 
 			<?php the_post(); // Loads the post data. ?>
 
-			<?php stargazer_get_embed_template(); // Loads the embed/*.php template. ?>
+			<?php hybrid_get_embed_template(); // Loads the embed/*.php template. ?>
 
 		<?php endwhile; // End found posts loop. ?>
 
