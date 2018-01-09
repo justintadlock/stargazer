@@ -369,7 +369,7 @@ final class Stargazer_Theme {
 		$suffix = hybrid_get_min_suffix();
 
 		// Scripts.
-		wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
+		wp_register_script( 'stargazer', $this->uri . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
 
 		wp_localize_script(
 			'stargazer',
@@ -392,9 +392,9 @@ final class Stargazer_Theme {
 		wp_deregister_style( 'mediaelement' );
 		wp_deregister_style( 'wp-mediaelement' );
 
-		wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . "css/mediaelement{$suffix}.css" );
-		wp_register_style( 'stargazer-media',        trailingslashit( get_template_directory_uri() ) . "css/media{$suffix}.css" );
-		wp_register_style( 'stargazer-embed',        trailingslashit( get_template_directory_uri() ) . "css/embed{$suffix}.css" );
+		wp_register_style( 'stargazer-mediaelement', $this->uri . "css/mediaelement{$suffix}.css" );
+		wp_register_style( 'stargazer-media',        $this->uri . "css/media{$suffix}.css" );
+		wp_register_style( 'stargazer-embed',        $this->uri . "css/embed{$suffix}.css" );
 
 		// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
 		wp_register_style( 'stargazer-locale', get_locale_stylesheet_uri() );
