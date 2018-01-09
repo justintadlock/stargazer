@@ -3,9 +3,9 @@
  * Handles the theme's theme customizer functionality.
  *
  * @package    Stargazer
- * @author     Justin Tadlock <justin@justintadlock.com>
+ * @author     Justin Tadlock <justintadlock@gmail.com>
  * @copyright  Copyright (c) 2016, Justin Tadlock
- * @link       http://themehybrid.com/themes/stargazer
+ * @link       https://themehybrid.com/themes/stargazer
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 

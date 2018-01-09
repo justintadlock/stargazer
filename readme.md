@@ -15,7 +15,7 @@ Stargazer isn't just any ol' WordPress theme.  I designed it specifically for se
 
 Stargazer has loads of useful features though.  The best way to get to know them is to install the theme and play around with it.
 
-Don't like the design?  No problem.  Go check out some of the alternate designs (child themes) available on the [Stargazer theme page](http://themehybrid.com/themes/stargazer).
+Don't like the design?  No problem.  Go check out some of the alternate designs (child themes) available on the [Stargazer theme page](https://themehybrid.com/themes/stargazer).
 
 ## Copyright and License
 
@@ -31,4 +31,4 @@ The following resources are included within the theme package.
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-2013&thinsp;&ndash;&thinsp;2016 &copy; [Justin Tadlock](http://justintadlock.com).
+2013&thinsp;&ndash;&thinsp;2018 &copy; [Justin Tadlock](http://justintadlock.com).

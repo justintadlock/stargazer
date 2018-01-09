@@ -14,10 +14,9 @@
  * to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  *
  * @package    Stargazer
- * @subpackage Functions
- * @author     Justin Tadlock <justin@justintadlock.com>
- * @copyright  Copyright (c) 2013 - 2016, Justin Tadlock
- * @link       http://themehybrid.com/themes/stargazer
+ * @author     Justin Tadlock <justintadlock@gmail.com>
+ * @copyright  Copyright (c) 2013 - 2018, Justin Tadlock
+ * @link       https://themehybrid.com/themes/stargazer
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
