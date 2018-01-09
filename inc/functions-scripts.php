@@ -37,9 +37,12 @@ function stargazer_enqueue() {
 
 	wp_enqueue_script( 'stargazer' );
 
+	// Fonts
+
+	hybrid_enqueue_font( 'stargazer' );
+
 	// Styles
 
-	wp_enqueue_style( 'stargazer-fonts'        );
 	wp_enqueue_style( 'hybrid-one-five'        );
 	wp_enqueue_style( 'hybrid-gallery'         );
 	wp_enqueue_style( 'stargazer-mediaelement' );
@@ -64,7 +67,8 @@ function stargazer_embed_enqueue() {
 
 	wp_enqueue_script( 'stargazer' );
 
-	wp_enqueue_style( 'stargazer-fonts'        );
+	hybrid_enqueue_font( 'stargazer' );
+
 	wp_enqueue_style( 'hybrid-one-five'        );
 	wp_enqueue_style( 'stargazer-mediaelement' );
 	wp_enqueue_style( 'stargazer-media'        );

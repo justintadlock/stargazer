@@ -369,6 +369,7 @@ final class Stargazer_Theme {
 
 		$suffix = hybrid_get_min_suffix();
 
+		// Scripts.
 		wp_register_script( 'stargazer', trailingslashit( get_template_directory_uri() ) . "js/stargazer{$suffix}.js", array( 'jquery' ), null, true );
 
 		wp_localize_script(
@@ -379,10 +380,19 @@ final class Stargazer_Theme {
 			)
 		);
 
+		// Fonts.
+		hybrid_register_font( 'stargazer', array(
+			'family' => array(
+				'droid-serif' => 'Droid+Serif:400,700,400italic,700italic',
+				'open-sans'   => 'Open+Sans:300,400,600,700'
+			),
+			'subset' => array( 'latin', 'latin-ext' )
+		) );
+
+		// Styles.
 		wp_deregister_style( 'mediaelement' );
 		wp_deregister_style( 'wp-mediaelement' );
 
-		wp_register_style( 'stargazer-fonts',        '//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Open+Sans:300,400,600,700' );
 		wp_register_style( 'stargazer-mediaelement', trailingslashit( get_template_directory_uri() ) . "css/mediaelement{$suffix}.css" );
 		wp_register_style( 'stargazer-media',        trailingslashit( get_template_directory_uri() ) . "css/media{$suffix}.css" );
 		wp_register_style( 'stargazer-embed',        trailingslashit( get_template_directory_uri() ) . "css/embed{$suffix}.css" );
