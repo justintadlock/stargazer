@@ -107,9 +107,9 @@ final class Stargazer_Theme {
 		require_once( $this->dir . 'inc/custom-header.php'     );
 		require_once( $this->dir . 'inc/custom-colors.php'     );
 		require_once( $this->dir . 'inc/class-customize.php'         );
-		require_once( $this->dir . 'inc/stargazer.php'         );
 		require_once( $this->dir . 'inc/template.php'          );
 		require_once( $this->dir . 'inc/functions-attr.php'    );
+		require_once( $this->dir . 'inc/functions-filters.php' );
 		require_once( $this->dir . 'inc/functions-scripts.php' );
 	}
 
