@@ -202,7 +202,7 @@ final class Stargazer_Customize {
 	 */
 	public function show_pro_options() {
 
-		return true;//! stargazer_is_pro();
+		return ! stargazer_is_pro();
 	}
 
 	/**
