@@ -1,5 +1,38 @@
 # Change Log
 
+## [4.0.0] - 2018-01-10
+
+### Added
+
+* Primary `Stargazer_Theme` class and wrapper function for handling setup of theme.
+* New `Stargazer_Customize` class for better handling of the customizer functionality and better organizing the code.
+* New functions for handling the Schema.org attributes.  These were removed from Hybrid Core, so we're handling them directly in the theme.
+* Customizer "Pro" section and control.
+* Custom color support for Gutenberg.
+* "Theme Options" panel within the customizer for housing theme-specific options.
+
+### Changed
+
+* Updated to version 4.0.0 of the Hybrid Core framework (and use HC functions where possible in the theme).
+* Using numbered placeholders in `comments-error.php` to comply with code sniffer (unnecessary in this case but required at .ORG).
+* Includes files in `/inc` were reorganized to bring them up to date with my current practices.
+
+### Fixed
+
+* Made changes in `header.php` that corrects the custom logo feature not working with selective refresh in the customizer. When customizing, the whole page should no longer refresh.
+
+### Deprecated
+
+* `stargazer_widget_exists()` replaced with `hybrid_widget_exists()` from Hybrid Core.
+* `stargazer_get_embed_template()` replaced with `hybrid_get_embed_template()` from Hybrid Core.
+
+### Removed
+
+* Translation files all removed. We're leaving translations to the WordPress.org translation system.
+* Stargazer welcome screen in the admin (replaced with section in customizer).
+* Editor style integration.  We're planning on full support of Gutenberg in WP 5.0.
+* Default custom backgrounds filter, which hasn't worked since WordPress broke it (the background images are still packaged with the theme).
+
 ## [3.0.0] - 2016-05-18
 
 ### Added

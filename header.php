@@ -19,12 +19,10 @@
 
 			<header <?php hybrid_attr( 'header' ); ?>>
 
-				<?php if ( display_header_text() || has_custom_logo() ) : // If user chooses to display header text. ?>
+				<?php if ( display_header_text() || has_custom_logo() || is_customize_preview() ) : // If user chooses to display header text. ?>
 
 					<div id="branding">
-						<?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) : ?>
-							<?php the_custom_logo(); // Output custom logo. ?>
-						<?php endif; // End check for custom logo. ?>
+						<?php the_custom_logo(); // Output custom logo. ?>
 
 						<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
 							<?php hybrid_site_title(); ?>
