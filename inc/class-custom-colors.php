@@ -52,10 +52,6 @@ final class Stargazer_Custom_Colors {
 
 		// Delete the cached data for this feature.
 		add_action( 'update_option_theme_mods_' . get_stylesheet(), array( $this, 'cache_delete' ) );
-
-		// Visual editor colors.
-		add_action( 'wp_ajax_stargazer_editor_styles',         array( $this, 'editor_styles_callback' ) );
-		add_action( 'wp_ajax_no_priv_stargazer_editor_styles', array( $this, 'editor_styles_callback' ) );
 	}
 
 	/**
@@ -121,18 +117,12 @@ final class Stargazer_Custom_Colors {
 	/**
 	 * Ajax callback for outputting the primary styles for the WordPress visual editor.
 	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
+	 * @since      1.0.0
+	 * @deprecated 4.0.0
+	 * @access     public
+	 * @return     void
 	 */
-	public function editor_styles_callback() {
-
-		header( 'Content-type: text/css' );
-
-		echo $this->get_primary_styles();
-
-		die();
-	}
+	public function editor_styles_callback() {}
 
 	/**
 	 * Formats the primary styles for output.
